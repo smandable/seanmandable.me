@@ -1,0 +1,26 @@
+// @import '../../src/sass/variables';
+@import "../../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../../node_modules/bootstrap/scss/_mixins.scss";
+@import "../../../node_modules/bootstrap/scss/_variables.scss";
+
+.footer {
+  $background-color: $gray-100;
+  bottom: 0;
+  height: 60px;
+  position: absolute;
+  width: 100%;
+  background-color: $background-color;
+
+  .container {
+    padding: 0 15px;
+
+    .row {
+      padding-top: 0.5rem;
+      text-align: center;
+
+      p.text-muted {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

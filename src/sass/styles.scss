@@ -8,6 +8,18 @@ html {
   height: 100%;
 }
 
+a {
+  color: $goldenrod;
+
+  &:hover {
+    color: darken($goldenrod, 10%);
+  }
+
+  // &:visited {
+  //   color: darken($goldenrod, 20%);
+  // }
+}
+
 // Typography
 .text-white-75 {
   color: fade-out($white, .25);

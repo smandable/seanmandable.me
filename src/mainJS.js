@@ -70,6 +70,23 @@
 			event.preventDefault();
 			$(window).scrollTop($('#resume a').offset().top - 45); // works w/o animation
 
+			if ($(this).attr('id') == 'resumePDF') {
+				console.log('resumePDF');
+				$('#item-to-display object').attr('data', '../assets/pdf/Sean_Mandable_Resume.pdf#toolbar=1');
+			}
+			if ($(this).attr('id') == 'coverLetter') {
+				console.log('coverLetter');
+				$('#item-to-display object').attr('data', '../assets/pdf/Sean_Mandable_Cover_Letter.pdf#toolbar=1');
+			}
+			if ($(this).attr('id') == 'codeSamples') {
+				console.log('codeSamples');
+				$('#item-to-display object').attr('data', '../assets/pdf/Sean_Mandable_CS.pdf#toolbar=1');
+			}
+			if ($(this).attr('id') == 'qa') {
+				console.log('qa');
+				$('#item-to-display object').attr('data', '../assets/pdf/Sean_Mandable_QA.pdf#toolbar=1');
+			}
+
 
 			$("#resume #hidden-row").show();
 		});

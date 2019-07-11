@@ -13,3 +13,24 @@ export class ResumeComponent implements OnInit {
   }
 
 }
+//
+// @Component({
+//   selector: 'child',
+//   template: `
+//     <ng-container>
+//       here is child template that includes myTemplate
+//     </ng-container>`
+// })
+// export class ChildComponent {
+// }
+//
+//
+// @Component({
+//   selector: 'app-resume',
+//   template: `
+//     <p>Parent</p>
+//     <child></child>
+//   `
+// })
+// export class ResumeComponent {
+// }

@@ -4,7 +4,7 @@
       <div class="col-lg-9 text-center">
         <h2 class="mt-0">Contact Me!</h2>
         <hr class="divider my-4">
-        <p class="text-muted mb-5">Ready to work together? Give me a call or send me an email and I&rsquo;ll get back to you as soon as possible!</p>
+        <p class="text-muted my-5">Ready to work together? Give me a call or send me an email and I&rsquo;ll get back to you as soon as possible!</p>
       </div>
     </div>
     <div class="row">
@@ -19,26 +19,27 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center mt-5">
-        <form action="/html/tags/html_form_tag_action.cfm">
+        <!-- <form action="/html/tags/html_form_tag_action.cfm"> -->
+        <form (ngSubmit)="processForm()">
           <div class="form-row">
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" placeholder="Name">
+              <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="name" required minlength="3" #nameInput="ngModel">
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" placeholder="Email">
+              <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="email" required email #emailInput="ngModel">
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" placeholder="Company">
+              <input type="text" class="form-control" placeholder="Company" name="company" [(ngModel)]="company">
             </div>
             <div class="col-md-6 mt-3">
-              <input type="text" class="form-control" placeholder="Phone">
+              <input type="text" class="form-control" placeholder="Phone" name="phone" [(ngModel)]="phone">
             </div>
           </div>
           <div class="form-row mt-3">
             <div class="col-12">
-              <textarea rows="5" class="form-control" placeholder="Message"></textarea>
+              <textarea rows="5" class="form-control" placeholder="Message" name="message" [(ngModel)]="message" required #messageInput="ngModel"></textarea>
             </div>
           </div>
 
@@ -46,6 +47,15 @@
             <button type="submit" class="btn btn-primary">Send</button>
           </div>
         </form>
+        <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+          Name is required and needs to be at least 3 characters long.
+        </div>
+        <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+          Email is required.
+        </div>
+        <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
+          Messsage is required.
+        </div>
       </div>
     </div>
   </div>

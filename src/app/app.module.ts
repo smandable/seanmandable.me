@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import bootstrap from "../../node_modules/bootstrap";
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +37,7 @@ import { CallToActionComponent } from './call-to-action/call-to-action.component
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   exports: [],

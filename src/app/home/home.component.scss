@@ -3,36 +3,61 @@
 @import "../../../node_modules/bootstrap/scss/_mixins.scss";
 @import "../../../node_modules/bootstrap/scss/_variables.scss";
 
-header.home {
+section#home {
+  background: linear-gradient(to bottom, #{fade-out($brown, .8)} 0%,#{fade-out($brown, .8)} 100%), url("../../assets/img/main.jpg");
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-top: 10rem;
   padding-bottom: calc(10rem - #{$navbar-height});
 
-  background: linear-gradient(to bottom, #{fade-out($brown, .8)} 0%,#{fade-out($brown, .8)} 100%), url("../../assets/img/main.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-
   h1 {
-    font-size: 2.25rem;
+    font-size: 1.25rem;
   }
 
   .hr-parent {
-    max-width: 11.5rem;
+    margin-bottom: 1.5rem;
     text-align: center!important;
+    max-width: 11.5rem;
   }
 
-  @include media-breakpoint-down(xs) {
-    .hr-parent {
-      max-width: 100%;
+  .btn-xl {
+    text-transform: none;
+  }
+  @include media-breakpoint-only(xs) {
+    // height: 90vh;
+
+    .container-fluid {
+      // height: 40vh;
     }
 
-    .btn-xl {
-      text-transform: none;
+    h1 {
+      width: 75%;
+      // height: 10vh;
+    }
+
+  }
+  @include media-breakpoint-up(xs) {
+    height: 90vh;
+
+    .hr-parent {
+      max-width: 50%;
+    }
+
+    p {
+      font-size: 0.75rem;
     }
 
     .col-sm-6 .col-xs-12:nth-of-type(2) {
-      text-align: center!important;
+      text-align: left;
+    }
+
+    .btn-xl {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.75rem;
+      font-weight: normal;
+      margin-bottom: 60px;
     }
   }
   @include media-breakpoint-up(md) {
@@ -46,10 +71,19 @@ header.home {
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.25rem;
+      width: 100%;
+    }
+
+    .hr-parent {
+      max-width: 30%;
     }
   }
   @include media-breakpoint-up(xl) {
+    .container-fluid {
+      margin-top: 100px;
+    }
+
     h1 {
       font-size: 3.5rem;
     }

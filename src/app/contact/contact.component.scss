@@ -1,0 +1,8 @@
+@import '../../src/sass/variables';
+@import "../../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../../node_modules/bootstrap/scss/_mixins.scss";
+@import "../../../node_modules/bootstrap/scss/_variables.scss";
+
+section#contact {
+  height: 90vh;
+}

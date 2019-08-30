@@ -20,8 +20,6 @@
 		// Closes responsive menu when a scroll trigger link is clicked
 		$('.js-scroll-trigger').click(function() {
 			$('.navbar-collapse').collapse('hide');
-			$("#navbarResponsive").removeClass('show');
-			$("#navbarResponsive").addClass('hide');
 		});
 
 		// Activate scrollspy to add active class to navbar items on scroll
@@ -32,7 +30,7 @@
 
 		// Collapse Navbar
 		var navbarCollapse = function() {
-			console.log("in navbarCollapse");
+			//console.log("in navbarCollapse");
 			var mainNav = $("#mainNav");
 			if (mainNav.length) {
 				if ($("#mainNav").offset().top > 100) {
@@ -46,12 +44,6 @@
 		navbarCollapse();
 		// Collapse the navbar when page is scrolled
 		$(window).scroll(navbarCollapse);
-		//$(window).scroll($('.navbar-collapse').collapse('hide'));
-		// $(window).scroll(function() {
-		// 	$('.navbar-collapse').collapse('hide')
-		// 	$("#navbarResponsive").removeClass('show');
-		// 	$("#navbarResponsive").addClass('hide');
-		// });
 
 		// Magnific popup calls
 
@@ -76,31 +68,62 @@
 
 		$("#resume a").click(function(event) {
 			event.preventDefault();
+			// var targetID = $(this);
+			// var elementPosition = $(targetID).offset();
+			// var div = document.getElementById("top-row");
+			// var elementPosition = div.getBoundingClientRect();
+			// $('#myElement')[0].getBoundingClientRect().top
+			//	console.log("elementPosition: ", elementPosition);
+
+			// $("#resume .row:first-of-type").slideUp("slow", function() {
+			// 	// event.preventDefault();
+			// 	// Animation complete.
+			// });
+			// $("#resume #hidden-row").css("display", "block");
+			// $("#resume .row:nth-of-type(3)").slideDown("slow", function() {
+			// 	// event.preventDefault();
+			// 	// Animation complete.
+			// });
+			//$(window).scrollTop($('#contact').offset().top);
+
+			// $(window).stop(true).scrollTo(this.hash {
+			// 	duration: 1000,
+			// 	interrupt: true,
+			// 	offset: -50
+			// });
+
 			$(window).scrollTop($('#resume a').offset().top - 45); // works w/o animation
 
-			if ($(this).attr('id') == 'resumePDF') {
-				console.log('resumePDF');
-				$('#item-to-display object').attr('data', '../assets/pdf/Sean_Mandable_Resume.pdf#toolbar=1');
-			}
-			if ($(this).attr('id') == 'coverLetter') {
-				console.log('coverLetter');
-				$('#item-to-display object').attr('data', '../assets/pdf/Sean_Mandable_Cover_Letter.pdf#toolbar=1');
-			}
-			if ($(this).attr('id') == 'codeSamples') {
-				console.log('codeSamples');
-				$('#item-to-display object').attr('data', '../assets/pdf/Sean_Mandable_CS.pdf#toolbar=1');
-			}
-			if ($(this).attr('id') == 'qa') {
-				console.log('qa');
-				$('#item-to-display object').attr('data', '../assets/pdf/Sean_Mandable_QA.pdf#toolbar=1');
-			}
 
-
-			$("#resume #hidden-row").show();
+			// $(window).animate({
+			// 	scrollTop: $(this).offset().top - 45
+			// }, 'slow');
+			// var $target = $('html,body');
+			// $target.animate({
+			// 	scrollTop: $target.height()
+			// }, 500);
+			// $("#resume #hidden-row").css("display", "block");
+			$("#resume #hidden-row").toggle();
 		});
 
-		// Collapse #hidden-row when page is scrolled
-		//$(window).scroll($("#resume #hidden-row").hide());
+		// $('#resume #hidden-row').magnificPopup({
+		// 	delegate: 'a',
+		// 	type: 'image',
+		// 	tLoading: 'Loading image #%curr%...',
+		// 	mainClass: 'mfp-img-mobile',
+		// 	gallery: {
+		// 		enabled: true,
+		// 		navigateByImgClick: true,
+		// 		preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+		// 	},
+		// 	image: {
+		// 		tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+		// 		titleSrc: function(item) {
+		// 			return item.el.attr('title') + '<small>Sean Mandable</small>';
+		// 		}
+		// 	}
+		// });
+
 
 	});
 })(jQuery); // End of use strict

@@ -6,6 +6,11 @@
 #portfolio {
   // background-color: lighten($green, 55%);
 
+  section#portfolio {
+    height: 90vh;
+    overflow: scroll;
+  }
+
   .container-fluid {
     max-width: 1920px;
 

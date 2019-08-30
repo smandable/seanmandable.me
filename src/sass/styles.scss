@@ -25,6 +25,19 @@ a {
   color: fade-out($white, .25);
 }
 
+h1 {
+  font-size: 1.25rem;
+}
+@include media-breakpoint-up(md) {
+  h1 {
+    font-size: 2.25rem;
+  }
+}
+@include media-breakpoint-up(lg) {
+  h1 {
+    font-size: 3.5rem;
+  }
+}
 // Custom horizontal rules
 hr.divider {
   max-width: 3.25rem;

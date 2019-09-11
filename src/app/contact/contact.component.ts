@@ -22,17 +22,19 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.endpoint = "http://localhost:8000/sendEmail.php";
-    this.endpoint = "http://www.seanmandable.me/sendEmail.php";
+     // this.endpoint = "http://localhost:8000/sendEmail.php";
+    this.endpoint = 'http://www.seanmandable.me/sendEmail.php';
   }
 
   processForm() {
-
-    // const allInfo = `My name is ${this.name}. My email is ${this.email}. My company is ${this.company}. My phone is ${this.phone}. My message is ${this.message}`;
+    // const allInfo = `My name is ${this.name}. My email is ${this.email}.
+    // My company is ${this.company}. My phone is ${this.phone}. My message is ${this.message}`;
     //
     // console.log(allInfo);
 
-    let postVars = {
+    let postVars;
+
+    postVars = {
       name: this.name,
       email: this.email,
       // company: this.company,
@@ -40,14 +42,12 @@ export class ContactComponent implements OnInit {
       message: this.message
     };
 
-    //You may also want to check the response. But again, let's keep it simple.
+    // You may also want to check the response. But again, let's keep it simple.
     this.http.post(this.endpoint, postVars)
       .subscribe(
         response => console.log(response),
         response => console.log(response)
-      )
-
-
+      );
   }
 
 }

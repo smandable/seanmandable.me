@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<section class="page-section bg-primary text-white" id="resume">
-    <div class="container-fluid">
-        <div class="container">
-            <h1 class="text-center mt-0">Documents</h1>
-            <hr class="divider my-4 text-white">
-            <div class="row" id="top-row">
+<!-- <section class="page-section bg-primary text-white" id="resume"> -->
+<section class="page-section bg-primary" id="resume">
+  <div class="container-fluid">
+    <!-- <div class="container"> -->
+    <h1 class="text-center mt-0 text-white">Documents</h1>
+    <hr class="divider my-4 text-white">
+
+
+    <div class="row justify-content-center">
+      <div class="col-11">
+
+
+        <!-- Tabs with icons on Card -->
+        <div class="card card-nav-tabs">
+          <div class="card-header card-header-primary">
+            <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item">
+                    <span class="nav-link active" href="#resumeT" data-toggle="tab">
+                      <i class="fas fa-1x fa-book"></i>
+                      Resume
+                    </span>
+                  </li>
+                  <li class="nav-item">
+                    <span class="nav-link" href="#cover-ltr" data-toggle="tab">
+                      <i class="fas fa-1x fa-file-word"></i>
+                      Cover Letter
+                    </span>
+                  </li>
+                  <li class="nav-item">
+                    <span class="nav-link" href="#code" data-toggle="tab">
+                      <i class="fas fa-1x fa-laptop-code"></i>
+                      Code Samples
+                    </span>
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body ">
+            <div class="tab-content text-center">
+              <div class="tab-pane container active" id="resumeT">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies egestas justo. Ut magna augue, bibendum eget metus eu, mollis fermentum quam. Etiam eget pretium orci. Nunc nulla sem, efficitur cursus pellentesque ut,
+                  tincidunt in magna. Cras cursus lorem et suscipit suscipit. Sed vel dolor dignissim, commodo libero at, suscipit justo. </p>
+              </div>
+              <div class="tab-pane container fade" id="cover-ltr">
+                <p>Maecenas vitae vehicula elit. Vestibulum tempor enim ut massa egestas congue. Maecenas vitae lectus sem. Ut ipsum mauris, semper sed efficitur eget, tempus eget dui. Praesent viverra tincidunt neque quis semper. Vivamus venenatis
+                  gravida accumsan. Integer quis ligula sapien.</p>
+              </div>
+              <div class="tab-pane container fade" id="code">
+                <p>Aenean nec purus faucibus, pretium ligula non, accumsan libero. Vestibulum gravida tristique dolor sit amet dapibus. Vivamus consectetur lorem eu libero rhoncus viverra. Morbi a ultricies massa, quis blandit magna. Quisque ac
+                  sapien vel tortor blandit feugiat nec a magna. Sed vulputate elit in dapibus ultricies. Proin ut tincidunt lorem.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="row" id="top-row">
                 <div class="col-xs-6 col-lg-3 text-center">
                     <div class="mt-5">
                         <a href="#" id="resumePDF"><i class="fas fa-3x fa-book mb-4"></i>
@@ -44,16 +99,17 @@
                             <object class="embed-responsive-item" data="../assets/pdf/Sean_Mandable_Resume.pdf#toolbar=1" type="application/pdf" width="100%" height="100%">
                 <p>It appears your Web browser is not configured to display PDF files. No worries, just
                   <a href="../assets/pdf/Sean_Mandable_Resume.pdf">click here</a> to download the PDF file.
-                  <!-- <a href="drive.google.com/[drive path]/view?usp=sharing"> click here to
-                  view</a>-->
-                </p>
-              </object>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                  <! <a href="drive.google.com/[drive path]/view?usp=sharing"> click here to
+                  <! view</a>-->
+        <!--  </p>
+          </object>
         </div>
-        <!-- <div class="container">
+      </div> -->
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <!-- <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-6 text-center">
           <p class="mb-0">These will open in modal windows, but you can download the Word doc here!</p>
@@ -69,5 +125,5 @@
         </div>
       </div>
     </div> -->
-    </div>
+  </div>
 </section>

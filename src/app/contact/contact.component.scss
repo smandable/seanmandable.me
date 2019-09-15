@@ -6,3 +6,12 @@
 section#contact {
   height: 90vh;
 }
+
+i + div {
+  display: inline-block;
+}
+
+.col-lg-9 div {
+  display: inline-block;
+  white-space: nowrap;
+}

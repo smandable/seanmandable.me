@@ -2,10 +2,15 @@
 @import "../../../node_modules/bootstrap/scss/_functions.scss";
 @import "../../../node_modules/bootstrap/scss/_mixins.scss";
 @import "../../../node_modules/bootstrap/scss/_variables.scss";
+
 #resume {
-    hr.divider {
-        border-color: $white;
+  hr.divider {
+    border-color: $white;
+  }
+
+  .card-nav-tabs {
+    .nav-link {
+      padding: 0.5rem;
     }
-    // i {
-    //   }
+  }
 }

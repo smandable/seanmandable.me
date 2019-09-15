@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <section class="page-section" id="contact">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-9 text-center">
-                <h1 class="mt-0">Contact Me!</h1>
-                <hr class="divider my-4">
-                <p class="text-muted my-5">Ready to work together? Give me a call or send me an email and I&rsquo;ll get back to you as soon as possible!</p>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 text-center">
+        <h1 class="mt-0">Contact Me!</h1>
+        <hr class="divider my-4">
+        <p class="text-muted">Ready to work together? Give me a call or send me an email and I&rsquo;ll get back to you as soon as possible!</p>
+      </div>
+    </div>
+    <div class="justify-content-center row">
+      <div class="col-lg-9 text-center mt-3">
+        <div class="col-6 ml-auto">
+          <i class="fas fa-phone fa-1x mb-3 mr-1 text-muted"></i>
+          <div><a href="tel:2034453720">(203) 590-0767</a></div>
         </div>
-        <div class="row">
-            <div class="col-lg-4 ml-auto text-center">
-                <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-                <div><a href="tel:2034453720">(203) 590-0767</a></div>
-            </div>
-            <div class="col-lg-4 mr-auto text-center">
-                <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                <a class="d-block" href="mailto:sean@seanmandable.me">sean@seanmandable.me</a>
-            </div>
+        <div class="col-6 mr-auto">
+          <i class="fas fa-envelope fa-1x mb-3 mr-1 text-muted"></i>
+          <a href="mailto:sean@seanmandable.me">sean@seanmandable.me</a>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center mt-5">
-                <!-- <form action="/html/tags/html_form_tag_action.cfm"> -->
-                <form (ngsubmit)="processForm()">
-                    <div class="form-row">
-                        <div class="col-md-6 mt-3">
-                            <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="name" required minlength="3" #nameInput="ngModel">
-                        </div>
-                        <div class="col-md-6 mt-3">
-                            <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="email" required email #emailInput="ngModel">
-                        </div>
-                    </div>
-                    <!-- <div class="form-row">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center mt-3">
+        <!-- <form action="/html/tags/html_form_tag_action.cfm"> -->
+        <form (ngsubmit)="processForm()">
+          <div class="form-row">
+            <div class="col-md-6 mt-3">
+              <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="name" required minlength="3" #nameInput="ngModel">
+            </div>
+            <div class="col-md-6 mt-3">
+              <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="email" required email #emailInput="ngModel">
+            </div>
+          </div>
+          <!-- <div class="form-row">
             <div class="col-md-6 mt-3">
               <input type="text" class="form-control" placeholder="Company" name="company" [(ngModel)]="company">
             </div>
@@ -38,26 +40,26 @@
               <input type="text" class="form-control" placeholder="Phone" name="phone" [(ngModel)]="phone">
             </div>
           </div> -->
-                    <div class="form-row mt-3">
-                        <div class="col-12">
-                            <textarea rows="5" class="form-control" placeholder="Message" name="message" [(ngModel)]="message" required #messageInput="ngModel"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row mt-3">
-                        <button type="submit" class="btn btn-primary">Send</button>
-                    </div>
-                </form>
-                <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
-                    Name is required and needs to be at least 3 characters long.
-                </div>
-                <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
-                    Email is required.
-                </div>
-                <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
-                    Messsage is required.
-                </div>
+          <div class="form-row mt-3">
+            <div class="col-12">
+              <textarea rows="5" class="form-control" placeholder="Message" name="message" [(ngModel)]="message" required #messageInput="ngModel"></textarea>
             </div>
+          </div>
+
+          <div class="form-row mt-3">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </form>
+        <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+          Name is required and needs to be at least 3 characters long.
         </div>
+        <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+          Email is required.
+        </div>
+        <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
+          Messsage is required.
+        </div>
+      </div>
     </div>
+  </div>
 </section>

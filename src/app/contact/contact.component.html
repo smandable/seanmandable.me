@@ -8,18 +8,7 @@
         <p class="text-muted">Ready to work together? Give me a call or send me an email and I&rsquo;ll get back to you as soon as possible!</p>
       </div>
     </div>
-    <div class="justify-content-center row">
-      <div class="col-lg-9 text-center mt-3">
-        <div class="col-6 ml-auto">
-          <i class="fas fa-phone fa-1x mb-3 mr-1 text-muted"></i>
-          <div><a href="tel:2034453720">(203) 590-0767</a></div>
-        </div>
-        <div class="col-6 mr-auto">
-          <i class="fas fa-envelope fa-1x mb-3 mr-1 text-muted"></i>
-          <a href="mailto:sean@seanmandable.me">sean@seanmandable.me</a>
-        </div>
-      </div>
-    </div>
+
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center mt-3">
         <!-- <form action="/html/tags/html_form_tag_action.cfm"> -->
@@ -41,13 +30,15 @@
             </div>
           </div> -->
           <div class="form-row mt-3">
-            <div class="col-12">
+            <div class="col">
               <textarea rows="5" class="form-control" placeholder="Message" name="message" [(ngModel)]="message" required #messageInput="ngModel"></textarea>
             </div>
           </div>
 
           <div class="form-row mt-3">
-            <button type="submit" class="btn btn-primary">Send</button>
+            <div class="col text-center mt-1">
+              <button type="submit" class="btn btn-primary btn-block">Send</button>
+            </div>
           </div>
         </form>
         <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
@@ -58,6 +49,18 @@
         </div>
         <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
           Messsage is required.
+        </div>
+      </div>
+    </div>
+    <div class="justify-content-center row">
+      <div class="col-lg-9 mt-5">
+        <div class="col-md-6 mb-4 pl-0 text-left">
+          <i class="fas fa-phone fa-2x mr-3 text-muted"></i>
+          <div><a href="tel:2034453720">(203) 590-0767</a></div>
+        </div>
+        <div class="col-md-6 px-0 text-left">
+          <i class="fa-2x fa-envelope fas mr-3 text-muted"></i>
+          <div><a href="mailto:sean@seanmandable.me">sean@seanmandable.me</a></div>
         </div>
       </div>
     </div>

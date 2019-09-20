@@ -27,6 +27,7 @@
     "popper.js": "^1.15.0",
     "rxjs": "^6.5.3",
     "tslib": "^1.10.0",
+    "unibeautify": "^0.17.0",
     "zone": "^0.3.4"
   },
   "devDependencies": {

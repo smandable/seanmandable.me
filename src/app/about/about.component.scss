@@ -1,9 +1,6 @@
-@import '../../src/sass/variables';
-@import "../../../node_modules/bootstrap/scss/_functions.scss";
-@import "../../../node_modules/bootstrap/scss/_mixins.scss";
-@import "../../../node_modules/bootstrap/scss/_variables.scss";
+@import '../../src/sass/_variables.scss';
 
 section#about {
   //height: 90vh;
-  overflow: scroll;
+  overflow: hidden;
 }

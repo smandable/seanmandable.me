@@ -1,102 +1,357 @@
-@import "../../src/sass/variables";
-@import "../../../node_modules/bootstrap/scss/_functions.scss";
-@import "../../../node_modules/bootstrap/scss/_mixins.scss";
-@import "../../../node_modules/bootstrap/scss/_variables.scss";
 
-#mainNav {
-  box-shadow: $box-shadow;
-  background-color: $white;
-  background-color: $white;
-  transition: background-color 0.2s ease;
 
-  .navbar-brand {
-    font-family: $font-family-serif;
-    font-weight: $font-weight-bold;
-    color: $gray-900;
-  }
+// @import "../../../node_modules/bootstrap/scss/_functions.scss";
+// @import "../../../node_modules/bootstrap/scss/_mixins.scss";
+// @import "../../../node_modules/bootstrap/scss/_variables.scss";
 
-  .navbar-nav {
-    .nav-item {
-      .nav-link {
-        color: $gray-600;
-        font-family: $font-family-serif;
-        font-weight: $font-weight-bold;
-        font-size: 0.9rem;
-        padding: 0.75rem 0;
+// @import "../../src/sass/mixins";
+// @import "../../src/sass/base";
+// @import "../../src/sass/variables";
 
-        &:active,
-        &:hover {
-          color: $primary;
-        }
+@import "../../sass/styles";
 
-        &.active {
-          color: $primary !important;
-        }
-      }
-    }
-  }
-  @include media-breakpoint-up(lg) {
-    // Base styling for the navbar - screen sizes greater than the large breakpoint
-    box-shadow: none;
-    background-color: transparent;
+/* Header */
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: $sidebar-width;
+  background: $bg-primary;
+  color: #fff;
 
-    .navbar-brand {
-      color: $white;
-      // color: fade-out($white, .3);
-      // .navbar-brand-shadow {
-      text-shadow: 2px 2px #000;
-      // }
-      font-size: 1.25rem;
+
+
+  .blog-name {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fff;
+
+    a {
+      color: #fff;
 
       &:hover {
-        // color: $white;
-        color: fade-out($white, .3);
-      }
-    }
-
-    .navbar-nav {
-      .nav-item {
-        .nav-link {
-          color: $white;
-          padding: 0 1rem;
-
-          &:hover {
-            color: fade-out($white, .3);
-          }
-        }
-
-        &:last-child {
-          .nav-link {
-            padding-right: 0;
-          }
-        }
-      }
-    }
-    // Navbar styling applied when the page is scrolled
-    &.navbar-scrolled {
-      box-shadow: $box-shadow;
-      background-color: $white;
-
-      .navbar-brand {
-        color: $gray-900;
-        text-shadow: none;
-
-        &:hover {
-          color: $primary;
-        }
-      }
-
-      .navbar-nav {
-        .nav-item {
-          .nav-link {
-            color: $gray-900;
-
-            &:hover {
-              color: $primary;
-            }
-          }
-        }
+        text-decoration: none;
       }
     }
   }
+
+  .btn-primary {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: transparent;
+    font-size: 1rem;
+    padding-top: 0.5rem;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.4);
+      border-color: transparent;
+    }
+  }
+
+
+  .navbar {
+    padding: 2rem 1rem;
+  }
+
+  .navbar-dark {
+
+    .navbar-toggler {
+      @include border-radius(2px);
+      @include opacity(0.8);
+      border: 1px solid rgba(256, 256, 256, 0.8);
+      padding: .25rem .6rem;
+
+      &:hover {
+        @include opacity(1);
+
+      }
+    }
+
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(256,256,256, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+  }
+
+  .nav-item {
+    font-weight: bold;
+
+    &.active {
+      .nav-link {
+
+        color: rgba(0, 0, 0, 0.5);
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+
+    }
+
+    .nav-link {
+      color: rgba(256, 256, 256, 0.8);
+
+      &:hover {
+        text-decoration: underline;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+
+
+  }
 }
+
+.profile-section {
+  .profile-image {
+    max-width: 180px;
+  }
+
+  .bio {
+    font-size: 0.875rem;
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+
+      &:hover {
+        color: rgba(0, 0, 0, 0.6);
+
+      }
+    }
+  }
+
+
+}
+
+.social-list {
+
+  a {
+    width: 32px;
+    height: 32px;
+    padding-top: 5px;
+    display: inline-block;
+    text-align: center;
+    @include border-radius(50%);
+    @include transition(all 0.4s ease-in-out);
+    background-color: #fff;
+
+    &:hover {
+      color: darken($primary, 10%);
+      background-color: rgba(256, 256, 256, 0.8);
+    }
+
+  }
+}
+
+@media (min-width: 768px) {
+    .theme-btn-cta {
+        width:inherit;
+        display: inline-block
+    }
+
+    .cta-section .form-inline .form-control {
+        width: 360px
+    }
+
+    .project-thumb {
+        max-width: 200px
+    }
+
+    .pricing-table td,.pricing-table th {
+        display: table-cell !important
+    }
+}
+
+@media (min-width: 992px) {
+    .profile-teaser .profile-image {
+        max-width:250px
+    }
+
+    .project-thumb {
+        max-width: 200px
+    }
+}
+
+@media (min-width: 1200px) {
+    .profile-teaser .profile-image {
+        max-width:400px
+    }
+
+    .project-thumb {
+        max-width: 300px
+    }
+}
+
+@media (max-width: 991.98px) {
+    .header {
+        position:static;
+        width: inherit;
+        height: auto
+    }
+
+    .header .blog-name {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 1.2rem
+    }
+
+    .header .btn-primary {
+        width: 100%
+    }
+
+    .header .navbar {
+        padding: 1rem
+    }
+
+    .main-wrapper {
+        margin-left: 0
+    }
+
+    .resume-aside {
+        border-left: 0
+    }
+}
+
+@media (max-width: 767.98px) {
+    .signup-form .form-group {
+        width:100%;
+        margin-bottom: 0.5rem
+    }
+
+    .signup-form .form-control {
+        width: 100%
+    }
+
+    .signup-form .btn-primary {
+        width: 100%
+    }
+
+    .profile-teaser .profile-image {
+        max-width: 100%
+    }
+
+    .header .nav-item .dropdown-menu .dropdown-item {
+        padding-left: 1.875rem
+    }
+
+    .resume-contact {
+        border-left: 0
+    }
+
+    .mobile-is-hidden {
+        display: none
+    }
+}
+
+@media (max-width: 575.98px) {
+    .header .nav-item .dropdown-menu .dropdown-item {
+        padding-left:1.875rem
+    }
+
+    .link-mask {
+        display: none !important
+    }
+
+    .mobile-is-hidden {
+        display: none
+    }
+}
+// #mainNav {
+//   box-shadow: $box-shadow;
+//   background-color: $white;
+//   background-color: $white;
+//   transition: background-color 0.2s ease;
+
+//   .navbar-brand {
+//     font-family: $font-family-serif;
+//     font-weight: $font-weight-bold;
+//     color: $gray-900;
+//   }
+
+//   .navbar-nav {
+//     .nav-item {
+//       .nav-link {
+//         color: $gray-600;
+//         font-family: $font-family-serif;
+//         font-weight: $font-weight-bold;
+//         font-size: 0.9rem;
+//         padding: 0.75rem 0;
+
+//         &:active,
+//         &:hover {
+//           color: $primary;
+//         }
+
+//         &.active {
+//           color: $primary !important;
+//         }
+//       }
+//     }
+//   }
+//   @include media-breakpoint-up(lg) {
+//     // Base styling for the navbar - screen sizes greater than the large breakpoint
+//     box-shadow: none;
+//     background-color: transparent;
+
+//     .navbar-brand {
+//       color: $white;
+//       // color: fade-out($white, .3);
+//       // .navbar-brand-shadow {
+//       text-shadow: 2px 2px #000;
+//       // }
+//       font-size: 1.25rem;
+
+//       &:hover {
+//         // color: $white;
+//         color: fade-out($white, .3);
+//       }
+//     }
+
+//     .navbar-nav {
+//       .nav-item {
+//         .nav-link {
+//           color: $white;
+//           padding: 0 1rem;
+
+//           &:hover {
+//             color: fade-out($white, .3);
+//           }
+//         }
+
+//         &:last-child {
+//           .nav-link {
+//             padding-right: 0;
+//           }
+//         }
+//       }
+//     }
+//     // Navbar styling applied when the page is scrolled
+//     &.navbar-scrolled {
+//       box-shadow: $box-shadow;
+//       background-color: $white;
+
+//       .navbar-brand {
+//         color: $gray-900;
+//         text-shadow: none;
+
+//         &:hover {
+//           color: $primary;
+//         }
+//       }
+
+//       .navbar-nav {
+//         .nav-item {
+//           .nav-link {
+//             color: $gray-900;
+
+//             &:hover {
+//               color: $primary;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

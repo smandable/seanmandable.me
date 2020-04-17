@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "/home/sean/Sites/devresume-theme-v1.0"
+		},
+		{
+			"path": "/home/sean/Sites/devblog-v1.1"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"tab.unfocusedActiveBorder": "#fff0"
+		}
+	}
+}

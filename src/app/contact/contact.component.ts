@@ -22,8 +22,8 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-     // this.endpoint = "http://localhost:8000/sendEmail.php";
-    this.endpoint = 'http://www.seanmandable.me/sendEmail.php';
+     this.endpoint = "http://localhost:8000/sendEmail.php";
+   // this.endpoint = 'http://www.seanmandable.me/sendEmail.php';
   }
 
   processForm() {

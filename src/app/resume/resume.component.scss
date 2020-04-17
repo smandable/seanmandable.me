@@ -1,111 +1,120 @@
-@import '../../src/sass/variables';
-@import "../../../node_modules/bootstrap/scss/_functions.scss";
-@import "../../../node_modules/bootstrap/scss/_mixins.scss";
-@import "../../../node_modules/bootstrap/scss/_variables.scss";
+@import '../../src/sass/_variables.scss';
 
-#resume {
-  hr.divider {
-    border-color: $white;
-  }
-
-  .card-nav-tabs {
-    .card-header {
-      @include media-breakpoint-only(xs) {
-        padding: 0.75rem 0.25rem;
-      }
-
-      .nav-link {
-        padding: 0.5rem;
-      }
-    }
-
-    .card-body {
-      @include media-breakpoint-only(xs) {
-        padding: 0.5rem;
-      }
-      overflow: scroll;
-      overflow: -moz-scrollbars-vertical;
-      height: 35vh;
-
-      .container {
-        padding-left: 0;
-        padding-right: 0;
-        // overflow: scroll;
-        // height: 35vh;
-
-        // h1,
-        // h2,
-        // h3,
-        // h4,
-        // h5 {
-        //   margin-bottom: 0;
-        // }
-        h1:first-of-type,
-        h4,
-        h5 {
-          margin-bottom: 0;
-        }
-
-        h4 {
-          margin-top: 0.5rem;
-
-          &:first-of-type {
-            @include media-breakpoint-only(xs) {
-              margin-top: 0.25rem;
-            }
-          }
-
-          span {
-            font-size: 1rem;
-            font-style: italic;
-            font-weight: 300;
-            @include media-breakpoint-only(xs) {
-              display: none;
-            }
-          }
-
-        }
-
-        h5 {
-          span {
-            font-size: 1rem;
-            font-style: italic;
-            font-weight: 300;
-            @include media-breakpoint-only(xs) {
-              display: none;
-            }
-          }
-        }
-
-        h6 {
-          font-style: italic;
-          font-weight: 400;
-        }
-
-        p {
-          margin-bottom: 0.5rem;
-
-          &:first-of-type {
-            @include media-breakpoint-only(xs) {
-              margin-bottom: 0;
-            }
-          }
-        }
-      }
-
-      #cover-ltr {
-        p {
-          margin-bottom: 1rem;
-          line-height: 1.2;
-
-          // &:first-of-type {
-          //   @include media-breakpoint-only(xs) {
-          //     margin-bottom: 0;
-          //   }
-          // }
-        }
-
-      }
-    }
-  }
+.resume-wrapper {
+	border: 1px solid rgba(0, 0, 0, 0.025);
 }
+
+.resume-section-heading {
+	position: relative;
+	padding-left: 1rem;
+	font-size: 1.125rem;
+	letter-spacing: 0.15rem;
+	color: $color-primary;
+	font-weight: 900;
+   &:before {
+	   content: "";
+	    display: inline-block;
+	    width: 5px;
+	    height: 100%;
+	    background: $color-primary;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+   }
+}
+
+.resume-name {
+	font-size: 2.75rem;
+	font-weight: 900;
+	letter-spacing: 0.4rem;
+	color: $color-primary;
+	
+}
+
+.resume-tagline {
+	font-size: 1.25rem;
+	font-weight: 300;
+}
+
+.resume-contact {
+	border-left: 1px solid rgba(0, 0, 0, 0.08);
+	font-size: 0.75rem;
+}
+
+a.resume-link {
+	color: $text-color-secondary;
+	&:hover {
+		color: $color-primary;
+	}
+}
+
+.resume-profile-image {
+	max-width: 120px;
+}
+
+.resume-intro {
+	font-size: 0.875rem;
+}
+.resume-main {
+	.item-title {
+		font-size: 1rem;
+	}
+	
+   .item-meta {
+	   font-size: 0.75rem;
+   }
+   .item-content {
+		font-size: 0.875rem;
+	}
+}
+
+.resume-aside {
+	border-left: 1px solid rgba(0, 0, 0, 0.08);
+	.item {
+		font-size: 0.875rem;
+	}
+	.item-title {
+		font-size: 1rem;
+	}
+	
+}
+
+
+.resume-education-list, .resume-awards-list {
+    font-size: 0.875rem;
+}
+
+
+.resume-degree-time-org, .resume-degree-time {
+	font-size: 0.75rem;
+}
+
+.resume-lang-list, .resume-interests-list {
+	font-size: 0.875rem;
+}
+
+.resume-social-list {
+	font-size: 0.75rem;
+}
+
+
+.fa-heart {
+	color: #fb866a;
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+
+    .resume-aside {
+	    border-left: 0;
+    }
+}
+
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+	.resume-contact {
+	    border-left: 0;
+    }
+}
+

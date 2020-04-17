@@ -1,25 +1,54 @@
 <!DOCTYPE html>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">seanmandable.me</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<header class="header text-center">
+  <h1 class="blog-name pt-lg-4 mb-0"><a href="#home">Sean Mandable</a></h1>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#resume">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                </li>
-            </ul>
+
+    <div id="navigation" class="collapse navbar-collapse flex-column">
+      <div class="profile-section pt-3 pt-lg-0">
+        <img class="profile-image mb-3 mx-auto" src="../assets/img/profile-sm.png"
+          alt="Profile picture">
+
+        <div class="bio mb-3">Hello. My name is Sean Mandable and I&rsquo;m a senior software engineer currently residing in Connecticut. Welcome to my personal website!
+            <!-- <br><a
+            href="about.html">Find out more about me</a> -->
         </div>
+        <!--//bio-->
+        <ul class="social-list list-inline py-3 mx-auto">
+          <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="fab fa-github-alt fa-fw"></i></a></li>
+        </ul>
+        <!--//social-list-->
+        <hr>
+      </div>
+      <!--//profile-section-->
+
+      <ul class="navbar-nav flex-column text-left">
+        <!-- <li class="nav-item active">
+          <a class="nav-link js-scroll-trigger" href="home"><i class="fas fa-home fa-fw mr-2"></i>Home<span
+              class="sr-only">(current)</span></a>
+        </li> -->
+        <li class="nav-item active">
+          <a class="nav-link js-scroll-trigger" href="#home"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="portfolio"><i class="fas fa-laptop-code fa-fw mr-2"></i>Portfolio</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#resume"><i class="fas fa-file-alt fa-fw mr-2"></i>Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#contact"><i class="fas fa-envelope-open-text fa-fw mr-2"></i>Contact
+            Me</a>
+        </li>
+
+      </ul>
+
     </div>
-</nav>
+  </nav>
+</header>

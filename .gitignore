@@ -53,3 +53,5 @@ libraries/
 test/
 etc/
 data/
+src/test.ts
+src/assets/img/resume/FED QA.docx

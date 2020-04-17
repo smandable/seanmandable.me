@@ -1,15 +1,14 @@
-// @import '../../src/sass/variables';
-@import "../../../node_modules/bootstrap/scss/_functions.scss";
-@import "../../../node_modules/bootstrap/scss/_mixins.scss";
-@import "../../../node_modules/bootstrap/scss/_variables.scss";
+@import '../../src/sass/_variables.scss';
 
-.footer {
-  $background-color: $gray-100;
-  bottom: 0;
-  height: 60px;
-  position: absolute;
-  width: 100%;
-  background-color: $background-color;
+footer {
+  //$background-color: #145523;
+  color: $text-color-primary;
+  // bottom: 0;
+  // height: 60px;
+  // position: absolute;
+  // width: 100%;
+  //background-color: #145523;
+    //background-color: goldenrod;
 
   .container {
     padding: 0 15px;

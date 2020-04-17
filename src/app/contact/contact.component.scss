@@ -1,18 +1,21 @@
-@import '../../src/sass/variables';
-@import "../../../node_modules/bootstrap/scss/_functions.scss";
-@import "../../../node_modules/bootstrap/scss/_mixins.scss";
-@import "../../../node_modules/bootstrap/scss/_variables.scss";
+@import '_variables.scss';
 
-section#contact {
-  height: 50vh;
-}
-
-i + div {
+i+div {
   display: inline-block;
   font-size: x-large;
 }
-
+.fa-phone, .fa-envelope, a {
+  display: inline-block;
+}
 .col-lg-9 div {
   display: inline-block;
   white-space: nowrap;
+}
+
+.col-lg-8.mt-5 {
+
+  a {
+    font-size: 1.4rem;
+  }
+
 }

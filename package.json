@@ -27,7 +27,7 @@
     "core-js": "^3.6.4",
     "eslint": "^6.8.0",
     "grunt": "^1.0.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-bootstrap": "^5.3.2",
     "npm-upgrade": "^2.0.2",
     "popper.js": "^1.16.1",

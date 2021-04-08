@@ -1,0 +1,153 @@
+@import "src/sass/styles.scss";
+
+section#home {
+  &.about-me-section {
+    background-color: #fafafa;
+  }
+  .profile-teaser {
+    .name {
+      font-size: 3rem;
+    }
+
+    .tagline {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+
+    .profile-image {
+      max-width: 400px;
+
+      @media (max-width: 768px) {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.section-overview {
+  @media (min-width: 992px) {
+    .col-lg-3 {
+      -webkit-box-flex: 0;
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+  .section-title {
+    font-size: 2rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .section-title:before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 100%;
+    background: #54b689;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .profile-teaser .name {
+    font-size: 3rem;
+  }
+
+  .profile-teaser .profile-image {
+    max-width: 400px;
+  }
+
+  .profile-teaser .tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  .section-overview .item {
+    margin-bottom: 2rem;
+  }
+
+  .section-overview .item-desc {
+    color: #4f4f4f;
+    font-size: 0.875rem;
+  }
+
+  .item {
+    margin-bottom: 2rem;
+
+    .item-icon {
+      font-size: 1.875rem;
+      color: #54b689;
+
+      .fa-js-square {
+        color: #f1de4f;
+      }
+
+      .fa-angular {
+        color: #ca3327;
+      }
+
+      .fa-php {
+        color: #777baf;
+      }
+
+      .fa-npm {
+        color: #bb443e;
+      }
+
+      .fa-grunt {
+        color: #efac42;
+      }
+
+      .fa-html5,
+      .fa-html5-alt {
+        color: #de6e3c;
+      }
+      .fa-css3,
+      .fa-css3-alt {
+        color: #53a7dc;
+      }
+      .fa-sass {
+        color: #bf6b97;
+      }
+    }
+
+    .item-title {
+      font-size: 1rem;
+    }
+
+    .item-desc {
+      color: #4f4f4f;
+      font-size: 0.875rem;
+    }
+
+    svg:not(:root).svg-inline--fa {
+      overflow: visible;
+    }
+
+    .svg-inline--fa.fa-w-14 {
+      width: 0.875em;
+    }
+
+    .svg-inline--fa {
+      display: inline-block;
+      font-size: inherit;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+  }
+}
+.section-title {
+  font-size: 2rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.section-title:before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 100%;
+  background: $bg-primary;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

@@ -1,4 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+/* Bootstrap */
 
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "../node_modules/bootstrap/scss/bootstrap";
+//@import "../node_modules/bootstrap/scss/_functions.scss";
+//@import "../node_modules/bootstrap/scss/_mixins.scss";
+//@import "../node_modules/bootstrap/scss/_variables.scss";
+@import "sass/_variables.scss";
+@import "sass/_mixins.scss";
+@import "sass/_common.scss";
+@import 'sass/_responsive.scss';
+
+// Components
+@import "app/app.component.scss";
+@import "app/navbar/navbar.component.scss";
+@import "app/home/home.component.scss";
+@import "app/resume/resume.component.scss";
+@import "app/contact/contact.component.scss";
+@import "app/footer/footer.component.scss";
+

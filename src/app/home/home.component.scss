@@ -1,5 +1,6 @@
-@import "src/sass/styles.scss";
-
+.main-wrapper {
+  margin-left: auto;
+}
 section#home {
   &.about-me-section {
     background-color: #fafafa;

@@ -1,9 +1,4 @@
-
-@import '_variables.scss';
-
-
-
-
+@import "_variables.scss";
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -180,11 +175,11 @@ p {
 
 /* Main wrapper */
 .main-wrapper {
-  margin-left: $sidebar-width;
+  // margin-left: $sidebar-width;
   background: #fff;
 
   .container {
-    max-width: $single-col-max-width;
+    //max-width: $single-col-max-width;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
@@ -192,19 +187,22 @@ p {
     margin-left: auto;
 
     @media (min-width: 576px) {
-      max-width: 540px;
+      //max-width: 540px;
     }
 
     @media (min-width: 768px) {
-      max-width: 720px;
+      //max-width: 720px;
     }
 
     @media (min-width: 992px) {
-      max-width: 960px;
+      max-width: 1000px;
+      //smax-width: $single-col-max-width;
+      margin-left: $sidebar-width;
     }
 
     @media (min-width: 1200px) {
-      max-width: 1140px;
+      //max-width: 1140px;
+      margin-left: $sidebar-width;
     }
   }
 }
@@ -243,10 +241,7 @@ footer {
   }
 }
 
-
-
 //from styles:
-
 
 // body,
 // html {

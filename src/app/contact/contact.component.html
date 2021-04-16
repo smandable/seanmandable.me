@@ -1,100 +1,102 @@
 <!DOCTYPE html>
 <div class="main-wrapper">
-  <section class="cta-section theme-bg-light py-5">
-    <div class="container text-center single-col-max-width">
-      <h2 class="heading">Get in Touch</h2>
-      <div class="intro">
+  <div class="container">
+    <section class="cta-section theme-bg-light py-4">
+      <div class="container text-center single-col-max-width">
+        <h2 class="heading">Get in Touch</h2>
+        <div class="intro">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              Interested in hiring me for your project or business? Just want to
+              say hi? You can fill in the contact form below or send me an email
+              to <a href="mailto:sean@seanmandable.me">sean@seanmandable.me</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page-section" id="contact">
+      <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            Interested in hiring me for your project or business? Just want to
-            say hi? You can fill in the contact form below or send me an email
-            to <a href="mailto:sean@seanmandable.me">sean@seanmandable.me</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="page-section" id="contact">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center mt-3">
-          <form
-            class="contact"
-            [formGroup]="form"
-            method="post"
-            (ngSubmit)="onSubmit()"
-          >
-            <div class="form-group row">
-              <div class="col-sm-12">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputName"
-                  placeholder="Name"
-                  [formControl]="name"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="inputEmail"
-                  placeholder="Email"
-                  [formControl]="email"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                <textarea
-                  class="form-control"
-                  id="inputMessage"
-                  placeholder="Message"
-                  rows="7"
-                  [formControl]="message"
-                  required
-                ></textarea>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                <button
-                  [disabled]="isLoading"
-                  type="submit"
-                  class="btn btn-primary"
-                >
-                  Send Message
-                </button>
-              </div>
-            </div>
-            <input [formControl]="honeypot" class="hidden" type="text" />
-            <div
-              [ngClass]="!submitted ? 'hidden' : 'visible'"
-              class="center-text"
+          <div class="col-lg-8 text-center mt-3">
+            <form
+              class="contact"
+              [formGroup]="form"
+              method="post"
+              (ngSubmit)="onSubmit()"
             >
-              <span>{{ responseMessage }}</span>
-            </div>
-          </form>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputName"
+                    placeholder="Name"
+                    [formControl]="name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    placeholder="Email"
+                    [formControl]="email"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <textarea
+                    class="form-control"
+                    id="inputMessage"
+                    placeholder="Message"
+                    rows="7"
+                    [formControl]="message"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <button
+                    [disabled]="isLoading"
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </div>
+              <input [formControl]="honeypot" class="hidden" type="text" />
+              <div
+                [ngClass]="!submitted ? 'hidden' : 'visible'"
+                class="center-text"
+              >
+                <span>{{ responseMessage }}</span>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="justify-content-center row">
-        <div class="col-lg-8 mt-5">
-          <div class="row">
-            <div class="col-md-6 mb-3 pl-3 text-left">
-              <i class="fas fa-phone mr-3 text-muted"></i>
-              <a href="tel:4752315287">(475) 231-5287</a>
-            </div>
-            <div class="col-md-6 pl-3 text-left">
-              <i class="fas fa-envelope mr-3 text-muted"></i>
-              <a href="mailto:sean@seanmandable.me">sean@seanmandable.me</a>
+        <div class="justify-content-center row">
+          <div class="col-lg-8 mt-5">
+            <div class="row">
+              <div class="col-md-6 mb-3 pl-3 text-left">
+                <i class="fas fa-phone mr-3 text-muted"></i>
+                <a href="tel:4752315287">(475) 231-5287</a>
+              </div>
+              <div class="col-md-6 pl-3 text-left">
+                <i class="fas fa-envelope mr-3 text-muted"></i>
+                <a href="mailto:sean@seanmandable.me">sean@seanmandable.me</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </div>

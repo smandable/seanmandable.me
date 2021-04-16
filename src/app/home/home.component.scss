@@ -7,14 +7,19 @@ section#home {
   }
   .profile-teaser {
     .name {
-      font-size: 3rem;
+      font-size: 2.5rem;
+      @media (min-width: 992px) {
+        font-size: 3rem;
+      }
     }
 
     .tagline {
       font-size: 1.5rem;
       font-weight: 300;
     }
-
+    a.link-on-bg {
+      text-decoration: underline;
+    }
     .profile-image {
       max-width: 400px;
 
@@ -32,21 +37,6 @@ section#home {
       flex: 0 0 25%;
       max-width: 25%;
     }
-  }
-  .section-title {
-    font-size: 2rem;
-    position: relative;
-    padding-left: 1.5rem;
-  }
-  .section-title:before {
-    content: "";
-    display: inline-block;
-    width: 5px;
-    height: 100%;
-    background: #54b689;
-    position: absolute;
-    left: 0;
-    top: 0;
   }
 
   .profile-teaser .name {
@@ -72,11 +62,17 @@ section#home {
   }
 
   .item {
-    margin-bottom: 2rem;
-
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    margin-right: 0.75rem;
     .item-icon {
       font-size: 1.875rem;
       color: #54b689;
+
+      svg,
+      i {
+        margin-right: 0.5rem;
+      }
 
       .fa-js-square {
         color: #f1de4f;
@@ -85,7 +81,9 @@ section#home {
       .fa-angular {
         color: #ca3327;
       }
-
+      .icon-jquery {
+        color: #78cff5;
+      }
       .fa-php {
         color: #777baf;
       }
@@ -94,12 +92,15 @@ section#home {
         color: #bb443e;
       }
 
-      .fa-grunt {
-        color: #efac42;
+      .icon-mysql {
+        margin-right: 0;
+        color: #0074a3;
       }
-
-      .fa-html5,
-      .fa-html5-alt {
+      .icon-mariadb {
+        color: #174755;
+      }
+      .fa-html5 {
+        margin-right: .25rem;
         color: #de6e3c;
       }
       .fa-css3,
@@ -113,6 +114,7 @@ section#home {
 
     .item-title {
       font-size: 1rem;
+      display: inline-block;
     }
 
     .item-desc {
@@ -151,4 +153,9 @@ section#home {
   position: absolute;
   left: 0;
   top: 0;
+}
+.featured-section {
+  .card {
+    border: transparent;
+  }
 }

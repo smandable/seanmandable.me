@@ -5,7 +5,7 @@ export const profile = {
   tagline: 'Software Engineering • Full-Stack Development',
   location: 'Greater Hartford Area, CT',
   phone: '475.231.5287',
-  email: 'smandable@gmail.com',
+  email: 'sean@seanmandable.me',
   linkedin: 'https://www.linkedin.com/in/sean-mandable',
   github: 'https://github.com/smandable',
   summary:

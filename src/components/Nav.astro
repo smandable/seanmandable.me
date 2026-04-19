@@ -1,0 +1,27 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/resume', label: 'Resume' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<nav class="flex items-center gap-6 text-sm font-medium">
+  {links.map(({ href, label }) => {
+    const active = href === '/' ? currentPath === '/' : currentPath === href;
+    return (
+      <a
+        href={href}
+        class:list={[
+          'transition-colors hover:text-sky-600',
+          active ? 'text-sky-600' : 'text-slate-600',
+        ]}
+        aria-current={active ? 'page' : undefined}
+      >
+        {label}
+      </a>
+    );
+  })}
+</nav>

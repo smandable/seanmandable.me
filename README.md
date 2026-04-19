@@ -58,5 +58,5 @@ Content that changes often (resume bullets, tech list, etc.) lives in `src/data/
 
 ## Mail notes
 
-- `contact.php` uses `From: noreply@seanmandable.me` and `Reply-To: <sender>` so SPF/DKIM line up with Dreamhost's outgoing mail and replies still go to the visitor.
-- If mail doesn't deliver, confirm `noreply@seanmandable.me` exists (or change `SENDER_FROM` in `contact.php` to a real mailbox on the domain).
+- `contact.php` sends `To: sean@seanmandable.me` (a forward-only alias pointing at `smandable@gmail.com`) with `From: sean@seanmandable.me` and `Reply-To: <visitor>`. On-domain From keeps SPF/DKIM aligned with Dreamhost's outgoing mail, and Reply-To means hitting reply in Gmail goes straight to the visitor.
+- To change the recipient or sender, edit the constants at the top of `public/contact.php`.

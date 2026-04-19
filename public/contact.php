@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 // ---- Config ---------------------------------------------------------------
 
-const RECIPIENT   = 'smandable@gmail.com';
-const SENDER_FROM = 'noreply@seanmandable.me'; // Must live on the sending domain for SPF/DKIM to line up.
+// Send to sean@seanmandable.me (forward-only alias → smandable@gmail.com).
+// Using an on-domain From address keeps SPF/DKIM aligned on Dreamhost's mail servers.
+const RECIPIENT   = 'sean@seanmandable.me';
+const SENDER_FROM = 'sean@seanmandable.me';
 const SENDER_NAME = 'seanmandable.me';
 
 const MAX_NAME_LEN    = 100;

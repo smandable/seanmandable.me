@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ResumeButton from '../components/ResumeButton.astro';
 import { profile, tools, competencies } from '../data/resume';
 ---
 
@@ -16,17 +17,12 @@ import { profile, tools, competencies } from '../data/resume';
       <p class="mt-1 text-sm text-slate-500">{profile.tagline}</p>
       <p class="mt-6 text-base leading-relaxed text-slate-700">{profile.summary}</p>
       <div class="mt-8 flex flex-wrap gap-3">
+        <ResumeButton />
         <a
-          href="/resume"
-          class="inline-flex items-center rounded-md bg-sky-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-700"
-        >
-          View Resume
-        </a>
-        <a
-          href="/contact"
+          href="/work"
           class="inline-flex items-center rounded-md border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-sky-600 hover:text-sky-600"
         >
-          Get in Touch
+          See My Work
         </a>
       </div>
     </div>

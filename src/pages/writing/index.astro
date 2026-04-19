@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const dateFormat = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
+---
+
+<Layout title="Writing" description="Posts by Sean Mandable.">
+  <section>
+    <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Writing</h1>
+    <p class="mt-1 text-slate-600">Occasional notes on engineering, tools, and whatever else.</p>
+  </section>
+
+  {posts.length === 0 ? (
+    <p class="mt-10 text-slate-500">Nothing published yet.</p>
+  ) : (
+    <ul class="mt-10 space-y-6">
+      {posts.map((post) => (
+        <li class="border-b border-slate-200 pb-6 last:border-0">
+          <a href={`/writing/${post.id}/`} class="group block">
+            <div class="text-xs text-slate-500">{dateFormat.format(post.data.date)}</div>
+            <h2 class="mt-1 text-xl font-semibold tracking-tight group-hover:text-sky-600">
+              {post.data.title}
+            </h2>
+            {post.data.description && (
+              <p class="mt-1 text-sm text-slate-700">{post.data.description}</p>
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</Layout>

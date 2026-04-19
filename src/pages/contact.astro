@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.vue';
 import { profile } from '../data/resume';
 
-const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? '/contact.php';
 ---
 
 <Layout title="Contact">

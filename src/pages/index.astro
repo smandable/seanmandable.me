@@ -5,42 +5,42 @@ import { profile, tools, competencies } from '../data/resume';
 ---
 
 <Layout>
-  <section class="flex flex-row items-start gap-4 sm:gap-6 md:gap-10">
+  <section class="grid grid-cols-[auto_1fr] items-start gap-x-4 sm:gap-x-6 md:gap-x-10">
     <img
       src="/profile.jpg"
       alt={profile.name}
-      class="h-24 w-24 shrink-0 rounded-full object-cover shadow-md sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-48 lg:w-48"
+      class="row-start-1 h-24 w-24 shrink-0 rounded-full object-cover shadow-md sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-48 lg:w-48"
     />
-    <div class="min-w-0 flex-1">
+    <div class="row-start-1 min-w-0">
       <h1 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">{profile.name}</h1>
       <p class="mt-1 text-base text-sky-600 sm:mt-2 sm:text-lg">{profile.title}</p>
       <p class="mt-1 text-xs text-slate-500 sm:text-sm">{profile.tagline}</p>
-      <div class="mt-6 space-y-4 text-base leading-relaxed text-slate-700">
-        <p>
-          Senior software engineer based in Connecticut. I've been building things on the web since around 2008, and I've been noticing when things are a little off for about as long.
-        </p>
-        <p>
-          That's what most of the work on this site is about: the typo, the twenty-five-minute build, the brown sign I can't identify from the highway, the accessibility grade that should be an A instead of a D. The unglamorous stuff that makes the glamorous stuff possible, and the small wins that give teammates their afternoons back.
-        </p>
-        <p>
-          I spent 2021–2025 leading the in-house rebuild of TriNet's corporate website — Vue 2/Nuxt to Vue 3/Astro, D to A on accessibility, and a build pipeline that went from 25 minutes to 4. Before that, DiscoverOrg, a few years of independent consulting, and a winding road through a couple of agencies and front-end gigs going back to the 2000s.
-        </p>
-        <p>
-          When I'm not doing that I'm building my own apps — Brown Sign, Saddle, Kelvin Caliper — or writing, or hiking, or ignoring all of the above.
-        </p>
-        <p class="font-medium text-slate-900">
-          Currently open to senior engineering roles, remote or Hartford-area hybrid.
-        </p>
-      </div>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <ResumeButton />
-        <a
-          href="/work"
-          class="inline-flex items-center rounded-md border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-sky-600 hover:text-sky-600"
-        >
-          See My Work
-        </a>
-      </div>
+    </div>
+    <div class="col-span-2 mt-6 space-y-4 text-base leading-relaxed text-slate-700 md:col-start-2 md:col-span-1">
+      <p>
+        Senior software engineer based in Connecticut. I've been building things on the web since around 2008, and I've been noticing when things are a little off for about as long.
+      </p>
+      <p>
+        That's what most of the work on this site is about: the typo, the twenty-five-minute build, the brown sign I can't identify from the highway, the accessibility grade that should be an A instead of a D. The unglamorous stuff that makes the glamorous stuff possible, and the small wins that give teammates their afternoons back.
+      </p>
+      <p>
+        I spent 2021–2025 leading the in-house rebuild of TriNet's corporate website — Vue 2/Nuxt to Vue 3/Astro, D to A on accessibility, and a build pipeline that went from 25 minutes to 4. Before that, DiscoverOrg, a few years of independent consulting, and a winding road through a couple of agencies and front-end gigs going back to the 2000s.
+      </p>
+      <p>
+        When I'm not doing that I'm building my own apps — Brown Sign, Saddle, Kelvin Caliper — or writing, or hiking, or ignoring all of the above.
+      </p>
+      <p class="font-medium text-slate-900">
+        Currently open to senior engineering roles, remote or Hartford-area hybrid.
+      </p>
+    </div>
+    <div class="col-span-2 mt-8 flex flex-wrap gap-3 md:col-start-2 md:col-span-1">
+      <ResumeButton />
+      <a
+        href="/work"
+        class="inline-flex items-center rounded-md border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-sky-600 hover:text-sky-600"
+      >
+        See My Work
+      </a>
     </div>
   </section>
 

@@ -12,21 +12,16 @@ export const profile = {
 
 export const competencies: readonly string[] = [
   'Responsive Web Applications',
-  'Software Design',
-  'Service Oriented Architecture',
   'UI/UX Planning & Design',
-  'Agile Methodologies',
-  'Complex Problem-solving',
-  'Strategic Planning',
   'Efficiency Optimization',
-  'IT Operations Management',
-  'New Business Development',
-  'Team Development',
+  'Complex Problem-solving',
   'Coaching & Mentoring',
+  'Agile Methodologies',
 ];
 
 export const tools: readonly string[] = [
-  'Vue', 'Astro', 'Angular', 'React', 'Node', 'JavaScript', 'Tailwind',
-  'jQuery', 'PHP', 'Apache', 'MySQL', 'MariaDB', 'AWS', 'HTML', 'CSS',
-  'SCSS', 'Drupal', 'Linux', 'CMS', 'Vite', 'Express', 'VS Code',
+  'Vue', 'Nuxt', 'Astro', 'TypeScript', 'JavaScript', 'Node', 'React',
+  'Angular', 'Swift', 'SwiftUI', 'PHP', 'Tailwind', 'HTML', 'CSS', 'SCSS',
+  'Drupal', 'Contentstack', 'Vite', 'Express', 'MySQL', 'AWS', 'Apache',
+  'Linux', 'Git',
 ];

@@ -9,13 +9,13 @@ import { profile, tools } from '../data/resume';
     <img
       src="/profile.jpg"
       alt={profile.name}
-      class="row-start-1 h-24 w-24 shrink-0 rounded-full object-cover shadow-md sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-48 lg:w-48"
+      class="col-start-1 row-start-1 h-24 w-24 shrink-0 rounded-full object-cover shadow-md sm:h-32 sm:w-32 md:h-40 md:w-40 md:row-span-3 lg:h-48 lg:w-48"
     />
-    <div class="row-start-1 min-w-0">
+    <div class="col-start-2 row-start-1 min-w-0">
       <h1 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">{profile.name}</h1>
       <p class="mt-1 text-base text-accent-600 sm:mt-2 sm:text-lg">{profile.title}</p>
     </div>
-    <div class="col-span-2 mt-6 space-y-4 text-base leading-relaxed text-slate-700 md:col-start-2 md:col-span-1">
+    <div class="col-span-2 mt-6 space-y-4 text-base leading-relaxed text-slate-700 md:col-start-2 md:col-span-1 md:mt-4">
       <p>
         Senior software engineer based in Connecticut. I've been building things on the web since around 2008, and I've been noticing when things are a little off for about as long.
       </p>

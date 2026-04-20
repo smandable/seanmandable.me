@@ -1,6 +1,6 @@
 ---
 title: About
-description: A little about Sean Mandable — work, projects, and everything in between.
+description: The longer version.
 ---
 
 I've been building things on the web since around 2008. Full-stack, eyes-everywhere, the kind of developer whose cursor goes straight to the typo or the one-pixel-misaligned image without being asked. Fifteen-plus years in, I still like it. That probably says something.

@@ -7,7 +7,7 @@ I've been building things on the web since around 2008. Full-stack, eyes-everywh
 
 ### The work
 
-I've spent most of my career as a senior engineer — Vue, React, Angular, Node, the usual senior-frontend toolkit, with enough backend depth to hold up my end of a conversation. I like migrations, because they're the projects where you get to make something genuinely better instead of adding another feature to the pile. I like accessibility, because it's the part of the job that's obviously the right thing to do and weirdly easy to half-ass, so doing it properly feels like real work. I like the moment when a 25-minute build becomes a 4-minute build and everyone on the team gets their afternoons back. Small wins, big wins, I'm not picky.
+I've spent most of my career as a senior engineer — Vue, React, Angular, Node, the usual senior-frontend toolkit, with enough backend depth to hold up my end of a conversation. I like migrations, because they're the projects where you get to make something genuinely better instead of adding another feature to the pile. I like accessibility, because it's the part of the job that's obviously the right thing to do and weirdly easy to half-ass, so doing it properly feels like real work. I like the moment when a 25-minute build becomes a 2-minute build and everyone on the team gets their afternoons back. Small wins, big wins, I'm not picky.
 
 I also have the bug for making my own things. I've shipped an iPhone app (Brown Sign), a Mac utility (Saddle), and I'm building a color-calibration app in public that may or may not stay open source depending on how the commercial side shakes out. I'm happiest somewhere between "solving my own problem" and "solving it well enough that other people might want it too."
 

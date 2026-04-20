@@ -15,7 +15,7 @@ The first thing I noticed in my first few months was that builds on Netlify took
 
 It annoyed me, so I fixed it.
 
-The build was doing almost everything the wrong way: every asset in the project was being reprocessed on every build, every asset was being *logged* during processing, content collections were being rebuilt even when nothing in them had changed, and the whole CMS dataset was being refetched from scratch every time instead of incrementally. Cleaning that up — proper caching, incremental fetches, killing the asset logging, not rebuilding what hadn't changed — brought builds down to 3-4 minutes.
+The build was doing almost everything the wrong way: every asset in the project was being reprocessed on every build, every asset was being *logged* during processing, content collections were being rebuilt even when nothing in them had changed, and the whole CMS dataset was being refetched from scratch every time instead of incrementally. Cleaning that up — proper caching, incremental fetches, killing the asset logging, not rebuilding what hadn't changed — brought builds down to 1-2 minutes.
 
 The marketing team was very happy with me.
 

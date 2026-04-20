@@ -11,15 +11,19 @@ type Props = {
 
 const { title, description = `${profile.name} — ${profile.title}` } = Astro.props;
 const fullTitle = title ? `${title} — ${profile.name}` : profile.name;
+
+// Bump this when any /favicon.* or /apple-touch-icon.png changes so browsers
+// refetch instead of serving stale cached versions.
+const ICON_VERSION = '1';
 ---
 
 <!doctype html>
 <html lang="en" class="bg-white text-slate-900 antialiased">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href={`/favicon.svg?v=${ICON_VERSION}`} />
+    <link rel="icon" href={`/favicon.ico?v=${ICON_VERSION}`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`/apple-touch-icon.png?v=${ICON_VERSION}`} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />

@@ -4,32 +4,97 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('writing', ({ data }) => !data.draft);
-  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+
+  // Pre-compute series neighbours for chapter prev/next nav.
+  const seriesChapters: Record<string, CollectionEntry<'writing'>[]> = {};
+  for (const post of posts) {
+    if (post.data.kind === 'memoir-chapter' && post.data.series) {
+      (seriesChapters[post.data.series] ??= []).push(post);
+    }
+  }
+  for (const series of Object.keys(seriesChapters)) {
+    seriesChapters[series].sort((a, b) => (a.data.chapter ?? 0) - (b.data.chapter ?? 0));
+  }
+
+  return posts.map((post) => {
+    let prev: CollectionEntry<'writing'> | null = null;
+    let next: CollectionEntry<'writing'> | null = null;
+    if (post.data.kind === 'memoir-chapter' && post.data.series) {
+      const list = seriesChapters[post.data.series];
+      const idx = list.findIndex((p) => p.id === post.id);
+      prev = idx > 0 ? list[idx - 1] : null;
+      next = idx < list.length - 1 ? list[idx + 1] : null;
+    }
+    return { params: { slug: post.id }, props: { post, prev, next } };
+  });
 }
 
-type Props = { post: CollectionEntry<'writing'> };
-const { post } = Astro.props;
-const { Content } = await render(post);
+type Props = {
+  post: CollectionEntry<'writing'>;
+  prev: CollectionEntry<'writing'> | null;
+  next: CollectionEntry<'writing'> | null;
+};
 
-const dateFormat = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
+const { post, prev, next } = Astro.props;
+const { Content } = await render(post);
+const isChapter = post.data.kind === 'memoir-chapter';
+const seriesHref = post.data.series ? `/writing/${post.data.series}` : '/writing';
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
-  <article>
+  <article class="mx-auto max-w-[65ch]">
     <header>
-      <p class="text-xs text-slate-500">{dateFormat.format(post.data.date)}</p>
-      <h1 class="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">{post.data.title}</h1>
-      {post.data.description && (
+      {isChapter ? (
+        <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+          <a href={seriesHref} class="hover:text-sky-600">{post.data.seriesTitle ?? 'Series'}</a>
+          <span aria-hidden="true"> · </span>
+          <span>Chapter {post.data.chapter}</span>
+        </p>
+      ) : (
+        <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Essay</p>
+      )}
+      <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{post.data.title}</h1>
+      {post.data.description && !isChapter && (
         <p class="mt-2 text-slate-600">{post.data.description}</p>
       )}
     </header>
 
-    <div class="prose mt-10 max-w-none">
+    <div class="prose prose-reading mt-10 max-w-none">
       <Content />
     </div>
 
-    <nav class="mt-16">
-      <a href="/writing/" class="text-sm text-sky-600 hover:underline">← All posts</a>
-    </nav>
+    {isChapter && (
+      <nav class="mt-16 border-t border-slate-200 pt-6">
+        <div class="flex flex-wrap items-center justify-between gap-4 text-sm">
+          <div>
+            {prev ? (
+              <a href={`/writing/${prev.id}/`} class="text-sky-600 hover:underline">
+                ← {prev.data.title}
+              </a>
+            ) : (
+              <span class="text-slate-400">← Beginning</span>
+            )}
+          </div>
+          <a href={seriesHref} class="text-sky-600 hover:underline">
+            All chapters
+          </a>
+          <div class="text-right">
+            {next ? (
+              <a href={`/writing/${next.id}/`} class="text-sky-600 hover:underline">
+                {next.data.title} →
+              </a>
+            ) : (
+              <span class="text-slate-400">End →</span>
+            )}
+          </div>
+        </div>
+      </nav>
+    )}
+
+    {!isChapter && (
+      <nav class="mt-16 border-t border-slate-200 pt-6">
+        <a href="/writing/" class="text-sm text-sky-600 hover:underline">← All writing</a>
+      </nav>
+    )}
   </article>
 </Layout>

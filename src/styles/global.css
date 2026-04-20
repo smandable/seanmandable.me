@@ -1,2 +1,29 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/*
+ * Long-form reading variant applied to the writing pages.
+ * Serif body, generous line-height, slightly off-black ink, comfortable measure.
+ */
+.prose-reading {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.75;
+  --tw-prose-body: #1f2937;          /* slate-800 */
+  --tw-prose-headings: #0f172a;      /* slate-900 */
+  --tw-prose-links: #0284c7;         /* sky-600 */
+  --tw-prose-bold: #0f172a;
+  --tw-prose-quotes: #334155;        /* slate-700 */
+  --tw-prose-quote-borders: #cbd5e1; /* slate-300 */
+}
+
+.prose-reading p {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+.prose-reading h2 {
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  font-size: 1.25rem;
+}

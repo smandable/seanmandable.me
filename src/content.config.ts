@@ -8,6 +8,12 @@ const writing = defineCollection({
     date: z.coerce.date(),
     description: z.string().optional(),
     draft: z.boolean().default(false),
+    kind: z.enum(['essay', 'memoir-chapter']).default('essay'),
+    order: z.number().optional(),
+    // Chapter-series fields (used when kind === 'memoir-chapter')
+    series: z.string().optional(),
+    seriesTitle: z.string().optional(),
+    chapter: z.number().optional(),
   }),
 });
 

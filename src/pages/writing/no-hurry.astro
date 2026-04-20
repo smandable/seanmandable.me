@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const chapters = (await getCollection('writing', ({ data }) =>
+  data.kind === 'memoir-chapter' && data.series === 'no-hurry' && !data.draft,
+)).sort((a, b) => (a.data.chapter ?? 0) - (b.data.chapter ?? 0));
+---
+
+<Layout
+  title="No Hurry"
+  description="An account of 650 miles on the Appalachian Trail, March–July 2011."
+>
+  <section class="mx-auto max-w-2xl">
+    <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Memoir · 2011</p>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">No Hurry</h1>
+    <p class="mt-1 text-sm italic text-slate-500">Written from the trail in 2011.</p>
+    <p class="mt-6 text-base leading-relaxed text-slate-700">
+      In March of 2011 I set out to hike the Appalachian Trail, Georgia to Maine, and to live-blog the whole thing from an iPhone. I made it to Pearisburg, Virginia — about 650 miles in over three months — before coming home. This is the account of those months: the gear, the people, the weather, three separate encounters with hypothermia and a hypoglycemic seizure that nearly killed me at a shelter in the Smokies. Also the small unhurried mornings, the trail names, the unreliable cell service, the strangers who happened to show up exactly when I needed them.
+    </p>
+  </section>
+
+  <section class="mx-auto mt-12 max-w-2xl">
+    <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Chapters</h2>
+    <ol class="mt-4 divide-y divide-slate-200 border-y border-slate-200">
+      {chapters.map((c) => (
+        <li class="py-4">
+          <a
+            href={`/writing/${c.id}/`}
+            class="group flex items-baseline justify-between gap-4 hover:text-sky-600"
+          >
+            <span class="flex items-baseline gap-4">
+              <span class="w-6 flex-shrink-0 text-sm font-medium tabular-nums text-slate-400">
+                {c.data.chapter}.
+              </span>
+              <span class="text-base font-medium text-slate-900 group-hover:text-sky-600">
+                {c.data.title}
+              </span>
+            </span>
+            <span class="opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <nav class="mx-auto mt-12 max-w-2xl">
+    <a href="/writing/" class="text-sm text-sky-600 hover:underline">← All writing</a>
+  </nav>
+</Layout>

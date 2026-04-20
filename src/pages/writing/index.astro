@@ -1,37 +1,47 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
-
-const dateFormat = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
 ---
 
-<Layout title="Writing" description="Posts by Sean Mandable.">
-  <section>
+<Layout title="Writing" description="Long-form personal narrative from Sean Mandable.">
+  <section class="mx-auto max-w-2xl">
     <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Writing</h1>
-    <p class="mt-1 text-slate-600">Occasional notes on engineering, tools, and whatever else.</p>
+    <p class="mt-6 text-base leading-relaxed text-slate-700">
+      Two long pieces of personal narrative — one from a mountain, one from a trail. Included here because the craft of noticing, which is most of what I do at a keyboard, happens to also be most of what I do when I'm not at a keyboard.
+    </p>
   </section>
 
-  {posts.length === 0 ? (
-    <p class="mt-10 text-slate-500">Nothing published yet.</p>
-  ) : (
-    <ul class="mt-10 space-y-6">
-      {posts.map((post) => (
-        <li class="border-b border-slate-200 pb-6 last:border-0">
-          <a href={`/writing/${post.id}/`} class="group block">
-            <div class="text-xs text-slate-500">{dateFormat.format(post.data.date)}</div>
-            <h2 class="mt-1 text-xl font-semibold tracking-tight group-hover:text-sky-600">
-              {post.data.title}
-            </h2>
-            {post.data.description && (
-              <p class="mt-1 text-sm text-slate-700">{post.data.description}</p>
-            )}
-          </a>
-        </li>
-      ))}
-    </ul>
-  )}
+  <section class="mx-auto mt-16 max-w-2xl space-y-12">
+    <article class="border-t border-slate-200 pt-10">
+      <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Memoir · 2011</p>
+      <h2 class="mt-2 text-2xl font-bold tracking-tight">
+        <a href="/writing/no-hurry" class="hover:text-sky-600">No Hurry</a>
+      </h2>
+      <p class="mt-1 text-sm italic text-slate-500">Written from the trail in 2011.</p>
+      <p class="mt-4 text-base leading-relaxed text-slate-700">
+        In March of 2011 I set out to hike the Appalachian Trail, Georgia to Maine, and to live-blog the whole thing from an iPhone. I made it to Pearisburg, Virginia — about 650 miles in over three months — before coming home. This is the account of those months: the gear, the people, the weather, three separate encounters with hypothermia and a hypoglycemic seizure that nearly killed me at a shelter in the Smokies. Also the small unhurried mornings, the trail names, the unreliable cell service, the strangers who happened to show up exactly when I needed them.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-slate-700">A long read. I've split it into chapters.</p>
+      <p class="mt-6">
+        <a href="/writing/no-hurry" class="inline-flex items-center gap-1 text-sky-600 hover:underline">
+          Read <span aria-hidden="true">→</span>
+        </a>
+      </p>
+    </article>
+
+    <article class="border-t border-slate-200 pt-10">
+      <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Essay · early 1990s</p>
+      <h2 class="mt-2 text-2xl font-bold tracking-tight">
+        <a href="/writing/wilderness-challenge" class="hover:text-sky-600">Wilderness Challenge</a>
+      </h2>
+      <p class="mt-1 text-sm italic text-slate-500">A retrospective from the early 1990s.</p>
+      <p class="mt-4 text-base leading-relaxed text-slate-700">
+        An Outward Bound–style ski-and-winter-camping trip through the mountains of northern Idaho and southern British Columbia, taken as a required school expedition in January of my year at Rocky Mountain Academy. Seventy-pound packs, telemark skis none of us knew how to use, a broken ankle several days in, a makeshift sled, and a valley I still remember — dark on the right, sunlit on the left. "The valley of light and shadow," Christina called it.
+      </p>
+      <p class="mt-6">
+        <a href="/writing/wilderness-challenge" class="inline-flex items-center gap-1 text-sky-600 hover:underline">
+          Read <span aria-hidden="true">→</span>
+        </a>
+      </p>
+    </article>
+  </section>
 </Layout>

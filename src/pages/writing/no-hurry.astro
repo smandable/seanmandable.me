@@ -27,13 +27,13 @@ const chapters = (await getCollection('writing', ({ data }) =>
         <li class="py-4">
           <a
             href={`/writing/${c.id}/`}
-            class="group flex items-baseline justify-between gap-4 hover:text-sky-600"
+            class="group flex items-baseline justify-between gap-4 hover:text-accent-600"
           >
             <span class="flex items-baseline gap-4">
               <span class="w-6 flex-shrink-0 text-sm font-medium tabular-nums text-slate-400">
                 {c.data.chapter}.
               </span>
-              <span class="text-base font-medium text-slate-900 group-hover:text-sky-600">
+              <span class="text-base font-medium text-slate-900 group-hover:text-accent-600">
                 {c.data.title}
               </span>
             </span>
@@ -45,6 +45,6 @@ const chapters = (await getCollection('writing', ({ data }) =>
   </section>
 
   <nav class="mx-auto mt-12 max-w-2xl">
-    <a href="/writing/" class="text-sm text-sky-600 hover:underline">← All writing</a>
+    <a href="/writing/" class="text-sm text-accent-600 hover:underline">← All writing</a>
   </nav>
 </Layout>

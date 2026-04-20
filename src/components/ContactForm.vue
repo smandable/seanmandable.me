@@ -60,7 +60,7 @@ async function onSubmit(event: Event) {
         type="text"
         required
         autocomplete="name"
-        class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-600"
+        class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600"
       />
     </div>
 
@@ -72,7 +72,7 @@ async function onSubmit(event: Event) {
         type="email"
         required
         autocomplete="email"
-        class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-600"
+        class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600"
       />
     </div>
 
@@ -83,7 +83,7 @@ async function onSubmit(event: Event) {
         v-model="message"
         rows="6"
         required
-        class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-600"
+        class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600"
       />
     </div>
 
@@ -96,7 +96,7 @@ async function onSubmit(event: Event) {
     <button
       type="submit"
       :disabled="disabled"
-      class="inline-flex items-center rounded-md bg-sky-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-60"
+      class="inline-flex items-center rounded-md bg-accent-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-700 disabled:cursor-not-allowed disabled:opacity-60"
     >
       {{ status === 'sending' ? 'Sending…' : 'Send Message' }}
     </button>

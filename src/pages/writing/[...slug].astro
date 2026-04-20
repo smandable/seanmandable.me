@@ -46,7 +46,7 @@ const seriesHref = post.data.series ? `/writing/${post.data.series}` : '/writing
     <header>
       {isChapter ? (
         <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">
-          <a href={seriesHref} class="hover:text-sky-600">{post.data.seriesTitle ?? 'Series'}</a>
+          <a href={seriesHref} class="hover:text-accent-600">{post.data.seriesTitle ?? 'Series'}</a>
           <span aria-hidden="true"> · </span>
           <span>Chapter {post.data.chapter}</span>
         </p>
@@ -68,19 +68,19 @@ const seriesHref = post.data.series ? `/writing/${post.data.series}` : '/writing
         <div class="flex flex-wrap items-center justify-between gap-4 text-sm">
           <div>
             {prev ? (
-              <a href={`/writing/${prev.id}/`} class="text-sky-600 hover:underline">
+              <a href={`/writing/${prev.id}/`} class="text-accent-600 hover:underline">
                 ← {prev.data.title}
               </a>
             ) : (
               <span class="text-slate-400">← Beginning</span>
             )}
           </div>
-          <a href={seriesHref} class="text-sky-600 hover:underline">
+          <a href={seriesHref} class="text-accent-600 hover:underline">
             All chapters
           </a>
           <div class="text-right">
             {next ? (
-              <a href={`/writing/${next.id}/`} class="text-sky-600 hover:underline">
+              <a href={`/writing/${next.id}/`} class="text-accent-600 hover:underline">
                 {next.data.title} →
               </a>
             ) : (
@@ -93,7 +93,7 @@ const seriesHref = post.data.series ? `/writing/${post.data.series}` : '/writing
 
     {!isChapter && (
       <nav class="mt-16 border-t border-slate-200 pt-6">
-        <a href="/writing/" class="text-sm text-sky-600 hover:underline">← All writing</a>
+        <a href="/writing/" class="text-sm text-accent-600 hover:underline">← All writing</a>
       </nav>
     )}
   </article>

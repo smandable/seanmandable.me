@@ -2,6 +2,15 @@
 @plugin "@tailwindcss/typography";
 
 /*
+ * Site accent — hunter green. Using accent-600 as the primary shade and
+ * accent-700 as the darker hover/pressed state.
+ */
+@theme {
+  --color-accent-600: #355e3b;
+  --color-accent-700: #284a2d;
+}
+
+/*
  * Long-form reading variant applied to the writing pages.
  * Serif body, generous line-height, slightly off-black ink, comfortable measure.
  */
@@ -11,7 +20,7 @@
   line-height: 1.75;
   --tw-prose-body: #1f2937;          /* slate-800 */
   --tw-prose-headings: #0f172a;      /* slate-900 */
-  --tw-prose-links: #0284c7;         /* sky-600 */
+  --tw-prose-links: #355e3b;         /* accent-600 */
   --tw-prose-bold: #0f172a;
   --tw-prose-quotes: #334155;        /* slate-700 */
   --tw-prose-quote-borders: #cbd5e1; /* slate-300 */

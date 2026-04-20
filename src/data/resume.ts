@@ -8,8 +8,6 @@ export const profile = {
   email: 'sean@seanmandable.me',
   linkedin: 'https://www.linkedin.com/in/sean-mandable',
   github: 'https://github.com/smandable',
-  summary:
-    "Full-stack developer with 15+ years of experience, a sharp eye for detail, and a genuine love for building things well. I work across Vue, React, Angular, and Node.js, and I care as much about clean, maintainable code as I do about the end-user experience. I've led complex platform migrations, boosted conversions by 25%+, and cut load times by 75%. I'm just as happy mentoring a teammate as I am debugging a tricky layout issue.",
 } as const;
 
 export const competencies: readonly string[] = [

@@ -5,17 +5,19 @@ import { Content, frontmatter } from '../work.md';
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
-  <section class="flex flex-wrap items-end justify-between gap-4">
-    <div>
-      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{frontmatter.title}</h1>
-      {frontmatter.description && (
-        <p class="mt-1 text-slate-600">{frontmatter.description}</p>
-      )}
-    </div>
-    <ResumeButton />
-  </section>
+  <div class="mx-auto max-w-[65ch]">
+    <section class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{frontmatter.title}</h1>
+        {frontmatter.description && (
+          <p class="mt-1 text-slate-600">{frontmatter.description}</p>
+        )}
+      </div>
+      <ResumeButton />
+    </section>
 
-  <article class="prose mt-10 max-w-none">
-    <Content />
-  </article>
+    <article class="prose mt-10 max-w-none">
+      <Content />
+    </article>
+  </div>
 </Layout>

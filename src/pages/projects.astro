@@ -1,14 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ResumeButton from '../components/ResumeButton.astro';
+import { Content, frontmatter } from '../projects.md';
 ---
 
-<Layout title="Projects" description="Selected personal and professional projects.">
+<Layout title={frontmatter.title} description={frontmatter.description}>
   <section class="flex flex-wrap items-end justify-between gap-4">
     <div>
-      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Projects</h1>
-      <p class="mt-1 text-slate-600">Content coming soon.</p>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{frontmatter.title}</h1>
+      {frontmatter.description && (
+        <p class="mt-1 text-slate-600">{frontmatter.description}</p>
+      )}
     </div>
     <ResumeButton />
   </section>
+
+  <article class="prose mt-10 max-w-none">
+    <Content />
+  </article>
 </Layout>

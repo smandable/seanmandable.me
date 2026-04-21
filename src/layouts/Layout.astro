@@ -28,6 +28,14 @@ const ICON_VERSION = '2';
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{fullTitle}</title>
+    {import.meta.env.PROD && (
+      <script
+        is:inline
+        data-goatcounter="https://seanmandable.goatcounter.com/count"
+        async
+        src="https://gc.zgo.at/count.js"
+      />
+    )}
   </head>
   <body class="min-h-screen">
     <header class="border-b border-slate-200">

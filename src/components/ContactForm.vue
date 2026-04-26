@@ -43,6 +43,12 @@ async function onSubmit(event: Event) {
     name.value = '';
     email.value = '';
     message.value = '';
+
+    // Fire-and-forget Umami custom event so we can count successful submits.
+    // Guarded because Umami is only loaded in production builds.
+    if (typeof window !== 'undefined' && (window as any).umami?.track) {
+      (window as any).umami.track('contact-submit');
+    }
   } catch (err) {
     status.value = 'error';
     errorMessage.value = err instanceof Error ? err.message : 'Something went wrong.';

@@ -13,11 +13,11 @@ Brown Sign is the app I wanted to exist. Point your iPhone at the sign, tap the 
 
 The user-facing promise is simple. What it takes to deliver it is not.
 
-OCR runs on-device via Apple's Vision framework, sorting multi-line text top-to-bottom by bounding box so "Wadsworth Mansion / 2 MI" stays in the right order. The OCR output goes to Apple Intelligence (FoundationModels, iOS 26+) for normalization — stripping directions and distances, extracting just the landmark name. That cleaned-up name hits a four-source resolver: Wikipedia geosearch within 10 km, Wikipedia text search, NPS as a fallback for historic sites without Wikipedia coverage, and Wikidata for structured enrichment.
+OCR runs on-device via Apple's Vision framework, sorting multi-line text top-to-bottom by bounding box so "Wadsworth Mansion / 2 MI" stays in the right order. The OCR output goes to Apple Intelligence (FoundationModels, iOS 26+) for normalization, stripping directions and distances, extracting just the landmark name. That cleaned-up name hits a four-source resolver: Wikipedia geosearch within 10 km, Wikipedia text search, NPS as a fallback for historic sites without Wikipedia coverage, and Wikidata for structured enrichment.
 
 Candidates get filtered through three passes — a Wikidata P31 blocklist that drops bands, films, food, hoaxes, and people; a place-indicator whitelist; a default-reject for anything that doesn't earn its way through. Title-token overlap catches Wikipedia body-text matches that sneak past. Results sort exact-title-match first, then by distance — so "Wadsworth" near Middletown, Connecticut returns the mansion down the road instead of a city in Ohio. The top candidate gets a second enrichment pass: Apple Intelligence polishes the Wikipedia extract into a 2-3 sentence summary, scores the match confidence, Google Knowledge Graph adds an external confidence signal, and the article image downloads and resizes for offline browsing.
 
-No third-party Swift packages. Stock Apple frameworks all the way: SwiftUI + UIKit where needed, SwiftData for history, AVFoundation for the camera, CoreLocation, MapKit, SafariServices. Every external call fails silently to nil — the app works end-to-end with no API keys, no location permission, and no Apple Intelligence.
+No third-party Swift packages. Stock Apple frameworks all the way: SwiftUI + UIKit where needed, SwiftData for history, AVFoundation for the camera, CoreLocation, MapKit, SafariServices. Every external call fails silently to nil. The app works end-to-end with no API keys, no location permission, and no Apple Intelligence.
 
 ### Privacy
 
@@ -61,7 +61,7 @@ brew tap smandable/tap && brew install --cask saddle
 
 Hardware colorimeters cost $170-300 and most people never buy one. Modern iPhone cameras have surprisingly good sensors and shoot RAW DNG, which exposes enough linear color information to do useful display calibration. Kelvin Caliper is a Mac + iOS app pair built on that observation: use the iPhone you already own as the measurement device, match the white point and gamma across your monitors, and apply the corrections directly.
 
-The headline feature is multi-monitor matching. Pick one display as the reference, match the others to it. The most valuable real-world use isn't absolute calibration accuracy — it's making your second and third monitors actually look like your main one.
+The headline feature is multi-monitor matching. Pick one display as the reference, match the others to it. The most valuable real-world use isn't absolute calibration accuracy. It's making your second and third monitors actually look like your main one.
 
 ### What's underneath
 
@@ -73,7 +73,7 @@ Pairing happens over Multipeer Connectivity. No cloud, no account, no network ro
 
 ### Current state
 
-I'm in a validation spike — three deliberately throwaway pieces that answer one question: are iPhone-based measurements repeatable and consistent enough to actually be useful for this? A SwiftUI Mac app that displays full-screen color patches in sequence. A SwiftUI iPhone app that captures RAW DNGs with locked camera settings. And a Python analysis script (`rawpy` + `numpy` + `exifread`) that reads the DNGs, extracts linear sensor RGB, applies the embedded `ColorMatrix1`/`ColorMatrix2` tags, and computes white point and gamma.
+I'm in a validation spike: three deliberately throwaway pieces that answer one question: are iPhone-based measurements repeatable and consistent enough to actually be useful for this? A SwiftUI Mac app that displays full-screen color patches in sequence. A SwiftUI iPhone app that captures RAW DNGs with locked camera settings. And a Python analysis script (`rawpy` + `numpy` + `exifread`) that reads the DNGs, extracts linear sensor RGB, applies the embedded `ColorMatrix1`/`ColorMatrix2` tags, and computes white point and gamma.
 
 A factory-calibrated Dell U3224KB serves as the ground-truth reference display for sanity-checking the math. Cross-device consistency gets validated by running the same captures on both an iPhone 16 Pro and an iPad mini and comparing relative results.
 
@@ -89,6 +89,6 @@ In active development. Planned for commercial release on the Mac App Store. The 
 
 ## Also
 
-**[MovieDB](https://github.com/smandable/moviedb)** — a local movie library cataloging app I built for myself. Angular 21 + TypeScript front end on AG Grid, PHP/MySQL backend, FFprobe for metadata extraction, duplicate detection across mounted volumes, batch filename normalization. Useful, not a showcase piece. Included because it's the thing I actually use to keep my movie collection from slowly devolving into chaos.
+**[MovieDB](https://github.com/smandable/moviedb)** — a local movie library cataloging app I built for myself. Angular 22 + TypeScript front end on AG Grid, PHP/MySQL backend, FFprobe for metadata extraction, duplicate detection across mounted volumes, batch filename normalization. Useful, not a showcase piece. Included because it's the thing I actually use to keep my movie collection from slowly devolving into chaos.
 
 **CLI utilities.** A handful of small PHP command-line tools I wrote to solve specific file-management problems and kept around because they're still useful: **[consolidate_movies](https://github.com/smandable/consolidate_movies)** (groups episodic video files across multiple drives and consolidates each title onto a single drive, with space balancing), **[convert_to_mp4](https://github.com/smandable/convert_to_mp4)** (batch video conversion with corruption detection, junk/static detection via entropy analysis, and post-convert validation), **[de-obfuscate](https://github.com/smandable/de-obfuscate)** (renames obfuscated files using their parent directory name), and **[delete_low_res](https://github.com/smandable/delete_low_res)** (finds and removes video files below a width threshold). All of them dry-run-by-default, because I've learned that lesson.

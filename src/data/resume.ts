@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Sean Mandable',
   credential: 'M.S.',
-  title: 'Sr. Software Engineer',
+  title: 'Senior Software Engineer',
   location: 'Greater Hartford Area, CT',
   phone: '475.231.5287',
   email: 'sean@seanmandable.me',

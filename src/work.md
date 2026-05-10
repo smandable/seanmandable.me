@@ -7,15 +7,15 @@ description: Roles and projects across 15+ years of full-stack engineering.
 
 **Senior Software Engineer** · Remote
 
-I joined TriNet to help bring their development team in-house. The corporate website had been built and managed by an external agency on Vue 2 and Nuxt — dated tooling, dated codebase, and a vendor relationship that meant internal teams couldn't really own their own web presence. My job was to help stand up an internal team and then rebuild, run, and own the site ourselves.
+I joined TriNet to help bring their development team in-house. The corporate website had been built and managed by an external agency on Vue 2 and Nuxt. Dated tooling, dated codebase, and a vendor relationship that meant internal teams couldn't really own their own web presence. My job was to help stand up an internal team and then rebuild, run, and own the site ourselves.
 
 ### The 25-minute build
 
-The first thing I noticed in my first few months was that builds on Netlify took 20-25 minutes. Every time. Marketing used Contentstack to manage copy, which meant every single-word change — a typo fix, a product name tweak, a date correction — kicked off a 25-minute wait before anyone could see it live. Multiple stakeholders were making updates throughout the day, and all of them were sitting there watching a progress bar.
+The first thing I noticed in my first few months was that builds on Netlify took 20-25 minutes. Every time. Marketing used Contentstack to manage copy, which meant every single-word change (a typo fix, a product name tweak, a date correction) kicked off a 25-minute wait before anyone could see it live. Multiple stakeholders were making updates throughout the day, and all of them were sitting there watching a progress bar.
 
 It annoyed me, so I fixed it.
 
-The build was doing almost everything the wrong way: every asset in the project was being reprocessed on every build, every asset was being *logged* during processing, content collections were being rebuilt even when nothing in them had changed, and the whole CMS dataset was being refetched from scratch every time instead of incrementally. Cleaning that up — proper caching, incremental fetches, killing the asset logging, not rebuilding what hadn't changed — brought builds down to 1-2 minutes.
+The build was doing almost everything the wrong way: every asset in the project was being reprocessed on every build, every asset was being *logged* during processing, content collections were being rebuilt even when nothing in them had changed, and the whole CMS dataset was being refetched from scratch every time instead of incrementally. Cleaning that up (proper caching, incremental fetches, killing the asset logging, not rebuilding what hadn't changed) brought builds down to 1 minute.
 
 The marketing team was very happy with me.
 
@@ -25,15 +25,15 @@ With the site in-house and the feedback loop fast enough to iterate on, the bigg
 
 ### Accessibility: D to A
 
-The site graded a D against WCAG standards when I arrived. By the time I left, it was an A. Most of that work happened alongside the migration — new architecture is a good excuse to do accessibility right from the foundation rather than patch it on — but a real portion of it was just going through and fixing things that had been wrong for a long time. Semantic markup, keyboard navigation, color contrast, screen reader testing, the whole list.
+The site graded a D against WCAG standards when I arrived. By the time I left, it was an A. Most of that work happened alongside the migration. New architecture is a good excuse to do accessibility right from the foundation rather than patch it on. But a real portion of it was just going through and fixing things that had been wrong for a long time. Semantic markup, keyboard navigation, color contrast, screen reader testing, the whole list.
 
 ### The rest
 
-- Streamlined content workflows across three departments so non-technical staff could publish without a developer in the loop
-- Boosted visitor conversion 25%+ through a redesigned interface with clearer hierarchy and navigation
+- Built self-serve content workflows for three departments so routine updates no longer needed a developer in the loop
+- Lifted visitor conversion 25%+ through a redesigned interface with clearer hierarchy and navigation
 - Cut image load times 75% with modern compression and next-gen formats
 - Managed one direct report and recruited/managed external contractors through key milestones
-- Survived a steady diet of mid-sprint scope changes, shifting leadership direction, and moving launch dates — the stuff every senior engineer eventually learns is the job
+- Survived a steady diet of mid-sprint scope changes, shifting leadership direction, and moving launch dates. The stuff every senior engineer eventually learns is the job
 
 ---
 
@@ -41,9 +41,9 @@ The site graded a D against WCAG standards when I arrived. By the time I left, i
 
 **Senior Software Engineer** · Vancouver, WA
 
-DiscoverOrg hired me to replace their front-end codebase. The existing site was a sedimentary layer of stylesheets that overrode each other multiple times, HTML generated by stored procedures or scattered across directories, and a backend that was part procedural PERL, part underbaked PHP, and a MySQL database doing what it could.
+DiscoverOrg hired me to take a sedimentary mess of a codebase and turn it into something you could actually develop in. What I walked into: stylesheets that overrode each other multiple times, HTML generated by stored procedures or scattered across directories, a jQuery and plain-CSS front end held together more by habit than architecture, and a backend that was part procedural Perl, part underbaked PHP, with a MySQL database doing what it could.
 
-The CTO and I landed on Angular (1.x at the time) with Bootstrap-sass on the front end, and eventually Java Spring Boot on the backend. He was a Java developer and brought in a back-end hire to work alongside me, which meant I got to learn Angular, tighten up my SASS, and learn how to consume and contribute to Java APIs. I built new Angular views in HTML and SCSS with their attendant models and controllers in JavaScript, consumed existing Java APIs, wrote my own when I needed to, and refactored the PERL/PHP/HTML/CSS underneath it — improving look, feel, functionality, and performance.
+The CTO and I landed on Angular (1.x at the time) with plain SCSS on the front end, and eventually Java Spring Boot on the backend. He was a Java developer and brought in a back-end hire to work alongside me, which meant I got to learn Angular, tighten up my SCSS, and learn how to consume and contribute to Java APIs. I built new Angular views in HTML and SCSS with their attendant models and controllers in JavaScript, consumed existing Java APIs, wrote my own when I needed to, and refactored the legacy Perl, PHP, and front-end code underneath. Look, feel, functionality, and performance all came up.
 
 DiscoverOrg grew from about $30M to $1.2B in annual revenue during and after my time there. The website was one factor of many, but it was the factor I worked on, and it had to scale with everything else.
 
@@ -53,7 +53,7 @@ DiscoverOrg grew from about $30M to $1.2B in annual revenue during and after my 
 
 **Senior Software Engineer** · Remote
 
-Three years running my own shop, taking on up to ten clients at a time — **Ann Taylor** among them — and handling every phase from proposal through deployment. Design, full-stack development, DevOps, client communication, and the unglamorous parts nobody puts on a resume: scoping conversations, writing proposals that actually say what the work will cost and when it will ship, and keeping records good enough that nobody had to ask me twice what was going on.
+Three years running my own shop, taking on up to ten clients at a time (**Ann Taylor** among them) and handling every phase from proposal through deployment. Design, full-stack development, DevOps, client communication, and the unglamorous parts nobody puts on a resume: scoping conversations, writing proposals that actually say what the work will cost and when it will ship, and keeping records good enough that nobody had to ask me twice what was going on.
 
 Shipped on time and on budget. Which sounds like a throwaway line and isn't, because shipping on time and on budget while solo across ten concurrent engagements is mostly a project management problem wearing an engineering costume.
 
@@ -63,7 +63,7 @@ Shipped on time and on budget. Which sounds like a throwaway line and isn't, bec
 
 **Drupal Web Developer** · Norwalk, CT
 
-A one-year run rebuilding the enrollment website for an electricity provider — design direction, SCSS authoring and refactoring, and a lot of JavaScript to make the functionality behave. Built on Drupal 7 and Foundation 6, with a small team of three doing daily scrum and working to tighten up a codebase that had gotten redundant in places.
+A one-year run rebuilding the enrollment website for an electricity provider. Design direction, SCSS authoring and refactoring, and a lot of JavaScript to make the functionality behave. Built on Drupal 7 and Foundation 6, with a small team of three doing daily scrum and working to tighten up a codebase that had gotten redundant in places.
 
 ---
 

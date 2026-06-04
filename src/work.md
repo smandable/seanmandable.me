@@ -37,7 +37,7 @@ The site graded a D against WCAG standards when I arrived. By the time I left, i
 
 ---
 
-## DiscoverOrg (2014–2016)
+## DiscoverOrg (now ZoomInfo) (2014–2016)
 
 **Senior Software Engineer** · Vancouver, WA
 
@@ -61,9 +61,9 @@ Shipped on time and on budget. Which sounds like a throwaway line and isn't, bec
 
 ## North American Power (2017)
 
-**Drupal Web Developer** · Norwalk, CT
+**Senior Web Developer** · Norwalk, CT
 
-A one-year run rebuilding the enrollment website for an electricity provider. Design direction, SCSS authoring and refactoring, and a lot of JavaScript to make the functionality behave. Built on Drupal 7 and Foundation 6, with a small team of three doing daily scrum and working to tighten up a codebase that had gotten redundant in places.
+A one-year run rebuilding the enrollment website for an electricity provider. Design direction, SCSS authoring and refactoring, and a lot of JavaScript to make the functionality behave. Built on Drupal 8 and Foundation 6, with a small team of three doing daily scrum and working to tighten up a codebase that had gotten redundant in places.
 
 ---
 

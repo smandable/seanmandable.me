@@ -85,7 +85,7 @@ brew tap smandable/tap && brew install --cask saddle
 
 ---
 
-<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/kelvin-caliper.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Kelvin Caliper (in development, planned commercial release)</h2>
+<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/kelvin-caliper.png?v=2" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Kelvin Caliper (in development, planned commercial release)</h2>
 
 Hardware colorimeters cost $170-300 and most people never buy one. Modern iPhone cameras have surprisingly good sensors and shoot RAW DNG, which exposes enough linear color information to do useful display calibration. Kelvin Caliper is a Mac + iOS app pair built on that observation: use the iPhone you already own as the measurement device, match the white point and gamma across your monitors, and apply the corrections directly.
 

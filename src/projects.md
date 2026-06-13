@@ -3,7 +3,7 @@ title: Projects
 description: Shipped and in-progress personal projects across iOS, macOS, and the web.
 ---
 
-## Brown Sign (iOS, 2025)
+<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/brown-sign.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Brown Sign (iOS, 2025)</h2>
 
 You know those brown signs on the highway — the ones that point to state parks, historical sites, scenic overlooks, the occasional mansion or covered bridge? I kept seeing them, wondering what they actually were, and not doing anything about it. Googling "that brown sign I just passed near Middletown" is not a real workflow. So most of the time I just drove on.
 
@@ -31,7 +31,7 @@ Shipped to the App Store (currently v1.9). Still actively developing — I keep 
 
 ---
 
-## ModernPAR (macOS, 2026)
+<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/modernpar.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ModernPAR (macOS, 2026)</h2>
 
 MacPAR deLuxe is the Mac app for PAR files. It has held that spot for a long time, mostly because nobody else bothered. PAR files add recovery data to a set of files, so when a piece goes missing or arrives corrupted you can rebuild it instead of starting over. I've used MacPAR deLuxe to verify and repair file sets for years. It's Intel-only, it hasn't shipped an update in a long while, and it stops working once Apple retires Rosetta 2.
 
@@ -59,7 +59,7 @@ v1.0.0 is available as a signed, notarized `.dmg` from GitHub Releases. It updat
 
 ---
 
-## Saddle (macOS, 2025)
+<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/saddle.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Saddle (macOS, 2025)</h2>
 
 My external drives kept making noises. Spinning up for no reason, chattering to themselves in the background, asking for attention they didn't need. Most of the time they just sat there doing nothing — I'd go days without actually reading or writing anything to them — but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
 

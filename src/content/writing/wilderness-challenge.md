@@ -1,6 +1,6 @@
 ---
 title: "Wilderness Challenge"
-description: "A retrospective from the early 1990s. An Outward Bound–style ski-and-winter-camping trip through northern Idaho and southern British Columbia."
+description: "A retrospective from 1992. An Outward Bound–style ski-and-winter-camping trip through northern Idaho and southern British Columbia."
 date: 1992-01-01
 order: 2
 kind: essay

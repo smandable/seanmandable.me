@@ -25,13 +25,41 @@ No accounts. No analytics. No ads. No tracking. Camera images are processed on-d
 
 ### Status
 
-Shipped to the App Store. Still actively developing — I keep thinking of new features.
+Shipped to the App Store (currently v1.9). Still actively developing — I keep thinking of new features.
 
 **[App Store](https://apps.apple.com/us/app/brown-sign/id6762070205)** · **[GitHub](https://github.com/smandable/brown-sign)**
 
 ---
 
-## Saddle (macOS, 2024)
+## ModernPAR (macOS, 2026)
+
+MacPAR deLuxe is the Mac app for PAR files. It has held that spot for a long time, mostly because nobody else bothered. PAR files add recovery data to a set of files, so when a piece goes missing or arrives corrupted you can rebuild it instead of starting over. I've used MacPAR deLuxe to verify and repair file sets for years. It's Intel-only, it hasn't shipped an update in a long while, and it stops working once Apple retires Rosetta 2.
+
+ModernPAR is that rebuild. It verifies and repairs PAR2 and PAR1 sets, creates new recovery sets, and extracts RAR and zip archives. Drop a `.par2` file or its folder on the window and it verifies, repairs any damage, then extracts the archive inside, with per-file status and the "need N more recovery blocks" math along the way. Drag-and-drop, open-with, and completion notifications that jump you to the file in Finder. It's arm64 native, built in Swift 6 and SwiftUI.
+
+### What's underneath
+
+The PAR2 work runs on par2cmdline-turbo, the fast fork of the standard PAR2 engine. It's C++, and instead of shipping it as a separate binary and shelling out, I embedded it in-process as a C++ SwiftPM target behind an exception-catching `extern "C"` shim. Swift consumes it as a plain C module, so none of the C++ leaks into the rest of the app. RAR extraction uses RARLAB's UnRAR 7.2.4 the same way, and zip goes through the system libarchive. All three are wrapped as plain C modules, which means no target in the project uses C++ interop at all. A subprocess engine sits behind the same protocol as a designed-in fallback.
+
+PAR1 is a different story. There's no modern library for it, so the PAR1 encoder and the read-only parser are pure Swift, including the GF(2⁸) Reed-Solomon math. The output is byte-identical to the original Intel helper, and that helper reads my output back as valid. That comparison is one of the tests, so if the output ever drifts from the reference, the build goes red.
+
+Licensing drove a few of the structural calls. par2cmdline-turbo is GPL, which is fine because ModernPAR is itself GPL-2.0. UnRAR carries a field-of-use restriction that makes it GPL-incompatible, so it lives in its own separately-licensed component and never merges into the GPL engine's link unit. Every Mach-O in the bundle is arm64-only, including the embedded Sparkle 2 framework, and CI fails the build if anything Intel sneaks in. 342 tests, counting the byte-for-byte oracle checks and the license-compliance gates.
+
+On the app side, every engine (verify, repair, create, RAR, zip) streams the same event type through an AsyncStream into one coalesced model on the main actor, so a single window renders all of them. The scene is a WindowGroup keyed on a folder-scoped session instead of a DocumentGroup, because the thing on screen is a long-running session, not a document.
+
+### Licensing
+
+ModernPAR is free software under GPL-2.0-or-later. That's the license that lets it embed the GPL PAR2 engine in-process. The full third-party breakdown is in the repo.
+
+### Installing
+
+v1.0.0 is available as a signed, notarized `.dmg` from GitHub Releases. It updates itself through Sparkle. Still actively developed.
+
+**[GitHub](https://github.com/smandable/ModernPAR)** · **[Download](https://github.com/smandable/ModernPAR/releases/latest)**
+
+---
+
+## Saddle (macOS, 2025)
 
 My external drives kept making noises. Spinning up for no reason, chattering to themselves in the background, asking for attention they didn't need. Most of the time they just sat there doing nothing — I'd go days without actually reading or writing anything to them — but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
 
@@ -47,7 +75,7 @@ The settings window is a proper GUI — not a pile of defaults-write commands or
 
 ### Installing
 
-Current release is 1.2. Available as a signed, notarized `.dmg` from GitHub, or via Homebrew:
+Current release is 1.4.1. Available as a signed, notarized `.dmg` from GitHub, or via Homebrew:
 
 ```bash
 brew tap smandable/tap && brew install --cask saddle

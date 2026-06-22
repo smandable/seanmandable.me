@@ -9,8 +9,8 @@ const year = new Date().getFullYear();
     <nav class="footer-links flex flex-wrap items-center justify-center" aria-label="Footer">
       <a href="/contact" class="hover:text-accent-600">Contact</a>
       <a href={`mailto:${profile.email}`} class="hover:text-accent-600" data-umami-event="contact-email">Email</a>
-      <a href={profile.github} class="hover:text-accent-600" rel="noopener noreferrer" target="_blank" data-umami-event="external-link-github">GitHub</a>
-      <a href={profile.linkedin} class="hover:text-accent-600" rel="noopener noreferrer" target="_blank" data-umami-event="external-link-linkedin">LinkedIn</a>
+      <a href={profile.github} class="hover:text-accent-600" rel="noopener noreferrer" target="_blank" data-umami-event="external-link-github">GitHub<span class="sr-only"> (opens in new tab)</span></a>
+      <a href={profile.linkedin} class="hover:text-accent-600" rel="noopener noreferrer" target="_blank" data-umami-event="external-link-linkedin">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
       <a href="/sean-mandable-resume.pdf" class="hover:text-accent-600" download="Sean-Mandable-Resume.pdf" data-umami-event="download-resume">Resume (PDF)</a>
     </nav>
   </div>

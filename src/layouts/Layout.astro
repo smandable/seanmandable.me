@@ -38,12 +38,33 @@ const ICON_VERSION = '2';
     <meta name="twitter:image" content="https://www.seanmandable.me/og-image.png" />
     <title>{fullTitle}</title>
     {import.meta.env.PROD && (
-      <script
-        is:inline
-        defer
-        data-website-id="7ccf0608-b402-47a9-8a95-36710ac0492f"
-        src="https://cloud.umami.is/script.js"
-      />
+      <Fragment>
+        {/* Self opt-out of analytics: visit any page with ?notme to stop Umami
+            counting this browser (?notme=off to re-enable). Sets Umami's
+            documented `umami.disabled` localStorage flag, which the tracker
+            below checks before sending anything. Runs synchronously before the
+            deferred tracker, and strips the param so it isn't left in the URL. */}
+        <script is:inline>
+          (function () {
+            try {
+              var p = new URLSearchParams(location.search);
+              if (!p.has('notme')) return;
+              var v = p.get('notme');
+              if (v === 'off' || v === '0') localStorage.removeItem('umami.disabled');
+              else localStorage.setItem('umami.disabled', '1');
+              p.delete('notme');
+              var q = p.toString();
+              history.replaceState(null, '', location.pathname + (q ? '?' + q : '') + location.hash);
+            } catch (e) {}
+          })();
+        </script>
+        <script
+          is:inline
+          defer
+          data-website-id="7ccf0608-b402-47a9-8a95-36710ac0492f"
+          src="https://cloud.umami.is/script.js"
+        />
+      </Fragment>
     )}
   </head>
   <body class="min-h-screen">

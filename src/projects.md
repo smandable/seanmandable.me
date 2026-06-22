@@ -31,6 +31,40 @@ Shipped to the App Store (currently v1.9). Still actively developing — I keep 
 
 ---
 
+<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/rekey.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ReKey (macOS, 2026)</h2>
+
+Every browser has a "check your passwords" feature now, and so does Apple Passwords. The catch is that each one only looks at its own store. I've used Chrome, then Firefox, and now Arc, so the passwords I'd quietly reused for years were spread across four or five different exports, and no single checkup could see across them. The other option is to hand the whole list to a password manager's cloud and let it confirm what I already suspected. I wanted to find the reused and breached ones myself, on my own machine, without uploading anything.
+
+ReKey is a local password health auditor for macOS. You export a CSV from each browser you've used (Chrome, Arc, Firefox, Apple Passwords), drop them in, and it finds the reused and compromised passwords, groups them by site worst-first, generates strong replacements, and walks you to each site's change page. You approve every change, and ReKey never changes a password itself. It generates the new one and opens the change page; you make the change, and your browser's own save prompt stores it.
+
+### What's underneath
+
+The whole thing is built so your plaintext passwords never leave the machine. They live in memory only, never written to disk, never logged, never sent anywhere. Each one is held in a small wrapper type whose debug and log output is redacted, so a password can't be printed or interpolated into a log by accident. The single exception is the breach check, which uses Have I Been Pwned's k-anonymity API: ReKey hashes the password with SHA-1 and sends only the first five characters of that hash. The server returns every breached hash sharing those five characters, and the comparison happens locally. The password, the full hash, and the account it belongs to never leave the device.
+
+Import detects each browser's format by its column headers rather than their position, and parses with a real RFC 4180 parser that handles quoted fields, embedded commas and newlines, escaped quotes, and the byte-order mark some exports include. URLs are canonicalized to their registrable domain through a vendored Public Suffix List, so accounts.google.com and mail.google.com group under google.com, and bbc.co.uk resolves correctly instead of collapsing to co.uk. Reuse is found across every imported browser at once, so a password you used in Chrome and again in Firefox shows up as a single cluster.
+
+Replacement passwords come from the system CSPRNG (SecRandomCopyBytes), with rejection sampling so there's no modulo bias and at least one character from each class you've enabled. Length, character classes, an avoid-look-alikes option, and a letters-and-digits-only mode for picky sites are all adjustable, and there's a diceware passphrase mode built on the EFF wordlist.
+
+Getting you to the right change page is its own problem. ReKey tries the site's /.well-known/change-password path, the same convention Safari and Chrome use, but plenty of servers answer 200 to every URL, so a 200 there proves nothing. To catch that, it also requests a random path that cannot exist, and trusts the change page only if the real path succeeds while the nonsense path returns a not-found. If that fails it falls back to a small curated map, and last of all to the site's home page with a note to find the setting yourself. It resolves one site at a time, and only when you choose to fix that one, so importing your accounts never pings every domain on your list. No URL is ever guessed by an LLM, because a confident wrong guess is worse than no guess.
+
+When you approve a fix, the new password goes to the clipboard marked concealed, using the convention that clipboard-history managers like Maccy and Raycast honor, so it stays out of their history. It clears itself about ninety seconds later, and it does that by checking the clipboard's change count instead of reading the contents back, so it neither keeps the plaintext alive for the wait nor trips the macOS prompt for reading the clipboard. If you've copied something else in the meantime, it leaves it alone.
+
+The app is sandboxed and never writes to any browser store, Apple Passwords, or the keychain. Changing a password usually updates the saved login in place, but sometimes the browser saves a second copy and leaves the old one behind with the dead password. Clearing that out is a separate, opt-in command-line tool called rekey-cleanup, kept deliberately outside the sandboxed app. It matches and deletes purely on the plaintext index fields, so it never reads the encrypted password blob or needs any decryption key. It dry-runs by default, refuses to run while the browser is open, backs up the store before touching it, and does its deletes inside a transaction. The app shows and copies the exact command for a site you've fixed, and you run it yourself in Terminal.
+
+Every piece of logic (the parser, the audit, the generator, the breach client, the reset router) is free of SwiftUI and unit-tested on its own. The network clients sit behind protocols, so the engines test with no network and the live clients are wired in only at the app layer. There are 224 tests, including the ones that keep the privacy guarantees honest.
+
+### Privacy
+
+No accounts, no analytics, no telemetry, and no crash reporting. The only network calls ReKey makes are the Have I Been Pwned prefix query and the on-demand lookup of a single change-password URL when you decide to fix that account. App Sandbox is on, with a short list of entitlements: outgoing network, read-write access to the files you pick (so it can securely overwrite and delete the source CSV after import), and a single folder bookmark used only if you turn on the optional auto-import watcher.
+
+### Status
+
+The source is on GitHub. It builds with Xcode or a one-command script that assembles and signs the app, targets Apple Silicon on macOS 15 or later, and is written in Swift 6. I built it for my own password cleanup and kept going on it. There's no notarized release or App Store build yet, so for now it's build-from-source.
+
+**[GitHub](https://github.com/smandable/ReKey)**
+
+---
+
 <h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/modernpar.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ModernPAR (macOS, 2026)</h2>
 
 MacPAR deLuxe is the Mac app for PAR files. It has held that spot for a long time, mostly because nobody else bothered. PAR files add recovery data to a set of files, so when a piece goes missing or arrives corrupted you can rebuild it instead of starting over. I've used MacPAR deLuxe to verify and repair file sets for years. It's Intel-only, it hasn't shipped an update in a long while, and it stops working once Apple retires Rosetta 2.

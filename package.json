@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/vue": "^6.0.1",
     "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.8",
+    "astro": "^6.4.6",
     "tailwindcss": "^4.2.2",
     "vue": "^3.5.32"
   },
@@ -22,6 +22,8 @@
     "@tailwindcss/typography": "^0.5.19"
   },
   "overrides": {
-    "esbuild": "^0.28.1"
+    "esbuild": "^0.28.1",
+    "vite": "^7.3.5",
+    "@babel/core": "^7.29.6"
   }
 }

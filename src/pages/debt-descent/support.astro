@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Content, frontmatter } from '../../debt-descent-support.md';
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+  <div class="mx-auto max-w-[65ch]">
+    <section>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{frontmatter.title}</h1>
+      {frontmatter.description && (
+        <p class="mt-1 text-accent-600">{frontmatter.description}</p>
+      )}
+    </section>
+
+    <article class="prose mt-10 max-w-none">
+      <Content />
+    </article>
+  </div>
+</Layout>

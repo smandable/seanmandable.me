@@ -83,9 +83,9 @@ No accounts, no analytics, no telemetry, and no crash reporting. The only networ
 
 ### Status
 
-ReKey 1.0 is available as a signed, notarized `.dmg` from GitHub Releases, and a Mac App Store version is awaiting review. It targets Apple Silicon on macOS 15 or later, is written in Swift 6, and also builds from source with Xcode or a one-command signing script. I built it for my own password cleanup and kept going on it.
+ReKey is on the **Mac App Store** (currently v1.1.2), and is also available as a signed, notarized `.dmg` from GitHub Releases. It targets Apple Silicon on macOS 15 or later, is written in Swift 6, and also builds from source with Xcode or a one-command signing script. I built it for my own password cleanup and kept going on it.
 
-**[GitHub](https://github.com/smandable/ReKey)** · **[Download](https://github.com/smandable/ReKey/releases/latest)**
+**[App Store](https://apps.apple.com/us/app/rekey-website-password-audit/id6783031023)** · **[GitHub](https://github.com/smandable/ReKey)** · **[Download](https://github.com/smandable/ReKey/releases/latest)**
 
 ---
 

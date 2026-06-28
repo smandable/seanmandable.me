@@ -25,7 +25,7 @@ No accounts. No analytics. No ads. No tracking. Camera images are processed on-d
 
 ### Status
 
-Shipped to the App Store (currently v1.9). Still actively developing — I keep thinking of new features.
+Shipped to the App Store (currently v2.0). Still actively developing — I keep thinking of new features.
 
 **[App Store](https://apps.apple.com/us/app/brown-sign/id6762070205)** · **[GitHub](https://github.com/smandable/brown-sign)**
 

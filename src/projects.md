@@ -31,7 +31,7 @@ Shipped to the App Store (currently v2.0). Still actively developing — I keep 
 
 ---
 
-<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/debt-descent.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Debt Descent (iOS &amp; macOS, 2026)</h2>
+<h2 id="debt-descent" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/debt-descent.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Debt Descent (iOS &amp; macOS, 2026)</h2>
 
 Every debt-payoff tool I tried made me pick a side before I understood the trade. The free web calculators want one balance and one rate and hand back a single number; the apps that do more want to log into your bank. I wanted to put my actual cards and loans in, run the Snowball and the Avalanche method side by side, and see the real dates and the real interest each one costs — without any of it leaving my own machine.
 

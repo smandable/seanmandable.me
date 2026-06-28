@@ -3,30 +3,6 @@ title: Projects
 description: Shipped and in-progress personal projects across iOS, macOS, and the web.
 ---
 
-<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/debt-descent.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Debt Descent (iOS &amp; macOS, 2026)</h2>
-
-Every debt-payoff tool I tried made me pick a side before I understood the trade. The free web calculators want one balance and one rate and hand back a single number; the apps that do more want to log into your bank. I wanted to put my actual cards and loans in, run the Snowball and the Avalanche method side by side, and see the real dates and the real interest each one costs — without any of it leaving my own machine.
-
-Debt Descent is that planner, native on iPhone, iPad, and Mac. You add your debts — or point it at a statement PDF and it reads them — set what extra you can put toward them each month, and it runs the payoff strategies at once: Snowball for the fast, motivating wins; Avalanche for the least interest; plus five more ordering methods. It plots every balance falling to zero, tells you your debt-free date and what each method saves, and lets you model windfalls, refinances, and "what if I paid this down right now" — all against your real numbers, all on device.
-
-### What's underneath
-
-It's one universal SwiftUI app: a single codebase that builds for iOS, iPadOS, and macOS and forks only where the platforms genuinely differ — a tab bar on the phone, a sidebar on the Mac, drag-to-reorder versus up/down buttons for touch. The payoff engine is pure and separated from the UI, and it's frozen against golden test vectors generated from the original reference logic, so the math can't quietly drift from one release to the next.
-
-Statement import runs entirely on device: PDFKit pulls the text, Vision handles scanned pages, and Apple Intelligence (FoundationModels) extracts the balance, APR, minimum, and due date — no upload, no API key. Data lives in SwiftData. The promo-APR handling models a 0%-intro card reverting to its real rate on its real date, and the deferred-interest tracking warns you before a store-card promo turns into a retroactive interest bill. Exports — PDF, calendar `.ics`, JSON — and the due-date reminders are all built on stock Apple frameworks.
-
-### Privacy
-
-No accounts, no analytics, no servers, no tracking. Every balance you enter stays on your device; statement PDFs are read on device and never uploaded. The only thing the app talks to is Apple's App Store, and only to confirm the one-time Pro purchase. (Full [privacy policy](/debt-descent/privacy) and [support](/debt-descent/support).)
-
-### Status
-
-Free to use — add debts, run Snowball and Avalanche, see your debt-free date, import a statement, and track your progress against the plan. A one-time **$9.99 Pro** unlock (no subscription, shared across all your devices) adds the five extra methods, the what-if tools, snowflakes, refinance modeling, amortization schedules, exports, and due-date reminders. Universal across iPhone, iPad, and Mac.
-
-**Coming to the App Store**
-
----
-
 <h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/brown-sign.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Brown Sign (iOS, 2025)</h2>
 
 You know those brown signs on the highway — the ones that point to state parks, historical sites, scenic overlooks, the occasional mansion or covered bridge? I kept seeing them, wondering what they actually were, and not doing anything about it. Googling "that brown sign I just passed near Middletown" is not a real workflow. So most of the time I just drove on.
@@ -52,6 +28,30 @@ No accounts. No analytics. No ads. No tracking. Camera images are processed on-d
 Shipped to the App Store (currently v1.9). Still actively developing — I keep thinking of new features.
 
 **[App Store](https://apps.apple.com/us/app/brown-sign/id6762070205)** · **[GitHub](https://github.com/smandable/brown-sign)**
+
+---
+
+<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/debt-descent.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Debt Descent (iOS &amp; macOS, 2026)</h2>
+
+Every debt-payoff tool I tried made me pick a side before I understood the trade. The free web calculators want one balance and one rate and hand back a single number; the apps that do more want to log into your bank. I wanted to put my actual cards and loans in, run the Snowball and the Avalanche method side by side, and see the real dates and the real interest each one costs — without any of it leaving my own machine.
+
+Debt Descent is that planner, native on iPhone, iPad, and Mac. You add your debts — or point it at a statement PDF and it reads them — set what extra you can put toward them each month, and it runs the payoff strategies at once: Snowball for the fast, motivating wins; Avalanche for the least interest; plus five more ordering methods. It plots every balance falling to zero, tells you your debt-free date and what each method saves, and lets you model windfalls, refinances, and "what if I paid this down right now" — all against your real numbers, all on device.
+
+### What's underneath
+
+It's one universal SwiftUI app: a single codebase that builds for iOS, iPadOS, and macOS and forks only where the platforms genuinely differ — a tab bar on the phone, a sidebar on the Mac, drag-to-reorder versus up/down buttons for touch. The payoff engine is pure and separated from the UI, and it's frozen against golden test vectors generated from the original reference logic, so the math can't quietly drift from one release to the next.
+
+Statement import runs entirely on device: PDFKit pulls the text, Vision handles scanned pages, and Apple Intelligence (FoundationModels) extracts the balance, APR, minimum, and due date — no upload, no API key. Data lives in SwiftData. The promo-APR handling models a 0%-intro card reverting to its real rate on its real date, and the deferred-interest tracking warns you before a store-card promo turns into a retroactive interest bill. Exports — PDF, calendar `.ics`, JSON — and the due-date reminders are all built on stock Apple frameworks.
+
+### Privacy
+
+No accounts, no analytics, no servers, no tracking. Every balance you enter stays on your device; statement PDFs are read on device and never uploaded. The only thing the app talks to is Apple's App Store, and only to confirm the one-time Pro purchase. (Full [privacy policy](/debt-descent/privacy) and [support](/debt-descent/support).)
+
+### Status
+
+Free to use — add debts, run Snowball and Avalanche, see your debt-free date, import a statement, and track your progress against the plan. A one-time **$9.99 Pro** unlock (no subscription, shared across all your devices) adds the five extra methods, the what-if tools, snowflakes, refinance modeling, amortization schedules, exports, and due-date reminders. Universal across iPhone, iPad, and Mac.
+
+**Coming to the App Store**
 
 ---
 

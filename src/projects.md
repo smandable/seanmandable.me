@@ -51,7 +51,7 @@ No accounts, no analytics, no servers, no tracking. Every balance you enter stay
 
 Free to use — add debts, run Snowball and Avalanche, see your debt-free date, import a statement, and track your progress against the plan. A one-time **$9.99 Pro** unlock (no subscription, shared across all your devices) adds the five extra methods, the what-if tools, snowflakes, refinance modeling, amortization schedules, exports, and due-date reminders. Universal across iPhone, iPad, and Mac.
 
-**Coming to the App Store**
+**[App Store](https://apps.apple.com/us/app/debt-descent-payoff-planner/id6785269702)**
 
 ---
 

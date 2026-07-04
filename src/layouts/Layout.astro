@@ -58,6 +58,25 @@ const ICON_VERSION = '2';
             } catch (e) {}
           })();
         </script>
+        {/* Sitewide link-click tracking: stamp Umami's event attributes on
+            every link that doesn't already declare a named event (footer,
+            contact, resume button keep theirs). The tracker's own delegated
+            click handler then reports a `link-click` event with the
+            destination and link text — and for same-tab navigation it holds
+            the click until the event is sent, so clicks aren't lost to page
+            unload. */}
+        <script is:inline>
+          document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href]:not([data-umami-event])').forEach(function (a) {
+              a.setAttribute('data-umami-event', 'link-click');
+              a.setAttribute('data-umami-event-href', a.getAttribute('href'));
+              var clone = a.cloneNode(true);
+              clone.querySelectorAll('.sr-only').forEach(function (s) { s.remove(); });
+              var text = (clone.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+              if (text) a.setAttribute('data-umami-event-text', text);
+            });
+          });
+        </script>
         <script
           is:inline
           defer

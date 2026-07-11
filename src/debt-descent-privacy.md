@@ -3,7 +3,7 @@ title: Debt Descent — Privacy Policy
 description: Debt Descent collects nothing. Your data stays on your device and in your own private iCloud.
 ---
 
-_Last updated: July 9, 2026_
+_Last updated: July 10, 2026_
 
 **Debt Descent does not collect any of your data, and has no servers of its own. Full stop.** There are no accounts, no sign-ups, and no analytics or tracking. I can't see your data — not on your device, and not in your iCloud.
 
@@ -13,7 +13,9 @@ Everything you enter — your debts, balances, APRs, payments, planned windfalls
 
 ### iCloud sync
 
-Sync uses Apple's CloudKit **private database** — a part of your personal iCloud account that only you can access. Apple encrypts it in transit and at rest; I have no ability to read, query, or receive anything in it. Sync is automatic and free for everyone. If you're not signed in to iCloud (or turn it off for this app in your device's iCloud settings), Debt Descent simply keeps everything on the device and works fully offline — nothing changes except the syncing.
+Sync uses Apple's CloudKit **private database** — a part of your personal iCloud account that only you can access. Apple encrypts it in transit and at rest; I have no ability to read, query, or receive anything in it. Sync is automatic and free for everyone. If you've never signed in to iCloud, Debt Descent simply keeps everything on the device and works fully offline.
+
+If you stop syncing later — by signing out of iCloud, or turning it off for this app in your device's iCloud settings — the system removes the synced copy from that device. Your data isn't lost: it stays in your own private iCloud, still unreadable to me, and reappears when you sign back in. If you want a copy that lives only on your device, use the free **Export to JSON** before signing out.
 
 ### Statement import
 

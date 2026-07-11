@@ -15,6 +15,9 @@ Yes — completely. Your data lives on your device and in your own private iClou
 **Does my data sync between my iPhone, iPad, and Mac?**
 Yes, automatically — and it's free for everyone. Just be signed in to iCloud with the same Apple Account on each device; there's nothing to set up in the app. Not signed in? Debt Descent works fully on-device, and syncing simply picks up when you sign in.
 
+**I signed out of iCloud and the app looks empty — is my data gone?**
+No. When you sign out of iCloud (or turn iCloud off for Debt Descent), the system removes the synced copy from that device — that's standard for synced apps. Your data is still in your own private iCloud and comes right back when you sign in again. If you want a copy that stays on the device regardless, use **Export to JSON** before signing out.
+
 **What does Debt Descent Pro include, and how much is it?**
 Pro is a **one-time $9.99 purchase** (no subscription) that unlocks all seven payoff methods, the what-if slider and per-debt payoff tests, snowflakes, refinance modeling, amortization schedules, PDF/calendar export, and due-date reminders. One purchase unlocks Pro on your iPhone, iPad, and Mac.
 

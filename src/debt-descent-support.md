@@ -27,6 +27,9 @@ It should unlock automatically when you're signed in with the same Apple ID. If 
 **How do I import a statement?**
 Use **Import Statement** (the ••• menu, or File ▸ Import Statement on Mac) and pick a PDF. Debt Descent reads the balance, APR, minimum, and due date on your device.
 
+**I logged a payment, but the balance doesn't include the interest my card charged.**
+That's by design. Debt Descent treats your balance as "what your statement says": logging a payment takes exactly what you paid off the tracked balance, and the app never adds its own interest estimate — real card interest depends on average daily balance, posting dates, and fees, so any figure the app invented would drift from your actual statement. When your next statement posts, update the balance (edit the debt, or import the statement) and that catches the interest charge. Your *plan* — the debt-free date, total interest, and method comparisons — does fully model interest at each debt's APR; only the live balance stays anchored to your statements, so you can always verify it against them.
+
 **How do I back up my data?**
 Use **Export to JSON** (••• menu / File menu) to save a complete backup, and **Import from JSON** to restore it on any device. Backup and restore are free for everyone — your data is never behind the paywall. (iCloud sync keeps your devices in step, but it isn't a backup — deleting a debt removes it everywhere, so an occasional JSON export is still the safety net.)
 

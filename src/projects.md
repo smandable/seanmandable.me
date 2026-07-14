@@ -45,7 +45,7 @@ Statement import runs entirely on device: PDFKit pulls the text, Vision handles 
 
 ### Privacy
 
-No accounts, no analytics, no servers, no tracking. Every balance you enter stays on your device; statement PDFs are read on device and never uploaded. The only thing the app talks to is Apple's App Store, and only to confirm the one-time Pro purchase. (Full [privacy policy](/debt-descent/privacy) and [support](/debt-descent/support).)
+No accounts, no analytics, no servers of my own, no tracking. Your data lives on your device and — if you're signed into iCloud — syncs through your own private iCloud, where I can't see it. Statement PDFs are read on device and never uploaded. The app talks only to Apple: iCloud for your own sync, and the App Store to confirm the one-time Pro purchase. (Full [privacy policy](/debt-descent/privacy) and [support](/debt-descent/support).)
 
 ### Status
 

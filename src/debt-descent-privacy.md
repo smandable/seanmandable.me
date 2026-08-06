@@ -3,13 +3,13 @@ title: Debt Descent — Privacy Policy
 description: Debt Descent collects nothing. Your data stays on your device and in your own private iCloud.
 ---
 
-_Last updated: July 10, 2026_
+_Last updated: August 6, 2026_
 
 **Debt Descent does not collect any of your data, and has no servers of its own. Full stop.** There are no accounts, no sign-ups, and no analytics or tracking. I can't see your data — not on your device, and not in your iCloud.
 
 ### Where your data lives
 
-Everything you enter — your debts, balances, APRs, payments, planned windfalls, and settings — is stored **on your device**, and (if you're signed in to iCloud) in **your own private iCloud**, so it stays in sync across your iPhone, iPad, and Mac.
+Everything you enter — your debts, balances, APRs, payments, payment groups, planned windfalls, and settings — is stored **on your device**, and (if you're signed in to iCloud) in **your own private iCloud**, so it stays in sync across your iPhone, iPad, and Mac.
 
 ### iCloud sync
 
@@ -17,9 +17,9 @@ Sync uses Apple's CloudKit **private database** — a part of your personal iClo
 
 If you stop syncing later — by signing out of iCloud, or turning it off for this app in your device's iCloud settings — the system removes the synced copy from that device. Your data isn't lost: it stays in your own private iCloud, still unreadable to me, and reappears when you sign back in. If you want a copy that lives only on your device, use the free **Export to JSON** before signing out.
 
-### Statement import
+### Statement import & scanning
 
-If you import a statement, the PDF is read **entirely on your device** using Apple frameworks (PDFKit, Vision, and Apple Intelligence). The document and its contents are never uploaded anywhere.
+If you import a statement — a PDF, a photo, or (on iPhone and iPad) a paper statement scanned with the camera — it is read **entirely on your device** using Apple frameworks (PDFKit, VisionKit, Vision, and Apple Intelligence). Camera access is used only for the statement you're scanning: the capture is processed on your device, nothing is saved until you confirm the fields it read, and the app never asks for access to your photo library. The document and its contents are never uploaded anywhere.
 
 ### Exports you initiate
 

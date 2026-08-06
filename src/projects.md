@@ -7,7 +7,7 @@ description: Shipped and in-progress personal projects across iOS, macOS, and th
 
 You know those brown signs on the highway — the ones that point to state parks, historical sites, scenic overlooks, the occasional mansion or covered bridge? I kept seeing them, wondering what they actually were, and not doing anything about it. Googling "that brown sign I just passed near Middletown" is not a real workflow. So most of the time I just drove on.
 
-Brown Sign is the app I wanted to exist. Point your iPhone at the sign, tap the button, and a few seconds later you have the Wikipedia article, a map, a summary, and directions. Or skip the camera entirely and open the Nearby tab to see every geo-tagged Wikipedia landmark around you on a map — pan across a state, pins accumulate as you go.
+Brown Sign is the app I wanted to exist. Point your iPhone at the sign, tap the button, and a few seconds later you have the Wikipedia article, a map, a summary, a Look Around street-level view, and directions. Riding shotgun? Import the sign from a photo someone snapped, or just type the name. And because the moment passes at 65 mph, the scanner launches from everywhere — Siri, Control Center, the Lock Screen, the Action button. Or skip the signs entirely and open the Nearby tab to see the landmarks around you on a map — real landmarks, not every geo-tagged article, so you get the covered bridges and battlefields without the local middle school — pan across a state and pins accumulate as you go.
 
 ### What's underneath
 
@@ -15,19 +15,21 @@ The user-facing promise is simple. What it takes to deliver it is not.
 
 OCR runs on-device via Apple's Vision framework, sorting multi-line text top-to-bottom by bounding box so "Wadsworth Mansion / 2 MI" stays in the right order. The OCR output goes to Apple Intelligence (FoundationModels, iOS 26+) for normalization, stripping directions and distances, extracting just the landmark name. That cleaned-up name hits a four-source resolver: Wikipedia geosearch within 10 km, Wikipedia text search, NPS as a fallback for historic sites without Wikipedia coverage, and Wikidata for structured enrichment.
 
-Candidates get filtered through three passes — a Wikidata P31 blocklist that drops bands, films, food, hoaxes, and people; a place-indicator whitelist; a default-reject for anything that doesn't earn its way through. Title-token overlap catches Wikipedia body-text matches that sneak past. Results sort exact-title-match first, then by distance — so "Wadsworth" near Middletown, Connecticut returns the mansion down the road instead of a city in Ohio. The top candidate gets a second enrichment pass: Apple Intelligence polishes the Wikipedia extract into a 2-3 sentence summary, scores the match confidence, Google Knowledge Graph adds an external confidence signal, and the article image downloads and resizes for offline browsing.
+Candidates get filtered through three passes — a Wikidata P31 blocklist that drops bands, films, food, hoaxes, and people; a place-indicator whitelist; a default-reject for anything that doesn't earn its way through. Title-token overlap catches Wikipedia body-text matches that sneak past. Results sort exact-title-match first, then by distance — so "Wadsworth" near Middletown, Connecticut returns the mansion down the road instead of a city in Ohio. The top candidate gets a second enrichment pass: Apple Intelligence polishes the Wikipedia extract into a 2-3 sentence summary and scores the match confidence — a shaky match gets flagged as one instead of presented with a straight face — and the article image downloads and resizes for offline browsing.
+
+The Nearby tab runs a different pipeline: a curated Wikidata SPARQL query — heritage designations and a landmark-type allowlist, English Wikipedia article required, plus a gate that drops operating schools and hospitals — at a radius you pick, 2 to 25 miles, cached on disk so the tab opens instantly next launch. Landmarks you don't care about can be hidden, and un-hidden when you change your mind.
 
 No third-party Swift packages. Stock Apple frameworks all the way: SwiftUI + UIKit where needed, SwiftData for history, AVFoundation for the camera, CoreLocation, MapKit, SafariServices. Every external call fails silently to nil. The app works end-to-end with no API keys, no location permission, and no Apple Intelligence.
 
 ### Privacy
 
-No accounts. No analytics. No ads. No tracking. Camera images are processed on-device. Location is used only to rank nearby results. Search queries go to Wikipedia, Wikidata, NPS, and Google Knowledge Graph with no personal identifiers attached.
+No accounts. No analytics. No ads. No tracking. Camera images are processed on-device. Location is used only to rank nearby results. Search queries go to Wikipedia, Wikidata, and NPS with no personal identifiers attached.
 
 ### Status
 
 Shipped to the App Store (currently v2.0). Still actively developing — I keep thinking of new features.
 
-**[App Store](https://apps.apple.com/us/app/brown-sign/id6762070205)** · **[GitHub](https://github.com/smandable/brown-sign)**
+**[App Store](https://apps.apple.com/us/app/brown-sign/id6762070205)** · **[GitHub](https://github.com/smandable/brown-sign)** (MIT)
 
 ---
 
@@ -41,7 +43,7 @@ It's also built for the months after the plan is made. Log payments — or edit 
 
 ### What's underneath
 
-It's one universal SwiftUI app: a single codebase that builds for iOS, iPadOS, and macOS and forks only where the platforms genuinely differ — a tab bar on the phone, a sidebar on the Mac, drag-to-reorder versus up/down buttons for touch. The payoff engine is pure and separated from the UI, and it's frozen against golden test vectors generated from the original reference logic, so the math can't quietly drift from one release to the next.
+It's one universal SwiftUI app: a single codebase that builds for iOS, iPadOS, and macOS and forks only where the platforms genuinely differ — a tab bar on the phone, a sidebar on the Mac, drag-to-reorder on the Mac versus Move up / Move down in a debt's menu on touch. The payoff engine is pure and separated from the UI, and it's frozen against golden test vectors generated from the original reference logic, so the math can't quietly drift from one release to the next.
 
 Statement import runs entirely on device: PDFKit pulls the text from a PDF, VisionKit's document scanner captures a paper statement with the camera (iPhone and iPad — a Mac imports a photo instead, and a Continuity Camera capture counts), Vision handles scanned pages and photos, and Apple Intelligence (FoundationModels) extracts the balance, APR, minimum, and due date — no upload, no API key. Every figure the model returns has to appear verbatim in the text it was shown, so a blurry photo can't invent a balance. Data lives in SwiftData. The promo-APR handling models a 0%-intro card reverting to its real rate on its real date, and the deferred-interest tracking warns you before a store-card promo turns into a retroactive interest bill. Exports — PDF, calendar `.ics`, JSON — and the due-date reminders are all built on stock Apple frameworks.
 
@@ -75,9 +77,9 @@ Getting you to the right change page is its own problem. ReKey tries the site's 
 
 When you approve a fix, the new password goes to the clipboard marked concealed, using the convention that clipboard-history managers like Maccy and Raycast honor, so it stays out of their history. It clears itself about ninety seconds later, and it does that by checking the clipboard's change count instead of reading the contents back, so it neither keeps the plaintext alive for the wait nor trips the macOS prompt for reading the clipboard. If you've copied something else in the meantime, it leaves it alone.
 
-The app is sandboxed and never writes to any browser store, Apple Passwords, or the keychain. Changing a password usually updates the saved login in place, but sometimes the browser saves a second copy and leaves the old one behind with the dead password. Clearing that out is a separate, opt-in command-line tool called rekey-cleanup, kept deliberately outside the sandboxed app. It matches and deletes purely on the plaintext index fields, so it never reads the encrypted password blob or needs any decryption key. It dry-runs by default, refuses to run while the browser is open, backs up the store before touching it, and does its deletes inside a transaction. The app shows and copies the exact command for a site you've fixed, and you run it yourself in Terminal.
+The app is sandboxed and never writes to any browser store or Apple Passwords. The one thing it ever puts in the keychain is a single random key of its own, used to fingerprint its bookkeeping — never a password. Changing a password usually updates the saved login in place, but sometimes the browser saves a second copy and leaves the old one behind with the dead password. Clearing that out is a separate, opt-in command-line tool called rekey-cleanup, kept deliberately outside the sandboxed app — and outside the App Store build entirely; it ships with the GitHub `.dmg`. It matches and deletes purely on the plaintext index fields, so it never reads the encrypted password blob or needs any decryption key. It dry-runs by default, refuses to run while the browser is open, backs up the store before touching it, and does its deletes inside a transaction. The app shows and copies the exact command for a site you've fixed, and you run it yourself in Terminal.
 
-Every piece of logic (the parser, the audit, the generator, the breach client, the reset router) is free of SwiftUI and unit-tested on its own. The network clients sit behind protocols, so the engines test with no network and the live clients are wired in only at the app layer. There are 224 tests, including the ones that keep the privacy guarantees honest.
+Every piece of logic (the parser, the audit, the generator, the breach client, the reset router) is free of SwiftUI and unit-tested on its own. The network clients sit behind protocols, so the engines test with no network and the live clients are wired in only at the app layer. There are 288 tests, including the ones that keep the privacy guarantees honest.
 
 ### Privacy
 
@@ -85,7 +87,7 @@ No accounts, no analytics, no telemetry, and no crash reporting. The only networ
 
 ### Status
 
-ReKey is on the **Mac App Store** (currently v1.1.2), and is also available as a signed, notarized `.dmg` from GitHub Releases. It targets Apple Silicon on macOS 15 or later, is written in Swift 6, and also builds from source with Xcode or a one-command signing script. I built it for my own password cleanup and kept going on it.
+ReKey is on the **Mac App Store** (currently v1.1.2), and is also available as a signed, notarized `.dmg` from GitHub Releases. The two builds differ on purpose: the App Store version is the auditor, with the fix queue behind a one-time **Unlock Fixing** purchase and the destructive cleanup tooling left out entirely; the GitHub build is the whole app. Both are universal binaries — Apple Silicon and Intel — for macOS 15 or later, written in Swift 6, and it builds from source with Xcode or a one-command signing script. I built it for my own password cleanup and kept going on it.
 
 **[App Store](https://apps.apple.com/us/app/rekey-website-password-audit/id6783031023)** · **[GitHub](https://github.com/smandable/ReKey)** · **[Download](https://github.com/smandable/ReKey/releases/latest)**
 
@@ -95,7 +97,7 @@ ReKey is on the **Mac App Store** (currently v1.1.2), and is also available as a
 
 MacPAR deLuxe is the Mac app for PAR files. It has held that spot for a long time, mostly because nobody else bothered. PAR files add recovery data to a set of files, so when a piece goes missing or arrives corrupted you can rebuild it instead of starting over. I've used MacPAR deLuxe to verify and repair file sets for years. It's Intel-only, it hasn't shipped an update in a long while, and it stops working once Apple retires Rosetta 2.
 
-ModernPAR is that rebuild. It verifies and repairs PAR2 and PAR1 sets, creates new recovery sets, and extracts RAR and zip archives. Drop a `.par2` file or its folder on the window and it verifies, repairs any damage, then extracts the archive inside, with per-file status and the "need N more recovery blocks" math along the way. Drag-and-drop, open-with, and completion notifications that jump you to the file in Finder. It's arm64 native, built in Swift 6 and SwiftUI.
+ModernPAR is that rebuild. It verifies and repairs PAR2 and PAR1 sets, creates new recovery sets, and extracts RAR and zip archives — including multi-volume, password-protected, and self-extracting RAR sets. Drop a `.par2` file or its folder on the window and it verifies, repairs any damage, then extracts the archive inside, with per-file status and the "need N more recovery blocks" math along the way. Drag-and-drop, open-with, and completion notifications that jump you to the file in Finder. It's arm64 native, built in Swift 6 and SwiftUI.
 
 ### What's underneath
 
@@ -113,7 +115,7 @@ ModernPAR is free software under GPL-2.0-or-later. That's the license that lets 
 
 ### Installing
 
-v1.0.0 is available as a signed, notarized `.dmg` from GitHub Releases. It updates itself through Sparkle. Still actively developed.
+v1.0.0 is available as a signed, notarized `.dmg` from GitHub Releases. Sandboxed, Hardened Runtime, macOS 14 or later. It updates itself through Sparkle. Still actively developed.
 
 **[GitHub](https://github.com/smandable/ModernPAR)** · **[Download](https://github.com/smandable/ModernPAR/releases/latest)**
 
@@ -125,11 +127,11 @@ My external drives kept making noises. Spinning up for no reason, chattering to 
 
 The Finder's answer to this is that you can eject a drive, but you can't mount one. To remount you open Disk Utility, find the drive in the sidebar, click Mount. Every time. For every drive. And if you have four external drives you want to manage as a group — which I do — it's four round-trips through two apps for something that should be a single click.
 
-Saddle is a macOS menu bar app that fixes this. One icon, real-time mount status for every external drive, click to mount or unmount. Group drives together and batch-mount or batch-unmount the whole group. Configure launch actions so drives auto-mount or auto-unmount when the app starts. Exclude drives you don't want managed. Give drives friendly aliases because "Untitled 3" is not a name.
+Saddle is a macOS menu bar app that fixes this. One icon, real-time mount status for every external drive, click to mount or unmount. Group drives together and batch-mount or batch-unmount the whole group. Configure launch actions so drives auto-mount or auto-unmount when the app starts — and again when the Mac wakes from sleep. Drives you unmounted stay unmounted: when macOS quietly remounts one after a USB hiccup, Saddle puts it back. Exclude drives you don't want managed. Give drives friendly aliases because "Untitled 3" is not a name.
 
 ### What's underneath
 
-Native SwiftUI, no dependencies. DiskArbitration callbacks detect connect/disconnect events in real time — no polling, no lag between plugging a drive in and seeing it in the menu. Login item registration goes through macOS ServiceManagement rather than the older LaunchAgent approach, which means no stray plist files cluttering the user's library. Notarized by Apple. Runs on macOS 13 (Ventura) or later.
+Native SwiftUI, no dependencies — even the update check is a plain call to the GitHub Releases API. The disk work happens in a small privileged helper the app talks to over XPC, with DiskArbitration callbacks detecting connect and disconnect in real time — no lag between plugging a drive in and seeing it in the menu — and a periodic reconciliation sweep as a backstop. Login item registration goes through macOS ServiceManagement. Notarized by Apple. Runs on macOS 13.5 (Ventura) or later.
 
 The settings window is a proper GUI — not a pile of defaults-write commands or a JSON config file. Groups, aliases, launch actions, and exclusions all live in a real preferences surface with tabs and forms. If someone's going to trust an app to mount and unmount their drives on demand, the app should look like it was built by someone who'd use it themselves. Which I do.
 
@@ -153,23 +155,23 @@ The headline feature is multi-monitor matching. Pick one display as the referenc
 
 ### What's underneath
 
+This is the design the spike exists to de-risk — none of it is built yet.
+
 On the Mac: SwiftUI for the UI, ColorSync for ICC vcgt LUT generation and assignment (the fallback path for displays that don't cooperate), and `IOAVService` for DDC/CI control on Apple Silicon — the same approach used by `m1ddc`, BetterDisplay, and Lunar after Apple broke the public `IOI2CInterface` on M-series Macs. VCP codes 0x10, 0x16/0x18/0x1A for brightness, red, green, blue gain.
 
 On the iPhone: SwiftUI for the UI, AVFoundation for RAW DNG capture with fully locked exposure, white balance, and focus, and the Vision framework for AR-style capture guidance (`VNDetectRectanglesRequest` rather than full ARKit — lighter weight for this specific use case).
 
-Pairing happens over Multipeer Connectivity. No cloud, no account, no network round-trip. The iPhone captures, sends the measurement to the Mac over the local peer connection, and the Mac does the math: per-iPhone-model sensor characterization matrices, sensor RGB → CIE XYZ, corrections applied as DDC writes or ICC vcgt LUT assignments depending on what the display supports.
+Pairing happens over Multipeer Connectivity. No cloud, no account, no network round-trip. The iPhone captures, sends the measurement to the Mac over the local peer connection, and the Mac does the math: per-device characterization, camera RGB → CIE XYZ, corrections applied as DDC writes or ICC vcgt LUT assignments depending on what the display supports.
 
 ### Current state
 
-I'm in a validation spike: three deliberately throwaway pieces that answer one question: are iPhone-based measurements repeatable and consistent enough to actually be useful for this? A SwiftUI Mac app that displays full-screen color patches in sequence. A SwiftUI iPhone app that captures RAW DNGs with locked camera settings. And a Python analysis script (`rawpy` + `numpy` + `exifread`) that reads the DNGs, extracts linear sensor RGB, applies the embedded `ColorMatrix1`/`ColorMatrix2` tags, and computes white point and gamma.
+I ran a validation spike: three deliberately throwaway pieces that answer one question — are iPhone-based measurements repeatable and consistent enough to actually be useful? A SwiftUI Mac app that displays full-screen color patches in sequence. A SwiftUI iPhone app that captures Apple ProRAW Linear DNGs with locked exposure, white balance, and focus. And a Python analyzer (`tifffile` + `imagecodecs` + `numpy` + `exifread`) that decodes the DNGs and computes white point and gamma.
 
-A factory-calibrated Dell U3224KB serves as the ground-truth reference display for sanity-checking the math. Cross-device consistency gets validated by running the same captures on both an iPhone 16 Pro and an iPad mini and comparing relative results.
-
-Early signal: the iPhone 16 Pro's RAW sensor is surprisingly well-behaved.
+The spike's first real lesson: Apple's ProRAW "RAW" isn't raw. The pixels arrive demosaiced, white-balanced, and already characterized into linear Display P3 — treat them as sensor RGB and apply the embedded ColorMatrix tags and you get garbage, about 9100K with a negative Duv. Treat them as the linear P3 they are and the numbers land: pointed at a factory-calibrated Dell U3224KB, an iPhone 16 Pro read the white point at 6544K, Duv +0.003, against a nominal 6500K D65 target. One measurement, but exactly the early signal I was looking for.
 
 ### Status
 
-In active development. Planned for commercial release on the Mac App Store. The source code is published for transparency and portfolio purposes; please don't fork for commercial use.
+Parked mid-spike while ReKey and Debt Descent took the queue. The plan hasn't changed: commercial release on the Mac App Store. The design notes are public; the code lands there as the spike graduates into the real app. Please don't fork it for commercial use when it does.
 
 **[GitHub](https://github.com/smandable/kelvin-caliper)**
 
@@ -177,6 +179,6 @@ In active development. Planned for commercial release on the Mac App Store. The 
 
 ## Also
 
-**[MovieDB](https://github.com/smandable/moviedb)** — a local movie library cataloging app I built for myself. Angular 22 + TypeScript front end on AG Grid, PHP/MySQL backend, FFprobe for metadata extraction, duplicate detection across mounted volumes, batch filename normalization. Useful, not a showcase piece. Included because it's the thing I actually use to keep my movie collection from slowly devolving into chaos.
+**[MovieDB](https://github.com/smandable/moviedb)** — a local movie library cataloging app I built for myself. Angular 21 + TypeScript front end on AG Grid, PHP/MySQL backend, FFprobe for metadata extraction, duplicate detection across mounted volumes, batch filename normalization. Useful, not a showcase piece. Included because it's the thing I actually use to keep my movie collection from slowly devolving into chaos.
 
 **CLI utilities.** A handful of small PHP command-line tools I wrote to solve specific file-management problems and kept around because they're still useful: **[consolidate_movies](https://github.com/smandable/consolidate_movies)** (groups episodic video files across multiple drives and consolidates each title onto a single drive, with space balancing), **[convert_to_mp4](https://github.com/smandable/convert_to_mp4)** (batch video conversion with corruption detection, junk/static detection via entropy analysis, and post-convert validation), **[de-obfuscate](https://github.com/smandable/de-obfuscate)** (renames obfuscated files using their parent directory name), **[delete_low_res](https://github.com/smandable/delete_low_res)** (finds and removes video files below a width threshold), and **[mac-cleanup](https://github.com/smandable/mac-cleanup)** (a safe, single-file macOS cleanup script with per-step reporting). All of them dry-run-by-default, because I've learned that lesson.

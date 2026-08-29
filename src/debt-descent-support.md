@@ -19,7 +19,7 @@ Yes, automatically — and it's free for everyone. Just be signed in to iCloud w
 No. When you sign out of iCloud (or turn iCloud off for Debt Descent), the system removes the synced copy from that device — that's standard for synced apps. Your data is still in your own private iCloud and comes right back when you sign in again. If you want a copy that stays on the device regardless, use **Export to JSON** before signing out.
 
 **What does Debt Descent Pro include, and how much is it?**
-Pro is a **one-time $9.99 purchase** (no subscription) that unlocks the five payoff methods beyond the free Snowball and Avalanche, the what-if slider and per-debt payoff tests, snowflakes, refinance modeling (including applying the deal in one step), amortization schedules, PDF/calendar export, and due-date reminders. One purchase unlocks Pro on your iPhone, iPad, and Mac.
+Pro is a **one-time $14.99 purchase** (no subscription) that unlocks the five payoff methods beyond the free Snowball and Avalanche (one of them a custom order you set yourself), the what-if slider and per-debt payoff tests, snowflakes, refinance modeling (including applying the deal in one step), amortization schedules, PDF/calendar export, and due-date reminders. One purchase unlocks Pro on your iPhone, iPad, and Mac.
 
 **I bought Pro but don't see it on a new device.**
 It should unlock automatically when you're signed in with the same Apple ID. If not, open the paywall (tap any "PRO" feature, or the ••• menu → "Unlock Debt Descent Pro") and tap **Restore Purchases**.

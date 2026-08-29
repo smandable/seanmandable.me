@@ -23,7 +23,7 @@ If you import a statement — a PDF, a photo, or (on iPhone and iPad) a paper st
 
 ### Exports you initiate
 
-PDF, calendar (.ics), and JSON exports are created on your device and saved wherever **you** choose (a file, a share sheet). I am not involved in and have no access to what you do with an exported file.
+PDF, calendar (.ics), and JSON exports — and the shareable progress-card image — are created on your device and saved wherever **you** choose (a file, a share sheet). I am not involved in and have no access to what you do with an exported file.
 
 ### Notifications
 

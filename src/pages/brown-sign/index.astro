@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const appStoreUrl = 'https://apps.apple.com/us/app/brown-sign/id6762070205';
+---
+
+<Layout
+  title="Brown Sign"
+  description="Brown Sign tells you what those brown highway signs point to. Photograph the sign and get the Wikipedia article, a map, a summary, and directions — processed on device."
+>
+  <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
+    <img
+      src="/app-icons/brown-sign.png"
+      alt=""
+      width="128"
+      height="128"
+      class="h-32 w-32 rounded-[22.5%] shadow-md ring-1 ring-slate-900/10"
+    />
+    <h1 class="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">Brown Sign</h1>
+    <p class="mt-4 text-lg leading-relaxed text-slate-600">
+      Point your iPhone at one of those brown highway signs — state parks, historic
+      sites, scenic overlooks — and a few seconds later you have the Wikipedia
+      article, a map, a summary, and directions.
+    </p>
+    <a
+      href={appStoreUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-block transition-opacity hover:opacity-80"
+      data-umami-event="brown-sign-app-store"
+    >
+      <img
+        src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us"
+        alt="Download on the App Store"
+        width="150"
+        height="50"
+        class="h-[50px] w-auto"
+      />
+      <span class="sr-only"> (opens in new tab)</span>
+    </a>
+    <nav class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500" aria-label="Brown Sign links">
+      <a href="/projects#brown-sign" class="transition-colors hover:text-accent-600">More about the app</a>
+      <a
+        href="https://github.com/smandable/brown-sign"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition-colors hover:text-accent-600"
+      >GitHub<span class="sr-only"> (opens in new tab)</span></a>
+      <a href="/brown-sign/privacy" class="transition-colors hover:text-accent-600">Privacy Policy</a>
+    </nav>
+  </div>
+</Layout>

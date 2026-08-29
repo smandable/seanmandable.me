@@ -3,7 +3,7 @@ title: Projects
 description: Shipped and in-progress personal projects across iOS, macOS, and the web.
 ---
 
-<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/brown-sign.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Brown Sign (iOS, 2025)</h2>
+<h2 id="brown-sign" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/brown-sign.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Brown Sign (iOS, 2025)</h2>
 
 You know those brown signs on the highway — the ones that point to state parks, historical sites, scenic overlooks, the occasional mansion or covered bridge? I kept seeing them, wondering what they actually were, and not doing anything about it. Googling "that brown sign I just passed near Middletown" is not a real workflow. So most of the time I just drove on.
 

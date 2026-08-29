@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const appStoreUrl =
+  'https://apps.apple.com/us/app/debt-descent-payoff-planner/id6785269702';
+---
+
+<Layout
+  title="Debt Descent"
+  description="Debt Descent is a private, native debt-payoff planner for iPhone, iPad, and Mac. Compare Snowball, Avalanche, and more against your real numbers — all on device."
+>
+  <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
+    <img
+      src="/app-icons/debt-descent.png?v=2"
+      alt=""
+      width="128"
+      height="128"
+      class="h-32 w-32 rounded-[22.5%] shadow-md ring-1 ring-slate-900/10"
+    />
+    <h1 class="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">Debt Descent</h1>
+    <p class="mt-4 text-lg leading-relaxed text-slate-600">
+      A native debt-payoff planner for iPhone, iPad, and Mac. Add your debts, compare
+      Snowball and Avalanche side by side, and see exactly when you'll be debt-free —
+      nothing ever leaves your own devices.
+    </p>
+    <a
+      href={appStoreUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-block transition-opacity hover:opacity-80"
+      data-umami-event="debt-descent-app-store"
+    >
+      <img
+        src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us"
+        alt="Download on the App Store"
+        width="150"
+        height="50"
+        class="h-[50px] w-auto"
+      />
+      <span class="sr-only"> (opens in new tab)</span>
+    </a>
+    <nav class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500" aria-label="Debt Descent links">
+      <a href="/projects#debt-descent" class="transition-colors hover:text-accent-600">More about the app</a>
+      <a href="/debt-descent/support" class="transition-colors hover:text-accent-600">Support</a>
+      <a href="/debt-descent/privacy" class="transition-colors hover:text-accent-600">Privacy Policy</a>
+    </nav>
+  </div>
+</Layout>

@@ -59,7 +59,7 @@ On the App Store (currently v1.10). Free to use — add debts, run Snowball and 
 
 ---
 
-<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/rekey.png?v=2" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ReKey (macOS, 2026)</h2>
+<h2 id="rekey" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/rekey.png?v=2" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ReKey (macOS, 2026)</h2>
 
 Every browser has a "check your passwords" feature now, and so does Apple Passwords. The catch is that each one only looks at its own store. I've used Chrome, then Firefox, and now Arc, so the passwords I'd quietly reused for years were spread across four or five different exports, and no single checkup could see across them. The other option is to hand the whole list to a password manager's cloud and let it confirm what I already suspected. I wanted to find the reused and breached ones myself, on my own machine, without uploading anything.
 

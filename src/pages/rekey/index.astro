@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const appStoreUrl =
+  'https://apps.apple.com/us/app/rekey-website-password-audit/id6783031023';
+---
+
+<Layout
+  title="ReKey"
+  description="ReKey is a local password health auditor for macOS. Find the reused and breached passwords across every browser's exports — on your Mac, with nothing uploaded."
+>
+  <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
+    <img
+      src="/app-icons/rekey.png?v=2"
+      alt=""
+      width="128"
+      height="128"
+      class="h-32 w-32 rounded-[22.5%] shadow-md ring-1 ring-slate-900/10"
+    />
+    <h1 class="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">ReKey</h1>
+    <p class="mt-4 text-lg leading-relaxed text-slate-600">
+      A local password health auditor for macOS. Drop in the CSVs your browsers
+      export and it finds the reused and breached passwords, generates strong
+      replacements, and walks you to each site's change page — nothing ever
+      leaves your Mac.
+    </p>
+    <a
+      href={appStoreUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-block transition-opacity hover:opacity-80"
+      data-umami-event="rekey-app-store"
+    >
+      <img
+        src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-mac-app-store/black/en-us"
+        alt="Download on the Mac App Store"
+        width="198"
+        height="50"
+        class="h-[50px] w-auto"
+      />
+      <span class="sr-only"> (opens in new tab)</span>
+    </a>
+    <p class="mt-4 text-sm text-slate-500">
+      The GitHub build is the whole app — cleanup tool included — as a signed,
+      notarized <a
+        href="https://github.com/smandable/ReKey/releases/latest"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-medium text-accent-600 transition-colors hover:text-accent-700"
+        data-umami-event="rekey-github-download"
+      >.dmg from GitHub Releases<span class="sr-only"> (opens in new tab)</span></a>.
+    </p>
+    <nav class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500" aria-label="ReKey links">
+      <a href="/projects#rekey" class="transition-colors hover:text-accent-600">More about the app</a>
+      <a
+        href="https://github.com/smandable/ReKey"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition-colors hover:text-accent-600"
+      >GitHub<span class="sr-only"> (opens in new tab)</span></a>
+      <a href="/rekey/support" class="transition-colors hover:text-accent-600">Support</a>
+      <a href="/rekey/privacy" class="transition-colors hover:text-accent-600">Privacy Policy</a>
+    </nav>
+  </div>
+</Layout>

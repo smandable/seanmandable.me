@@ -29,7 +29,10 @@ No accounts. No analytics. No ads. No tracking. Camera images are processed on-d
 
 Shipped to the App Store (currently v2.0). Still actively developing — I keep thinking of new features.
 
-**[App Store](https://apps.apple.com/us/app/brown-sign/id6762070205)** · **[GitHub](https://github.com/smandable/brown-sign)** (MIT)
+<p style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;">
+<a href="https://apps.apple.com/us/app/brown-sign/id6762070205" target="_blank" rel="noopener noreferrer" style="display:inline-block;"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" width="132" height="44" style="height:44px;width:auto;margin:0;" loading="lazy" /><span class="sr-only"> (opens in new tab)</span></a>
+<span><strong><a href="https://github.com/smandable/brown-sign" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:6px;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span style="text-decoration:underline;">GitHub</span><span class="sr-only"> (opens in new tab)</span></a></strong> (MIT)</span>
+</p>
 
 ---
 
@@ -55,7 +58,9 @@ No accounts, no analytics, no servers of my own, no tracking. Your data lives on
 
 On the App Store (currently v1.10). Free to use — add debts, run Snowball and Avalanche, see your debt-free date, import or scan a statement, group the debts one payment covers, back everything up to JSON, track your progress against the plan, and share the progress card. A one-time **$14.99 Pro** unlock (no subscription, shared across all your devices) adds the five extra methods (one of them a custom order you set yourself), the what-if tools, snowflakes, refinance modeling and one-step apply, amortization schedules, PDF and calendar export, and due-date reminders. Universal across iPhone, iPad, and Mac (iOS/iPadOS 26 or macOS 26 and later).
 
-**[App Store](https://apps.apple.com/us/app/debt-descent-payoff-planner/id6785269702)**
+<p style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;">
+<a href="https://apps.apple.com/us/app/debt-descent-payoff-planner/id6785269702" target="_blank" rel="noopener noreferrer" style="display:inline-block;"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" width="132" height="44" style="height:44px;width:auto;margin:0;" loading="lazy" /><span class="sr-only"> (opens in new tab)</span></a>
+</p>
 
 ---
 
@@ -89,7 +94,12 @@ No accounts, no analytics, no telemetry, and no crash reporting. The only networ
 
 ReKey is on the **Mac App Store** (currently v1.1.2), and is also available as a signed, notarized `.dmg` from GitHub Releases. The two builds differ on purpose: the App Store version is the auditor, with the fix queue behind a one-time **Unlock Fixing** purchase and the destructive cleanup tooling left out entirely; the GitHub build is the whole app. Both are universal binaries — Apple Silicon and Intel — for macOS 15 or later, written in Swift 6, and it builds from source with Xcode or a one-command signing script. I built it for my own password cleanup and kept going on it.
 
-**[App Store](https://apps.apple.com/us/app/rekey-website-password-audit/id6783031023)** · **[GitHub](https://github.com/smandable/ReKey)** · **[Download](https://github.com/smandable/ReKey/releases/latest)**
+<p style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;">
+<a href="https://apps.apple.com/us/app/rekey-website-password-audit/id6783031023" target="_blank" rel="noopener noreferrer" style="display:inline-block;"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" width="132" height="44" style="height:44px;width:auto;margin:0;" loading="lazy" /><span class="sr-only"> (opens in new tab)</span></a>
+<strong><a href="https://github.com/smandable/ReKey" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:6px;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span style="text-decoration:underline;">GitHub</span><span class="sr-only"> (opens in new tab)</span></a></strong>
+<span style="color:#cbd5e1;" aria-hidden="true">·</span>
+<strong><a href="https://github.com/smandable/ReKey/releases/latest" target="_blank" rel="noopener noreferrer">Download<span class="sr-only"> (opens in new tab)</span></a></strong>
+</p>
 
 ---
 
@@ -117,7 +127,11 @@ ModernPAR is free software under GPL-2.0-or-later. That's the license that lets 
 
 v1.0.0 is available as a signed, notarized `.dmg` from GitHub Releases. Sandboxed, Hardened Runtime, macOS 14 or later. It updates itself through Sparkle. Still actively developed.
 
-**[GitHub](https://github.com/smandable/ModernPAR)** · **[Download](https://github.com/smandable/ModernPAR/releases/latest)**
+<p style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;">
+<strong><a href="https://github.com/smandable/ModernPAR" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:6px;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span style="text-decoration:underline;">GitHub</span><span class="sr-only"> (opens in new tab)</span></a></strong>
+<span style="color:#cbd5e1;" aria-hidden="true">·</span>
+<strong><a href="https://github.com/smandable/ModernPAR/releases/latest" target="_blank" rel="noopener noreferrer">Download<span class="sr-only"> (opens in new tab)</span></a></strong>
+</p>
 
 ---
 
@@ -143,7 +157,11 @@ Current release is 1.4.1. Available as a signed, notarized `.dmg` from GitHub, o
 brew tap smandable/tap && brew install --cask saddle
 ```
 
-**[GitHub](https://github.com/smandable/Saddle)** · **[Download](https://github.com/smandable/Saddle/releases/latest)**
+<p style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;">
+<strong><a href="https://github.com/smandable/Saddle" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:6px;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span style="text-decoration:underline;">GitHub</span><span class="sr-only"> (opens in new tab)</span></a></strong>
+<span style="color:#cbd5e1;" aria-hidden="true">·</span>
+<strong><a href="https://github.com/smandable/Saddle/releases/latest" target="_blank" rel="noopener noreferrer">Download<span class="sr-only"> (opens in new tab)</span></a></strong>
+</p>
 
 ---
 
@@ -173,7 +191,9 @@ The spike's first real lesson: Apple's ProRAW "RAW" isn't raw. The pixels arrive
 
 Parked mid-spike while ReKey and Debt Descent took the queue. The plan hasn't changed: commercial release on the Mac App Store. The design notes are public; the code lands there as the spike graduates into the real app. Please don't fork it for commercial use when it does.
 
-**[GitHub](https://github.com/smandable/kelvin-caliper)**
+<p style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;">
+<strong><a href="https://github.com/smandable/kelvin-caliper" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:6px;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span style="text-decoration:underline;">GitHub</span><span class="sr-only"> (opens in new tab)</span></a></strong>
+</p>
 
 ---
 

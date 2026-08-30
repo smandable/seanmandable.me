@@ -42,11 +42,16 @@ function removeRow(id: number) {
 function loadExample() {
   nextId = 0;
   rows.value = [
-    { id: nextId++, name: 'Store card', balance: '800', apr: '10', minPayment: '40' },
-    { id: nextId++, name: 'Credit card', balance: '4500', apr: '28', minPayment: '110' },
-    { id: nextId++, name: 'Car loan', balance: '2500', apr: '7', minPayment: '75' },
+    { id: nextId++, name: 'Store card', balance: '650', apr: '26.99', minPayment: '35' },
+    { id: nextId++, name: 'Visa', balance: '3200', apr: '22.99', minPayment: '80' },
+    { id: nextId++, name: 'Mastercard', balance: '5400', apr: '24.99', minPayment: '135' },
+    { id: nextId++, name: 'Medical bill', balance: '1100', apr: '0', minPayment: '50' },
+    { id: nextId++, name: 'Personal loan', balance: '4000', apr: '11.5', minPayment: '120' },
+    { id: nextId++, name: 'Car loan', balance: '9800', apr: '6.9', minPayment: '265' },
+    { id: nextId++, name: 'Student loan', balance: '12500', apr: '5.5', minPayment: '140' },
+    { id: nextId++, name: 'Furniture financing', balance: '1850', apr: '29.99', minPayment: '62' },
   ];
-  extra.value = '100';
+  extra.value = '250';
 }
 
 /** Lenient number parsing: tolerates "$", "%", commas, and spaces. */

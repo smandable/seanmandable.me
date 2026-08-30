@@ -20,7 +20,7 @@ interface DebtRow {
 let nextId = 0;
 const blankRow = (): DebtRow => ({ id: nextId++, name: '', balance: '', apr: '', minPayment: '' });
 
-const rows = ref<DebtRow[]>([blankRow(), blankRow()]);
+const rows = ref<DebtRow[]>([blankRow(), blankRow(), blankRow()]);
 const extra = ref('');
 const method = ref<Method>('snowball');
 
@@ -39,19 +39,25 @@ function removeRow(id: number) {
   if (rows.value.length > 1) rows.value = rows.value.filter((r) => r.id !== id);
 }
 
+// Fills however many rows are on screen — add rows to "grow" into the later
+// examples (up to 8). The first three are the fixture the engine is verified
+// against, so the default 3-row demo doubles as a live spot-check.
+const EXAMPLE_DEBTS = [
+  { name: 'Store card', balance: '800', apr: '10', minPayment: '40' },
+  { name: 'Credit card', balance: '4500', apr: '28', minPayment: '110' },
+  { name: 'Car loan', balance: '2500', apr: '7', minPayment: '75' },
+  { name: 'Medical bill', balance: '1100', apr: '0', minPayment: '50' },
+  { name: 'Personal loan', balance: '4000', apr: '11.5', minPayment: '120' },
+  { name: 'Rewards card', balance: '5400', apr: '24.99', minPayment: '135' },
+  { name: 'Student loan', balance: '12500', apr: '5.5', minPayment: '140' },
+  { name: 'Furniture financing', balance: '1850', apr: '29.99', minPayment: '62' },
+];
+
 function loadExample() {
-  nextId = 0;
-  rows.value = [
-    { id: nextId++, name: 'Store card', balance: '650', apr: '26.99', minPayment: '35' },
-    { id: nextId++, name: 'Visa', balance: '3200', apr: '22.99', minPayment: '80' },
-    { id: nextId++, name: 'Mastercard', balance: '5400', apr: '24.99', minPayment: '135' },
-    { id: nextId++, name: 'Medical bill', balance: '1100', apr: '0', minPayment: '50' },
-    { id: nextId++, name: 'Personal loan', balance: '4000', apr: '11.5', minPayment: '120' },
-    { id: nextId++, name: 'Car loan', balance: '9800', apr: '6.9', minPayment: '265' },
-    { id: nextId++, name: 'Student loan', balance: '12500', apr: '5.5', minPayment: '140' },
-    { id: nextId++, name: 'Furniture financing', balance: '1850', apr: '29.99', minPayment: '62' },
-  ];
-  extra.value = '250';
+  rows.value = rows.value.map((row, i) =>
+    i < EXAMPLE_DEBTS.length ? { ...row, ...EXAMPLE_DEBTS[i] } : row,
+  );
+  extra.value = '100';
 }
 
 /** Lenient number parsing: tolerates "$", "%", commas, and spaces. */

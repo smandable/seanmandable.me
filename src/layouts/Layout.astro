@@ -7,10 +7,12 @@ import { profile } from '../data/resume';
 type Props = {
   title?: string;
   description?: string;
+  /** Verbatim <title>, skipping the "— {name}" suffix (for SEO-targeted pages). */
+  fullTitle?: string;
 };
 
 const { title, description = `${profile.name} — ${profile.title}` } = Astro.props;
-const fullTitle = title ? `${title} — ${profile.name}` : profile.name;
+const fullTitle = Astro.props.fullTitle ?? (title ? `${title} — ${profile.name}` : profile.name);
 
 // Bump this when any /favicon.* or /apple-touch-icon.png changes so browsers
 // refetch instead of serving stale cached versions.

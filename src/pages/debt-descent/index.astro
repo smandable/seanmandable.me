@@ -1,8 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
-const appStoreUrl =
-  'https://apps.apple.com/us/app/debt-descent-payoff-planner/id6785269702';
+import { appStoreUrl } from '../../data/debt-descent';
 ---
 
 <Layout
@@ -40,6 +38,7 @@ const appStoreUrl =
       <span class="sr-only"> (opens in new tab)</span>
     </a>
     <nav class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500" aria-label="Debt Descent links">
+      <a href="/debt-descent/calculator" class="transition-colors hover:text-accent-600">Free payoff calculator</a>
       <a href="/projects#debt-descent" class="transition-colors hover:text-accent-600">More about the app</a>
       <a href="/debt-descent/support" class="transition-colors hover:text-accent-600">Support</a>
       <a href="/debt-descent/privacy" class="transition-colors hover:text-accent-600">Privacy Policy</a>

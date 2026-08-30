@@ -1,0 +1,175 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DebtCalculator from '../../components/DebtCalculator.vue';
+import { appStoreUrl } from '../../data/debt-descent';
+
+const title = 'Debt Snowball & Avalanche Calculator';
+const fullTitle = 'Debt Snowball & Avalanche Calculator — Free, No Sign-Up';
+const description =
+  'Free debt Snowball and Avalanche calculator. See your debt-free date, payoff order, and total interest — both methods compared side by side. No sign-up, runs entirely in your browser.';
+
+// Rendered as the visible FAQ *and* serialized into FAQPage JSON-LD below, so
+// the markup Google sees always matches the text on the page.
+const faqs = [
+  {
+    q: 'What’s the difference between the Debt Snowball and Debt Avalanche methods?',
+    a: 'Only the order you attack your debts. Snowball targets the smallest balance first so you clear whole debts quickly and build momentum. Avalanche targets the highest APR first so your money always fights the most expensive debt. Everything else is identical: you pay every minimum, put whatever budget is left toward one target debt, and when a debt is paid off its minimum payment rolls forward into the attack.',
+  },
+  {
+    q: 'Which method pays off debt faster?',
+    a: 'With the same monthly budget, Avalanche always pays the same or less total interest than Snowball, and it often finishes a few months sooner — the difference grows when your highest-APR debt is also one of your largest. Sometimes the two tie. This calculator always shows both methods side by side, so you can see exactly what the choice costs on your own numbers.',
+  },
+  {
+    q: 'How does the payment rollover work?',
+    a: 'Your monthly budget — every minimum payment plus your extra — stays constant for the whole plan. When a debt is paid off, you keep paying the same total each month: the freed-up minimum rolls into attacking the next target debt. That compounding rollover is what makes both methods work, and it’s why the last debts fall much faster than the first.',
+  },
+  {
+    q: 'Why does the calculator say a debt “never clears at this payment”?',
+    a: 'Because the monthly interest on that balance is at least as large as the money going toward it, so the balance holds steady or grows. For example, $5,000.00 at 36% APR adds $150.00 of interest in the first month — a $100.00 payment can never catch up. Adding even a small extra amount per month, or negotiating the rate down, turns it around.',
+  },
+  {
+    q: 'Is anything I type stored or sent anywhere?',
+    a: 'No. The calculator runs entirely in your browser — your balances never leave this page, nothing is saved, and there’s no account or sign-up. Leave or refresh the page and the numbers are gone. The Debt Descent app works on the same principle: its App Privacy label is “Data Not Collected.”',
+  },
+  {
+    q: 'Should I include my mortgage or student loans?',
+    a: 'You can model any debt that has a balance, an APR, and a regular minimum payment. Many people run the Snowball or Avalanche method on high-interest consumer debt — cards, store cards, personal and car loans — and leave a long, low-rate mortgage out so it doesn’t dominate the timeline. Try it both ways and see which plan you’d actually follow.',
+  },
+  {
+    q: 'What is Debt Descent?',
+    a: 'Debt Descent is a native debt-payoff planner for iPhone, iPad, and Mac by the maker of this calculator. It keeps your plan with you: log payments as you make them, watch your debt-free date move, and sync privately across your devices. One-time purchase, no subscription — and like this page, your data never leaves your devices.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<Layout title={title} fullTitle={fullTitle} description={description}>
+  <div class="mx-auto max-w-3xl">
+    <p class="text-sm font-medium">
+      <a href="/debt-descent" class="text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>
+      <span class="text-slate-400"> / Free Debt Snowball &amp; Avalanche Calculator</span>
+    </p>
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+      Debt Snowball &amp; Avalanche Calculator
+    </h1>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      Add your debts, pick a method, and see your debt-free date, your payoff order, and
+      what interest really costs — with Snowball and Avalanche compared side by side.
+    </p>
+    <p class="mt-3 flex items-center gap-2 text-sm text-slate-500">
+      <svg class="h-4 w-4 shrink-0 text-accent-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      Free, no sign-up. Runs entirely in your browser. Nothing is saved or sent.
+    </p>
+
+    <div class="mt-10">
+      <DebtCalculator client:load />
+    </div>
+
+    <!-- App funnel -->
+    <aside class="mt-14 rounded-lg border border-slate-200 p-6 sm:p-8">
+      <div class="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+        <img
+          src="/app-icons/debt-descent.png?v=2"
+          alt=""
+          width="72"
+          height="72"
+          class="h-18 w-18 shrink-0 rounded-[22.5%] shadow-sm ring-1 ring-slate-900/10"
+          loading="lazy"
+        />
+        <div class="min-w-0">
+          <h2 class="text-lg font-bold tracking-tight">Keep the plan with you</h2>
+          <p class="mt-1 text-sm leading-relaxed text-slate-600">
+            A web page can show you the plan — <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a> helps
+            you live it. Log payments, watch your debt-free date move, and sync
+            privately across iPhone, iPad, and Mac. One-time purchase, no subscription.
+          </p>
+        </div>
+        <a
+          href={appStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="shrink-0 transition-opacity hover:opacity-80"
+          data-umami-event="debt-descent-calculator-app-store"
+        >
+          <img
+            src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us"
+            alt="Download on the App Store"
+            width="150"
+            height="50"
+            class="h-[50px] w-auto"
+            loading="lazy"
+          />
+          <span class="sr-only"> (opens in new tab)</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Explainers -->
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">How the Debt Snowball method works</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The Debt Snowball orders your debts from smallest balance to largest. Each month you
+        pay the minimum on everything, then put every spare dollar toward the smallest
+        balance. When it’s gone, its minimum payment — plus your extra — rolls onto the next
+        smallest, so the amount attacking each debt keeps growing like a snowball.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Snowball’s strength isn’t arithmetic, it’s momentum: you close whole accounts early
+        and often, and each cleared debt is proof the plan is working. If you’ve started and
+        abandoned payoff plans before, those quick wins matter more than the interest math.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">How the Debt Avalanche method works</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The Debt Avalanche orders your debts by interest rate, highest APR first. Same
+        mechanics — minimums on everything, all spare budget onto one target, freed-up
+        minimums roll forward — but the target is always the debt charging you the most.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        That makes Avalanche the mathematically optimal order: on the same monthly budget it
+        never pays more total interest than Snowball, and usually pays less. The catch is
+        patience — if your highest-rate debt is also a big one, it can be a long time before
+        you feel the first win.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Snowball vs Avalanche: which should you pick?</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Run your numbers in the calculator above and look at the comparison — it answers the
+        question in dollars and months instead of opinions. The gap is often smaller than
+        people expect: when it’s a month or two and a modest amount of interest, pick
+        whichever order you’ll actually stick with. When the gap is large — usually because a
+        big balance carries a high rate — that’s Avalanche making its case.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        A popular middle path: start with Snowball to knock out one or two small balances
+        fast, then switch to Avalanche for the rest. The one thing every version shares is
+        the part that does the real work — the constant monthly budget, with every freed-up
+        minimum rolled forward until the last debt falls.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Frequently asked questions</h2>
+      <dl class="mt-6 space-y-8">
+        {faqs.map(({ q, a }) => (
+          <div>
+            <dt class="font-semibold text-slate-900">{q}</dt>
+            <dd class="mt-2 leading-relaxed text-slate-600">{a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </div>
+</Layout>

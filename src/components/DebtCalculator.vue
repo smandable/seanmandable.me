@@ -289,7 +289,7 @@ const tableRows = computed(() => {
               v-model="row.balance"
               type="text"
               inputmode="decimal"
-              placeholder="$4,500"
+              placeholder="$"
               class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600"
             />
           </div>
@@ -300,7 +300,6 @@ const tableRows = computed(() => {
               v-model="row.apr"
               type="text"
               inputmode="decimal"
-              placeholder="19.99"
               class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600"
             />
           </div>
@@ -311,7 +310,7 @@ const tableRows = computed(() => {
               v-model="row.minPayment"
               type="text"
               inputmode="decimal"
-              placeholder="$110"
+              placeholder="$"
               class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600"
             />
           </div>
@@ -354,7 +353,7 @@ const tableRows = computed(() => {
           v-model="extra"
           type="text"
           inputmode="decimal"
-          placeholder="$100"
+          placeholder="$"
           class="w-40 rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600"
         />
         <p class="mt-1 text-xs text-slate-500">Anything you can put in on top of the minimums.</p>

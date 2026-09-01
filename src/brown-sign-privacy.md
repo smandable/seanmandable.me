@@ -5,7 +5,7 @@ description: Brown Sign processes photos on-device, attaches no personal identif
 
 **Effective date:** June 10, 2026
 
-Brown Sign is developed by Sean Mandable. This privacy policy explains what data the app accesses, how it's used, and what leaves your device.
+I'm Sean Mandable, and I make Brown Sign. This policy explains what the app accesses, how it's used, and what leaves your device.
 
 ## What the app accesses
 
@@ -60,7 +60,4 @@ If this policy changes, the updated version will be posted at this URL with a ne
 
 ## Contact
 
-Questions or concerns about this privacy policy can be directed to:
-
-Sean Mandable
-smandable@gmail.com
+Questions about privacy? Email me at **[smandable@gmail.com](mailto:smandable@gmail.com)**.

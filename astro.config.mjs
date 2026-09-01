@@ -2,13 +2,19 @@
 import { defineConfig } from 'astro/config';
 
 import vue from '@astrojs/vue';
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import rehypeExternalLinks from 'rehype-external-links';
 import { unified } from '@astrojs/markdown-remark';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue()],
+  site: 'https://www.seanmandable.me',
+  integrations: [
+    vue(),
+    // The 404 page isn't a destination; keep it out of the sitemap.
+    sitemap({ filter: (page) => !page.includes('/404') }),
+  ],
 
   // Open external links (http/https to other sites) in a new tab. Internal
   // links and other protocols (mailto:, tel:) are left untouched. The plugin

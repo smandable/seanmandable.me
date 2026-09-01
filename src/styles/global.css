@@ -6,7 +6,7 @@
  * accent-700 as the darker hover/pressed state.
  */
 @theme {
-  --color-accent-50: #dfeee1;
+  --color-accent-50: #d0e5c6;
   --color-accent-600: #355e3b;
   --color-accent-700: #284a2d;
 }

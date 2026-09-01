@@ -13,7 +13,7 @@ const description =
 const faqs = [
   {
     q: 'What’s the difference between the Debt Snowball and Debt Avalanche methods?',
-    a: 'Only the order you attack your debts. Snowball targets the smallest balance first so you clear whole debts quickly and build momentum. Avalanche targets the highest APR first so your money always fights the most expensive debt. Everything else is identical: you pay every minimum, put whatever budget is left toward one target debt, and when a debt is paid off its minimum payment rolls forward into the attack.',
+    a: 'Only the order you pay them off in. Snowball targets the smallest balance first so you clear whole debts quickly and build momentum. Avalanche targets the highest APR first so your extra money always goes to the most expensive debt. Everything else is identical: you pay every minimum, put whatever budget is left toward one target debt, and when a debt is paid off its minimum payment rolls forward onto the next.',
   },
   {
     q: 'Which method pays off debt faster?',
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: 'How does the payment rollover work?',
-    a: 'Your monthly budget — every minimum payment plus your extra — stays constant for the whole plan. When a debt is paid off, you keep paying the same total each month: the freed-up minimum rolls into attacking the next target debt. That compounding rollover is what makes both methods work, and it’s why the last debts fall much faster than the first.',
+    a: 'Your monthly budget — every minimum payment plus your extra — stays constant for the whole plan. When a debt is paid off, you keep paying the same total each month: the freed-up minimum rolls onto the next target debt. That compounding rollover is what makes both methods work, and it’s why the last debts fall much faster than the first.',
   },
   {
     q: 'Why does the calculator say a debt “never clears at this payment”?',
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: 'What is Debt Descent?',
-    a: 'Debt Descent is a native debt-payoff planner for iPhone, iPad, and Mac by the maker of this calculator. It keeps your plan with you: log payments as you make them, watch your debt-free date move, and sync privately across your devices. One-time purchase, no subscription — and like this page, your data never leaves your devices.',
+    a: 'Debt Descent is my native debt-payoff planner for iPhone, iPad, and Mac. It keeps your plan with you: log payments as you make them, watch your debt-free date move, and sync privately across your devices. One-time purchase, no subscription — and like this page, your data never leaves your devices.',
   },
 ];
 
@@ -88,9 +88,10 @@ const faqSchema = {
         <div class="min-w-0">
           <h2 class="text-lg font-bold tracking-tight">Keep the plan with you</h2>
           <p class="mt-1 text-sm leading-relaxed text-slate-600">
-            A web page can show you the plan — <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a> helps
-            you live it. Log payments, watch your debt-free date move, and sync
-            privately across iPhone, iPad, and Mac. One-time purchase, no subscription.
+            This page can show you the plan — I built <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a> for
+            the months after, when you're actually following it. Log payments, watch
+            your debt-free date move, and sync privately across iPhone, iPad, and Mac.
+            One-time purchase, no subscription.
           </p>
         </div>
         <a
@@ -120,7 +121,7 @@ const faqSchema = {
         The Debt Snowball orders your debts from smallest balance to largest. Each month you
         pay the minimum on everything, then put every spare dollar toward the smallest
         balance. When it’s gone, its minimum payment — plus your extra — rolls onto the next
-        smallest, so the amount attacking each debt keeps growing like a snowball.
+        smallest, so the amount put toward each debt keeps growing like a snowball.
       </p>
       <p class="mt-4 leading-relaxed text-slate-600">
         Snowball’s strength isn’t arithmetic, it’s momentum: you close whole accounts early
@@ -150,7 +151,7 @@ const faqSchema = {
         big balance carries a high rate — that’s Avalanche making its case.
       </p>
       <p class="mt-4 leading-relaxed text-slate-600">
-        A popular middle path: start with Snowball to knock out one or two small balances
+        A popular middle path: start with Snowball to clear one or two small balances
         fast, then switch to Avalanche for the rest. The one thing every version shares is
         the part that does the real work — the constant monthly budget, with every freed-up
         minimum rolled forward until the last debt falls.

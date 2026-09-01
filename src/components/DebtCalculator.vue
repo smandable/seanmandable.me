@@ -380,7 +380,7 @@ const tableRows = computed(() => {
     <p v-if="comparison" class="mt-4 text-sm text-slate-600">
       Monthly budget: <strong class="font-semibold text-slate-900">{{ usd(comparison[method].monthlyBudget) }}</strong>
       — every minimum plus your extra. When a debt is paid off, its minimum payment rolls
-      into attacking the next one, so the full budget works for you until you're debt-free.
+      onto the next one, so the full budget works for you until you're debt-free.
     </p>
 
     <!-- Results -->

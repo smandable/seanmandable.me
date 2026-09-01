@@ -1,0 +1,2 @@
+# Serve Astro's built 404 page for unknown URLs (Dreamhost/Apache).
+ErrorDocument 404 /404.html

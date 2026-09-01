@@ -2,6 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import ResumeButton from '../components/ResumeButton.astro';
 import { profile, tools } from '../data/resume';
+
+const apps = [
+  { name: 'Brown Sign', href: '/brown-sign', icon: '/app-icons/brown-sign.png' },
+  { name: 'Debt Descent', href: '/debt-descent', icon: '/app-icons/debt-descent.png?v=2' },
+  { name: 'Saddle', href: '/saddle', icon: '/app-icons/saddle.png' },
+  { name: 'ReKey', href: '/rekey', icon: '/app-icons/rekey.png?v=2' },
+  { name: 'ModernPAR', href: '/modernpar', icon: '/app-icons/modernpar.png' },
+  { name: 'Kelvin Caliper', href: '/projects#kelvin-caliper', icon: '/app-icons/kelvin-caliper.png?v=2' },
+];
 ---
 
 <Layout>
@@ -40,6 +49,27 @@ import { profile, tools } from '../data/resume';
       >
         See My Work
       </a>
+    </div>
+  </section>
+
+  <section class="mt-20">
+    <h2 class="text-2xl font-semibold tracking-tight">Apps</h2>
+    <div class="mt-6 flex flex-wrap gap-x-8 gap-y-6">
+      {apps.map((app) => (
+        <a href={app.href} class="group flex w-20 flex-col items-center gap-2 text-center">
+          <img
+            src={app.icon}
+            alt=""
+            width="64"
+            height="64"
+            class="h-16 w-16 rounded-[22.5%] shadow-sm ring-1 ring-slate-900/10"
+            loading="lazy"
+          />
+          <span class="text-xs font-medium leading-tight text-slate-700 transition-colors group-hover:text-accent-600">
+            {app.name}
+          </span>
+        </a>
+      ))}
     </div>
   </section>
 

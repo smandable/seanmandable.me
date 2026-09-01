@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="ModernPAR"
+  description="ModernPAR verifies and repairs PAR2 and PAR1 sets, creates recovery sets, and extracts RAR and zip archives — the arm64-native rebuild of MacPAR deLuxe, free under the GPL."
+>
+  <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
+    <img
+      src="/app-icons/modernpar.png"
+      alt=""
+      width="128"
+      height="128"
+      class="h-32 w-32 rounded-[22.5%] shadow-md ring-1 ring-slate-900/10"
+    />
+    <h1 class="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">ModernPAR</h1>
+    <p class="mt-4 text-lg leading-relaxed text-slate-600">
+      The arm64-native rebuild of MacPAR deLuxe. Verify and repair PAR2 and PAR1
+      sets, create new recovery sets, and extract RAR and zip archives — drop a
+      <code class="rounded bg-slate-100 px-1 py-0.5 text-base">.par2</code> file on the
+      window and it verifies, repairs any damage, then extracts what's inside.
+    </p>
+    <a
+      href="https://github.com/smandable/ModernPAR/releases/latest"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-flex items-center gap-2 rounded-md bg-accent-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-700"
+      data-umami-event="modernpar-github-download"
+    >
+      <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
+        <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
+      </svg>
+      Download the .dmg<span class="sr-only"> (opens in new tab)</span>
+    </a>
+    <p class="mt-4 text-sm text-slate-500">
+      Signed and notarized, for Apple Silicon Macs on macOS 14 or later. Updates
+      itself through Sparkle. Free software under GPL-2.0-or-later.
+    </p>
+    <nav
+      class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500"
+      aria-label="ModernPAR links"
+    >
+      <a href="/projects#modernpar" class="transition-colors hover:text-accent-600">More about the app</a>
+      <a
+        href="https://github.com/smandable/ModernPAR"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition-colors hover:text-accent-600"
+      >GitHub<span class="sr-only"> (opens in new tab)</span></a>
+      <a
+        href="https://github.com/smandable/ModernPAR/issues"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition-colors hover:text-accent-600"
+      >Report an issue<span class="sr-only"> (opens in new tab)</span></a>
+    </nav>
+  </div>
+</Layout>

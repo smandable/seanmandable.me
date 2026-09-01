@@ -104,7 +104,7 @@ ReKey is on the **Mac App Store** (currently v1.1.2), and is also available as a
 
 ---
 
-<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/modernpar.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ModernPAR (macOS, 2026)</h2>
+<h2 id="modernpar" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/modernpar.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ModernPAR (macOS, 2026)</h2>
 
 MacPAR deLuxe is the Mac app for PAR files. It has held that spot for a long time, mostly because nobody else bothered. PAR files add recovery data to a set of files, so when a piece goes missing or arrives corrupted you can rebuild it instead of starting over. I've used MacPAR deLuxe to verify and repair file sets for years. It's Intel-only, it hasn't shipped an update in a long while, and it stops working once Apple retires Rosetta 2.
 
@@ -136,7 +136,7 @@ v1.0.0 is available as a signed, notarized `.dmg` from GitHub Releases. Sandboxe
 
 ---
 
-<h2 style="display:flex;align-items:center;gap:14px"><img src="/app-icons/saddle.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Saddle (macOS, 2025)</h2>
+<h2 id="saddle" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/saddle.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Saddle (macOS, 2025)</h2>
 
 My external drives kept making noises. Spinning up for no reason, chattering to themselves in the background, asking for attention they didn't need. Most of the time they just sat there doing nothing — I'd go days without actually reading or writing anything to them — but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
 

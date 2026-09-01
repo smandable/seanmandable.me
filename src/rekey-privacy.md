@@ -71,4 +71,4 @@ and likewise sends nothing anywhere.
 ## Contact
 
 Questions: open an issue at <https://github.com/smandable/ReKey> or email
-smandable@gmail.com.
+support@seanmandable.me.

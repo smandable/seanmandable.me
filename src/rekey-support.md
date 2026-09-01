@@ -3,7 +3,7 @@ title: ReKey — Support
 description: Help and answers for ReKey, the local password health auditor for macOS.
 ---
 
-Need a hand? Open an issue at [github.com/smandable/ReKey](https://github.com/smandable/ReKey/issues) or email **[smandable@gmail.com](mailto:smandable@gmail.com)** and I'll get back to you.
+Need a hand? Open an issue at [github.com/smandable/ReKey](https://github.com/smandable/ReKey/issues) or email **[support@seanmandable.me](mailto:support@seanmandable.me)** and I'll get back to you.
 
 ReKey is a local password health auditor for macOS. Export a CSV from each browser you've used, drop them in, and it finds the reused and breached passwords, generates strong replacements, and walks you to each site's change page — with no account, no sign-up, and nothing uploaded.
 

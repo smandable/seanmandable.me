@@ -60,4 +60,4 @@ If this policy changes, the updated version will be posted at this URL with a ne
 
 ## Contact
 
-Questions about privacy? Email me at **[smandable@gmail.com](mailto:smandable@gmail.com)**.
+Questions about privacy? Email me at **[support@seanmandable.me](mailto:support@seanmandable.me)**.

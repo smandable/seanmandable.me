@@ -13,7 +13,8 @@ const apps = [
 ];
 ---
 
-<Layout>
+<Layout fillMain>
+  <div class="flex grow flex-col">
   <section class="grid grid-cols-[auto_1fr] items-start gap-x-4 sm:gap-x-6 md:gap-x-10">
     <img
       src="/profile.jpg?v=2"
@@ -52,7 +53,7 @@ const apps = [
     </div>
   </section>
 
-  <section class="mt-32">
+  <section class="mt-auto pt-32">
     <h2 class="text-2xl font-semibold tracking-tight">Apps</h2>
     <div class="mt-6 flex flex-wrap gap-x-8 gap-y-6">
       {apps.map((app) => (
@@ -83,4 +84,5 @@ const apps = [
       ))}
     </div>
   </section>
+  </div>
 </Layout>

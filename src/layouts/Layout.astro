@@ -11,9 +11,11 @@ type Props = {
   fullTitle?: string;
   /** App Store numeric id — renders the apple-itunes-app meta so iOS Safari shows a Smart App Banner. */
   appleAppId?: string;
+  /** Make <main> a flex column so page content can distribute spare viewport height (mt-auto). */
+  fillMain?: boolean;
 };
 
-const { title, description = `${profile.name} — ${profile.title}`, appleAppId } = Astro.props;
+const { title, description = `${profile.name} — ${profile.title}`, appleAppId, fillMain = false } = Astro.props;
 const fullTitle = Astro.props.fullTitle ?? (title ? `${title} — ${profile.name}` : profile.name);
 
 // Canonical/OG URL: the site is served from directory indexes, so Apache's
@@ -111,7 +113,7 @@ const ICON_VERSION = '2';
         <Nav />
       </div>
     </header>
-    <main class="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
+    <main class:list={['mx-auto w-full max-w-5xl flex-1 px-6 py-12', fillMain && 'flex flex-col']}>
       <slot />
     </main>
     <Footer />

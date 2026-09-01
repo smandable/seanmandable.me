@@ -9,10 +9,24 @@ type Props = {
   description?: string;
   /** Verbatim <title>, skipping the "— {name}" suffix (for SEO-targeted pages). */
   fullTitle?: string;
+  /** App Store numeric id — renders the apple-itunes-app meta so iOS Safari shows a Smart App Banner. */
+  appleAppId?: string;
 };
 
-const { title, description = `${profile.name} — ${profile.title}` } = Astro.props;
+const { title, description = `${profile.name} — ${profile.title}`, appleAppId } = Astro.props;
 const fullTitle = Astro.props.fullTitle ?? (title ? `${title} — ${profile.name}` : profile.name);
+
+// Canonical/OG URL: the site is served from directory indexes, so Apache's
+// canonical form of every non-root path ends in a slash.
+const canonicalPath = Astro.url.pathname.endsWith('/')
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+const canonicalURL = new URL(canonicalPath, Astro.site);
+
+// Social cards are per-page; the homepage keeps its richer hand-written pair.
+const ogTitle = title ? fullTitle : 'Sean Mandable, Senior Software Engineer & Full-Stack Dev';
+const ogDescription = Astro.props.description
+  ?? 'Full-stack web (Vue, Angular, TypeScript, Node) + Swift/SwiftUI. I notice when things are off and can’t quite leave them there.';
 
 // Bump this when any /favicon.* or /apple-touch-icon.png changes so browsers
 // refetch instead of serving stale cached versions.
@@ -29,15 +43,17 @@ const ICON_VERSION = '2';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta property="og:title" content="Sean Mandable, Senior Software Engineer & Full-Stack Dev" />
-    <meta property="og:description" content="Full-stack web (Vue, Angular, TypeScript, Node) + Swift/SwiftUI. I notice when things are off and can’t quite leave them there." />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
     <meta property="og:image" content="https://www.seanmandable.me/og-image.png" />
-    <meta property="og:url" content="https://www.seanmandable.me/" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sean Mandable, Senior Software Engineer & Full-Stack Dev" />
-    <meta name="twitter:description" content="Full-stack web (Vue, Angular, TypeScript, Node) + Swift/SwiftUI. I notice when things are off and can’t quite leave them there." />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content="https://www.seanmandable.me/og-image.png" />
+    {appleAppId && <meta name="apple-itunes-app" content={`app-id=${appleAppId}`} />}
     <title>{fullTitle}</title>
     {import.meta.env.PROD && (
       <Fragment>

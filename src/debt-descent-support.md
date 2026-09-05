@@ -19,7 +19,7 @@ Yes, automatically — and it's free for everyone. Just be signed in to iCloud w
 No. When you sign out of iCloud (or turn iCloud off for Debt Descent), the system removes the synced copy from that device — that's standard for synced apps. Your data is still in your own private iCloud and comes right back when you sign in again. If you want a copy that stays on the device regardless, use **Export to JSON** before signing out.
 
 **What does Debt Descent Pro include, and how much is it?**
-Pro is a **one-time $14.99 purchase** (no subscription) that unlocks the five payoff methods beyond the free Snowball and Avalanche (one of them a custom order you set yourself), the what-if slider and per-debt payoff tests, snowflakes, refinance modeling (including applying the deal in one step), amortization schedules, PDF/calendar export, and due-date reminders. One purchase unlocks Pro on your iPhone, iPad, and Mac.
+Pro is a **one-time $14.99 purchase** (no subscription) that unlocks the five payoff methods beyond the free Snowball and Avalanche (one of them a custom order you set yourself), the what-if slider and per-debt payoff tests, planned windfalls, refinance modeling (including applying the deal in one step), amortization schedules, PDF/calendar export, and due-date reminders. One purchase unlocks Pro on your iPhone, iPad, and Mac.
 
 **I bought Pro but don't see it on a new device.**
 It should unlock automatically when you're signed in with the same Apple ID. If not, open the paywall (tap any "PRO" feature, or the ••• menu → "Unlock Debt Descent Pro") and tap **Restore Purchases**.
@@ -32,6 +32,9 @@ Yes — payment groups are free for everyone. On the Payments tab, add a payment
 
 **A debt in a payment group shows a different due date than its statement — why?**
 Because that's the date your money actually goes out. A debt enrolled in a group shows the group's payment date everywhere — upcoming payments, reminders, calendar export. The creditor's own due date isn't overwritten; it comes back the moment the debt leaves the group.
+
+**My student loan is in deferment — how do I enter it?**
+Add or edit the loan and turn on **In deferment — nothing due yet**, then set the date the deferment ends. Until that date the loan sits out of your plan: nothing is due, it stays off upcoming payments and reminders, and the payoff math skips it. When the date arrives it rejoins the plan on its own, and its payment comes out of your extra first, so the monthly total you've committed doesn't change. Enter the eventual monthly payment if you know it — the row shows it as "$150/mo after" — or add it later. If the loan is subsidized (no interest accrues while it's deferred), also turn on **No interest during deferment (subsidized)** and the balance holds still until the date. Deferment is available for loans, not cards. New in 1.15.
 
 **I logged a payment, but the balance doesn't include the interest my card charged.**
 That's by design. Debt Descent treats your balance as "what your statement says": logging a payment takes exactly what you paid off the tracked balance, and the app never adds its own interest estimate — real card interest depends on average daily balance, posting dates, and fees, so any figure the app invented would drift from your actual statement. When your next statement posts, update the balance (edit the debt, or import the statement) and that catches the interest charge. Your *plan* — the debt-free date, total interest, and method comparisons — does fully model interest at each debt's APR; only the live balance stays anchored to your statements, so you can always verify it against them.

@@ -108,7 +108,7 @@ async function onSubmit(event: Event) {
     </button>
 
     <p v-if="status === 'success'" class="text-sm text-emerald-600" role="status">
-      Thanks — your message is on its way.
+      Thanks. Your message is on its way.
     </p>
     <p v-if="status === 'error'" class="text-sm text-red-600" role="alert">
       {{ errorMessage }}

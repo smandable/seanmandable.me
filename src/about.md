@@ -21,4 +21,4 @@ I studied Management Information Systems at Albertus Magnus and then did a maste
 
 ### What they have in common
 
-Most of what I've built, at work and on my own, started because something small was wrong and I couldn't leave it alone. The external drives making noise under my desk turned into Saddle. The debt calculators that wanted one balance and one rate, or else my bank login, became Debt Descent. At TriNet it was a twenty-five-minute build that had no reason to take longer than one. Fixing it has always felt like a better use of a Saturday than complaining about it.
+Most of what I've built, at work and on my own, started because something small was wrong and I couldn't leave it alone. The external drives making noise under my desk turned into Saddle. The debt calculators that wanted one balance and one rate, or my bank login, became Debt Descent. At TriNet it was a twenty-five-minute build that had no reason to take longer than one. Fixing it has always felt like a better use of a Saturday than complaining about it.

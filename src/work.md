@@ -17,7 +17,7 @@ It annoyed me, so I fixed it. The build was doing almost everything the wrong wa
 
 ### Vue 2/Nuxt to Vue 3/Astro
 
-With the site in-house and the feedback loop fast enough to iterate on, the bigger migration could finally happen. I architected and executed a full codebase move from Vue 2/Nuxt to Vue 3/Astro with a Node.js backend, rebuilt the test suite, and automated enough of the pipeline that feature work could move quickly without anyone babysitting deploys.
+With the site in-house and the feedback loop fast enough to iterate on, the bigger migration could finally happen. I planned and led the full move from Vue 2/Nuxt to Vue 3/Astro with a Node.js backend, rebuilt the test suite, and automated enough of the pipeline that feature work could move quickly without anyone babysitting deploys.
 
 ### Accessibility: D to A
 
@@ -25,10 +25,10 @@ The site graded a D against WCAG standards when I arrived. By the time I left, i
 
 ### The rest
 
-- Built self-serve content workflows for three departments so routine updates no longer needed a developer in the loop
-- Lifted visitor conversion 25%+ through a redesigned interface with clearer hierarchy and navigation
-- Cut image load times 75% with modern compression and next-gen formats
-- Managed one direct report and recruited/managed external contractors through key milestones
+- Set up Contentstack so three departments could publish their own updates without a developer
+- Redesigned the layout and navigation, and visitor conversion went up 25%+
+- Cut image load times 75% with better compression and newer formats
+- Managed one direct report, and hired and managed outside contractors for the big pushes
 - Kept shipping through mid-sprint scope changes, shifting leadership direction, and moving launch dates
 
 ---
@@ -51,7 +51,7 @@ DiscoverOrg grew from about $30M to $1.2B in annual revenue during and after my 
 
 Three years running my own shop, taking on up to ten clients at a time (**Ann Taylor** among them) and handling every phase from proposal through deployment. Design, full-stack development, DevOps, client communication, and the parts nobody puts on a resume: scoping conversations, writing proposals that say what the work will cost and when it will ship, and keeping records good enough that nobody had to ask me twice what was going on.
 
-Everything shipped on time and on budget. Across ten concurrent engagements, that came down to scheduling and communication at least as much as engineering.
+Everything shipped on time and on budget, which with ten clients at once had at least as much to do with the calendar and the inbox as with the code.
 
 ---
 

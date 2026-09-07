@@ -136,7 +136,7 @@ v1.0.0 is available as a signed, notarized `.dmg` from GitHub Releases. Sandboxe
 
 <h2 id="saddle" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/saddle.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Saddle (macOS, 2025)</h2>
 
-My external drives kept making noise. They spun up for no reason and chattered in the background, and most of the time they weren't doing anything at all. I'd go days without reading or writing anything to them, but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
+My external drives kept making noise. They spun up for no reason, chattered in the background, and asked for attention they didn't need. Most of the time they weren't doing anything at all (I'd go days without reading or writing anything to them), but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
 
 The Finder's answer to this is that you can eject a drive, but you can't mount one. To remount you open Disk Utility, find the drive in the sidebar, and click Mount. Every time. For every drive. And if you have four external drives you want to manage as a group, which I do, it's four round-trips through two apps for something that should be a single click.
 

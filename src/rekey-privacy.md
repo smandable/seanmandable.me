@@ -12,14 +12,14 @@ any kind.**
 
 ## What ReKey does on your device
 
-- You **export** password CSVs from your browsers / Apple Passwords and import
+- You export password CSVs from your browsers / Apple Passwords and import
   them into ReKey. ReKey reads only the files you explicitly choose (or, if you
   opt in, a folder you pick for auto-import).
-- Imported passwords are held **in memory only** — never written to disk, never
+- Imported passwords are held in memory only: never written to disk, never
   logged. The source CSV stays on disk until you securely delete it (an action
   ReKey offers and you confirm).
-- The audit (reuse detection, strength checks, grouping) runs **entirely on your
-  device**.
+- The audit (reuse detection, strength checks, grouping) runs entirely on your
+  device.
 
 ## The only data that leaves your device
 
@@ -28,7 +28,7 @@ which collects, stores, links, or shares any personal data:
 
 1. **Breach check via Have I Been Pwned (k-anonymity).** To tell you whether a
    password appears in a known breach, ReKey hashes the password with SHA-1 on
-   your device and sends only the **first 5 characters of that hash** to
+   your device and sends only the first 5 characters of that hash to
    `api.pwnedpasswords.com`. The full hash and the password itself never leave
    your Mac. The service returns a list of matching hash suffixes, and ReKey
    completes the match locally. This is the standard
@@ -37,10 +37,10 @@ which collects, stores, links, or shares any personal data:
    response size doesn't leak how many matches there were.
 
 2. **Resolving a change-password page.** When you choose to fix a specific
-   account, ReKey makes an on-demand request to **that site's own domain** to
+   account, ReKey makes an on-demand request to that site's own domain to
    find its `/.well-known/change-password` page (a published web standard),
    falling back to a small bundled map or the site's home page. This happens one
-   site at a time, only for the account you're fixing — ReKey never pings your
+   site at a time, only for the account you're fixing. ReKey never pings your
    whole list of accounts, and never sends this information anywhere but the
    site you're changing your password on.
 
@@ -61,7 +61,7 @@ CSVs you place there.
 
 ## The separate `rekey-cleanup` tool
 
-Outright deletion of stale logins from browser stores is **not** part of the App
+Outright deletion of stale logins from browser stores is not part of the App
 Store app (a sandboxed app cannot, and should not, write to other apps' data).
 That capability lives in a separate, optional command-line tool,
 [`rekey-cleanup`](https://github.com/smandable/ReKey), that you build and run

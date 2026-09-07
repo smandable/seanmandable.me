@@ -1,5 +1,5 @@
 ---
-title: Brown Sign — Privacy Policy
+title: Brown Sign Privacy Policy
 description: Brown Sign processes photos on-device, attaches no personal identifiers to searches, and collects nothing.
 ---
 

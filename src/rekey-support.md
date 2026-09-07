@@ -1,5 +1,5 @@
 ---
-title: ReKey — Support
+title: ReKey Support
 description: Help and answers for ReKey, the local password health auditor for macOS.
 ---
 

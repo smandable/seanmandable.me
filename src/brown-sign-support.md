@@ -1,5 +1,5 @@
 ---
-title: Brown Sign — Support
+title: Brown Sign Support
 description: Help and answers for Brown Sign, the app that tells you what those brown highway signs point to.
 ---
 

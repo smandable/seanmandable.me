@@ -7,7 +7,7 @@ import { profile } from '../data/resume';
 type Props = {
   title?: string;
   description?: string;
-  /** Verbatim <title>, skipping the "— {name}" suffix (for SEO-targeted pages). */
+  /** Verbatim <title>, skipping the "| {name}" suffix (for SEO-targeted pages). */
   fullTitle?: string;
   /** App Store numeric id — renders the apple-itunes-app meta so iOS Safari shows a Smart App Banner. */
   appleAppId?: string;
@@ -15,8 +15,8 @@ type Props = {
   fillMain?: boolean;
 };
 
-const { title, description = `${profile.name} — ${profile.title}`, appleAppId, fillMain = false } = Astro.props;
-const fullTitle = Astro.props.fullTitle ?? (title ? `${title} — ${profile.name}` : profile.name);
+const { title, description = `${profile.name}, ${profile.title}`, appleAppId, fillMain = false } = Astro.props;
+const fullTitle = Astro.props.fullTitle ?? (title ? `${title} | ${profile.name}` : profile.name);
 
 // Canonical/OG URL: the site is served from directory indexes, so Apache's
 // canonical form of every non-root path ends in a slash.

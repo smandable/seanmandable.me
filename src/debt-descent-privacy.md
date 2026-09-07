@@ -1,5 +1,5 @@
 ---
-title: Debt Descent — Privacy Policy
+title: Debt Descent Privacy Policy
 description: Debt Descent collects nothing. Your data stays on your device and in your own private iCloud.
 ---
 

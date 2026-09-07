@@ -1,5 +1,5 @@
 ---
-title: Debt Descent — Support
+title: Debt Descent Support
 description: Help and answers for Debt Descent, the private debt-payoff planner for iPhone, iPad, and Mac.
 ---
 

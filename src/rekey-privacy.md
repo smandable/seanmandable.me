@@ -1,5 +1,5 @@
 ---
-title: ReKey — Privacy Policy
+title: ReKey Privacy Policy
 description: ReKey is designed so your passwords never leave your Mac. No accounts, no analytics, no telemetry, no tracking.
 ---
 

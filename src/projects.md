@@ -108,7 +108,7 @@ ReKey is on the **Mac App Store** (currently v1.1.2), and is also available as a
 
 MacPAR deLuxe is the Mac app for PAR files. It has held that spot for a long time, mostly because nobody else bothered. PAR files add recovery data to a set of files, so when a piece goes missing or arrives corrupted you can rebuild it instead of starting over. I've used MacPAR deLuxe to verify and repair file sets for years. It's Intel-only, it hasn't shipped an update in a long while, and it stops working once Apple retires Rosetta 2.
 
-ModernPAR is that rebuild. It verifies and repairs PAR2 and PAR1 sets, creates new recovery sets, and extracts RAR and zip archives — including multi-volume, password-protected, and self-extracting RAR sets. Drop a `.par2` file or its folder on the window and it verifies, repairs any damage, then extracts the archive inside, with per-file status and the "need N more recovery blocks" math along the way. Drag-and-drop, open-with, and completion notifications that jump you to the file in Finder. It's arm64 native, built in Swift 6 and SwiftUI.
+ModernPAR is that rebuild. It verifies and repairs PAR2 and PAR1 sets, creates new recovery sets, and extracts RAR and zip archives, including multi-volume, password-protected, and self-extracting RAR sets. Drop a `.par2` file or its folder on the window and it verifies, repairs any damage, then extracts the archive inside, with per-file status and the "need N more recovery blocks" math along the way. Drag-and-drop, open-with, and completion notifications that jump you to the file in Finder. It's arm64 native, built in Swift 6 and SwiftUI.
 
 ### What's underneath
 
@@ -118,7 +118,7 @@ PAR1 is a different story. There's no modern library for it, so the PAR1 encoder
 
 Licensing drove a few of the structural calls. par2cmdline-turbo is GPL, which is fine because ModernPAR is itself GPL-2.0. UnRAR carries a field-of-use restriction that makes it GPL-incompatible, so it lives in its own separately-licensed component and never merges into the GPL engine's link unit. Every Mach-O in the bundle is arm64-only, including the embedded Sparkle 2 framework, and CI fails the build if anything Intel sneaks in. 342 tests, counting the byte-for-byte oracle checks and the license-compliance gates.
 
-On the app side, every engine (verify, repair, create, RAR, zip) streams the same event type through an AsyncStream into one coalesced model on the main actor, so a single window renders all of them. The scene is a WindowGroup keyed on a folder-scoped session instead of a DocumentGroup, because the thing on screen is a long-running session, not a document.
+On the app side, every engine (verify, repair, create, RAR, zip) streams the same event type through an AsyncStream into one coalesced model on the main actor, so a single window renders all of them. The scene is a WindowGroup keyed on a folder-scoped session instead of a DocumentGroup, because the thing on screen is a long-running session and doesn't fit the document model.
 
 ### Licensing
 
@@ -138,17 +138,17 @@ v1.0.0 is available as a signed, notarized `.dmg` from GitHub Releases. Sandboxe
 
 <h2 id="saddle" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/saddle.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Saddle (macOS, 2025)</h2>
 
-My external drives kept making noises. Spinning up for no reason, chattering to themselves in the background, asking for attention they didn't need. Most of the time they just sat there doing nothing — I'd go days without actually reading or writing anything to them — but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
+My external drives kept making noises. Spinning up for no reason, chattering to themselves in the background, asking for attention they didn't need. Most of the time they just sat there doing nothing (I'd go days without reading or writing anything to them), but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
 
-The Finder's answer to this is that you can eject a drive, but you can't mount one. To remount you open Disk Utility, find the drive in the sidebar, click Mount. Every time. For every drive. And if you have four external drives you want to manage as a group — which I do — it's four round-trips through two apps for something that should be a single click.
+The Finder's answer to this is that you can eject a drive, but you can't mount one. To remount you open Disk Utility, find the drive in the sidebar, and click Mount. Every time. For every drive. And if you have four external drives you want to manage as a group, which I do, it's four round-trips through two apps for something that should be a single click.
 
-Saddle is a macOS menu bar app that fixes this. One icon, real-time mount status for every external drive, click to mount or unmount. Group drives together and batch-mount or batch-unmount the whole group. Configure launch actions so drives auto-mount or auto-unmount when the app starts — and again when the Mac wakes from sleep. Drives you unmounted stay unmounted: when macOS quietly remounts one after a USB hiccup, Saddle puts it back. Exclude drives you don't want managed. Give drives friendly aliases because "Untitled 3" is not a name.
+Saddle is a macOS menu bar app that fixes this. One icon, real-time mount status for every external drive, click to mount or unmount. Group drives together and batch-mount or batch-unmount the whole group. Configure launch actions so drives auto-mount or auto-unmount when the app starts, and again when the Mac wakes from sleep. Drives you unmounted stay unmounted: when macOS remounts one on its own after a USB hiccup, Saddle puts it back. Exclude drives you don't want managed. Give drives friendly aliases because "Untitled 3" is not a name.
 
 ### What's underneath
 
-Native SwiftUI, no dependencies — even the update check is a plain call to the GitHub Releases API. The disk work happens in a small privileged helper the app talks to over XPC, with DiskArbitration callbacks detecting connect and disconnect in real time — no lag between plugging a drive in and seeing it in the menu — and a periodic reconciliation sweep as a backstop. Login item registration goes through macOS ServiceManagement. Notarized by Apple. Runs on macOS 13.5 (Ventura) or later.
+Native SwiftUI with no dependencies; even the update check is a plain call to the GitHub Releases API. The disk work happens in a small privileged helper the app talks to over XPC, with DiskArbitration callbacks detecting connect and disconnect in real time (no lag between plugging a drive in and seeing it in the menu) and a periodic reconciliation sweep as a backstop. Login item registration goes through macOS ServiceManagement. Notarized by Apple. Runs on macOS 13.5 (Ventura) or later.
 
-The settings window is a proper GUI — not a pile of defaults-write commands or a JSON config file. Groups, aliases, launch actions, and exclusions all live in a real preferences surface with tabs and forms. If someone's going to trust an app to mount and unmount their drives on demand, the app should look like it was built by someone who'd use it themselves. Which I do.
+Groups, aliases, launch actions, and exclusions all live in a settings window with tabs and forms, and nothing is configured through defaults-write commands or a JSON file. If someone's going to trust an app to mount and unmount their drives on demand, the app should look like it was built by someone who'd use it themselves, which I do.
 
 ### Installing
 

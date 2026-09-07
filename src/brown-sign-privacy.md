@@ -44,7 +44,7 @@ Brown Sign does **not** collect, store, or transmit:
 - Crash reports (unless you opt in via Apple's standard iOS crash reporting)
 - Advertising data
 
-There are **no ads**, **no accounts**, **no sign-up**, and **no tracking** of any kind.
+There are no ads, no accounts, no sign-up, and no tracking of any kind.
 
 ## Data retention
 
@@ -56,7 +56,7 @@ Brown Sign does not knowingly collect any personal information from anyone, incl
 
 ## Changes to this policy
 
-If this policy changes, the updated version will be posted at this URL with a new effective date. The app does not collect contact information, so there is no way to notify users directly — check this page if you have concerns.
+If this policy changes, the updated version will be posted at this URL with a new effective date. The app does not collect contact information, so there is no way to notify users directly. Check this page if you have concerns.
 
 ## Contact
 

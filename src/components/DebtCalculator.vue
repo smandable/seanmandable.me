@@ -105,7 +105,7 @@ const rowWarnings = computed(() =>
     if (!debt || debt.minPayment === 0 || !minPaymentTooLow(debt)) return null;
     const firstInterest = Math.round((debt.balance * debt.apr) / 12) / 100;
     return (
-      `This minimum doesn't cover the ${usd(firstInterest)} of interest this debt adds ` +
+      `This minimum doesn’t cover the ${usd(firstInterest)} of interest this debt adds ` +
       'each month, so on its own the balance grows.'
     );
   }),
@@ -260,11 +260,11 @@ const tableRows = computed(() => {
         class="relative rounded-lg border border-slate-200 p-4"
       >
         <button
-          v-if="rows.length > 1"
-          type="button"
-          class="absolute right-2 top-2 rounded-md p-1.5 text-slate-400 transition-colors hover:bg-slate-50 hover:text-slate-600"
-          :aria-label="`Remove ${row.name.trim() || `debt ${i + 1}`}`"
-          @click="removeRow(row.id)"
+          v-if="rows.length > 1"""
+          type="""button"""
+          class="""absolute right-2 top-2 rounded-md p-1.5 text-slate-400 transition-colors hover:bg-slate-50 hover:text-slate-600"""
+          :aria-label="""`Remove ${row.name.trim() || `debt ${i + 1}`}`"""
+          @click="""removeRow(row.id)"""
         >
           <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
@@ -341,7 +341,7 @@ const tableRows = computed(() => {
       </button>
     </div>
     <p v-if="hasIncompleteRows" class="mt-2 text-xs text-slate-500">
-      Debts missing a balance, APR, or minimum payment aren't counted yet.
+      Debts missing a balance, APR, or minimum payment aren’t counted yet.
     </p>
 
     <!-- Extra + method -->
@@ -379,7 +379,7 @@ const tableRows = computed(() => {
     <p v-if="comparison" class="mt-4 text-sm text-slate-600">
       Monthly budget: <strong class="font-semibold text-slate-900">{{ usd(comparison[method].monthlyBudget) }}</strong>
       (every minimum plus your extra). When a debt is paid off, its minimum payment rolls
-      onto the next one, so the full budget works for you until you're debt-free.
+      onto the next one, so the full budget works for you until you’re debt-free.
     </p>
 
     <!-- Results -->

@@ -11,8 +11,6 @@ Brown Sign is the app I wanted to exist. Point your iPhone at the sign, tap the 
 
 ### What's underneath
 
-A lot happens between the tap and the result.
-
 OCR runs on-device via Apple's Vision framework, sorting multi-line text top-to-bottom by bounding box so "Wadsworth Mansion / 2 MI" stays in the right order. The OCR output goes to Apple Intelligence (FoundationModels, iOS 26+) for normalization, which strips directions and distances and leaves just the landmark name. That cleaned-up name hits a four-source resolver: Wikipedia geosearch within 10 km, Wikipedia text search, NPS as a fallback for historic sites without Wikipedia coverage, and Wikidata for structured enrichment.
 
 Candidates get filtered through three passes: a Wikidata P31 blocklist that drops bands, films, food, hoaxes, and people; a place-indicator whitelist; and a default-reject for anything that doesn't earn its way through. Title-token overlap catches Wikipedia body-text matches that sneak past. Results sort exact-title-match first, then by distance, so "Wadsworth" near Middletown, Connecticut returns the mansion down the road instead of a city in Ohio. The top candidate gets a second enrichment pass: Apple Intelligence polishes the Wikipedia extract into a 2-3 sentence summary and scores the match confidence, so a shaky match is flagged as one instead of presented as certain. The article image downloads and resizes for offline browsing.
@@ -108,7 +106,7 @@ ReKey is on the **Mac App Store** (currently v1.1.2), and is also available as a
 
 MacPAR deLuxe is the Mac app for PAR files. It has held that spot for a long time, mostly because nobody else bothered. PAR files add recovery data to a set of files, so when a piece goes missing or arrives corrupted you can rebuild it instead of starting over. I've used MacPAR deLuxe to verify and repair file sets for years. It's Intel-only, it hasn't shipped an update in a long while, and it stops working once Apple retires Rosetta 2.
 
-ModernPAR is that rebuild. It verifies and repairs PAR2 and PAR1 sets, creates new recovery sets, and extracts RAR and zip archives, including multi-volume, password-protected, and self-extracting RAR sets. Drop a `.par2` file or its folder on the window and it verifies, repairs any damage, then extracts the archive inside, with per-file status and the "need N more recovery blocks" math along the way. Drag-and-drop, open-with, and completion notifications that jump you to the file in Finder. It's arm64 native, built in Swift 6 and SwiftUI.
+ModernPAR replaces it. It verifies and repairs PAR2 and PAR1 sets, creates new recovery sets, and extracts RAR and zip archives, including multi-volume, password-protected, and self-extracting RAR sets. Drop a `.par2` file or its folder on the window and it verifies, repairs any damage, then extracts the archive inside, with per-file status and the "need N more recovery blocks" math along the way. Drag-and-drop, open-with, and completion notifications that jump you to the file in Finder. It's arm64 native, built in Swift 6 and SwiftUI.
 
 ### What's underneath
 
@@ -138,7 +136,7 @@ v1.0.0 is available as a signed, notarized `.dmg` from GitHub Releases. Sandboxe
 
 <h2 id="saddle" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/saddle.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Saddle (macOS, 2025)</h2>
 
-My external drives kept making noises. Spinning up for no reason, chattering to themselves in the background, asking for attention they didn't need. Most of the time they just sat there doing nothing (I'd go days without reading or writing anything to them), but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
+My external drives kept making noise. They spun up for no reason and chattered in the background, and most of the time they weren't doing anything at all. I'd go days without reading or writing anything to them, but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
 
 The Finder's answer to this is that you can eject a drive, but you can't mount one. To remount you open Disk Utility, find the drive in the sidebar, and click Mount. Every time. For every drive. And if you have four external drives you want to manage as a group, which I do, it's four round-trips through two apps for something that should be a single click.
 
@@ -148,7 +146,7 @@ Saddle is a macOS menu bar app that fixes this. One icon, real-time mount status
 
 Native SwiftUI with no dependencies; even the update check is a plain call to the GitHub Releases API. The disk work happens in a small privileged helper the app talks to over XPC, with DiskArbitration callbacks detecting connect and disconnect in real time (no lag between plugging a drive in and seeing it in the menu) and a periodic reconciliation sweep as a backstop. Login item registration goes through macOS ServiceManagement. Notarized by Apple. Runs on macOS 13.5 (Ventura) or later.
 
-Groups, aliases, launch actions, and exclusions all live in a settings window with tabs and forms, and nothing is configured through defaults-write commands or a JSON file. If someone's going to trust an app to mount and unmount their drives on demand, the app should look like it was built by someone who'd use it themselves, which I do.
+Groups, aliases, launch actions, and exclusions all live in a settings window with tabs and forms, and nothing is configured through defaults-write commands or a JSON file. I run it on my own drives every day, so the settings had to be something I'd actually want to use.
 
 ### Installing
 
@@ -186,7 +184,7 @@ Pairing happens over Multipeer Connectivity, with no cloud, account, or network 
 
 I ran a validation spike: three throwaway pieces built to answer one question, whether iPhone-based measurements are repeatable and consistent enough to be useful. A SwiftUI Mac app that displays full-screen color patches in sequence. A SwiftUI iPhone app that captures Apple ProRAW Linear DNGs with locked exposure, white balance, and focus. And a Python analyzer (`tifffile` + `imagecodecs` + `numpy` + `exifread`) that decodes the DNGs and computes white point and gamma.
 
-The spike's first lesson: Apple's ProRAW "RAW" isn't raw. The pixels arrive demosaiced, white-balanced, and already characterized into linear Display P3. Treat them as sensor RGB and apply the embedded ColorMatrix tags and you get garbage, about 9100K with a negative Duv. Treat them as the linear P3 they are and the numbers land: pointed at a factory-calibrated Dell U3224KB, an iPhone 16 Pro read the white point at 6544K, Duv +0.003, against a nominal 6500K D65 target. One measurement, but the early signal I was looking for.
+The first thing the spike showed is that Apple's ProRAW "RAW" isn't raw. The pixels arrive demosaiced, white-balanced, and already characterized into linear Display P3. Treat them as sensor RGB and apply the embedded ColorMatrix tags and you get garbage, about 9100K with a negative Duv. Treat them as the linear P3 they are and the numbers land: pointed at a factory-calibrated Dell U3224KB, an iPhone 16 Pro read the white point at 6544K, Duv +0.003, against a nominal 6500K D65 target. One measurement, but the early signal I was looking for.
 
 ### Status
 

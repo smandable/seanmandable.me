@@ -19,13 +19,13 @@ The build was doing almost everything the wrong way: every asset in the project 
 
 The marketing team was very happy with me.
 
-### Vue 2/Nuxt → Vue 3/Astro
+### Vue 2/Nuxt to Vue 3/Astro
 
-With the site in-house and the feedback loop fast enough to iterate on, the bigger migration could actually happen. I architected and executed a full codebase move from Vue 2/Nuxt to Vue 3/Astro with a Node.js backend, rebuilt the test suite, and automated enough of the pipeline that feature work could move quickly without anyone babysitting deploys.
+With the site in-house and the feedback loop fast enough to iterate on, the bigger migration could finally happen. I architected and executed a full codebase move from Vue 2/Nuxt to Vue 3/Astro with a Node.js backend, rebuilt the test suite, and automated enough of the pipeline that feature work could move quickly without anyone babysitting deploys.
 
 ### Accessibility: D to A
 
-The site graded a D against WCAG standards when I arrived. By the time I left, it was an A. Most of that work happened alongside the migration. New architecture is a good excuse to do accessibility right from the foundation rather than patch it on. But a real portion of it was just going through and fixing things that had been wrong for a long time. Semantic markup, keyboard navigation, color contrast, screen reader testing, the whole list.
+The site graded a D against WCAG standards when I arrived. By the time I left, it was an A. Most of that work happened alongside the migration. New architecture is a good excuse to do accessibility right from the foundation rather than patch it on. But a lot of it was just going through and fixing things that had been wrong for a long time. Semantic markup, keyboard navigation, color contrast, screen reader testing, the whole list.
 
 ### The rest
 
@@ -53,9 +53,9 @@ DiscoverOrg grew from about $30M to $1.2B in annual revenue during and after my 
 
 **Senior Software Engineer** · Remote
 
-Three years running my own shop, taking on up to ten clients at a time (**Ann Taylor** among them) and handling every phase from proposal through deployment. Design, full-stack development, DevOps, client communication, and the unglamorous parts nobody puts on a resume: scoping conversations, writing proposals that actually say what the work will cost and when it will ship, and keeping records good enough that nobody had to ask me twice what was going on.
+Three years running my own shop, taking on up to ten clients at a time (**Ann Taylor** among them) and handling every phase from proposal through deployment. Design, full-stack development, DevOps, client communication, and the parts nobody puts on a resume: scoping conversations, writing proposals that say what the work will cost and when it will ship, and keeping records good enough that nobody had to ask me twice what was going on.
 
-Shipped on time and on budget. Which sounds like a throwaway line and isn't, because shipping on time and on budget while solo across ten concurrent engagements is mostly a project management problem wearing an engineering costume.
+Shipped on time and on budget. That sounds like a throwaway line, but doing it solo across ten concurrent engagements is mostly a project management problem wearing an engineering costume.
 
 ---
 

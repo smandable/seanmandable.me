@@ -3,6 +3,16 @@ title: Work
 description: Roles and projects across 15+ years of full-stack engineering.
 ---
 
+## Univar Solutions (2026–present)
+
+**Lead Developer** · Remote, contract through Insight Global
+
+Univar is a chemical distributor, which in practice means a lot of warehouses and a lot of SAP. I joined in July 2026 as lead developer. So far that has meant two apps, both running on iPhones and iPads through Capacitor, with Firebase sitting between them and SAP. The inventory management app is how people in the warehouses pick, process, and receive. The electronic proof of delivery app was still on Angular 13 when I got there, and I rewrote it in Vue and Nuxt 4 so both apps are on one stack.
+
+This entry gets longer as things ship.
+
+---
+
 ## TriNet (2021–2025)
 
 **Senior Software Engineer** · Remote

@@ -28,7 +28,7 @@ const canonicalURL = new URL(canonicalPath, Astro.site);
 // Social cards are per-page; the homepage keeps its richer hand-written pair.
 const ogTitle = title ? fullTitle : 'Sean Mandable, Senior Software Engineer & Full-Stack Dev';
 const ogDescription = Astro.props.description
-  ?? 'Full-stack web (Vue, Angular, TypeScript, Node) + Swift/SwiftUI. I notice when things are off and can’t quite leave them there.';
+  ?? "Full-stack web (Vue, Angular, TypeScript, Node) + Swift/SwiftUI. I notice when things are off and can't quite leave them there.";
 
 // Bump this when any /favicon.* or /apple-touch-icon.png changes so browsers
 // refetch instead of serving stale cached versions.

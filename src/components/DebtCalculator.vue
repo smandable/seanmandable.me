@@ -106,7 +106,7 @@ const rowWarnings = computed(() =>
     const firstInterest = Math.round((debt.balance * debt.apr) / 12) / 100;
     return (
       `This minimum doesn't cover the ${usd(firstInterest)} of interest this debt adds ` +
-      'each month — on its own, the balance grows.'
+      'each month, so on its own the balance grows.'
     );
   }),
 );
@@ -133,12 +133,12 @@ const savings = computed(() => {
   const c = comparison.value;
   if (!c) return null;
   if (c.snowball.months === null || c.avalanche.months === null) {
-    return 'Neither ordering changes the outcome until the budget covers the interest — try adding a little extra per month.';
+    return 'Neither ordering changes the outcome until the budget covers the interest. Try adding a little extra per month.';
   }
   const interest = c.interestSaved;
   const months = c.monthsSaved ?? 0;
   if (interest === 0 && months === 0) {
-    return 'On your numbers the two methods tie — pick whichever keeps you motivated.';
+    return 'On your numbers the two methods tie, so pick whichever keeps you motivated.';
   }
   const winner = interest > 0 || (interest === 0 && months > 0) ? 'Avalanche' : 'Snowball';
   const absInterest = Math.abs(interest);
@@ -378,7 +378,7 @@ const tableRows = computed(() => {
 
     <p v-if="comparison" class="mt-4 text-sm text-slate-600">
       Monthly budget: <strong class="font-semibold text-slate-900">{{ usd(comparison[method].monthlyBudget) }}</strong>
-      — every minimum plus your extra. When a debt is paid off, its minimum payment rolls
+      (every minimum plus your extra). When a debt is paid off, its minimum payment rolls
       onto the next one, so the full budget works for you until you're debt-free.
     </p>
 
@@ -542,7 +542,7 @@ const tableRows = computed(() => {
     </div>
 
     <p v-else class="mt-10 rounded-lg border border-dashed border-slate-300 p-6 text-center text-sm text-slate-500">
-      Add at least one debt — balance, APR, and minimum payment — and your plan appears here.
+      Add at least one debt (balance, APR, and minimum payment) and your plan appears here.
     </p>
   </section>
 </template>

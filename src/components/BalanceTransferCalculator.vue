@@ -105,7 +105,7 @@ const verdict = computed(() => {
     return {
       tone: 'good' as const,
       title: `The transfer saves you ${parts.join(' and ')}.`,
-      body: `You pay the ${usd(r.fee)} fee up front and avoid ${usd(r.stay.interest - r.transfer.interest)} of interest. The fee is recovered in month ${r.breakEvenMonth ?? '?'}${r.breakEvenMonth ? ` (${monthFromNow(r.breakEvenMonth)})` : ''}; after that, every month is money kept.`,
+      body: `You pay the ${usd(r.fee)} fee up front and avoid ${usd(r.stay.interest - r.transfer.interest)} of interest. The fee is recovered in month ${r.breakEvenMonth ?? '?'}${r.breakEvenMonth ? ` (${monthFromNow(r.breakEvenMonth)})` : ''}.`,
     };
   }
   if (saving < 0) {

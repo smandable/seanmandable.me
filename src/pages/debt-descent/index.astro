@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { appStoreUrl } from '../../data/debt-descent';
+import { appStoreUrl, comparisons, tools } from '../../data/debt-descent';
 ---
 
 <Layout
@@ -39,10 +39,36 @@ import { appStoreUrl } from '../../data/debt-descent';
       <span class="sr-only"> (opens in new tab)</span>
     </a>
     <nav class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500" aria-label="Debt Descent links">
-      <a href="/debt-descent/calculator" class="transition-colors hover:text-accent-600">Free Debt Snowball &amp; Avalanche Calculator</a>
       <a href="/projects#debt-descent" class="transition-colors hover:text-accent-600">More about the app</a>
       <a href="/debt-descent/support" class="transition-colors hover:text-accent-600">Support</a>
       <a href="/debt-descent/privacy" class="transition-colors hover:text-accent-600">Privacy Policy</a>
     </nav>
+
+    <section class="mt-16 w-full text-left" aria-labelledby="free-tools">
+      <h2 id="free-tools" class="text-xl font-bold tracking-tight">Free tools</h2>
+      <p class="mt-2 text-sm leading-relaxed text-slate-600">
+        Calculators that run in your browser. No sign-up, and nothing you type is saved or sent.
+      </p>
+      <ul class="mt-4 space-y-3">
+        {tools.map((t) => (
+          <li class="leading-relaxed text-slate-600">
+            <a href={t.href} class="font-medium text-accent-600 transition-colors hover:text-accent-700">{t.title}</a>:
+            {' '}{t.blurb}.
+          </li>
+        ))}
+      </ul>
+      {comparisons.length > 0 && (
+        <Fragment>
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Compared with other planners</h2>
+          <ul class="mt-4 space-y-2">
+            {comparisons.map((c) => (
+              <li>
+                <a href={c.href} class="font-medium text-accent-600 transition-colors hover:text-accent-700">{c.title}</a>
+              </li>
+            ))}
+          </ul>
+        </Fragment>
+      )}
+    </section>
   </div>
 </Layout>

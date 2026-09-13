@@ -48,6 +48,8 @@ export interface PlanResult {
   payoffOrder: DebtOutcome[];
   /** Total remaining balance at the end of each month; index 0 = starting balance. */
   balancesByMonth: number[];
+  /** Cumulative interest accrued through the end of each month, in dollars; index 0 = 0. */
+  interestByMonth: number[];
   /** The constant monthly budget (all minimums + extra), in dollars. */
   monthlyBudget: number;
 }
@@ -108,6 +110,7 @@ export function simulatePlan(debts: DebtInput[], method: Method, extraPerMonth: 
   const paidOffMonth: (number | null)[] = debts.map(() => null);
   const closeOrder: number[] = [];
   const balancesByMonth = [balances.reduce((sum, b) => sum + b, 0)];
+  const interestByMonth = [0];
   let totalInterest = 0;
   let month = 0;
 
@@ -150,6 +153,7 @@ export function simulatePlan(debts: DebtInput[], method: Method, extraPerMonth: 
     }
 
     balancesByMonth.push(balances.reduce((sum, b) => sum + b, 0));
+    interestByMonth.push(totalInterest);
   }
 
   const cleared = balances.every((b) => b <= 0);
@@ -165,6 +169,7 @@ export function simulatePlan(debts: DebtInput[], method: Method, extraPerMonth: 
       interestPaid: toDollars(interestPaid[i]),
     })),
     balancesByMonth: balancesByMonth.map(toDollars),
+    interestByMonth: interestByMonth.map(toDollars),
     monthlyBudget: toDollars(budget),
   };
 }

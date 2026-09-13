@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BalanceTransferCalculator from '../../components/BalanceTransferCalculator.vue';
+import DebtDescentAppCta from '../../components/DebtDescentAppCta.astro';
+import DebtDescentTools from '../../components/DebtDescentTools.astro';
+
+const title = 'Balance Transfer Calculator';
+const fullTitle = 'Balance Transfer Calculator: Is the Fee Worth It?';
+const description =
+  'Free balance transfer calculator. Enter your balance, APR, the transfer fee, and the 0% period, and see the interest saved, the break-even month, and the payment that clears it before the promo ends. No sign-up; it runs in your browser.';
+
+// Rendered as the visible FAQ *and* serialized into FAQPage JSON-LD below, so
+// the markup Google sees always matches the text on the page.
+const faqs = [
+  {
+    q: 'Is a balance transfer fee worth it?',
+    a: 'When the interest you avoid during the 0% period is bigger than the fee, yes. On a high-rate card that usually happens within the first few months, and this calculator shows the month it does. It stops being worth it when the balance is small, the current rate is low, or the payment is so small that most of the balance is still there when the promo ends.',
+  },
+  {
+    q: 'What is a typical balance transfer fee?',
+    a: 'Most offers charge 3% to 5% of the amount transferred, added to the new balance. A few cards waive the fee for a short window after opening. A $6,000.00 transfer at 3% costs $180.00 up front, which is the number the interest has to beat.',
+  },
+  {
+    q: 'What happens when the 0% period ends?',
+    a: 'Whatever is left starts accruing at the card’s regular purchase or balance-transfer APR from that point on. Nothing is charged for the months that passed. That is the difference from a deferred-interest promo, which bills every month of accrued interest at once if the balance isn’t cleared in time.',
+  },
+  {
+    q: 'What if I can’t pay it off inside the promo?',
+    a: 'You still usually come out ahead if the fee is small next to the interest you avoided, but the tail costs money. The calculator shows what is left when the promo ends and what that tail costs at the after-promo rate. If the tail is large, transfer only what you can clear in time, or look for a longer 0% period.',
+  },
+  {
+    q: 'Does a balance transfer hurt my credit?',
+    a: 'The application is a hard inquiry, and a new account lowers the average age of your accounts. Moving a balance can also lower your utilization on the old card if you keep it open. The bigger risk is behavioral: running the old card back up while you pay off the new one.',
+  },
+  {
+    q: 'Can I make new purchases on the transfer card?',
+    a: 'You can, but new purchases usually don’t get the promo rate. They accrue at the card’s regular purchase APR, and on many cards there is no grace period on purchases while a transferred balance is carried. Use the card for the transfer and nothing else until it’s paid.',
+  },
+  {
+    q: 'Is anything I type stored or sent anywhere?',
+    a: 'No. The calculator runs in your browser. Your numbers never leave this page, nothing is saved, and there’s no account or sign-up. Leave or refresh the page and they’re gone. The Debt Descent app works on the same principle: its App Privacy label is “Data Not Collected.”',
+  },
+  {
+    q: 'How does Debt Descent model a balance transfer?',
+    a: 'Its Refinance & consolidation tool (part of the one-time Pro purchase) models a balance transfer with the fee and the promo period against the debts you already track, holding your total monthly payment constant so the comparison is fair. When you take the offer, you apply the deal in one step instead of re-entering everything.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702">
+  <div class="mx-auto max-w-3xl">
+    <p class="text-sm font-medium">
+      <a href="/debt-descent" class="text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>
+      <span class="text-slate-400"> / Free Balance Transfer Calculator</span>
+    </p>
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Balance Transfer Calculator</h1>
+    <p class="mt-2 text-xl font-medium text-slate-700">Is the fee worth it?</p>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      A balance transfer trades interest for a fee. Enter the balance, the rate you pay now, and
+      the card’s offer, and this page runs both paths month by month: moving the balance and paying
+      the fee, or staying put and paying the interest. It shows the saving, the month the fee is
+      recovered, and the payment that clears the balance before the promo ends.
+    </p>
+    <p class="mt-3 flex items-center gap-2 text-sm text-slate-500">
+      <svg class="h-4 w-4 shrink-0 text-accent-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      Free, no sign-up. Runs entirely in your browser. Nothing is saved or sent.
+    </p>
+
+    <div class="mt-10">
+      <BalanceTransferCalculator client:only="vue" />
+    </div>
+
+    <DebtDescentAppCta heading="Model the transfer against your real debts" event="debt-descent-balance-transfer-app-store">
+      <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>’s
+      Refinance &amp; consolidation tool (Pro) models a balance transfer with the fee and the promo
+      period against the debts you already track, and holds your total monthly payment constant so
+      the comparison is fair. When you take the offer, you apply the deal in one step. One-time
+      purchase, no subscription, on iPhone, iPad, and Mac.
+    </DebtDescentAppCta>
+
+    <!-- Explainers -->
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">How the math works</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The transfer path starts at your balance plus the fee, pays 0% for the promo months, then
+        charges the after-promo rate on whatever is left. The stay path keeps your balance at its
+        current APR. Both get the same monthly payment, and both run month by month until the
+        balance is gone. The break-even month is the first month the interest you’ve avoided is
+        bigger than the fee you paid. Total paid is the balance, plus the fee, plus the interest,
+        and the difference between the two totals is the saving.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The fee is paid on day one and the saving arrives a month at a time, so a transfer only
+        pays off if you keep making the payments. The payment that clears the balance inside the
+        promo (the balance plus the fee, divided by the promo months) is the number to plan around.
+        Anything less leaves a tail at the after-promo rate, and the calculator prices that tail.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Before you apply</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li>A missed or late payment can void the promo. Most agreements let the issuer end the 0% rate and charge the regular APR from then on, so set up autopay for at least the minimum.</li>
+        <li>New purchases usually don’t get the promo rate. They accrue at the regular purchase APR, so use the card for the transfer and nothing else until it’s paid.</li>
+        <li>The application is a hard inquiry, and the card’s credit limit caps what you can move. If the limit comes in under your balance, transfer what fits and keep paying the rest where it is.</li>
+        <li>Check the fee against the interest, not against the balance. A 3% fee on a card at 24.99% is recovered in a couple of months; the same fee on a 9% loan may never be.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Balance transfer vs deferred interest</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        A 0% balance transfer waives the interest for the promo period. When it ends, the after-promo
+        rate applies to what’s left, and nothing is charged for the months that passed. A
+        deferred-interest promo, the store-card kind that says “no interest if paid in full,” is
+        different: the interest accrues from day one and is billed all at once if any balance remains
+        at the deadline. If your offer says “if paid in full,” use the
+        <a href="/debt-descent/deferred-interest-calculator" class="font-medium text-accent-600 transition-colors hover:text-accent-700">deferred interest calculator</a>
+        instead. The numbers behave differently.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Frequently asked questions</h2>
+      <dl class="mt-6 space-y-8">
+        {faqs.map(({ q, a }) => (
+          <div>
+            <dt class="font-semibold text-slate-900">{q}</dt>
+            <dd class="mt-2 leading-relaxed text-slate-600">{a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <DebtDescentTools current="/debt-descent/balance-transfer-calculator" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </div>
+</Layout>

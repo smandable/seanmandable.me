@@ -1,0 +1,41 @@
+---
+/*
+ * "More free tools" cross-links for the /debt-descent tool pages. Pass the
+ * current page's href so it isn't listed against itself.
+ */
+import { comparisons, tools } from '../data/debt-descent';
+
+interface Props {
+  current: string;
+}
+
+const { current } = Astro.props;
+const others = tools.filter((t) => t.href !== current);
+---
+
+<section class="mt-16 max-w-[65ch]" aria-labelledby="more-tools">
+  <h2 id="more-tools" class="text-2xl font-bold tracking-tight">More free tools</h2>
+  <ul class="mt-5 space-y-3">
+    {others.map((t) => (
+      <li class="leading-relaxed text-slate-600">
+        <a href={t.href} class="font-medium text-accent-600 transition-colors hover:text-accent-700">{t.title}</a>:
+        {' '}{t.blurb}.
+      </li>
+    ))}
+  </ul>
+  <p class="mt-5 leading-relaxed text-slate-600">
+    All of them run in your browser and send nothing back to me. They come from
+    <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>,
+    my debt-payoff app for iPhone, iPad, and Mac.
+    {comparisons.length > 0 && (
+      <Fragment>
+        If you’re weighing it against another planner, I’ve written up
+        {comparisons.map((c, i) => (
+          <Fragment>
+            {' '}<a href={c.href} class="font-medium text-accent-600 transition-colors hover:text-accent-700">{c.title}</a>{i < comparisons.length - 1 ? ' and' : '.'}
+          </Fragment>
+        ))}
+      </Fragment>
+    )}
+  </p>
+</section>

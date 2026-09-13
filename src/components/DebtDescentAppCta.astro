@@ -1,0 +1,51 @@
+---
+/*
+ * The App Store funnel aside used on the /debt-descent tool pages. The body
+ * is the slot; keep it accurate to what the app does today.
+ */
+import { appStoreUrl } from '../data/debt-descent';
+
+interface Props {
+  heading: string;
+  /** Umami event name for the badge click, one per page. */
+  event: string;
+}
+
+const { heading, event } = Astro.props;
+---
+
+<aside class="mt-14 rounded-lg border border-slate-200 p-6 sm:p-8">
+  <div class="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+    <img
+      src="/app-icons/debt-descent.png?v=2"
+      alt=""
+      width="72"
+      height="72"
+      class="h-18 w-18 shrink-0 rounded-[22.5%] shadow-sm ring-1 ring-slate-900/10"
+      loading="lazy"
+    />
+    <div class="min-w-0">
+      <h2 class="text-lg font-bold tracking-tight">{heading}</h2>
+      <p class="mt-1 text-sm leading-relaxed text-slate-600">
+        <slot />
+      </p>
+    </div>
+    <a
+      href={appStoreUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="shrink-0 transition-opacity hover:opacity-80"
+      data-umami-event={event}
+    >
+      <img
+        src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us"
+        alt="Download on the App Store"
+        width="150"
+        height="50"
+        class="h-[50px] w-auto"
+        loading="lazy"
+      />
+      <span class="sr-only"> (opens in new tab)</span>
+    </a>
+  </div>
+</aside>

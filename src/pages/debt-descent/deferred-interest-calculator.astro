@@ -1,0 +1,187 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DeferredInterestCalculator from '../../components/DeferredInterestCalculator.vue';
+import DebtDescentAppCta from '../../components/DebtDescentAppCta.astro';
+import DebtDescentTools from '../../components/DebtDescentTools.astro';
+import { simulatePromo } from '../../lib/deferred-interest';
+
+const title = 'Deferred Interest Calculator';
+const fullTitle = 'Deferred Interest Calculator: What a “No Interest If Paid in Full” Promo Really Costs';
+const description =
+  'Free deferred interest calculator for “no interest if paid in full” store-card promos. See the monthly payment that clears the promo in time, and the interest the card bills at once if you miss the deadline. No sign-up; it runs in your browser.';
+
+// The worked example in the copy comes from the same math as the calculator,
+// so the two can't drift: a $2,400 purchase at 29.99% on a 12-month promo,
+// paid down to about $50 by the deadline.
+const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format;
+const example = simulatePromo({
+  purchaseAmount: 2400,
+  remaining: 2400,
+  purchaseDate: new Date(2026, 0, 1, 12),
+  endDate: new Date(2027, 0, 1, 12),
+  apr: 29.99,
+  payment: 196,
+  today: new Date(2026, 0, 1, 12),
+});
+const exampleLump = usd(example.lump);
+const exampleLeft = usd(example.balanceAtDeadline);
+
+// Rendered as the visible FAQ *and* serialized into FAQPage JSON-LD below, so
+// the markup Google sees always matches the text on the page.
+const faqs = [
+  {
+    q: 'What is deferred interest?',
+    a: 'Interest a card charges from the day of a purchase but holds back during a promo period. Pay the promo balance in full before the period ends and the card cancels it. Leave any balance and the card bills the whole accrued amount at once, and it becomes part of what you owe.',
+  },
+  {
+    q: 'Is “no interest if paid in full” the same as 0% APR?',
+    a: 'No. A 0% APR promo waives the interest for the promo months, and when it ends the regular rate applies only to what’s left. “No interest if paid in full” defers the interest: it accrues in the background at the card’s standard purchase rate from the purchase date, and it is billed retroactively if the balance isn’t cleared in time.',
+  },
+  {
+    q: 'How is deferred interest calculated?',
+    a: 'Usually on the average daily balance of the promo purchase, at the card’s standard purchase APR, from the purchase date to the deadline. Some issuers bill it on the original purchase amount instead. This calculator accrues it month by month on the balance, which lands close to the average-daily-balance figure. Your card agreement has the exact method.',
+  },
+  {
+    q: 'What happens if I still owe a small amount at the deadline?',
+    a: 'The whole accrued amount is billed, not the interest on the leftover. Owing $20.00 at the deadline of a $2,400.00 promo triggers the same deferred interest as owing $2,000.00. The lump is added to your balance and accrues interest at the standard rate from then on.',
+  },
+  {
+    q: 'Will the minimum payment clear the promo in time?',
+    a: 'Almost never. The minimum is a small percentage of your whole balance and has nothing to do with the deadline. Divide the promo balance by the months left and pay at least that every month, on top of whatever the rest of your balance needs.',
+  },
+  {
+    q: 'I have a promo balance and a regular balance on the same card. Where does my payment go?',
+    a: 'Above the minimum, the CARD Act sends a payment to the highest-APR balance first, which in practice leaves a deferred-interest balance last in line. The exception is the two billing cycles before the promo ends, when the excess must go to the promo balance (12 CFR 1026.53(b)(1)). Issuers may also apply the excess the way you ask, so ask, and check the statement to see how it was applied.',
+  },
+  {
+    q: 'Is anything I type stored or sent anywhere?',
+    a: 'No. The calculator runs in your browser. Your numbers never leave this page, nothing is saved, and there’s no account or sign-up. Leave or refresh the page and they’re gone. The Debt Descent app works on the same principle: its App Privacy label is “Data Not Collected.”',
+  },
+  {
+    q: 'How does Debt Descent handle these promos?',
+    a: 'Add the promo to the card it sits on, with the amount, the deadline, and the deferred interest printed on your statement. It stays out of the card’s balance and the payoff math, since it is a slice of a balance you already track. The Plan tab’s Upcoming deadlines card shows the payment that clears each promo in time, and turns red as the date nears.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702">
+  <div class="mx-auto max-w-3xl">
+    <p class="text-sm font-medium">
+      <a href="/debt-descent" class="text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>
+      <span class="text-slate-400"> / Free Deferred Interest Calculator</span>
+    </p>
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Deferred Interest Calculator</h1>
+    <p class="mt-2 text-xl font-medium text-slate-700">What a “no interest if paid in full” promo really costs.</p>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      I have one of these myself: a Home Depot purchase on a “no interest if paid in full” promo.
+      Working out what it would take to clear it before the deadline is why Debt Descent grew a
+      deadline card, and why this page exists. Enter the promo and it shows the monthly payment
+      that gets you to $0 interest, and what the card bills at once if you come up short.
+    </p>
+    <p class="mt-3 flex items-center gap-2 text-sm text-slate-500">
+      <svg class="h-4 w-4 shrink-0 text-accent-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      Free, no sign-up. Runs entirely in your browser. Nothing is saved or sent.
+    </p>
+
+    <div class="mt-10">
+      <DeferredInterestCalculator client:only="vue" />
+    </div>
+
+    <DebtDescentAppCta heading="Debt Descent watches the deadline for you" event="debt-descent-deferred-interest-app-store">
+      Add the promo to the card in <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a> and
+      it tracks it as a deferred-interest promo: a store promo that bills all its accrued interest at
+      once if it isn’t cleared by the deadline, kept out of the balance and the payoff math. The Plan
+      tab shows an Upcoming deadlines card with the monthly payment that clears each one in time, and
+      it turns red as the date nears. Promo tracking is free, on iPhone, iPad, and Mac.
+    </DebtDescentAppCta>
+
+    <!-- Explainers -->
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Deferred interest is not 0% APR</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        A 0% APR promo waives the interest for the promo period. When it ends, the card’s regular
+        rate applies to whatever is left, and the months that passed cost nothing. A deferred-interest
+        promo charges interest from the day of the purchase at the card’s standard purchase rate and
+        holds it back. Pay the promo balance in full by the deadline and the card forgives it. Leave
+        any balance, even a few dollars, and the whole accrued amount is billed at once, on top of
+        what you still owe.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The numbers are not small. A $2,400.00 purchase at 29.99% on a 12-month promo accrues
+        about {exampleLump} of interest over the year. Clear it and you pay $2,400.00. Leave
+        {exampleLeft} on it at the deadline and the card bills the whole {exampleLump}, then charges
+        interest on the new balance.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Why the minimum payment won’t clear it</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The card’s minimum payment is set on your whole balance, usually a small percentage of it, and
+        it has nothing to do with the promo deadline. On a 12-month promo, minimum payments clear a
+        fraction of the purchase. The number that matters is what you owe divided by the months
+        left, paid every month. That’s the “pay this to owe $0 interest” figure above. If the same card
+        also carries a regular balance, the promo amount has to go in on top of what that balance
+        needs, which is where the allocation rule below bites.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Where your payment goes when the card has two balances</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The Credit CARD Act sets where a payment above the minimum goes: to the highest-APR balance
+        first, which in practice leaves a deferred-interest balance last in line. The exception is the
+        two billing cycles before the promo ends, when the excess must go to the promo balance
+        (12 CFR 1026.53(b)(1)). Issuers may also apply the excess the way you ask, so if you carry
+        both kinds of balance on one card, ask, and read the statement to see how each payment was
+        applied. The simpler plan is to keep new purchases off a card while it carries a promo.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Which cards do this</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Most store cards. Home Depot, Lowe’s, Best Buy, the Amazon store card, and CareCredit are all
+        deferred-interest plans issued by Synchrony. The tell is the phrase “no interest if paid in
+        full within 12 months” (or 6, 18, or 24). A card that says “0% intro APR” is the other kind.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">How the calculator estimates the interest</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        It runs month by month from the purchase date. Each month it accrues interest on the promo
+        balance at the card’s standard purchase APR and holds it back. For the months you’ve already
+        had the promo, it assumes the balance came down in a straight line from the purchase amount to
+        what you owe today. For the months ahead, it applies your payment. Whatever is left at the
+        deadline triggers the bill for every cent accrued, and the new balance keeps accruing at the
+        standard rate until your payment clears it.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Issuers figure deferred interest on the average daily balance from the purchase date, and
+        some bill it on the original purchase amount, so read the figure as a close estimate and check
+        your card agreement for the exact terms. The one number that isn’t an estimate is the payment
+        that clears the balance in time. Make that payment and none of the rest applies.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Frequently asked questions</h2>
+      <dl class="mt-6 space-y-8">
+        {faqs.map(({ q, a }) => (
+          <div>
+            <dt class="font-semibold text-slate-900">{q}</dt>
+            <dd class="mt-2 leading-relaxed text-slate-600">{a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <DebtDescentTools current="/debt-descent/deferred-interest-calculator" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </div>
+</Layout>

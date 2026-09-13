@@ -24,12 +24,12 @@ const others = tools.filter((t) => t.href !== current);
     ))}
   </ul>
   <p class="mt-5 leading-relaxed text-slate-600">
-    All of them run in your browser and send nothing back to me. They come from
+    All of them run in your browser and send nothing back to me. They come from{' '}
     <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>,
     my debt-payoff app for iPhone, iPad, and Mac.
     {comparisons.length > 0 && (
       <Fragment>
-        If you’re weighing it against another planner, I’ve written up
+        {' '}If you’re weighing it against another planner, I’ve written up
         {comparisons.map((c, i) => (
           <Fragment>
             {' '}<a href={c.href} class="font-medium text-accent-600 transition-colors hover:text-accent-700">{c.title}</a>{i < comparisons.length - 1 ? ' and' : '.'}

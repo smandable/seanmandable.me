@@ -37,3 +37,13 @@
   margin-bottom: 0.75em;
   font-size: 1.25rem;
 }
+
+/*
+ * Links inside running prose are underlined, the way the markdown pages
+ * (typography plugin) already render them. Navigation-style links keep the
+ * bare accent color: anything outside a paragraph, list item, or definition
+ * (nav, footer, link rows), plus anything that opts out with `no-underline`.
+ */
+main :is(p, li, dd) a:not(.no-underline) {
+  text-decoration-line: underline;
+}

@@ -1,0 +1,235 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import DebtDescentAppCta from '../../components/DebtDescentAppCta.astro';
+import DebtDescentTools from '../../components/DebtDescentTools.astro';
+
+const title = 'Debt Descent vs Debt Payoff Planner';
+const fullTitle = 'Debt Descent vs Debt Payoff Planner: Two Debt Payoff Apps Compared (September 2026)';
+const description =
+  'Debt Descent and OxbowSoft’s Debt Payoff Planner & Tracker compared on price, platforms, privacy, free features, and the Pro tiers, as of September 2026, with sources. Written by the developer of Debt Descent, and it says where Debt Payoff Planner is the better pick.';
+
+const columns: [string, string] = ['Debt Descent', 'Debt Payoff Planner'];
+
+const priceRows = [
+  {
+    label: 'Price',
+    a: 'Free. Pro is $14.99 once, and one purchase covers your iPhone, iPad, and Mac.',
+    b: 'Free with ads. Pro is $6.99 a month, $13.99 for three months, or $27.99 a year. Friends & Family Pro is $10.49 a month or $41.99 a year. There is no lifetime option.',
+  },
+  {
+    label: 'Paid tier over three years',
+    a: '$14.99',
+    b: '$83.97 on the yearly plan, or $125.97 for Friends & Family.',
+  },
+  {
+    label: 'Platforms',
+    a: 'Native app for iPhone, iPad, and Mac.',
+    b: 'iPhone, iPad, and Apple Vision Pro (iOS 13 or later), Android, and a web app for Pro subscribers. No Mac app.',
+  },
+  {
+    label: 'Account',
+    a: 'None.',
+    b: 'An email account, used for backup.',
+  },
+  {
+    label: 'App Store privacy label',
+    a: '“Data Not Collected.”',
+    b: 'Financial info, contact info (email), user content, and usage data, all linked to you, plus third-party advertising.',
+  },
+  {
+    label: 'Ads',
+    a: 'None.',
+    b: 'Yes, in the free app. Reviews say Pro removes them; the developer’s own pages don’t say.',
+  },
+];
+
+const freeRows = [
+  {
+    label: 'Debts',
+    a: 'Unlimited.',
+    b: 'The developer doesn’t publish a limit for the free tier, and third-party reviews disagree on it, so check in the app before you rely on it.',
+  },
+  {
+    label: 'Payoff methods',
+    a: 'Snowball and Avalanche. Pro adds five more, including a custom order.',
+    b: 'Snowball, Avalanche, Snowflake (one-time extra payments), and custom ordering, up to three custom orders.',
+  },
+  {
+    label: 'Charts',
+    a: 'Every balance falling to zero, per method, with the debt-free date and what each method saves.',
+    b: 'A payoff chart with a minimums-only line beside the accelerated plan, balance pie charts, and a Plan Summary with 30-day and total interest.',
+  },
+  {
+    label: 'Payment logging',
+    a: 'Yes, with progress against the plan and the interest your paydown has already saved.',
+    b: 'Yes.',
+  },
+  {
+    label: 'Statement import',
+    a: 'Reads a statement PDF, a photo, or a camera scan on your device and fills in the balance, APR, minimum, and due date for you to confirm. Paystubs too.',
+    b: 'Not mentioned by the developer.',
+  },
+  {
+    label: 'Bank sync',
+    a: 'None, by design.',
+    b: 'None.',
+  },
+  {
+    label: 'Sync and backup',
+    a: 'Through your own iCloud, free, plus JSON export and import.',
+    b: 'Email-account backup. Using the app on both mobile and desktop needs Pro.',
+  },
+  {
+    label: 'Sharing',
+    a: 'A progress card rendered as an image, sized for a post or a story.',
+    b: 'Friends & Family Pro shares one membership across several people.',
+  },
+  {
+    label: 'Debt management plan',
+    a: 'Payment groups: one payment, the plan’s fee, and the member debts, with the fee kept out of the payoff math.',
+    b: 'Not mentioned by the developer.',
+  },
+  {
+    label: 'Deferment and promos',
+    a: 'Student-loan deferment with an end date, 0% intro APRs that revert on a date, and deferred-interest promos tracked for deadline warnings.',
+    b: 'Not mentioned by the developer.',
+  },
+  {
+    label: 'Income and bills',
+    a: 'A Left over card: take-home pay at your pay cadence, minus the bills the plan doesn’t track.',
+    b: 'Not mentioned by the developer.',
+  },
+  {
+    label: 'Widgets, Siri, Spotlight',
+    a: 'Yes.',
+    b: 'Not mentioned by the developer.',
+  },
+  {
+    label: 'Loan categories',
+    a: 'Cards, loans, mortgages, and track-only debts.',
+    b: 'Eight loan categories.',
+  },
+];
+
+const paidRows = [
+  {
+    label: 'What the paid tier adds',
+    a: 'Five more payoff methods (custom order, highest interest, cash-flow index, credit utilization, credit-score impact), a what-if slider and per-debt payoff tests, planned windfalls, refinance and balance-transfer modeling with one-step apply, amortization schedules, PDF and calendar export, and due-date reminders.',
+    b: 'On the developer’s 2.0 help page: use on more than one device (the web app), biweekly payments, alternative minimum-payment methods, and Friends & Family sharing. Reviews and roundups also credit Pro with a what-if planner, a visual dashboard, an interest-accrued chart, unlimited debts, ad removal, and payment reminders. I couldn’t confirm those on the developer’s own pages, so take them as reported.',
+  },
+  {
+    label: 'How you pay',
+    a: 'Once. Offer codes for discounts; Family Sharing.',
+    b: 'Monthly, quarterly, or yearly, as an auto-renewing subscription.',
+  },
+];
+---
+
+<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702">
+  <div class="mx-auto max-w-3xl">
+    <p class="text-sm font-medium">
+      <a href="/debt-descent" class="text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>
+      <span class="text-slate-400"> / vs Debt Payoff Planner</span>
+    </p>
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Debt Descent vs Debt Payoff Planner</h1>
+    <p class="mt-2 text-xl font-medium text-slate-700">Two debt-payoff apps compared, as of September 2026.</p>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      Debt Payoff Planner &amp; Tracker is OxbowSoft’s app, on the App Store since 2015 and on
+      Android, with a web app for Pro subscribers and, by its own count, over a million downloads.
+      Several unrelated apps share the name; this page is about the OxbowSoft one. Debt Descent is
+      my native app for iPhone, iPad, and Mac, free with a one-time $14.99 Pro purchase. Here is how
+      they line up, with the sources at the bottom. Where Debt Payoff Planner is the better pick,
+      I say so.
+    </p>
+
+    <section class="mt-10 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">The short version</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li><strong class="font-semibold text-slate-900">Pick Debt Payoff Planner</strong> if you’re on Android, want to share one plan with a partner, or pay biweekly.</li>
+        <li><strong class="font-semibold text-slate-900">Pick Debt Descent</strong> if you’re on Apple devices and want no ads, no account, a native Mac app, on-device statement reading, and a price you pay once.</li>
+      </ul>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold tracking-tight">Price, platforms, and privacy</h2>
+      <ComparisonTable caption="Price, platforms, and privacy" columns={columns} rows={priceRows} />
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold tracking-tight">What’s free</h2>
+      <ComparisonTable caption="What each app includes for free" columns={columns} rows={freeRows} />
+      <p class="mt-3 max-w-[65ch] text-sm leading-relaxed text-slate-500">
+        “Not mentioned by the developer” means exactly that: the App Store listing and the developer’s
+        site don’t list it. It may exist in the app. I haven’t claimed a feature is missing where I
+        couldn’t check.
+      </p>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold tracking-tight">The paid tiers</h2>
+      <ComparisonTable caption="Debt Descent Pro and Debt Payoff Planner Pro" columns={['Debt Descent Pro, $14.99 once', 'Debt Payoff Planner Pro, from $27.99 a year']} rows={paidRows} />
+    </section>
+
+    <section class="mt-12 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">What Debt Payoff Planner does better</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li>Android, and a web app with Pro, so a household with mixed devices can share one plan.</li>
+        <li>Friends &amp; Family sharing: one Pro membership across several people.</li>
+        <li>Biweekly payments, with Pro, if that’s how you’re paid.</li>
+        <li>Scale and track record: over a million downloads by the developer’s count, a 4.7 App Store rating on about 7,300 ratings, and ten years of releases.</li>
+        <li>Snowflake payments and multiple custom orders in the free tier.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">What Debt Descent does better</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li>No ads, no account, and nothing collected. Its privacy label is “Data Not Collected”; Debt Payoff Planner’s lists financial info, contact info, user content, and usage data linked to you, plus third-party advertising.</li>
+        <li>A native Mac app. Debt Payoff Planner has none.</li>
+        <li>It reads statements and paystubs on the device, so setup is a scan, not a typing session.</li>
+        <li>A price you pay once: $14.99 for Pro on every device, against $27.99 a year. Over three years that’s $14.99 against $83.97.</li>
+        <li>Widgets, Siri Shortcuts, and Spotlight.</li>
+        <li>It models the arrangements that trip up simpler planners: a debt management plan with its fee, a student loan in deferment, a deferred-interest store promo with a deadline.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Which should you use?</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        On Android, Debt Payoff Planner. On Apple devices, it comes down to whether you want to
+        share a plan and pay biweekly, or want a native app with no ads and no account that keeps
+        everything on your device and costs $14.99 once. Both will get you to the same debt-free
+        date on the same numbers. Try both free tiers first.
+      </p>
+    </section>
+
+    <DebtDescentAppCta heading="Try Debt Descent free" event="debt-descent-vs-debt-payoff-planner-app-store">
+      Add your debts, or scan a statement, and compare Snowball and Avalanche on your own numbers.
+      No account, no ads, and nothing leaves your device. Pro is a one-time $14.99 if you want the
+      extra methods and tools. Or start with the free
+      <a href="/debt-descent/calculator" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Snowball and Avalanche calculator</a> in your browser.
+    </DebtDescentAppCta>
+
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Sources</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Everything about Debt Payoff Planner above comes from the developer’s own listing and site,
+        read on September 13, 2026:
+      </p>
+      <ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li><a href="https://apps.apple.com/us/app/id1009323715" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The App Store listing<span class="sr-only"> (opens in new tab)</span></a> (version 2.3.3, July 30, 2026): the in-app purchase prices, the privacy label, the rating, and the feature description.</li>
+        <li><a href="https://debtpayoffplanner.com/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">debtpayoffplanner.com<span class="sr-only"> (opens in new tab)</span></a>: the home page, the overview page, and the 2.0 help page, which is where the Pro feature list comes from. The site’s “from $2 a month” is the yearly plan divided by twelve.</li>
+      </ul>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The Google Play rating and the free tier’s debt limit only appear in third-party roundups,
+        which disagree with each other, so I haven’t quoted them. Debt Descent’s side comes from the
+        app itself and its <a href="/debt-descent/support" class="font-medium text-accent-600 transition-colors hover:text-accent-700">support page</a>.
+        If something here is out of date, <a href="/contact" class="font-medium text-accent-600 transition-colors hover:text-accent-700">tell me</a> and I’ll fix it.
+      </p>
+    </section>
+
+    <DebtDescentTools current="/debt-descent/vs-debt-payoff-planner" />
+
+    <p class="mt-16 max-w-[65ch] border-t border-slate-200 pt-6 text-sm leading-relaxed text-slate-500">
+      Disclosure: I’m a current client of Consolidated Credit’s debt management plan, and I built
+      Debt Descent to track it. Debt Descent is my app, so read this comparison knowing that.
+    </p>
+  </div>
+</Layout>

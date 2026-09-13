@@ -29,4 +29,7 @@ export const tools: { href: string; title: string; blurb: string }[] = [
 ];
 
 /** Comparison write-ups under /debt-descent, listed on the landing page and the tool pages. */
-export const comparisons: { href: string; title: string }[] = [];
+export const comparisons: { href: string; title: string }[] = [
+  { href: '/debt-descent/vs-undebt-it', title: 'Debt Descent vs Undebt.it' },
+  { href: '/debt-descent/vs-debt-payoff-planner', title: 'Debt Descent vs Debt Payoff Planner' },
+];

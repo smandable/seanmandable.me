@@ -1,0 +1,240 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import DebtDescentAppCta from '../../components/DebtDescentAppCta.astro';
+import DebtDescentTools from '../../components/DebtDescentTools.astro';
+
+const title = 'Debt Descent vs Undebt.it';
+const fullTitle = 'Debt Descent vs Undebt.it: Two Debt Payoff Planners Compared (September 2026)';
+const description =
+  'Debt Descent and Undebt.it compared on price, platforms, privacy, free features, bank sync, and the paid tiers, as of September 2026, with sources. Written by the developer of Debt Descent, and it says where Undebt.it is the better pick.';
+
+const columns: [string, string] = ['Debt Descent', 'Undebt.it'];
+
+const priceRows = [
+  {
+    label: 'Price',
+    a: 'Free. Pro is $14.99 once, and one purchase covers your iPhone, iPad, and Mac.',
+    b: 'Free. Undebt.it+ is $10.00 a year, billed as a non-recurring annual fee, with a 30-day trial that needs no card.',
+  },
+  {
+    label: 'Paid tier over three years',
+    a: '$14.99',
+    b: '$30.00, or about $75.00 with bank sync, since SimpleFIN bills separately (see below).',
+  },
+  {
+    label: 'Platforms',
+    a: 'Native app for iPhone, iPad, and Mac.',
+    b: 'Any browser, on any device. The “mobile apps” are progressive web apps installed from Safari or Chrome, not from the App Store or Google Play, and they need an internet connection.',
+  },
+  {
+    label: 'Account',
+    a: 'None.',
+    b: 'The tracker needs an email account. The public calculators don’t.',
+  },
+  {
+    label: 'Where your data lives',
+    a: 'On your device and in your own iCloud. App Store privacy label: “Data Not Collected.”',
+    b: 'On Undebt.it’s servers, under its privacy policy.',
+  },
+  {
+    label: 'Ads',
+    a: 'None.',
+    b: 'None on the public calculators, blog, and help pages. The logged-in free tracker shows ads; Undebt.it+ removes them.',
+  },
+];
+
+const freeRows = [
+  { label: 'Debts', a: 'Unlimited.', b: 'Unlimited, and free since the site launched in 2012.' },
+  {
+    label: 'Payoff methods',
+    a: 'Snowball and Avalanche. Pro adds five more, including a custom order.',
+    b: 'All eight: Snowball, Avalanche, Hybrid (debt-to-interest ratio), Cash Flow Index, Highest monthly payment, Highest credit utilization, Highest monthly interest, and Custom.',
+  },
+  { label: 'Compare methods side by side', a: 'Yes.', b: 'Yes.' },
+  {
+    label: 'Promo rates',
+    a: 'A 0% intro APR that reverts on a date, plus deferred-interest promos tracked for deadline warnings.',
+    b: 'Promo interest rates.',
+  },
+  {
+    label: 'Statement import',
+    a: 'Reads a statement PDF, a photo, or a camera scan on your device and fills in the balance, APR, minimum, and due date for you to confirm. Paystubs too.',
+    b: 'No. Balances are typed in, or synced from your bank with Undebt.it+.',
+  },
+  {
+    label: 'Bank sync',
+    a: 'None, by design.',
+    b: 'Undebt.it+ only, through SimpleFIN, with a separate SimpleFIN fee.',
+  },
+  {
+    label: 'Sync across devices',
+    a: 'Through your own iCloud, free.',
+    b: 'It’s a web app, so sign in anywhere.',
+  },
+  {
+    label: 'Backup and export',
+    a: 'JSON export and import. Pro adds PDF and calendar export.',
+    b: 'Export to Excel.',
+  },
+  {
+    label: 'Debt management plan',
+    a: 'Payment groups: one payment, the plan’s fee, and the member debts, with the fee kept out of the payoff math.',
+    b: 'Not listed on its feature pages.',
+  },
+  {
+    label: 'Student-loan deferment',
+    a: 'A loan in deferment sits out of the plan until its end date, then rejoins on its own.',
+    b: 'Not listed on its feature pages.',
+  },
+  {
+    label: 'Income and bills',
+    a: 'A Left over card: take-home pay at your pay cadence, minus the bills the plan doesn’t track.',
+    b: 'Plan.it, a weekly and monthly bills-and-debts checklist, free since September 2026. Bill tracking with reminders is Undebt.it+.',
+  },
+  {
+    label: 'Widgets, Siri, Spotlight',
+    a: 'Yes.',
+    b: 'No. Push notifications need Undebt.it+.',
+  },
+  {
+    label: 'Progress sharing',
+    a: 'A progress card rendered as an image, sized for a post or a story.',
+    b: 'Payoff Snapshot stories and the journey infographic are Undebt.it+.',
+  },
+];
+
+const paidRows = [
+  {
+    label: 'What the paid tier adds',
+    a: 'Five more payoff methods (custom order, highest interest, cash-flow index, credit utilization, credit-score impact), a what-if slider and per-debt payoff tests, planned windfalls, refinance and balance-transfer modeling with one-step apply, amortization schedules, PDF and calendar export, and due-date reminders.',
+    b: 'No ads, YNAB sync, SimpleFIN bank sync, the Undebt.AI plan generator, what-if scenarios, bill tracking with SMS and push reminders, monthly email summaries, a 52-week savings challenge, Debt Blaster, Payoff Snapshot stories and the journey infographic, a calendar planner that syncs with Google, iCloud, and Outlook, historical reporting and projections, amortization tables, an autopay flag, and automatic minimum-payment adjustment. API access is listed as coming soon.',
+  },
+  {
+    label: 'How you pay',
+    a: 'Once. Offer codes for discounts; Family Sharing.',
+    b: 'Yearly. Apple Pay accepted since September 2026.',
+  },
+];
+---
+
+<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702">
+  <div class="mx-auto max-w-3xl">
+    <p class="text-sm font-medium">
+      <a href="/debt-descent" class="text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>
+      <span class="text-slate-400"> / vs Undebt.it</span>
+    </p>
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Debt Descent vs Undebt.it</h1>
+    <p class="mt-2 text-xl font-medium text-slate-700">Two debt-payoff planners compared, as of September 2026.</p>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      Undebt.it has been around since 2012 and is the planner I’d point a Windows user to. It runs
+      in any browser, its free tier is unusually generous, and the paid tier is $10.00 a year. Debt
+      Descent is my native app for iPhone, iPad, and Mac, free with a one-time $14.99 Pro purchase.
+      Here is how they line up, with the sources at the bottom. Where Undebt.it is the better
+      pick, I say so.
+    </p>
+
+    <section class="mt-10 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">The short version</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li><strong class="font-semibold text-slate-900">Pick Undebt.it</strong> if you use Windows or Android, want all eight payoff methods without paying, or want YNAB or nightly bank-balance sync.</li>
+        <li><strong class="font-semibold text-slate-900">Pick Debt Descent</strong> if you’re on Apple devices and want a native app with no account, on-device statement reading, widgets and Siri, and a price you pay once.</li>
+      </ul>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold tracking-tight">Price, platforms, and privacy</h2>
+      <ComparisonTable caption="Price, platforms, and privacy" columns={columns} rows={priceRows} />
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold tracking-tight">What’s free</h2>
+      <ComparisonTable caption="What each app includes for free" columns={columns} rows={freeRows} />
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold tracking-tight">The paid tiers</h2>
+      <ComparisonTable caption="Debt Descent Pro and Undebt.it+" columns={['Debt Descent Pro, $14.99 once', 'Undebt.it+, $10.00 a year']} rows={paidRows} />
+    </section>
+
+    <section class="mt-12 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">About the bank sync</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Undebt.it+ syncs balances through SimpleFIN Bridge, a third-party aggregator, since
+        September 12, 2026. You pay SimpleFIN directly, $1.50 plus tax a month or $15.00 plus tax a
+        year, and Undebt.it takes no cut. Balances update once a night, transactions are optional,
+        and interest rates, minimums, and due dates don’t sync, so those stay manual. It’s read-only
+        and covers the lenders SimpleFIN supports.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Debt Descent has no bank linking, on purpose: it never has your bank login, and nothing
+        about your accounts leaves the device. Instead it reads a statement (PDF, photo, or camera
+        scan) on the device and fills in the balance, APR, minimum, and due date for you to confirm.
+        When the next statement arrives, import it again and the balance catches up.
+      </p>
+    </section>
+
+    <section class="mt-12 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">What Undebt.it does better</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li>All eight of its payoff methods are free. Debt Descent gives you two free and the rest with Pro.</li>
+        <li>It runs anywhere with a browser, including Windows and Android. Debt Descent is Apple only.</li>
+        <li>YNAB sync and nightly bank-balance sync, with Undebt.it+, if you want balances to update without you.</li>
+        <li>Fourteen years of features: bill tracking with reminders, a calendar planner, a savings challenge, an AI plan generator, Excel export.</li>
+        <li>$10.00 a year is not much, and the trial needs no card.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">What Debt Descent does better</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li>A native app on iPhone, iPad, and Mac, with widgets, Siri Shortcuts, and Spotlight.</li>
+        <li>No account and nothing collected. Your data stays on your device and in your own iCloud.</li>
+        <li>It reads statements and paystubs on the device, so setup is a scan, not a typing session.</li>
+        <li>A price you pay once: $14.99 for Pro on every device. Over three years that’s $14.99 against $30.00, or about $75.00 with bank sync.</li>
+        <li>It models the arrangements that trip up simpler planners: a debt management plan with its fee, a student loan in deferment, a deferred-interest store promo with a deadline.</li>
+        <li>No ads anywhere.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Which should you use?</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        If you’re not on Apple devices, Undebt.it, and it isn’t close. If you are, it comes down
+        to whether you want a web app with bank sync and eight free methods, or a native app that
+        keeps everything on your device and costs $14.99 once. Both will get you to the same
+        debt-free date on the same numbers. Try the free tiers of each; neither asks for a card.
+      </p>
+    </section>
+
+    <DebtDescentAppCta heading="Try Debt Descent free" event="debt-descent-vs-undebt-it-app-store">
+      Add your debts, or scan a statement, and compare Snowball and Avalanche on your own numbers.
+      No account, no ads, and nothing leaves your device. Pro is a one-time $14.99 if you want the
+      extra methods and tools. Or start with the free
+      <a href="/debt-descent/calculator" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Snowball and Avalanche calculator</a> in your browser.
+    </DebtDescentAppCta>
+
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Sources</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Everything about Undebt.it above comes from its own pages, all read on September 13, 2026:
+      </p>
+      <ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li><a href="https://undebt.it/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">undebt.it<span class="sr-only"> (opens in new tab)</span></a>, the home page.</li>
+        <li><a href="https://undebt.it/plus-info.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Undebt.it+ features<span class="sr-only"> (opens in new tab)</span></a> and <a href="https://undebt.it/pricing-features-reviews.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">pricing<span class="sr-only"> (opens in new tab)</span></a>. The features page still lists unlimited accounts and all eight methods under premium; the FAQ, updated September 2026, says both are free, and I’ve gone with the FAQ.</li>
+        <li><a href="https://undebt.it/faq.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The FAQ<span class="sr-only"> (opens in new tab)</span></a>, for what the free tier includes.</li>
+        <li><a href="https://undebt.it/blog/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The Undebt.it blog<span class="sr-only"> (opens in new tab)</span></a>: the SimpleFIN sync announcement (September 12, 2026), the post on its mobile apps (September 10, 2026), the Plan.it launch (September 3, 2026), and the August 2026 redesign post.</li>
+        <li><a href="https://beta-bridge.simplefin.org/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">SimpleFIN Bridge<span class="sr-only"> (opens in new tab)</span></a>, for its pricing.</li>
+      </ul>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Undebt.it doesn’t publish a user count, so I haven’t quoted one. Older roundups that say
+        $12.00 a year are quoting the pre-2026 price. Debt Descent’s side comes from the app itself
+        and its <a href="/debt-descent/support" class="font-medium text-accent-600 transition-colors hover:text-accent-700">support page</a>.
+        If something here is out of date, <a href="/contact" class="font-medium text-accent-600 transition-colors hover:text-accent-700">tell me</a> and I’ll fix it.
+      </p>
+    </section>
+
+    <DebtDescentTools current="/debt-descent/vs-undebt-it" />
+
+    <p class="mt-16 max-w-[65ch] border-t border-slate-200 pt-6 text-sm leading-relaxed text-slate-500">
+      Disclosure: I’m a current client of Consolidated Credit’s debt management plan, and I built
+      Debt Descent to track it. Debt Descent is my app, so read this comparison knowing that.
+    </p>
+  </div>
+</Layout>

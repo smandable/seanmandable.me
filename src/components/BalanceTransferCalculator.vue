@@ -283,7 +283,7 @@ function chartMonthLabel(m: number): string {
             <div class="flex justify-between gap-4"><dt class="text-slate-500">Fee</dt><dd class="font-medium text-slate-900">$0.00</dd></div>
             <div class="flex justify-between gap-4"><dt class="text-slate-500">Interest</dt><dd class="font-medium text-slate-900">{{ usd(result.stay.interest) }}{{ result.stay.months === null ? ' and counting' : '' }}</dd></div>
             <div class="flex justify-between gap-4"><dt class="text-slate-500">Paid off</dt><dd class="font-medium text-slate-900">{{ result.stay.months === null ? 'never at this payment' : `${monthFromNow(result.stay.months)} · ${plural(result.stay.months, 'month')}` }}</dd></div>
-            <div class="flex justify-between gap-4 border-t border-slate-100 pt-1.5"><dt class="text-slate-500">Total paid</dt><dd class="font-semibold text-slate-900">{{ result.stay.totalPaid === null ? '—' : usd(result.stay.totalPaid) }}</dd></div>
+            <div class="flex justify-between gap-4 border-t border-slate-100 pt-1.5"><dt class="text-slate-500">Total paid</dt><dd class="font-semibold text-slate-900">{{ result.stay.totalPaid === null ? 'never clears' : usd(result.stay.totalPaid) }}</dd></div>
           </dl>
         </div>
         <div class="rounded-lg border border-slate-200 p-4">
@@ -296,7 +296,7 @@ function chartMonthLabel(m: number): string {
             <div class="flex justify-between gap-4"><dt class="text-slate-500">Fee</dt><dd class="font-medium text-slate-900">{{ usd(result.fee) }}</dd></div>
             <div class="flex justify-between gap-4"><dt class="text-slate-500">Interest</dt><dd class="font-medium text-slate-900">{{ usd(result.transfer.interest) }}{{ result.transfer.months === null ? ' and counting' : '' }}</dd></div>
             <div class="flex justify-between gap-4"><dt class="text-slate-500">Paid off</dt><dd class="font-medium text-slate-900">{{ result.transfer.months === null ? 'never at this payment' : `${monthFromNow(result.transfer.months)} · ${plural(result.transfer.months, 'month')}` }}</dd></div>
-            <div class="flex justify-between gap-4 border-t border-slate-100 pt-1.5"><dt class="text-slate-500">Total paid</dt><dd class="font-semibold text-slate-900">{{ result.transfer.totalPaid === null ? '—' : usd(result.transfer.totalPaid) }}</dd></div>
+            <div class="flex justify-between gap-4 border-t border-slate-100 pt-1.5"><dt class="text-slate-500">Total paid</dt><dd class="font-semibold text-slate-900">{{ result.transfer.totalPaid === null ? 'never clears' : usd(result.transfer.totalPaid) }}</dd></div>
           </dl>
         </div>
       </div>

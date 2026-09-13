@@ -26,6 +26,11 @@ export const tools: { href: string; title: string; blurb: string }[] = [
     title: 'Balance Transfer Calculator',
     blurb: 'whether the transfer fee beats the interest you’d pay by staying put',
   },
+  {
+    href: '/debt-descent/dmp-calculator',
+    title: 'Debt Management Plan Calculator',
+    blurb: 'a DMP’s reduced rate and fees against paying on your own',
+  },
 ];
 
 /** Comparison write-ups under /debt-descent, listed on the landing page and the tool pages. */

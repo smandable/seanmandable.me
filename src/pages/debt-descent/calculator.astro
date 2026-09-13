@@ -1,7 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import DebtCalculator from '../../components/DebtCalculator.vue';
+import DebtDescentTools from '../../components/DebtDescentTools.astro';
+import EmailCapture from '../../components/EmailCapture.vue';
 import { appStoreUrl } from '../../data/debt-descent';
+
+// The list signup posts to the contact endpoint (there's no list provider
+// yet), tagged so each signup arrives as a "Calculator list" email.
+const listEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? '/contact.php';
 
 const title = 'Debt Snowball & Avalanche Calculator';
 const fullTitle = 'Debt Snowball & Avalanche Calculator | Free, No Sign-Up';
@@ -73,6 +79,16 @@ const faqSchema = {
     <div class="mt-10">
       <DebtCalculator client:load />
     </div>
+
+    <!-- List signup -->
+    <section class="mt-14 max-w-[65ch]" aria-labelledby="list-heading">
+      <h2 id="list-heading" class="text-lg font-bold tracking-tight">Notes from me, now and then</h2>
+      <p class="mt-1 text-sm leading-relaxed text-slate-600">
+        Occasional notes on paying off debt, and a note when Debt Descent updates. No spam,
+        unsubscribe any time.
+      </p>
+      <EmailCapture endpoint={listEndpoint} source="/debt-descent/calculator/" event="debt-descent-calculator-list" client:load />
+    </section>
 
     <!-- App funnel -->
     <aside class="mt-14 rounded-lg border border-slate-200 p-6 sm:p-8">
@@ -170,6 +186,8 @@ const faqSchema = {
         ))}
       </dl>
     </section>
+
+    <DebtDescentTools current="/debt-descent/calculator" />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
   </div>

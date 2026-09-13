@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DmpCalculator from '../../components/DmpCalculator.vue';
+import DebtDescentAppCta from '../../components/DebtDescentAppCta.astro';
+import DebtDescentTools from '../../components/DebtDescentTools.astro';
+
+const title = 'Debt Management Plan Calculator';
+const fullTitle = 'Debt Management Plan Calculator: Will a DMP Save Me Money?';
+const description =
+  'Free debt management plan calculator. Enter your balances, the plan’s reduced APR, and its fees, and see whether a DMP beats paying on your own: months, interest, fees, and total paid on each path. No sign-up; it runs in your browser.';
+
+// Rendered as the visible FAQ *and* serialized into FAQPage JSON-LD below, so
+// the markup Google sees always matches the text on the page.
+const faqs = [
+  {
+    q: 'What is a debt management plan?',
+    a: 'An arrangement a credit counseling agency sets up with your creditors. You make one payment a month to the agency, it pays each creditor, and in return the creditors lower your interest rates and usually stop late fees. The enrolled accounts are closed to new charges. You repay the full balance; nothing is forgiven. Plans typically run three to five years.',
+  },
+  {
+    q: 'Is a DMP the same as debt settlement?',
+    a: 'No. On a DMP you pay every dollar you owe, at a lower rate, and your accounts stay current. Debt settlement means stopping payments, letting accounts go delinquent, and negotiating to pay less than the balance, which does real damage to your credit and can leave you with a tax bill on the forgiven amount. The two are often advertised side by side and are not the same product.',
+  },
+  {
+    q: 'How much does a DMP cost?',
+    a: 'A monthly fee, typically $25.00 to $50.00, capped by state law and often reduced or waived for hardship, and sometimes a one-time setup fee. Nonprofit agencies that belong to the NFCC (National Foundation for Credit Counseling) publish their fees; for-profit companies also sell plans, sometimes at higher cost. This calculator counts the fees as part of the plan’s cost so the comparison is honest.',
+  },
+  {
+    q: 'What interest rate will I get on a DMP?',
+    a: 'Each creditor sets its own concession rate for plans, and they vary: some go to 0%, most land somewhere under about 11%, and a few decline to participate at all. The agency can tell you what each of your creditors typically offers before you enroll. Enter the rate they quote you, or run the calculator at a couple of rates to see how much it matters.',
+  },
+  {
+    q: 'Does a DMP hurt your credit?',
+    a: 'Enrolling isn’t itself a scoring factor, but the enrolled cards are closed, which can raise your utilization, and while you’re on the plan your report can note that an account is being paid through a credit counseling plan. Payments made through the plan on time are reported as on time, and paying balances down helps. Most people on a plan see their scores recover as the balances fall.',
+  },
+  {
+    q: 'Can I get the same result on my own?',
+    a: 'Sometimes. You can call each issuer and ask for a hardship rate, and some will grant one for a period. The plan’s advantage is that the concessions are pre-negotiated, apply to every enrolled account at once, and come with one payment instead of several. The “on your own” column here assumes your current rates; if you can get lower rates yourself, run the calculator again with those.',
+  },
+  {
+    q: 'Is anything I type stored or sent anywhere?',
+    a: 'No. The calculator runs in your browser. Your numbers never leave this page, nothing is saved, and there’s no account or sign-up. Leave or refresh the page and they’re gone. The Debt Descent app works on the same principle: its App Privacy label is “Data Not Collected.”',
+  },
+  {
+    q: 'How does Debt Descent track a DMP?',
+    a: 'With a payment group: one monthly payment, the plan’s fee, and the member debts. Log the payment once and the app splits it across the enrolled accounts to the cent, keeps the fee out of the payoff math, and shows what leaves your bank beside what reaches your creditors. Each debt keeps its own balance and rate, so the plan’s projection stays honest. Payment groups are free.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702">
+  <div class="mx-auto max-w-3xl">
+    <p class="text-sm font-medium">
+      <a href="/debt-descent" class="text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>
+      <span class="text-slate-400"> / Free Debt Management Plan Calculator</span>
+    </p>
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Debt Management Plan Calculator</h1>
+    <p class="mt-2 text-xl font-medium text-slate-700">Will a DMP save me money?</p>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      A debt management plan (DMP) is an arrangement a credit counseling agency sets up with your
+      card issuers: they lower your interest rates, the accounts close to new charges, and you make
+      one payment a month to the agency, which pays the creditors and keeps a fee. Whether that
+      beats paying on your own depends on your rates, the concessions, the fees, and what you
+      could pay without the plan. Enter the plan you’ve been quoted and this page runs both paths
+      on your numbers.
+    </p>
+    <p class="mt-3 flex items-center gap-2 text-sm text-slate-500">
+      <svg class="h-4 w-4 shrink-0 text-accent-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      Free, no sign-up. Runs entirely in your browser. Nothing is saved or sent.
+    </p>
+
+    <div class="mt-10">
+      <DmpCalculator client:only="vue" />
+    </div>
+
+    <DebtDescentAppCta heading="Track the plan, payment by payment" event="debt-descent-dmp-calculator-app-store">
+      <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a> models
+      a DMP with a payment group: one monthly payment, the plan’s fee, and the member debts. Log the
+      payment once and it splits across the enrolled accounts to the cent, keeps the fee out of the
+      payoff math, and shows what leaves your bank beside what reaches your creditors. Free, on
+      iPhone, iPad, and Mac, with nothing leaving your device.
+    </DebtDescentAppCta>
+
+    <!-- Explainers -->
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">How the two paths are modeled</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        On the plan, your enrolled balances run at the reduced APR, paid down by the amount that
+        reaches your creditors each month: the payment that amortizes the balance over the term, or
+        what’s left of the payment you enter after the monthly fee. The fee is added every month the
+        plan runs, and the setup fee once. On your own, the same monthly outlay runs as an Avalanche
+        at your current rates, highest rate first, with each cleared debt’s payment rolling onto the
+        next. The third line, your minimums only, is what happens if the plan’s payment is more than
+        you could manage without it.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        When the plan’s payment is lower than your minimums add up to, which is common, the
+        on-your-own column runs at your minimums instead, because you can’t pay a creditor less
+        than the minimum without falling behind. The calculator says so when that happens.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">What a DMP is, and isn’t</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        A DMP repays every dollar. The agency negotiates rates, not balances, and the accounts stay
+        current the whole way through. That separates it from debt settlement, where you stop
+        paying and negotiate to pay less, with the credit damage that implies. Nonprofit agencies,
+        including members of the NFCC (National Foundation for Credit Counseling), are the usual
+        route; for-profit companies sell plans too, and their fees are worth reading twice. Either
+        way, the fee is money that doesn’t pay down debt, which is why this calculator counts it.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">What it costs beyond the fee</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li>The enrolled cards are closed to new charges, so you live without them for the length of the plan. Most people keep one card out of the plan for emergencies.</li>
+        <li>Creditors can decline. Each one decides whether to participate and at what rate, and the agency can tell you what yours usually do.</li>
+        <li>While you’re enrolled, your credit report can note that an account is being paid through a credit counseling plan. Payments made on time through the plan are reported as on time.</li>
+        <li>Plans cover unsecured debt, mostly cards. Mortgages, car loans, and most student loans are usually excluded and keep their own payments.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">What this calculator leaves out</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Two real benefits of a plan aren’t in the numbers: creditors usually stop charging late and
+        over-limit fees once you enroll, and many re-age past-due accounts to current after a few
+        on-time payments. If you’re already behind, both are worth more than the table shows. The
+        calculator also assumes the plan’s reduced rate applies to every enrolled balance for the
+        whole term and that you make every payment. On the other side, it assumes your current rates
+        hold; a promotional rate that expires would make the on-your-own path more expensive than
+        shown.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Frequently asked questions</h2>
+      <dl class="mt-6 space-y-8">
+        {faqs.map(({ q, a }) => (
+          <div>
+            <dt class="font-semibold text-slate-900">{q}</dt>
+            <dd class="mt-2 leading-relaxed text-slate-600">{a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <DebtDescentTools current="/debt-descent/dmp-calculator" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </div>
+</Layout>

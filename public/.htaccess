@@ -1,2 +1,6 @@
 # Serve Astro's built 404 page for unknown URLs (Dreamhost/Apache).
 ErrorDocument 404 /404.html
+
+# ModernPAR's page moved from /modernpar to /modern-par. The match ignores case,
+# so /ModernPAR typed from the app's name lands there too.
+RedirectMatch 301 (?i)^/modernpar/?$ https://www.seanmandable.me/modern-par/

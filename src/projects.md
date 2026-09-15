@@ -58,8 +58,9 @@ On the App Store (currently v1.16). Free to use: add debts, run Snowball and Ava
 
 <p style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;">
 <a href="https://apps.apple.com/us/app/debt-descent-payoff-planner/id6785269702" target="_blank" rel="noopener noreferrer" style="display:inline-block;"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" width="132" height="44" style="height:44px;width:auto;margin:0;" loading="lazy" /><span class="sr-only"> (opens in new tab)</span></a>
-<strong><a href="/debt-descent/calculator">Free Debt Snowball &amp; Avalanche Calculator</a></strong>
 </p>
+
+Free calculators that run in your browser, nothing saved or sent: [Snowball & Avalanche](/debt-descent/calculator), [deferred interest](/debt-descent/deferred-interest-calculator), [balance transfer](/debt-descent/balance-transfer-calculator), and [debt management plan](/debt-descent/dmp-calculator). There are also write-ups on how it compares with [Undebt.it](/debt-descent/vs-undebt-it) and [Debt Payoff Planner](/debt-descent/vs-debt-payoff-planner).
 
 ---
 

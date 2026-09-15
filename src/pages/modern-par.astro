@@ -1,43 +1,77 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Captured from ModernPAR's own window code on a demo set: three RAR volumes
+// damaged or missing, then repaired from the recovery blocks.
+const screenshots = [
+  {
+    name: 'damage',
+    alt: 'ModernPAR window listing an 11-volume PAR2 set. Three volumes have yellow warning icons, and the status line says damage was found and repair is possible.',
+    caption: 'Verify flags one missing volume and two damaged ones.',
+  },
+  {
+    name: 'restored',
+    alt: 'The same window after repair. All 11 volumes have green checkmarks, and the status line reads Files restored successfully.',
+    caption: 'Repair rebuilds all three from the recovery blocks, then extraction starts on its own.',
+  },
+];
 ---
 
 <Layout
   title="ModernPAR"
   description="ModernPAR is the arm64-native rebuild of MacPAR deLuxe, free under the GPL. It verifies and repairs PAR2 and PAR1 sets, creates recovery sets, and extracts RAR and zip archives."
 >
-  <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
-    <img
-      src="/app-icons/modernpar.png"
-      alt=""
-      width="128"
-      height="128"
-      class="h-32 w-32 rounded-[22.5%] shadow-md ring-1 ring-slate-900/10"
-    />
-    <h1 class="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">ModernPAR</h1>
-    <p class="mt-4 text-lg leading-relaxed text-slate-600">
-      The arm64-native rebuild of MacPAR deLuxe. Verify and repair PAR2 and PAR1
-      sets, create new recovery sets, and extract RAR and zip archives. Drop a
-      <code class="rounded bg-slate-100 px-1 py-0.5 text-base">.par2</code> file on the
-      window and it verifies, repairs any damage, then extracts what’s inside.
-    </p>
-    <a
-      href="https://github.com/smandable/ModernPAR/releases/latest"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="mt-8 inline-flex items-center gap-2 rounded-md bg-accent-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-700"
-      data-umami-event="modernpar-github-download"
-    >
-      <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-        <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
-        <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
-      </svg>
-      Download the .dmg<span class="sr-only"> (opens in new tab)</span>
-    </a>
-    <p class="mt-4 text-sm text-slate-500">
-      Signed and notarized, for Apple Silicon Macs on macOS 14 or later. Updates
-      itself through Sparkle. Free software under GPL-2.0-or-later.
-    </p>
+  <div class="flex flex-col items-center py-12 text-center sm:py-20">
+    <div class="flex max-w-[65ch] flex-col items-center">
+      <img
+        src="/app-icons/modernpar.png"
+        alt=""
+        width="128"
+        height="128"
+        class="h-32 w-32 rounded-[22.5%] shadow-md ring-1 ring-slate-900/10"
+      />
+      <h1 class="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">ModernPAR</h1>
+      <p class="mt-4 text-lg leading-relaxed text-slate-600">
+        The arm64-native rebuild of MacPAR deLuxe. Verify and repair PAR2 and PAR1
+        sets, create new recovery sets, and extract RAR and zip archives. Drop a
+        <code class="rounded bg-slate-100 px-1 py-0.5 text-base">.par2</code> file on the
+        window and it verifies, repairs any damage, then extracts what’s inside.
+      </p>
+      <a
+        href="https://github.com/smandable/ModernPAR/releases/latest"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-8 inline-flex items-center gap-2 rounded-md bg-accent-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-700"
+        data-umami-event="modernpar-github-download"
+      >
+        <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
+          <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
+        </svg>
+        Download the .dmg<span class="sr-only"> (opens in new tab)</span>
+      </a>
+      <p class="mt-4 text-sm text-slate-500">
+        Signed and notarized, for Apple Silicon Macs on macOS 14 or later. Updates
+        itself through Sparkle. Free software under GPL-2.0-or-later.
+      </p>
+    </div>
+    <div class="mt-12 flex w-full max-w-3xl flex-col gap-12 sm:mt-16">
+      {screenshots.map((shot) => (
+        <figure>
+          <img
+            src={`/screenshots/modern-par-${shot.name}-1x.webp`}
+            srcset={`/screenshots/modern-par-${shot.name}-1x.webp 790w, /screenshots/modern-par-${shot.name}-2x.webp 1580w`}
+            sizes="(min-width: 816px) 768px, calc(100vw - 48px)"
+            width="790"
+            height="440"
+            alt={shot.alt}
+            decoding="async"
+            class="h-auto w-full [filter:drop-shadow(0_0_0.5px_rgb(15_23_42/0.35))_drop-shadow(0_16px_32px_rgb(15_23_42/0.12))]"
+          />
+          <figcaption class="mt-4 text-sm text-slate-500">{shot.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
     <nav
       class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500"
       aria-label="ModernPAR links"

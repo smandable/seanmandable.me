@@ -150,7 +150,7 @@ Groups, aliases, launch actions, and exclusions all live in a settings window wi
 
 ### Installing
 
-Current release is 1.4.1. Available as a signed, notarized `.dmg` from GitHub, or via Homebrew:
+Current release is 1.4.2. Available as a signed, notarized `.dmg` from GitHub, or via Homebrew:
 
 ```bash
 brew tap smandable/tap && brew install --cask saddle

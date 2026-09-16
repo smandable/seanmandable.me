@@ -102,10 +102,14 @@ const verdict = computed(() => {
   if (saving > 0) {
     const parts = [usd(saving)];
     if (months > 0) parts.push(plural(months, 'month'));
+    const recovered =
+      r.breakEvenMonth === null
+        ? ''
+        : ` It’s recovered in month ${r.breakEvenMonth} (${monthFromNow(r.breakEvenMonth)}).`;
     return {
       tone: 'good' as const,
       title: `The transfer saves you ${parts.join(' and ')}.`,
-      body: `You pay the ${usd(r.fee)} fee up front and avoid ${usd(r.stay.interest - r.transfer.interest)} of interest. The fee is recovered in month ${r.breakEvenMonth ?? '?'}${r.breakEvenMonth ? ` (${monthFromNow(r.breakEvenMonth)})` : ''}.`,
+      body: `The ${usd(r.fee)} fee is added to the balance you move, and you avoid ${usd(r.stay.interest - r.transfer.interest)} of interest.${recovered}`,
     };
   }
   if (saving < 0) {
@@ -249,7 +253,7 @@ function chartMonthLabel(m: number): string {
         <div class="rounded-lg border border-slate-200 p-5">
           <p class="text-sm text-slate-500">To clear it inside the promo</p>
           <p class="mt-1 text-3xl font-bold tracking-tight text-accent-700">{{ usd(result.requiredMonthly) }}</p>
-          <p class="mt-1 text-sm text-slate-500">a month for {{ plural(Math.floor(promoValue), 'month') }}, then nothing</p>
+          <p class="mt-1 text-sm text-slate-500">a month for {{ plural(Math.floor(promoValue), 'month') }}. Less than that and the rest reverts to {{ pct(afterAprValue) }}.</p>
         </div>
       </div>
 

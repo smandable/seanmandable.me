@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: 'What is a typical balance transfer fee?',
-    a: 'Most offers charge 3% to 5% of the amount transferred, added to the new balance. A few cards waive the fee for a short window after opening. A $6,000.00 transfer at 3% costs $180.00 up front, which is the number the interest has to beat.',
+    a: 'Most offers charge 3% to 5% of the amount transferred, added to the new balance. A few cards waive the fee for a short window after opening. A $6,000.00 transfer at 3% adds $180.00 to the balance, which is the number the interest has to beat.',
   },
   {
     q: 'What happens when the 0% period ends?',
@@ -84,8 +84,9 @@ const faqSchema = {
       <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>’s
       Refinance &amp; consolidation tool (Pro) models a balance transfer with the fee and the promo
       period against the debts you already track, and holds your total monthly payment constant so
-      the comparison is fair. When you take the offer, you apply the deal in one step. One-time
-      purchase, no subscription, on iPhone, iPad, and Mac.
+      the comparison is fair. It shows the month the fee is earned back and the payment that clears
+      the balance before the promo ends. When you take the offer, you apply the deal in one step.
+      One-time purchase, no subscription, on iPhone, iPad, and Mac.
     </DebtDescentAppCta>
 
     <!-- Explainers -->
@@ -100,10 +101,11 @@ const faqSchema = {
         and the difference between the two totals is the saving.
       </p>
       <p class="mt-4 leading-relaxed text-slate-600">
-        The fee is paid on day one and the saving arrives a month at a time, so a transfer only
-        pays off if you keep making the payments. The payment that clears the balance inside the
-        promo (the balance plus the fee, divided by the promo months) is the number to plan around.
-        Anything less leaves a tail at the after-promo rate, and the calculator prices that tail.
+        The fee is added to the balance on day one and the saving arrives a month at a time, so a
+        transfer only pays off if you keep making the payments. The payment that clears the balance
+        inside the promo (the balance plus the fee, divided by the promo months) is the number to
+        plan around. Anything less leaves a tail at the after-promo rate, and the calculator prices
+        that tail.
       </p>
 
       <h2 class="mt-12 text-2xl font-bold tracking-tight">Before you apply</h2>

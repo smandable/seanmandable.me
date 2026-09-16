@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import BalanceChart from './BalanceChart.vue';
 import { compareTransfer, type TransferResult } from '../lib/balance-transfer';
 import { SERIES_COLORS, type ChartSeries } from '../lib/chart';
-import { ceilCents, monthDate, monthShort, parseNumber, pct, plural, usd } from '../lib/calc-format';
+import { ceilCents, monthDate, monthShort, parseNumber, pct, plural, roundCents, usd } from '../lib/calc-format';
 
 const inputClass =
   'w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600';
@@ -113,10 +113,17 @@ const verdict = computed(() => {
     };
   }
   if (saving < 0) {
+    // A short promo with a revert rate above the current one can leave the
+    // transfer paying *more* interest, not merely too little to beat the fee.
+    const avoided = roundCents(r.stay.interest - r.transfer.interest);
+    const cause =
+      avoided < 0
+        ? `The transfer costs ${usd(-avoided)} more interest than staying put, on top of the ${usd(r.fee)} fee. Once the promo ends, the ${pct(afterAprValue.value)} rate is above the ${pct(aprValue.value)} you pay now.`
+        : `The ${usd(r.fee)} fee is bigger than the ${usd(avoided)} of interest it avoids on these numbers.`;
     return {
       tone: 'bad' as const,
       title: `The transfer costs you ${usd(-saving)} more.`,
-      body: `The ${usd(r.fee)} fee is bigger than the ${usd(r.stay.interest - r.transfer.interest)} of interest it avoids on these numbers. Staying put and paying ${usd(paymentValue.value)} a month is the cheaper path.`,
+      body: `${cause} Staying put and paying ${usd(paymentValue.value)} a month is the cheaper path.`,
     };
   }
   return {

@@ -118,7 +118,7 @@ const verdict = computed(() => {
     const avoided = roundCents(r.stay.interest - r.transfer.interest);
     const cause =
       avoided < 0
-        ? `The transfer costs ${usd(-avoided)} more interest than staying put, on top of the ${usd(r.fee)} fee. Once the promo ends, the ${pct(afterAprValue.value)} rate is above the ${pct(aprValue.value)} you pay now.`
+        ? `It runs ${usd(-avoided)} more interest than staying put, on top of the ${usd(r.fee)} fee. Once the promo ends, the ${pct(afterAprValue.value)} rate is above the ${pct(aprValue.value)} you pay now.`
         : `The ${usd(r.fee)} fee is bigger than the ${usd(avoided)} of interest it avoids on these numbers.`;
     return {
       tone: 'bad' as const,

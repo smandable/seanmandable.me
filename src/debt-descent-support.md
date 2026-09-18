@@ -5,7 +5,7 @@ description: Help and answers for Debt Descent, the private debt-payoff planner 
 
 Need a hand? Email **[support@seanmandable.me](mailto:support@seanmandable.me)** and I'll get back to you.
 
-Debt Descent is a native debt-payoff planner for iPhone, iPad, and Mac. Add your debts, compare the Snowball and Avalanche methods, and see exactly when you'll be debt-free. There's no account or sign-up, and nothing is ever sent to me.
+[Debt Descent](/debt-descent) is a native debt-payoff planner for iPhone, iPad, and Mac. Add your debts, compare the Snowball and Avalanche methods, and see exactly when you'll be debt-free. There's no account or sign-up, and nothing is ever sent to me.
 
 ### Frequently asked questions
 

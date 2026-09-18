@@ -1,6 +1,32 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { Content, frontmatter } from '../../debt-descent-support.md';
+import raw from '../../debt-descent-support.md?raw';
+
+// FAQPage JSON-LD for the questions in the markdown, parsed at build time so
+// the markup can't drift from the visible answers. Each entry is a bold
+// question on one line and a one-paragraph answer on the next. Markdown
+// syntax is stripped and quotes are curled the way smartypants renders them.
+const faqSource = raw.split('### Frequently asked questions')[1].split('### Contact')[0];
+const plain = (text: string) =>
+  text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/"([^"]+)"/g, '“$1”')
+    .replace(/(\w)'/g, '$1’')
+    .trim();
+const faqs = [...faqSource.matchAll(/^\*\*(.+?)\*\*\n(.+)$/gm)].map(([, q, a]) => ({ q: plain(q), a: plain(a) }));
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description} appleAppId="6785269702">
@@ -15,5 +41,7 @@ import { Content, frontmatter } from '../../debt-descent-support.md';
     <article class="prose mt-10 max-w-none">
       <Content />
     </article>
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
   </div>
 </Layout>

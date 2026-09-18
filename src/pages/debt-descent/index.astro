@@ -1,11 +1,66 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { appStoreUrl, comparisons, tools } from '../../data/debt-descent';
+
+// The questions people ask before downloading, in their words, answered here
+// so the page can be quoted instead of the App Store listing. Rendered as the
+// visible FAQ and serialized as FAQPage JSON-LD for Bing and the answer
+// engines. Facts checked against the app on 2026-09-18: the two deferment
+// switch labels, seven methods with two free, the $14.99 one-time price, and
+// the Siri phrases.
+const faqs = [
+  {
+    q: 'Is Debt Descent a subscription?',
+    a: 'No. Pro is $14.99, paid once. It’s Family Sharing enabled too, so your family gets it without buying it again. There’s no account to create.',
+  },
+  {
+    q: 'Does it connect to my bank?',
+    a: 'No. Balances come from your statements instead. Import the PDF, scan a paper one with the camera, or type the balance in when the statement posts. The app reads the balance, APR, minimum, and due date on your device, and nothing is uploaded.',
+  },
+  {
+    q: 'Does it run on a Mac?',
+    a: 'Yes. It’s a native app on iPhone, iPad, and Mac, and one purchase covers all three. Your data syncs between them through your own iCloud. On the Mac there’s also a desktop widget and a menu bar item that shows your debt-free month.',
+  },
+  {
+    q: 'Which payoff methods does it have?',
+    a: 'Snowball and Avalanche are free, shown side by side with the payoff date and total interest for each. Pro adds five more, one of them a custom order you set yourself.',
+  },
+  {
+    q: 'Can it track a debt management plan?',
+    a: 'Yes, and payment groups don’t need Pro. A payment group is one monthly draft that covers several debts, with a Plan fee field for what the plan keeps. Log the payment once and the app splits it across the debts, so the Payments tab matches your bank statement while the fee stays out of your payoff math.',
+  },
+  {
+    q: 'My student loan is in deferment. Can I add it?',
+    a: 'Yes. Turn on “In deferment — nothing due yet” on the loan and set the date the deferment ends. Until then it sits in your list with nothing due, and on that date it joins the plan on its own. For a subsidized loan, turn on “No interest during deferment (subsidized)” as well, and the balance holds still until then.',
+  },
+  {
+    q: 'Is my data private?',
+    a: 'Yes. Your debts stay on your devices and in your own iCloud, where I can’t see them. The App Store privacy label is “Data Not Collected,” and there are no servers or analytics of my own.',
+  },
+  {
+    q: 'Does it work with Siri, widgets, and Spotlight?',
+    a: 'Yes, since version 1.16. Ask Siri “When am I debt-free in Debt Descent” or “Log a payment in Debt Descent,” and the same actions are in Shortcuts. There are widgets for the home screen, the lock screen, and the Mac desktop, and your debts show up in Spotlight with their balances.',
+  },
+  {
+    q: 'Is there an Android or web version?',
+    a: 'No. It’s iPhone, iPad, and Mac only. The calculators on this site run in any browser.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
 ---
 
 <Layout
   title="Debt Descent"
-  description="Debt Descent is a private, native debt-payoff planner for iPhone, iPad, and Mac. Compare Snowball, Avalanche, and more against your own numbers, all on your device."
+  description="Debt Descent is a private, native debt-payoff planner for iPhone, iPad, and Mac. Pro is a one-time purchase with no subscription. Compare Snowball, Avalanche, and more on your own device."
   appleAppId="6785269702"
 >
   <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
@@ -20,7 +75,8 @@ import { appStoreUrl, comparisons, tools } from '../../data/debt-descent';
     <p class="mt-4 text-lg leading-relaxed text-slate-600">
       A native debt-payoff planner for iPhone, iPad, and Mac. Add your debts, compare
       Snowball and Avalanche side by side, and see exactly when you’ll be debt-free.
-      Nothing ever leaves your own devices.
+      Nothing ever leaves your own devices. It’s free, and Pro is a one-time $14.99
+      purchase with no subscription. There’s no account and no bank linking.
     </p>
     <a
       href={appStoreUrl}
@@ -43,6 +99,21 @@ import { appStoreUrl, comparisons, tools } from '../../data/debt-descent';
       <a href="/debt-descent/support" class="transition-colors hover:text-accent-600">Support</a>
       <a href="/debt-descent/privacy" class="transition-colors hover:text-accent-600">Privacy Policy</a>
     </nav>
+
+    <section class="mt-16 w-full text-left" aria-labelledby="faq">
+      <h2 id="faq" class="text-xl font-bold tracking-tight">Questions before you download</h2>
+      <dl class="mt-4 space-y-6">
+        {faqs.map(({ q, a }) => (
+          <div>
+            <dt class="font-semibold text-slate-900">{q}</dt>
+            <dd class="mt-1 leading-relaxed text-slate-600">{a}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="mt-6 leading-relaxed text-slate-600">
+        Questions that come up after you install it are on the <a href="/debt-descent/support" class="font-medium text-accent-600 transition-colors hover:text-accent-700">support page</a>.
+      </p>
+    </section>
 
     <section class="mt-16 w-full text-left" aria-labelledby="free-tools">
       <h2 id="free-tools" class="text-xl font-bold tracking-tight">Free tools</h2>
@@ -70,5 +141,7 @@ import { appStoreUrl, comparisons, tools } from '../../data/debt-descent';
         </Fragment>
       )}
     </section>
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
   </div>
 </Layout>

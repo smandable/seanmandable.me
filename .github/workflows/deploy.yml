@@ -9,6 +9,12 @@ concurrency:
   group: deploy-production
   cancel-in-progress: false
 
+env:
+  SITE_HOST: www.seanmandable.me
+  # IndexNow key. It is public by design: the protocol proves ownership by
+  # serving the key at https://<host>/<key>.txt, which lives in public/.
+  INDEXNOW_KEY: 28cf4114758717f5679741edda563560
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -41,3 +47,30 @@ jobs:
           rsync -avz --delete \
             dist/ \
             "${{ secrets.DREAMHOST_SSH_USER }}@${{ secrets.DREAMHOST_SSH_HOST }}:${{ secrets.DREAMHOST_DEPLOY_PATH }}/"
+
+      # IndexNow tells Bing (and through it DuckDuckGo, Yahoo, Ecosia, Copilot
+      # and ChatGPT search), Yandex, Naver, Seznam and Yep that pages changed,
+      # so they recrawl within hours instead of whenever they get around to it.
+      # Google does not support IndexNow; it reads the sitemap on its own
+      # schedule. The site is small, so every sitemap URL is submitted on each
+      # deploy. A failure here is only a warning: the deploy already succeeded.
+      - name: Notify IndexNow
+        run: |
+          urls="$(grep -ho '<loc>[^<]*</loc>' dist/sitemap-[0-9]*.xml | sed 's/<[^>]*>//g' | jq -R . | jq -s .)"
+          payload="$(jq -n \
+            --arg host "$SITE_HOST" \
+            --arg key "$INDEXNOW_KEY" \
+            --arg keyLocation "https://$SITE_HOST/$INDEXNOW_KEY.txt" \
+            --argjson urlList "$urls" \
+            '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urlList}')"
+          echo "Submitting $(echo "$urls" | jq length) URLs"
+          code="$(curl -sS -o response.txt -w '%{http_code}' \
+            -X POST 'https://api.indexnow.org/IndexNow' \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data "$payload")"
+          echo "IndexNow responded HTTP $code"
+          cat response.txt; echo
+          case "$code" in
+            200|202) ;;
+            *) echo "::warning::IndexNow returned HTTP $code" ;;
+          esac

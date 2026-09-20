@@ -329,8 +329,65 @@ const tableRows = computed(() => {
 
 <template>
   <section aria-label="Debt payoff calculator">
+    <!-- Method -->
+    <span id="method-label" class="mb-1 block text-sm font-medium text-slate-700">Payoff method</span>
+    <div role="group" aria-labelledby="method-label" class="inline-flex rounded-lg bg-slate-100 p-1">
+      <button
+        v-for="key in (['snowball', 'avalanche'] as const)"
+        :key="key"
+        type="button"
+        :aria-pressed="method === key"
+        class="rounded-md px-4 py-1.5 text-sm transition-colors"
+        :class="method === key ? 'bg-white font-semibold text-accent-700 shadow-sm' : 'font-medium text-slate-600 hover:text-slate-900'"
+        @click="method = key"
+      >
+        {{ SERIES[key].label }}
+      </button>
+    </div>
+
+    <!-- The plan -->
+    <div v-if="primary && comparison" class="mt-8">
+      <h2 class="text-xl font-bold tracking-tight">Your {{ SERIES[method].label }} plan</h2>
+
+      <template v-if="primary.months !== null">
+        <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500">Debt-free by</p>
+        <p class="mt-1 text-4xl font-bold tracking-tight text-accent-700 sm:text-5xl">{{ monthLong.format(monthDate(primary.months)) }}</p>
+        <p class="mt-2 text-slate-600">
+          {{ plural(primary.months, 'month') }} from now, clearing {{ plural(debts.length, 'balance') }} with the {{ SERIES[method].label }} method.
+        </p>
+
+        <div class="mt-5 grid grid-cols-3 gap-3">
+          <div class="rounded-lg border border-slate-200 p-3 sm:p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">You owe</p>
+            <p class="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ usdWhole(totalBalance) }}</p>
+          </div>
+          <div class="rounded-lg border border-slate-200 p-3 sm:p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Interest left</p>
+            <p class="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ usdWhole(primary.totalInterest) }}</p>
+          </div>
+          <div class="rounded-lg border border-slate-200 p-3 sm:p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Toward debt</p>
+            <p class="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ usdWhole(primary.monthlyBudget) }}<span class="text-sm font-medium text-slate-500">/mo</span></p>
+          </div>
+        </div>
+      </template>
+
+      <div v-else class="mt-4 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+        <svg class="mt-0.5 h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86l-8.02 13.9A2 2 0 004 21h16a2 2 0 001.73-3.24l-8.02-13.9a2 2 0 00-3.42 0z" /></svg>
+        <span>
+          <strong class="font-semibold">This plan never clears at the current payment.</strong>
+          Interest is growing at least one balance faster than the budget pays it down.
+          Adding even a small amount extra per month can turn it around.
+        </span>
+      </div>
+    </div>
+
+    <p v-else class="mt-8 rounded-lg border border-dashed border-slate-300 p-6 text-center text-sm text-slate-500">
+      Add your debts below (balance, APR, and minimum payment) and your plan appears here.
+    </p>
+
     <!-- Debts -->
-    <h2 class="text-xl font-bold tracking-tight">Your debts</h2>
+    <h2 class="mt-12 text-xl font-bold tracking-tight">Your debts</h2>
     <div class="mt-4 space-y-3">
       <div
         v-for="(row, i) in rows"
@@ -422,36 +479,18 @@ const tableRows = computed(() => {
       Debts missing a balance, APR, or minimum payment aren’t counted yet.
     </p>
 
-    <!-- Extra + method -->
-    <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-      <div>
-        <label for="extra-per-month" class="mb-1 block text-sm font-medium text-slate-700">Extra per month</label>
-        <input
-          id="extra-per-month"
-          v-model="extra"
-          type="text"
-          inputmode="decimal"
-          placeholder="$"
-          class="w-40 rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600"
-        />
-        <p class="mt-1 text-xs text-slate-500">Anything you can put in on top of the minimums.</p>
-      </div>
-      <div>
-        <span id="method-label" class="mb-1 block text-sm font-medium text-slate-700">Payoff method</span>
-        <div role="group" aria-labelledby="method-label" class="inline-flex rounded-lg bg-slate-100 p-1">
-          <button
-            v-for="key in (['snowball', 'avalanche'] as const)"
-            :key="key"
-            type="button"
-            :aria-pressed="method === key"
-            class="rounded-md px-4 py-1.5 text-sm transition-colors"
-            :class="method === key ? 'bg-white font-semibold text-accent-700 shadow-sm' : 'font-medium text-slate-600 hover:text-slate-900'"
-            @click="method = key"
-          >
-            {{ SERIES[key].label }}
-          </button>
-        </div>
-      </div>
+    <!-- Extra -->
+    <div class="mt-8">
+      <label for="extra-per-month" class="mb-1 block text-sm font-medium text-slate-700">Extra per month</label>
+      <input
+        id="extra-per-month"
+        v-model="extra"
+        type="text"
+        inputmode="decimal"
+        placeholder="$"
+        class="w-40 rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600"
+      />
+      <p class="mt-1 text-xs text-slate-500">Anything you can put in on top of the minimums.</p>
     </div>
 
     <p v-if="comparison" class="mt-4 text-sm text-slate-600">
@@ -460,42 +499,8 @@ const tableRows = computed(() => {
       onto the next one, so the full budget works for you until you’re debt-free.
     </p>
 
-    <!-- Results -->
+    <!-- Payoff order, comparison, chart, export -->
     <div v-if="primary && comparison" class="mt-10">
-      <h2 class="text-xl font-bold tracking-tight">Your {{ SERIES[method].label }} plan</h2>
-
-      <template v-if="primary.months !== null">
-        <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500">Debt-free by</p>
-        <p class="mt-1 text-4xl font-bold tracking-tight text-accent-700 sm:text-5xl">{{ monthLong.format(monthDate(primary.months)) }}</p>
-        <p class="mt-2 text-slate-600">
-          {{ plural(primary.months, 'month') }} from now, clearing {{ plural(debts.length, 'balance') }} with the {{ SERIES[method].label }} method.
-        </p>
-
-        <div class="mt-5 grid grid-cols-3 gap-3">
-          <div class="rounded-lg border border-slate-200 p-3 sm:p-5">
-            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">You owe</p>
-            <p class="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ usdWhole(totalBalance) }}</p>
-          </div>
-          <div class="rounded-lg border border-slate-200 p-3 sm:p-5">
-            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Interest left</p>
-            <p class="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ usdWhole(primary.totalInterest) }}</p>
-          </div>
-          <div class="rounded-lg border border-slate-200 p-3 sm:p-5">
-            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Toward debt</p>
-            <p class="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ usdWhole(primary.monthlyBudget) }}<span class="text-sm font-medium text-slate-500">/mo</span></p>
-          </div>
-        </div>
-      </template>
-
-      <div v-else class="mt-4 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-        <svg class="mt-0.5 h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86l-8.02 13.9A2 2 0 004 21h16a2 2 0 001.73-3.24l-8.02-13.9a2 2 0 00-3.42 0z" /></svg>
-        <span>
-          <strong class="font-semibold">This plan never clears at the current payment.</strong>
-          Interest is growing at least one balance faster than the budget pays it down.
-          Adding even a small amount extra per month can turn it around.
-        </span>
-      </div>
-
       <!-- Payoff order -->
       <h3 class="mt-8 text-base font-semibold text-slate-900">Payoff order</h3>
       <ol class="mt-3 space-y-2">
@@ -636,8 +641,5 @@ const tableRows = computed(() => {
       />
     </div>
 
-    <p v-else class="mt-10 rounded-lg border border-dashed border-slate-300 p-6 text-center text-sm text-slate-500">
-      Add at least one debt (balance, APR, and minimum payment) and your plan appears here.
-    </p>
   </section>
 </template>

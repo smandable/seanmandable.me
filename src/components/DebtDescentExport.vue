@@ -63,7 +63,8 @@ async function onPdf() {
     <p class="mt-3 text-sm leading-relaxed text-slate-600">
       The download is a small <code class="rounded bg-slate-100 px-1 py-0.5 text-[0.85em]">debt-descent.json</code> with {{ describes }},
       in the format the app imports. Importing replaces what’s already in Debt Descent, so it’s best on a
-      fresh install (or export the app’s own data first). In the app: Plan tab ▸ ••• ▸ Data options ▸ Import JSON.
+      fresh install (or export the app’s own data first). Each file is a whole plan, so import the one that fits
+      your situation and add anything else in the app afterwards. In the app: Plan tab ▸ ••• ▸ Data options ▸ Import JSON.
       The PDF is the same result on a page, with that file tucked inside it as an attachment.
     </p>
     <p v-if="pdfError" class="mt-2 text-sm text-amber-700">The PDF didn’t build. Try again, or use the JSON download.</p>

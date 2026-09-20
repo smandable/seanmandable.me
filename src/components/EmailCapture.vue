@@ -6,13 +6,32 @@ import { computed, ref } from 'vue';
  * site's contact endpoint with a fixed "name" that tags the subject line
  * ("Contact form: Calculator list"); each signup arrives as an email.
  */
-const props = defineProps<{
-  endpoint: string;
-  /** Where the signup came from, for the message body. */
-  source: string;
-  /** Umami event fired on a successful submit. */
-  event: string;
-}>();
+const props = withDefaults(
+  defineProps<{
+    endpoint: string;
+    /** Where the signup came from, for the message body. */
+    source: string;
+    /** Umami event fired on a successful submit. */
+    event: string;
+    /** The fixed "name" that tags the subject line ("Contact form: <tag>"). */
+    tag?: string;
+    /** The message body; defaults to the calculator list wording. */
+    message?: string;
+    /** Prefix for the field ids, so two forms can share a page. */
+    idPrefix?: string;
+    buttonLabel?: string;
+    sentLabel?: string;
+    successText?: string;
+  }>(),
+  {
+    tag: 'Calculator list',
+    message: undefined,
+    idPrefix: 'list',
+    buttonLabel: 'Sign up',
+    sentLabel: 'Signed up',
+    successText: 'Thanks. You’re on the list.',
+  },
+);
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
@@ -46,9 +65,9 @@ async function onSubmit(event: Event) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
-        name: 'Calculator list',
+        name: props.tag,
         email: address,
-        message: `Please add me to the Debt Descent calculator list. Signed up on ${props.source}.`,
+        message: props.message ?? `Please add me to the Debt Descent calculator list. Signed up on ${props.source}.`,
       }),
     });
     if (!res.ok) throw new Error(`Request failed (${res.status})`);
@@ -70,10 +89,10 @@ async function onSubmit(event: Event) {
 
 <template>
   <form class="mt-4" @submit="onSubmit" novalidate>
-    <label for="list-email" class="sr-only">Email</label>
+    <label :for="`${idPrefix}-email`" class="sr-only">Email</label>
     <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
       <input
-        id="list-email"
+        :id="`${idPrefix}-email`"
         v-model="email"
         type="email"
         required
@@ -87,18 +106,18 @@ async function onSubmit(event: Event) {
         :disabled="disabled || status === 'success'"
         class="inline-flex shrink-0 items-center justify-center rounded-md bg-accent-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-700 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {{ status === 'sending' ? 'Sending…' : status === 'success' ? 'Signed up' : 'Sign up' }}
+        {{ status === 'sending' ? 'Sending…' : status === 'success' ? sentLabel : buttonLabel }}
       </button>
     </div>
 
     <!-- Honeypot: visible to bots, hidden from humans -->
     <div class="sr-only" aria-hidden="true">
-      <label for="list-website">Website</label>
-      <input id="list-website" v-model="botField" type="text" tabindex="-1" autocomplete="off" />
+      <label :for="`${idPrefix}-website`">Website</label>
+      <input :id="`${idPrefix}-website`" v-model="botField" type="text" tabindex="-1" autocomplete="off" />
     </div>
 
     <p v-if="status === 'success'" class="mt-2 text-sm text-emerald-600" role="status">
-      Thanks. You’re on the list.
+      {{ successText }}
     </p>
     <p v-if="status === 'error'" class="mt-2 text-sm text-red-600" role="alert">
       {{ errorMessage }}

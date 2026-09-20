@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DebtDescentAppCta from '../../components/DebtDescentAppCta.astro';
+import DebtDescentTools from '../../components/DebtDescentTools.astro';
+import EmailCapture from '../../components/EmailCapture.vue';
+
+// The coach-code request posts to the contact endpoint tagged "Coach code",
+// the same stopgap as the calculator list signup. Sean sends each App Store
+// offer code by hand; no code is ever printed on this page.
+const codeEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? '/contact.php';
+
+const title = 'Debt Descent for coaches and counselors';
+const description =
+  'A debt payoff planner your clients can use without handing over a bank login. Free to use, one-time Pro, free Pro codes for counselors.';
+
+// Rendered as the visible FAQ and serialized into FAQPage JSON-LD below.
+// Facts checked against the app on 2026-09-20: payment groups, JSON export
+// and the progress card are free; the what-if slider is Pro; no coach login.
+const faqs = [
+  {
+    q: 'Do my clients need an account?',
+    a: 'No. There’s nothing to sign up for, and nothing is collected. If a client is signed in to iCloud, the app syncs between their own devices; if not, it works fully on the one device.',
+  },
+  {
+    q: 'Can I see a client’s plan?',
+    a: 'Not through the app. A client can export the whole plan as JSON, share the progress card, or send screenshots. There’s no coach dashboard and no shared workspace.',
+  },
+  {
+    q: 'Does it recommend a debt management plan, or sell one?',
+    a: 'No. It tracks whichever plan the client is on, a DMP included, and stays out of the choice. The DMP calculator on this site compares a quoted plan with paying on your own, fees counted.',
+  },
+  {
+    q: 'Does it work on Android or the web?',
+    a: 'No. It’s iPhone, iPad, and Mac only. The free calculators on this site run in any browser, so a client on Android can still use those.',
+  },
+  {
+    q: 'What does it cost my client?',
+    a: 'Nothing to use. Pro is $14.99, paid once, with no subscription, and if you work with clients you can ask me for a free code on this page.',
+  },
+  {
+    q: 'Are you connected to a counseling agency?',
+    a: 'Only as a client. I’m on Consolidated Credit’s debt management plan myself, and I built Debt Descent to track it. No agency pays me, and none had a hand in the app.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<Layout title={title} description={description} appleAppId="6785269702">
+  <div class="mx-auto max-w-3xl">
+    <p class="text-sm font-medium">
+      <a href="/debt-descent" class="no-underline text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>
+      <span class="text-slate-400"> / For coaches and counselors</span>
+    </p>
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Debt Descent for coaches and counselors</h1>
+    <p class="mt-2 text-xl font-medium text-slate-700">A payoff planner you can hand a client without asking for a bank login.</p>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      If you’re an Accredited Financial Counselor, a counselor at an NFCC member agency, a Ramsey
+      coach, or you coach people on money on your own, you’ve probably built the spreadsheet:
+      balances, rates, minimums, a payoff order, a date. Debt Descent is that spreadsheet as a
+      native app for iPhone, iPad, and Mac, kept up by the client between sessions. This page is
+      what I’d want to know before recommending it to someone.
+    </p>
+
+    <section class="mt-14 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Why hand it to a client</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The client enters each debt’s real balance, APR, and minimum, and the app shows Snowball
+        and Avalanche side by side: the debt-free date on each, and the interest each one costs.
+        The payoff order is on the screen, so the conversation about which method to pick happens
+        with the client’s own numbers instead of an example.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The Plan tab draws the descent to zero, and the extra payment is a field the client can
+        change to watch the date move. Pro adds a what-if slider that redraws the plan as it’s
+        dragged, which is the quickest way I know to answer “what if you found $50 more a month.”
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        There’s no account and no bank linking. The App Store privacy label is “Data Not
+        Collected,” and I run no servers of my own, so recommending it never means asking a client
+        to hand over credentials, and nothing a client enters reaches me.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        It’s one app for iPhone, iPad, and Mac, and a client’s data syncs between their devices
+        through their own iCloud.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">It tracks a debt management plan exactly</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Payment groups live on the Payments tab. The client enters the one monthly draft, the plan
+        fee, and the debts it covers, and the app splits the payment across them to the cent,
+        following the servicer’s own schedule when every member has a fixed payment. The Upcoming
+        card captions what goes out and what reaches the creditors, as in “$837.00 leaves your
+        bank ($32.00 plan fee),” so the app matches the bank statement while the fee stays out of
+        the payoff math. Payment groups are free.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        The debts a plan leaves out keep their own place. A mortgage or a car payment goes in
+        Income &amp; bills, so the Left over card shows what the month has after debts and bills. A
+        student loan in deferment carries the switch “In deferment — nothing due yet” and a date,
+        and it rejoins the plan on that date by itself. A card on a 0% promo takes the date the
+        promo ends and the APR it reverts to, and the plan changes rates on schedule.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        If a client is weighing a plan, the free <a href="/debt-descent/dmp-calculator" class="font-medium text-accent-600 transition-colors hover:text-accent-700">DMP calculator</a> runs the plan they’ve been quoted against paying on their own, and counts the fees.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">What you can see</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Whatever the client chooses to show you. The ••• menu has <strong>Export to JSON…</strong>,
+        which writes the whole plan, every debt, payment, and setting, to a file the client can send
+        you. The Progress tab has <strong>Share your progress</strong>, a card with the debt-free
+        date, what’s left, and how far along they are, and screenshots work as they always have.
+        There’s no coach login and no shared workspace. The app is built so that nobody but the
+        client can see the data, and that includes me.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Free Pro for counselors</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Debt Descent is free to use, and Pro is a one-time $14.99 purchase with no subscription,
+        Family Sharing enabled. Pro adds five more payoff methods, one of them a custom order, the
+        what-if slider and per-debt payoff tests, planned windfalls, refinance and consolidation
+        modeling, amortization schedules, PDF and calendar export, and due-date reminders.
+      </p>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        If you work with clients, I’ll give you Pro free. Ask for a code:
+      </p>
+      <EmailCapture
+        endpoint={codeEndpoint}
+        source="/debt-descent/for-coaches/"
+        event="debt-descent-coach-code"
+        tag="Coach code"
+        message="Please send me a Debt Descent Pro code for counselors. Asked on /debt-descent/for-coaches/."
+        idPrefix="coach"
+        buttonLabel="Ask for a code"
+        sentLabel="Sent"
+        successText="Thanks. I’ll send a code to that address."
+        client:load
+      />
+      <p class="mt-3 text-sm leading-relaxed text-slate-500">
+        I send each one by hand as an App Store offer code, which redeems in the app’s Settings.
+      </p>
+    </section>
+
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Questions coaches ask</h2>
+      <dl class="mt-6 space-y-8">
+        {faqs.map(({ q, a }) => (
+          <div>
+            <dt class="font-semibold text-slate-900">{q}</dt>
+            <dd class="mt-2 leading-relaxed text-slate-600">{a}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="mt-8 text-sm leading-relaxed text-slate-500">
+        Disclosure: I’m a current client of Consolidated Credit’s debt management plan, and I built
+        Debt Descent to track it. Nobody pays me to recommend a DMP, and this page doesn’t sell one.
+      </p>
+    </section>
+
+    <DebtDescentAppCta heading="Send a client to the App Store" event="debt-descent-coaches-app-store">
+      Debt Descent is free on iPhone, iPad, and Mac. The <a href="/debt-descent" class="font-medium text-accent-600 transition-colors hover:text-accent-700">app page</a> answers
+      the questions people ask before they download, the <a href="/debt-descent/support" class="font-medium text-accent-600 transition-colors hover:text-accent-700">support page</a> covers
+      the ones that come up after, and the <a href="/debt-descent/dmp-calculator" class="font-medium text-accent-600 transition-colors hover:text-accent-700">DMP calculator</a> is
+      there for clients weighing a plan.
+    </DebtDescentAppCta>
+
+    <DebtDescentTools current="/debt-descent/for-coaches" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </div>
+</Layout>

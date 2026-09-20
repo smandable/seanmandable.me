@@ -189,7 +189,8 @@ const monthsText = (months: number | null) =>
 // ————— Debt Descent export —————
 
 // The enrolled debts at the plan's reduced APR (what they're charged once
-// enrolled), under one payment group that draws the plan's monthly payment.
+// enrolled), under one payment group. totalPayment is what reaches the
+// creditors; the app adds monthlyFee itself to show the draft.
 const exportPayload = computed<ExportPayload>(() => {
   const r = result.value;
   return {
@@ -204,7 +205,7 @@ const exportPayload = computed<ExportPayload>(() => {
       ? [
           {
             name: 'Debt management plan',
-            totalPayment: r.draft,
+            totalPayment: r.creditorPayment,
             monthlyFee: cents(Math.max(0, monthlyFeeValue.value)),
             members: debts.value.map((d) => d.name),
           },

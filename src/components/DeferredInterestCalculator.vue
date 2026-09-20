@@ -170,9 +170,12 @@ function chartMonthLabel(m: number): string {
 // ————— Debt Descent export —————
 
 // One card carrying the promo: what's still owed, at the card's standard APR
-// as the revert rate, with the purchase as a deferred-interest promo.
+// as the revert rate, with the purchase as a deferred-interest promo. The
+// deferred interest is the page's estimate of the lump; the app lets the
+// visitor correct it from the statement.
 const exportPayload = computed<ExportPayload>(() => {
   const owed = cents(Math.max(0, remainingAmount.value) || 0);
+  const accrued = result.value ? cents(result.value.accruedSoFar) : 0;
   return {
     debts: [
       {
@@ -186,7 +189,7 @@ const exportPayload = computed<ExportPayload>(() => {
             label: 'Deferred-interest purchase',
             amount: owed,
             expiresOn: endDate.value,
-            deferredInterest: 0,
+            deferredInterest: accrued,
           },
         ],
       },

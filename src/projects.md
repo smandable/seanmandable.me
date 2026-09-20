@@ -50,7 +50,7 @@ Statement import runs on device: PDFKit pulls the text from a PDF, VisionKit's d
 
 ### Privacy
 
-It has no accounts or analytics, and no servers of my own. Your data lives on your device and, if you're signed into iCloud, syncs through your own private iCloud, where I can't see it. Statements (PDFs, photos, camera scans) are read on device and never uploaded. The app talks only to Apple: iCloud for your own sync, and the App Store to confirm the one-time Pro purchase. (Full [privacy policy](/debt-descent/privacy) and [support](/debt-descent/support).)
+It has no accounts or analytics, and no servers of my own. Your data lives on your device and, if you're signed into iCloud, syncs through your own private iCloud, where I can't see it. Statements (PDFs, photos, camera scans) are read on device and never uploaded. The app talks only to Apple: iCloud for your own sync, and the App Store to confirm the one-time Pro purchase. (Full [privacy policy](/debt-descent/privacy/) and [support](/debt-descent/support/).)
 
 ### Status
 
@@ -60,7 +60,7 @@ On the App Store (currently v1.17). Free to use: add debts, run Snowball and Ava
 <a href="https://apps.apple.com/us/app/debt-descent-payoff-planner/id6785269702" target="_blank" rel="noopener noreferrer" style="display:inline-block;"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" width="132" height="44" style="height:44px;width:auto;margin:0;" loading="lazy" /><span class="sr-only"> (opens in new tab)</span></a>
 </p>
 
-Free calculators that run in your browser, nothing saved or sent: [Snowball & Avalanche](/debt-descent/calculator), [deferred interest](/debt-descent/deferred-interest-calculator), [balance transfer](/debt-descent/balance-transfer-calculator), and [debt management plan](/debt-descent/dmp-calculator). There are also write-ups on how it compares with [Undebt.it](/debt-descent/vs-undebt-it) and [Debt Payoff Planner](/debt-descent/vs-debt-payoff-planner).
+Free calculators that run in your browser, nothing saved or sent: [Snowball & Avalanche](/debt-descent/calculator/), [deferred interest](/debt-descent/deferred-interest-calculator/), [balance transfer](/debt-descent/balance-transfer-calculator/), and [debt management plan](/debt-descent/dmp-calculator/). There are also write-ups on how it compares with [Undebt.it](/debt-descent/vs-undebt-it/) and [Debt Payoff Planner](/debt-descent/vs-debt-payoff-planner/).
 
 ---
 

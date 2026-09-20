@@ -38,7 +38,7 @@ type Props = {
 const { post, prev, next } = Astro.props;
 const { Content } = await render(post);
 const isChapter = post.data.kind === 'memoir-chapter';
-const seriesHref = post.data.series ? `/writing/${post.data.series}` : '/writing';
+const seriesHref = post.data.series ? `/writing/${post.data.series}/` : '/writing/';
 ---
 
 <Layout title={post.data.title} description={post.data.description}>

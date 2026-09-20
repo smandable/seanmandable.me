@@ -5,12 +5,12 @@ description: Help and answers for Debt Descent, the private debt-payoff planner 
 
 Need a hand? Email **[support@seanmandable.me](mailto:support@seanmandable.me)** and I'll get back to you.
 
-[Debt Descent](/debt-descent) is a native debt-payoff planner for iPhone, iPad, and Mac. Add your debts, compare the Snowball and Avalanche methods, and see exactly when you'll be debt-free. There's no account or sign-up, and nothing is ever sent to me.
+[Debt Descent](/debt-descent/) is a native debt-payoff planner for iPhone, iPad, and Mac. Add your debts, compare the Snowball and Avalanche methods, and see exactly when you'll be debt-free. There's no account or sign-up, and nothing is ever sent to me.
 
 ### Frequently asked questions
 
 **Is my financial data private?**
-Yes. Your data lives on your device and in your own private iCloud, where I can't see it. There are no accounts, analytics, or servers of my own. See the [Privacy Policy](/debt-descent/privacy).
+Yes. Your data lives on your device and in your own private iCloud, where I can't see it. There are no accounts, analytics, or servers of my own. See the [Privacy Policy](/debt-descent/privacy/).
 
 **Does my data sync between my iPhone, iPad, and Mac?**
 Yes, automatically, and it's free for everyone. Just be signed in to iCloud with the same Apple Account on each device; there's nothing to set up in the app. If you're not signed in, Debt Descent works fully on-device, and syncing picks up when you sign in.

@@ -12,22 +12,22 @@ export const appStoreUrl =
  */
 export const tools: { href: string; title: string; blurb: string }[] = [
   {
-    href: '/debt-descent/calculator',
+    href: '/debt-descent/calculator/',
     title: 'Debt Snowball & Avalanche Calculator',
     blurb: 'your debt-free date and total interest, both methods side by side',
   },
   {
-    href: '/debt-descent/deferred-interest-calculator',
+    href: '/debt-descent/deferred-interest-calculator/',
     title: 'Deferred Interest Calculator',
     blurb: 'what a “no interest if paid in full” promo bills if you miss the deadline',
   },
   {
-    href: '/debt-descent/balance-transfer-calculator',
+    href: '/debt-descent/balance-transfer-calculator/',
     title: 'Balance Transfer Calculator',
     blurb: 'whether the transfer fee beats the interest you’d pay by staying put',
   },
   {
-    href: '/debt-descent/dmp-calculator',
+    href: '/debt-descent/dmp-calculator/',
     title: 'Debt Management Plan Calculator',
     blurb: 'a DMP’s reduced rate and fees against paying on your own',
   },
@@ -35,6 +35,6 @@ export const tools: { href: string; title: string; blurb: string }[] = [
 
 /** Comparison write-ups under /debt-descent, listed on the landing page and the tool pages. */
 export const comparisons: { href: string; title: string }[] = [
-  { href: '/debt-descent/vs-undebt-it', title: 'Debt Descent vs Undebt.it' },
-  { href: '/debt-descent/vs-debt-payoff-planner', title: 'Debt Descent vs Debt Payoff Planner' },
+  { href: '/debt-descent/vs-undebt-it/', title: 'Debt Descent vs Undebt.it' },
+  { href: '/debt-descent/vs-debt-payoff-planner/', title: 'Debt Descent vs Debt Payoff Planner' },
 ];

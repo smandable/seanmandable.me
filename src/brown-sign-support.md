@@ -10,7 +10,7 @@ Brown Sign tells you what those brown highway signs point to. Photograph the sig
 ### Frequently asked questions
 
 **Is my data private?**
-Yes. Photos are processed on your device and never uploaded. Only a small thumbnail is saved locally for your history. Searches go to Wikipedia, Wikidata, and the National Park Service with no personal identifiers attached, and location (if you grant it) is used only to rank nearby results. There are no accounts, analytics, or ads. See the [Privacy Policy](/brown-sign/privacy).
+Yes. Photos are processed on your device and never uploaded. Only a small thumbnail is saved locally for your history. Searches go to Wikipedia, Wikidata, and the National Park Service with no personal identifiers attached, and location (if you grant it) is used only to rank nearby results. There are no accounts, analytics, or ads. See the [Privacy Policy](/brown-sign/privacy/).
 
 **The scanner read the sign but found the wrong landmark, or nothing at all.**
 Sign lookups are a chain: on-device text recognition, then a search across Wikipedia, Wikidata, and NPS, ranked by name match and distance. A blurry capture at 65 mph, a sign with an unusual name, or a landmark with no Wikipedia article can all break a link in it. When the match is shaky, the app says so. Try typing the landmark's name instead, or import a clearer photo someone snapped from the passenger seat.

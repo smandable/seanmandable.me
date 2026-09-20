@@ -10,7 +10,7 @@ ReKey is a local password health auditor for macOS. Export a CSV from each brows
 ### Frequently asked questions
 
 **Is my data private?**
-Yes. Imported passwords are held in memory only and are never written to disk, logged, or sent anywhere. The only network calls ReKey makes are the Have I Been Pwned breach check (which sends just the first five characters of a SHA-1 hash, the standard k-anonymity model) and an on-demand lookup of the change-password page for the one site you're fixing. See the [Privacy Policy](/rekey/privacy).
+Yes. Imported passwords are held in memory only and are never written to disk, logged, or sent anywhere. The only network calls ReKey makes are the Have I Been Pwned breach check (which sends just the first five characters of a SHA-1 hash, the standard k-anonymity model) and an on-demand lookup of the change-password page for the one site you're fixing. See the [Privacy Policy](/rekey/privacy/).
 
 **What's the difference between the App Store version and the GitHub build?**
 The App Store version is the auditor, with the fix queue behind a one-time purchase that unlocks fixing and the destructive cleanup tooling left out, since a sandboxed app can't write to other apps' data. The GitHub build is the whole app, fix queue included, plus the separate `rekey-cleanup` command-line tool, as a signed, notarized `.dmg` from [GitHub Releases](https://github.com/smandable/ReKey/releases/latest). Both are universal binaries for macOS 15 or later.

@@ -5,6 +5,8 @@ import { compareDmp, type DmpResult } from '../lib/dmp';
 import { minPaymentTooLow, type DebtInput } from '../lib/debt-payoff';
 import { SERIES_COLORS, type ChartSeries } from '../lib/chart';
 import { monthDate, monthShort, parseNumber, pct, plural, usd } from '../lib/calc-format';
+import DebtDescentExport from './DebtDescentExport.vue';
+import { cents, guessKind, type DebtDescentExport as ExportPayload, type PdfSection, type PdfSpec } from '../lib/debt-descent-export';
 
 const inputClass =
   'w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600';
@@ -183,6 +185,95 @@ function chartMonthLabel(m: number): string {
 
 const monthsText = (months: number | null) =>
   months === null ? 'never clears' : `${plural(months, 'month')} · ${monthFromNow(months)}`;
+
+// ————— Debt Descent export —————
+
+// The enrolled debts at the plan's reduced APR (what they're charged once
+// enrolled), under one payment group that draws the plan's monthly payment.
+const exportPayload = computed<ExportPayload>(() => {
+  const r = result.value;
+  return {
+    debts: debts.value.map((d) => ({
+      name: d.name,
+      kind: guessKind(d.name) ?? 'creditCard',
+      balance: cents(d.balance),
+      apr: r ? Math.max(0, planAprValue.value) : d.apr,
+      minPayment: cents(d.minPayment),
+    })),
+    groups: r
+      ? [
+          {
+            name: 'Debt management plan',
+            totalPayment: r.draft,
+            monthlyFee: cents(Math.max(0, monthlyFeeValue.value)),
+            members: debts.value.map((d) => d.name),
+          },
+        ]
+      : undefined,
+  };
+});
+
+const exportPdf = computed<PdfSpec>(() => {
+  const r = result.value;
+  const sections: PdfSection[] = [
+    {
+      heading: 'Your debts',
+      columns: ['Debt', 'Balance', 'APR', 'Minimum / mo'],
+      rows: debts.value.map((d) => [d.name, usd(d.balance), pct(d.apr), usd(d.minPayment)]),
+    },
+    {
+      heading: 'The plan you’ve been offered',
+      rows: [
+        ['Reduced APR', pct(planAprValue.value)],
+        ['Monthly plan fee', usd(monthlyFeeValue.value)],
+        ['One-time setup fee', usd(setupFeeValue.value)],
+        planMode.value === 'term'
+          ? ['Quoted as a term', plural(Math.floor(termValue.value), 'month')]
+          : ['Quoted as a monthly payment, fee included', usd(planPaymentValue.value)],
+      ],
+    },
+  ];
+  const notes: string[] = [];
+  if (r && verdict.value) {
+    const paths = [r.dmp, r.diy, ...(r.minimumsOnly ? [r.minimumsOnly] : [])];
+    const outlays = [r.draft, r.diyOutlay, ...(r.minimumsOnly ? [r.totalMinimums] : [])];
+    const money = (n: number | null) => (n === null ? 'never clears' : usd(n));
+    sections.push(
+      {
+        heading: 'Side by side',
+        columns: ['', 'Plan', r.diyAtMinimums ? 'Own, at minimums' : 'On your own', ...(r.minimumsOnly ? ['Minimums only'] : [])],
+        rows: [
+          ['Each month', ...outlays.map((n) => usd(n))],
+          ['Interest rate', pct(planAprValue.value), ...paths.slice(1).map(() => 'current rates')],
+          ['Paid off in', ...paths.map((p) => monthsText(p.months))],
+          ['Interest', ...paths.map((p) => usd(p.interest) + (p.months === null ? ' and counting' : ''))],
+          ['Fees', ...paths.map((p) => usd(p.fees))],
+          ['Total paid', ...paths.map((p) => money(p.totalPaid))],
+        ],
+      },
+      {
+        heading: 'On the plan',
+        rows: [
+          ['Leaves your bank each month', `${usd(r.draft)} (${usd(r.creditorPayment)} to creditors, ${usd(monthlyFeeValue.value)} fee)`],
+          ['Plan pays off', r.dmp.months === null ? 'never at this payment' : `${monthFromNow(r.dmp.months)} · ${plural(r.dmp.months, 'month')}`],
+          ['Plan fees over its life', usd(r.dmp.fees)],
+        ],
+      },
+    );
+    notes.push(`${verdict.value.title} ${verdict.value.body}`);
+    notes.push(
+      `Total paid is the ${usd(r.totalBalance)} you owe plus interest and fees. On your own, the payment runs as an Avalanche (highest rate first) and stays constant as debts clear; real card minimums shrink as balances fall, so paying only minimums takes longer than the table shows.`,
+    );
+  }
+  return {
+    title: 'Debt management plan vs paying on your own',
+    subtitle: r ? `${usd(r.totalBalance)} across ${plural(debts.value.length, 'enrolled debt')}` : undefined,
+    sections,
+    notes,
+    sourceUrl: 'seanmandable.me/debt-descent/dmp-calculator/',
+    filename: 'debt-management-plan.pdf',
+  };
+});
 </script>
 
 <template>
@@ -430,6 +521,13 @@ const monthsText = (months: number | null) =>
         x-label="Months from today"
         :month-label="chartMonthLabel"
         aria-label="Line chart of the remaining balance by month on the plan and on your own"
+      />
+
+      <DebtDescentExport
+        :payload="exportPayload"
+        :pdf="exportPdf"
+        describes="the enrolled debts at the plan’s rate, grouped under the plan’s monthly payment"
+        event="debt-descent-dmp-export"
       />
     </div>
   </section>

@@ -8,6 +8,9 @@ import {
   type Method,
   type PlanResult,
 } from '../lib/debt-payoff';
+import DebtDescentExport from './DebtDescentExport.vue';
+import { cents, guessKind, type DebtDescentExport as ExportPayload, type PdfSection, type PdfSpec } from '../lib/debt-descent-export';
+import { pct } from '../lib/calc-format';
 
 interface DebtRow {
   id: number;
@@ -227,6 +230,75 @@ const hover = computed(() => {
     ySnowball: c.y(balances.snowball),
     yAvalanche: c.y(balances.avalanche),
     leftPct: Math.min(Math.max((c.x(m) / CHART.w) * 100, 14), 86),
+  };
+});
+
+// ————— Debt Descent export —————
+
+const exportPayload = computed<ExportPayload>(() => ({
+  extraMonthly: cents(extraPerMonth.value),
+  debts: debts.value.map((d) => ({
+    name: d.name,
+    kind: guessKind(d.name),
+    balance: cents(d.balance),
+    apr: d.apr,
+    minPayment: cents(d.minPayment),
+  })),
+}));
+
+const exportPdf = computed<PdfSpec>(() => {
+  const c = comparison.value;
+  const p = primary.value;
+  const label = SERIES[method.value].label;
+  const when = (m: number | null) =>
+    m === null ? 'never at this payment' : `${monthShort.format(monthDate(m))} · ${plural(m, 'month')}`;
+  const sections: PdfSection[] = [
+    {
+      heading: 'Your debts',
+      columns: ['Debt', 'Balance', 'APR', 'Minimum / mo'],
+      rows: debts.value.map((d) => [d.name, usd(d.balance), pct(d.apr), usd(d.minPayment)]),
+    },
+  ];
+  const notes: string[] = [];
+  if (c && p) {
+    sections.push(
+      {
+        heading: `Your ${label} plan`,
+        rows: [
+          ['Extra per month', usd(extraPerMonth.value)],
+          ['Monthly budget (every minimum plus your extra)', usd(p.monthlyBudget)],
+          ['Debt-free', when(p.months)],
+          ['Total interest', usd(p.totalInterest)],
+        ],
+      },
+      {
+        heading: 'Payoff order',
+        rows: p.payoffOrder.map((d, i) => [
+          `${i + 1}. ${d.name}`,
+          d.paidOffMonth === null ? 'never clears at this payment' : `${monthShort.format(monthDate(d.paidOffMonth))} · month ${d.paidOffMonth}`,
+        ]),
+      },
+      {
+        heading: 'Snowball vs Avalanche on your numbers',
+        columns: ['', 'Snowball', 'Avalanche'],
+        rows: [
+          ['Debt-free', when(c.snowball.months), when(c.avalanche.months)],
+          ['Total interest', usd(c.snowball.totalInterest), usd(c.avalanche.totalInterest)],
+        ],
+      },
+    );
+    if (savings.value) notes.push(savings.value);
+  }
+  notes.push(
+    'Every minimum is paid each month and the rest of the budget goes to one target debt. When a debt is paid off, its minimum rolls onto the next one, so the monthly budget stays the same until the last debt is gone.',
+  );
+  return {
+    title: 'Debt payoff plan',
+    subtitle: `${label} method · ${plural(debts.value.length, 'debt')}`,
+    sections,
+    notes,
+    sourceUrl: 'seanmandable.me/debt-descent/calculator/',
+    filename: 'debt-payoff-plan.pdf',
   };
 });
 
@@ -539,6 +611,13 @@ const tableRows = computed(() => {
           </div>
         </details>
       </div>
+
+      <DebtDescentExport
+        :payload="exportPayload"
+        :pdf="exportPdf"
+        describes="the debts above and your extra per month"
+        event="debt-descent-calculator-export"
+      />
     </div>
 
     <p v-else class="mt-10 rounded-lg border border-dashed border-slate-300 p-6 text-center text-sm text-slate-500">

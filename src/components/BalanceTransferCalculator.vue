@@ -3,7 +3,9 @@ import { computed, ref } from 'vue';
 import BalanceChart from './BalanceChart.vue';
 import { compareTransfer, type TransferResult } from '../lib/balance-transfer';
 import { SERIES_COLORS, type ChartSeries } from '../lib/chart';
-import { ceilCents, monthDate, monthShort, parseNumber, pct, plural, roundCents, usd } from '../lib/calc-format';
+import { addMonths, ceilCents, monthDate, monthShort, parseNumber, pct, plural, roundCents, toDateInput, usd } from '../lib/calc-format';
+import DebtDescentExport from './DebtDescentExport.vue';
+import { cents, type DebtDescentExport as ExportPayload, type PdfSection, type PdfSpec } from '../lib/debt-descent-export';
 
 const inputClass =
   'w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600';
@@ -167,6 +169,83 @@ const chartMarkers = computed(() => {
 function chartMonthLabel(m: number): string {
   return m === 0 ? 'Today' : `Month ${m} · ${monthFromNow(m)}`;
 }
+
+// ————— Debt Descent export —————
+
+// The moved balance as one card: the fee financed into the balance, 0% until
+// the promo ends (counted from today), then the go-to rate.
+const exportPayload = computed<ExportPayload>(() => {
+  const r = result.value;
+  return {
+    debts: [
+      {
+        name: 'Balance transfer card',
+        kind: 'creditCard',
+        balance: r ? r.transferred : cents(Math.max(0, balanceValue.value) || 0),
+        apr: 0,
+        minPayment: cents(paymentValue.value),
+        promoExpires: toDateInput(addMonths(new Date(), Math.max(1, Math.floor(promoValue.value) || 1))),
+        revertApr: Math.max(0, afterAprValue.value) || 0,
+      },
+    ],
+  };
+});
+
+const exportPdf = computed<PdfSpec>(() => {
+  const r = result.value;
+  const promo = Math.floor(promoValue.value);
+  const sections: PdfSection[] = [
+    {
+      heading: 'The offer',
+      rows: [
+        ['Balance to transfer', usd(balanceValue.value)],
+        ['APR you pay now', pct(aprValue.value)],
+        ['Transfer fee', pct(feeValue.value)],
+        ['0% period', plural(promo, 'month')],
+        ['APR after the promo', pct(afterAprValue.value)],
+        ['Your monthly payment (applied to both paths)', usd(paymentValue.value)],
+      ],
+    },
+  ];
+  const notes: string[] = [];
+  if (r && verdict.value) {
+    const paidOff = (m: number | null) => (m === null ? 'never at this payment' : `${monthFromNow(m)} · ${plural(m, 'month')}`);
+    sections.push(
+      {
+        heading: 'The two paths on your numbers',
+        columns: ['', `Stay put at ${pct(aprValue.value)}`, `Transfer, then ${pct(afterAprValue.value)}`],
+        rows: [
+          ['Starting balance', usd(balanceValue.value), usd(r.transferred)],
+          ['Fee', '$0.00', usd(r.fee)],
+          ['Interest', usd(r.stay.interest) + (r.stay.months === null ? ' and counting' : ''), usd(r.transfer.interest) + (r.transfer.months === null ? ' and counting' : '')],
+          ['Paid off', paidOff(r.stay.months), paidOff(r.transfer.months)],
+          ['Total paid', r.stay.totalPaid === null ? 'never clears' : usd(r.stay.totalPaid), r.transfer.totalPaid === null ? 'never clears' : usd(r.transfer.totalPaid)],
+        ],
+      },
+      {
+        heading: 'Key numbers',
+        rows: [
+          ['Transfer fee', `${usd(r.fee)} (${pct(feeValue.value)} of ${usd(balanceValue.value)}, added to the new balance)`],
+          ['Break-even', r.breakEvenMonth === null ? 'never: the interest avoided never tops the fee' : `Month ${r.breakEvenMonth} (${monthFromNow(r.breakEvenMonth)})`],
+          ['To clear it inside the promo', `${usd(r.requiredMonthly)} a month for ${plural(promo, 'month')}`],
+        ],
+      },
+    );
+    notes.push(`${verdict.value.title} ${verdict.value.body}`);
+    if (!r.clearsInPromo) {
+      notes.push(`This payment doesn’t clear it inside the promo. When the 0% period ends, ${usd(r.leftAtPromoEnd)} is left and starts accruing at ${pct(afterAprValue.value)}.`);
+    }
+    notes.push(`Total paid is the balance plus the fee plus the interest. Both paths get ${usd(paymentValue.value)} a month until the balance is gone.`);
+  }
+  return {
+    title: 'Balance transfer: transfer or stay put',
+    subtitle: `${usd(balanceValue.value)} at ${pct(aprValue.value)} · 0% for ${plural(promo, 'month')} with a ${pct(feeValue.value)} fee`,
+    sections,
+    notes,
+    sourceUrl: 'seanmandable.me/debt-descent/balance-transfer-calculator/',
+    filename: 'balance-transfer.pdf',
+  };
+});
 </script>
 
 <template>
@@ -323,6 +402,13 @@ function chartMonthLabel(m: number): string {
         x-label="Months from today"
         :month-label="chartMonthLabel"
         aria-label="Line chart of the remaining balance by month for staying put and for transferring"
+      />
+
+      <DebtDescentExport
+        :payload="exportPayload"
+        :pdf="exportPdf"
+        describes="the transferred balance as one card: fee included, 0% until the promo ends, then the go-to rate"
+        event="debt-descent-balance-transfer-export"
       />
     </div>
   </section>

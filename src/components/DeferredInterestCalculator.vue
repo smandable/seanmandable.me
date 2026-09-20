@@ -16,6 +16,8 @@ import {
   usd,
   wholeMonthsBetween,
 } from '../lib/calc-format';
+import DebtDescentExport from './DebtDescentExport.vue';
+import { cents, type DebtDescentExport as ExportPayload, type PdfSection, type PdfSpec } from '../lib/debt-descent-export';
 
 // Rendered client-only (the defaults hang off today's date), so `today` is
 // the visitor's clock, never the build's.
@@ -164,6 +166,109 @@ function chartMonthLabel(m: number): string {
   if (!r.expired && m === r.deadlineX) return `Deadline · ${when}`;
   return `Month ${m} · ${when}`;
 }
+
+// ————— Debt Descent export —————
+
+// One card carrying the promo: what's still owed, at the card's standard APR
+// as the revert rate, with the purchase as a deferred-interest promo.
+const exportPayload = computed<ExportPayload>(() => {
+  const owed = cents(Math.max(0, remainingAmount.value) || 0);
+  return {
+    debts: [
+      {
+        name: 'Store card',
+        kind: 'creditCard',
+        balance: owed,
+        apr: Math.max(0, aprValue.value) || 0,
+        minPayment: cents(paymentValue.value),
+        promos: [
+          {
+            label: 'Deferred-interest purchase',
+            amount: owed,
+            expiresOn: endDate.value,
+            deferredInterest: 0,
+          },
+        ],
+      },
+    ],
+  };
+});
+
+const exportPdf = computed<PdfSpec>(() => {
+  const r = result.value;
+  const sections: PdfSection[] = [
+    {
+      heading: 'Your promo',
+      rows: [
+        ['Purchase amount', usd(purchaseAmount.value)],
+        ['Still owed on it today', usd(remainingAmount.value)],
+        ['Card’s standard purchase APR', pct(aprValue.value)],
+        ['Purchase date', purchaseDateValue.value ? dateLong.format(purchaseDateValue.value) : purchaseDate.value],
+        ['Promo ends', deadlineText.value || endDate.value],
+        ['What you’ll pay toward it each month', usd(paymentValue.value)],
+      ],
+    },
+  ];
+  const notes: string[] = [];
+  if (r && r.expired) {
+    notes.push(
+      `This promo ended on ${deadlineText.value}. If the balance wasn’t cleared by then, the card has already billed its deferred interest: on these numbers, about ${usd(r.accruedSoFar)}. Check the statement for the exact figure. What’s left now accrues at ${pct(aprValue.value)} like any other balance.`,
+    );
+  } else if (r) {
+    const done = r.clearsInTime || r.monthsAfterDeadline !== null;
+    const paidOffAtPayment = r.clearsInTime
+      ? monthFromNow(r.clearedInMonths!)
+      : r.monthsAfterDeadline !== null
+        ? monthFromNow(Math.max(1, r.monthsLeft) + r.monthsAfterDeadline)
+        : 'never at this payment';
+    sections.push(
+      {
+        heading: 'What it takes to owe $0 interest',
+        rows: [
+          ['Months left', r.monthsLeft === 0 ? 'Under 1' : String(r.monthsLeft)],
+          ['Pay this to owe $0 interest', `${usd(r.requiredMonthly)} ${r.monthsLeft === 0 ? 'now, in one payment' : `a month, for ${plural(r.monthsLeft, 'month')}`}`],
+          ['Interest deferred so far', `${usd(r.accruedSoFar)}, billed at once if you miss`],
+        ],
+      },
+      {
+        heading: 'Clearing it in time vs your payment',
+        columns: ['', 'Pay it off in time', `At ${usd(paymentValue.value)} a month`],
+        rows: [
+          ['Monthly payment', usd(r.requiredMonthly), usd(paymentValue.value)],
+          ['Owed at the deadline', '$0.00', usd(r.balanceAtDeadline)],
+          ['Billed at the deadline', '$0.00', usd(r.lump)],
+          ['Interest after the deadline', '$0.00', done ? usd(r.interestAfterDeadline) : 'never clears'],
+          ['Total interest', '$0.00', done ? usd(r.totalInterest) : 'never clears'],
+          ['Total cost of the purchase', usd(purchaseAmount.value), done ? usd(r.totalCost) : 'never clears'],
+          ['Paid off', r.monthsLeft === 0 ? 'now' : monthFromNow(r.monthsLeft), paidOffAtPayment],
+        ],
+      },
+    );
+    if (r.clearsInTime) {
+      notes.push(
+        r.clearedInMonths === 0
+          ? 'You clear it in time. Nothing is owed on the promo, so there’s nothing for the card to bill.'
+          : `You clear it in time. The promo balance reaches $0 in ${plural(r.clearedInMonths!, 'month')} (${monthFromNow(r.clearedInMonths!)})${clearsEarlyBy.value > 0 ? `, ${plural(clearsEarlyBy.value, 'month')} before the deadline` : ', right at the deadline'}. The card forgives the ${usd(r.interestWaived)} of interest it accrued along the way. Total cost of the purchase: ${usd(r.totalCost)}, interest $0.00.`,
+      );
+    } else {
+      notes.push(
+        `You’d miss the deadline. On ${deadlineText.value} you’d still owe ${usd(r.balanceAtDeadline)}, and the card would bill ${usd(r.lump)} of deferred interest at once. From there, ${usd(r.balanceAtDeadline + r.lump)} keeps accruing at ${pct(aprValue.value)}.` +
+          (r.monthsAfterDeadline !== null
+            ? ` At this payment it’s paid off ${plural(r.monthsAfterDeadline, 'month')} after the deadline, with another ${usd(r.interestAfterDeadline)} of interest. Total interest: ${usd(r.totalInterest)}.`
+            : ' At this payment it never clears: the interest each month is at least what you pay.'),
+      );
+    }
+    notes.push('A close estimate. Issuers figure deferred interest on the average daily balance from the purchase date, and terms vary; your card agreement has the exact method.');
+  }
+  return {
+    title: 'Deferred interest promo',
+    subtitle: `${usd(purchaseAmount.value)} purchase · ${usd(remainingAmount.value)} still owed · promo ends ${deadlineText.value || endDate.value}`,
+    sections,
+    notes,
+    sourceUrl: 'seanmandable.me/debt-descent/deferred-interest-calculator/',
+    filename: 'deferred-interest-promo.pdf',
+  };
+});
 </script>
 
 <template>
@@ -359,6 +464,13 @@ function chartMonthLabel(m: number): string {
         :month-label="chartMonthLabel"
         aria-label="Line chart of the promo balance by month since the purchase, with the deadline marked"
         table-summary="Month-by-month balance (table)"
+      />
+
+      <DebtDescentExport
+        :payload="exportPayload"
+        :pdf="exportPdf"
+        describes="the card and what’s still owed on the promo, with its deadline"
+        event="debt-descent-deferred-interest-export"
       />
     </div>
   </section>

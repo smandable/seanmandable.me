@@ -51,8 +51,14 @@ Choose **Track only** in the debt's menu. The debt stays in your list with its b
 **I logged a payment, but the balance doesn't include the interest my card charged.**
 That's intentional. Debt Descent treats your balance as "what your statement says": logging a payment takes exactly what you paid off the tracked balance, and the app never adds its own interest estimate, because card interest depends on average daily balance, posting dates, and fees, so any figure the app invented would drift from your actual statement. When your next statement posts, update the balance (edit the debt, or import the statement) and that catches the interest charge. Your *plan* (the debt-free date, total interest, and method comparisons) does fully model interest at each debt's APR; only the live balance stays anchored to your statements, so you can always verify it against them.
 
+**What is the statement-day balance check?**
+It's a reminder a few days after each due day, when the new statement is in, so you enter the real balance and the plan runs on it. In Settings ▸ Notifications, turn on **Statement-day balance check** (it's off by default).
+
 **Why didn't I get a milestone card for a debt I paid off?**
 Milestone cards on the Plan tab mark your first payment, a quarter, half, and three quarters paid off, a debt paid off, and debt-free, and they only cover the last 45 days. A payoff from before you installed 1.16 won't get one. It's still in your Payments history, and the next milestone you reach gets its card. Each card has a **Share your progress** button, and you can dismiss it once you've seen it.
+
+**What are the two rings on the Progress tab?**
+"Where it's owed" shows where your balance sits: by kind (cards, loans, and so on) and by debt. Tap a slice, or hover over it on the Mac, to see which debt it is and its share.
 
 **Can I use Siri or Shortcuts?**
 Yes. Ask Siri "When am I debt-free in Debt Descent" or "How much interest am I saving in Debt Descent", or say "Log a payment to [debt name] in Debt Descent" to record one. The Shortcuts app has those actions plus "Set my [debt] balance" and "Add a debt", so you can chain them into your own shortcuts. On the Mac the same actions appear in Spotlight. Your debts are in Spotlight as well: type a card's name to see its balance, and select it to open the debt in the app.
@@ -60,11 +66,23 @@ Yes. Ask Siri "When am I debt-free in Debt Descent" or "How much interest am I s
 **Is there a widget?**
 Yes, for the home screen, the lock screen, and the Mac desktop. It shows your debt-free date, what's left, and how far along you are, and its **Log payment** button opens the app to record one. The widget reads a snapshot the app writes, so after you install 1.16, open Debt Descent once and the widget fills in. With no debts yet it says "Add a debt".
 
+**Can the widget count down in days instead of months?**
+Yes. Long-press the widget, choose Edit Widget, and set **Count in** to Days, and the number ticks down each morning.
+
 **Can I watch today's interest add up?**
 Yes. In Settings ▸ Plan, turn on **Interest today tile** (it's off by default). The Plan tab then shows how much interest has accrued so far today and how much it's costing per day.
 
+**What does the Plan summary card show?**
+It shows the next 30 days of interest across your debts, and what the whole plan costs. In Settings ▸ Plan, turn on **Plan summary card** (it's off until you do).
+
 **Is there a menu bar item on the Mac?**
 Yes. In Settings ▸ Plan, turn on **Show in the menu bar**. Your method's glyph and your debt-free month sit in the menu bar, and clicking them shows what's left with a **Log Payment** button.
+
+**How do I make the text bigger?**
+On iPhone and iPad, Debt Descent follows your system text size (Settings ▸ Accessibility ▸ Display & Text Size ▸ Larger Text), and every screen and sheet reflows with it, up to the largest accessibility sizes. On the Mac that setting doesn't reach apps like this one, so Debt Descent has its own **Text size** slider in Settings ▸ Appearance.
+
+**Does it work with VoiceOver?**
+Yes. Every field says what it's for, and each debt, payment and balance reads as one sentence, with its buttons as separate stops. If something reads wrong, please let me know which screen.
 
 **Why are amounts in £ or € instead of $?**
 Amounts follow your device's region, so the app shows £, €, CA$, and so on where that's the local currency. The app's text is in English either way.

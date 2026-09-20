@@ -89,6 +89,8 @@ const hasIncompleteRows = computed(() =>
   ),
 );
 
+const totalBalance = computed(() => debts.value.reduce((sum, d) => sum + d.balance, 0));
+
 const extraPerMonth = computed(() => {
   const n = parseNumber(extra.value);
   return n >= 0 ? n : 0;
@@ -118,6 +120,9 @@ const rowWarnings = computed(() =>
 
 const usdFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 const usd = (n: number) => usdFormat.format(n);
+// Whole dollars for the headline cards, the way the app shows them.
+const usdWholeFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+const usdWhole = (n: number) => usdWholeFormat.format(n);
 
 const monthShort = new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' });
 const monthLong = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
@@ -265,8 +270,9 @@ const exportPdf = computed<PdfSpec>(() => {
       {
         heading: `Your ${label} plan`,
         rows: [
+          ['You owe', usd(totalBalance.value)],
           ['Extra per month', usd(extraPerMonth.value)],
-          ['Monthly budget (every minimum plus your extra)', usd(p.monthlyBudget)],
+          ['Toward debt each month (every minimum plus your extra)', usd(p.monthlyBudget)],
           ['Debt-free', when(p.months)],
           ['Total interest', usd(p.totalInterest)],
         ],
@@ -458,18 +464,28 @@ const tableRows = computed(() => {
     <div v-if="primary && comparison" class="mt-10">
       <h2 class="text-xl font-bold tracking-tight">Your {{ SERIES[method].label }} plan</h2>
 
-      <div v-if="primary.months !== null" class="mt-4 grid gap-3 sm:grid-cols-2">
-        <div class="rounded-lg border border-slate-200 p-5">
-          <p class="text-sm text-slate-500">Debt-free</p>
-          <p class="mt-1 text-3xl font-bold tracking-tight text-accent-700">{{ monthLong.format(monthDate(primary.months)) }}</p>
-          <p class="mt-1 text-sm text-slate-500">in {{ plural(primary.months, 'month') }}</p>
+      <template v-if="primary.months !== null">
+        <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500">Debt-free by</p>
+        <p class="mt-1 text-4xl font-bold tracking-tight text-accent-700 sm:text-5xl">{{ monthLong.format(monthDate(primary.months)) }}</p>
+        <p class="mt-2 text-slate-600">
+          {{ plural(primary.months, 'month') }} from now, clearing {{ plural(debts.length, 'balance') }} with the {{ SERIES[method].label }} method.
+        </p>
+
+        <div class="mt-5 grid grid-cols-3 gap-3">
+          <div class="rounded-lg border border-slate-200 p-3 sm:p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">You owe</p>
+            <p class="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ usdWhole(totalBalance) }}</p>
+          </div>
+          <div class="rounded-lg border border-slate-200 p-3 sm:p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Interest left</p>
+            <p class="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ usdWhole(primary.totalInterest) }}</p>
+          </div>
+          <div class="rounded-lg border border-slate-200 p-3 sm:p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Toward debt</p>
+            <p class="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ usdWhole(primary.monthlyBudget) }}<span class="text-sm font-medium text-slate-500">/mo</span></p>
+          </div>
         </div>
-        <div class="rounded-lg border border-slate-200 p-5">
-          <p class="text-sm text-slate-500">Total interest</p>
-          <p class="mt-1 text-3xl font-bold tracking-tight text-slate-900">{{ usd(primary.totalInterest) }}</p>
-          <p class="mt-1 text-sm text-slate-500">at {{ usd(primary.monthlyBudget) }}/month</p>
-        </div>
-      </div>
+      </template>
 
       <div v-else class="mt-4 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         <svg class="mt-0.5 h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86l-8.02 13.9A2 2 0 004 21h16a2 2 0 001.73-3.24l-8.02-13.9a2 2 0 00-3.42 0z" /></svg>

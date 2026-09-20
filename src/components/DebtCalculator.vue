@@ -60,7 +60,6 @@ function loadExample() {
   rows.value = rows.value.map((row, i) =>
     i < EXAMPLE_DEBTS.length ? { ...row, ...EXAMPLE_DEBTS[i] } : row,
   );
-  extra.value = '100';
 }
 
 /** Lenient number parsing: tolerates "$", "%", commas, and spaces. */

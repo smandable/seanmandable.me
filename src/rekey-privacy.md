@@ -3,12 +3,12 @@ title: ReKey Privacy Policy
 description: ReKey is designed so your passwords never leave your Mac. No accounts, no analytics, no telemetry, no tracking.
 ---
 
-_Last updated: 2026-06-22_
+_Last updated: June 22, 2026_
 
-ReKey is a local-first password-health auditor for macOS. It is designed so that
-your passwords never leave your Mac. **ReKey collects no personal data, has no
-user accounts, and contains no analytics, telemetry, advertising, or tracking of
-any kind.**
+I'm Sean Mandable, and I make ReKey, a local-first password-health auditor for
+macOS. It is designed so that your passwords never leave your Mac. **ReKey
+collects no personal data, has no user accounts, and contains no analytics,
+telemetry, advertising, or tracking of any kind.**
 
 ## What ReKey does on your device
 
@@ -64,11 +64,12 @@ CSVs you place there.
 Outright deletion of stale logins from browser stores is not part of the App
 Store app (a sandboxed app cannot, and should not, write to other apps' data).
 That capability lives in a separate, optional command-line tool,
-[`rekey-cleanup`](https://github.com/smandable/ReKey), that you build and run
-yourself. It operates entirely locally, backs up each store before changing it,
-and likewise sends nothing anywhere.
+[`rekey-cleanup`](https://github.com/smandable/ReKey), that comes with the GitHub
+build and that you run yourself. It operates entirely locally, backs up each
+store before changing it, and likewise sends nothing anywhere.
 
 ## Contact
 
-Questions: open an issue at <https://github.com/smandable/ReKey> or email
-support@seanmandable.me.
+Questions about privacy? Open an issue on
+[GitHub](https://github.com/smandable/ReKey/issues) or email me at
+**[support@seanmandable.me](mailto:support@seanmandable.me)**.

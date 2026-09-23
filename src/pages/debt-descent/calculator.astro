@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     q: 'What is Debt Descent?',
-    a: 'Debt Descent is my native debt-payoff planner for iPhone, iPad, and Mac. It keeps your plan with you: log payments as you make them, watch your debt-free date move, and sync privately across your devices. One-time purchase, no subscription. Like this page, your data never leaves your devices.',
+    a: 'Debt Descent is my debt-payoff app for iPhone, iPad, and Mac. It compares Snowball and Avalanche the way this page does, and it tracks the payments you make and reads new balances from your statements. It’s free to use, and Pro is $14.99, paid once. Your debts stay on your devices and in your own iCloud.',
   },
 ];
 
@@ -69,7 +69,7 @@ const faqSchema = {
     </h1>
     <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
       Add your debts, pick a method, and see your debt-free date, your payoff order, and
-      what interest really costs. Snowball and Avalanche are compared side by side.
+      what the interest costs. Snowball and Avalanche are compared side by side.
     </p>
     <p class="mt-3 flex items-center gap-2 text-sm text-slate-500">
       <svg class="h-4 w-4 shrink-0 text-accent-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -84,7 +84,7 @@ const faqSchema = {
     <section class="mt-14 max-w-[65ch]" aria-labelledby="list-heading">
       <h2 id="list-heading" class="text-lg font-bold tracking-tight">Notes from me, now and then</h2>
       <p class="mt-1 text-sm leading-relaxed text-slate-600">
-        Occasional notes on paying off debt, and a note when Debt Descent updates. No spam,
+        Occasional notes on paying off debt, and a heads-up when Debt Descent updates. No spam,
         unsubscribe any time.
       </p>
       <EmailCapture endpoint={listEndpoint} source="/debt-descent/calculator/" event="debt-descent-calculator-list" client:load />
@@ -167,10 +167,8 @@ const faqSchema = {
         balance carries a high rate, Avalanche is the better choice.
       </p>
       <p class="mt-4 leading-relaxed text-slate-600">
-        A popular middle path: start with Snowball to clear one or two small balances
-        fast, then switch to Avalanche for the rest. Every version shares the part that does
-        the work: the constant monthly budget, with every freed-up minimum rolled forward
-        until the last debt falls.
+        A lot of people start with Snowball to clear one or two small balances fast, then
+        switch to Avalanche for the rest.
       </p>
     </section>
 

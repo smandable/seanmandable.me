@@ -49,7 +49,7 @@ Add or edit the loan and turn on **In deferment — nothing due yet**, then set 
 Choose **Track only (leave out of plan)** in the debt's menu (the ••• button on its row; right-click on the Mac, long-press on iPhone). The debt stays in your list with its balance and due date, and its row reads "Tracked · not in the plan", but the payoff math, your extra, and the debt-free date leave it out. It still counts in your totals and in the Where it's owed rings on the Progress tab, whose caption says how many debts are held out, like "(1 not in the plan)". Choose **Put back in plan** when you want it back in. Mortgage is one of the debt kinds, alongside cards, loans, and medical debt.
 
 **I logged a payment, but the balance doesn't include the interest my card charged.**
-That's intentional. Debt Descent treats your balance as "what your statement says": logging a payment takes exactly what you paid off the tracked balance, and the app never adds its own interest estimate, because card interest depends on average daily balance, posting dates, and fees, so any figure the app invented would drift from your actual statement. When your next statement posts, update the balance (edit the debt, or import the statement) and that catches the interest charge. Your *plan* (the debt-free date, total interest, and method comparisons) does fully model interest at each debt's APR; only the live balance stays anchored to your statements, so you can always verify it against them.
+Debt Descent treats your balance as "what your statement says": logging a payment takes exactly what you paid off the tracked balance, and the app never adds its own interest estimate, because card interest depends on average daily balance, posting dates, and fees, so any figure the app invented would drift from your actual statement. When your next statement posts, update the balance (edit the debt, or import the statement) and that catches the interest charge. Your *plan* (the debt-free date, total interest, and method comparisons) does fully model interest at each debt's APR; only the live balance stays anchored to your statements, so you can always verify it against them.
 
 **What is the statement-day balance check?**
 It's a reminder a few days after each due day, when the new statement is in, so you enter the real balance and the plan runs on it. In Settings ▸ Notifications, turn on **Statement-day balance check** (it's off by default).
@@ -82,7 +82,7 @@ Yes. In Settings ▸ Plan, turn on **Show in the menu bar**. Your method's glyph
 On iPhone and iPad, Debt Descent follows your system text size (Settings ▸ Accessibility ▸ Display & Text Size ▸ Larger Text), and every screen and sheet reflows with it, up to the largest accessibility sizes. On the Mac that setting doesn't reach apps like this one, so Debt Descent has its own **Text size** slider in Settings ▸ Appearance.
 
 **Does it work with VoiceOver?**
-Yes. Every field says what it's for, and each debt, payment and balance reads as one sentence, with its buttons as separate stops. If something reads wrong, please let me know which screen.
+Yes. Every field says what it's for, and each debt, payment, and balance reads as one sentence, with its buttons as separate stops. If something reads wrong, please let me know which screen.
 
 **Why are amounts in £ or € instead of $?**
 Amounts follow your device's region, so the app shows £, €, CA$, and so on where that's the local currency. The app's text is in English either way.
@@ -91,7 +91,7 @@ Amounts follow your device's region, so the app shows £, €, CA$, and so on wh
 Use **Export to JSON** (••• menu / File menu) to save a complete backup, and **Import from JSON** to restore it on any device. Backup and restore are free for everyone. Your data is never behind the paywall. (iCloud sync keeps your devices in step, but it isn't a backup. Deleting a debt removes it everywhere, so an occasional JSON export is still the safety net.)
 
 **How do I start over?**
-Use **Purge All Data** (••• menu) to erase everything and start blank. On an empty app the menu also offers **Load Sample Data**, a fabricated demo set. It only appears while there are no debts, so it can't replace your data by accident.
+Use **Purge All Data** (••• menu) to erase everything and start blank. On an empty app the menu also offers **Load Sample Data**, a made-up demo set. It only appears while there are no debts, so it can't replace your data by accident.
 
 ### Contact
 

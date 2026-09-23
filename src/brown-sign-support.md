@@ -22,7 +22,7 @@ Reading the sign happens on-device, but looking up the landmark needs a connecti
 No. The app works end-to-end without it, and without location permission or any API keys. On devices that support Apple Intelligence (iOS 26 and later), it's used on-device to clean up the sign text and polish summaries, so results get a little better. Nothing is sent to any cloud AI either way.
 
 **The moment passes fast. What's the quickest way to launch the scanner?**
-From just about everywhere: Siri, Control Center, the Lock Screen, or the Action button. Set one up and the scanner is a single press away when the sign appears.
+Siri, Control Center, the Lock Screen, and the Action button can all open it. Set one up and the scanner is a single press away when the sign appears.
 
 **Why doesn't the Nearby tab show a landmark I know is there?**
 Nearby is a curated list: heritage sites, covered bridges, battlefields, and the like. Operating schools, hospitals, and most other geo-tagged articles are filtered out, and a landmark needs an English Wikipedia article to appear. You can also widen the radius (2 to 25 miles), and if you've hidden a landmark before, un-hide it and it comes back.

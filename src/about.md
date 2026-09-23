@@ -7,9 +7,11 @@ I've been building things on the web since around 2008. I do full-stack work, an
 
 ### The work
 
-I've spent most of my career as a senior engineer. Vue, Angular, TypeScript, Node, the usual senior-frontend toolkit, with enough backend depth to hold up my end of a conversation. I like migrations, because they're the projects where you get to make something better instead of adding another feature to the pile. I like accessibility, because it's the part of the job that's obviously the right thing to do and weirdly easy to half-ass, so doing it properly feels like real work. I'm not picky about the size of the win.
+I've spent most of my career as a senior engineer working in Vue, Angular, TypeScript, and Node. I like migrations, because you get to make something better instead of adding another feature. I like accessibility, because it's obviously the right thing to do and weirdly easy to half-ass. I'm not picky about the size of the win.
 
-I also have the bug for making my own things, and lately it's gotten a little out of hand. A few have landed on the App Store (a highway-sign scanner called Brown Sign, a debt-payoff planner called Debt Descent that runs on my phone, iPad, and Mac, and a Mac password-health auditor called ReKey), a couple more live as signed downloads you install yourself, and one's on hold for now, a display-matching tool I still plan to sell on the Mac App Store. I'll spare you the rest; [the full list](/projects/) is there if you want it. The ones I'm happiest with started as my own problem and turned out to be useful to other people too.
+I also build my own apps in my spare time. Debt Descent is a debt-payoff planner that runs on my iPhone, my iPad, and my Mac. ModernPAR verifies and repairs PAR files on the Mac. I wrote it to replace MacPAR deLuxe, which stops working when Apple retires Rosetta 2. Brown Sign reads the brown highway signs you pass and tells you what the landmark is. ReKey finds reused and compromised passwords across the browsers you've used, and Saddle mounts and unmounts external drives from the menu bar.
+
+Three are on the App Store (Debt Descent, Brown Sign, and ReKey), and ModernPAR and Saddle are free downloads from GitHub. Kelvin Caliper, a display-matching tool, is on hold for now. I still plan to sell it on the Mac App Store. [The Projects page](/projects/) has more on each one. The ones I'm happiest with started as my own problem and turned out to be useful to other people too.
 
 ### The rest
 
@@ -21,4 +23,4 @@ I studied Management Information Systems at Albertus Magnus and then did a maste
 
 ### What they have in common
 
-Most of what I've built, at work and on my own, started because something small was wrong and I couldn't leave it alone. The external drives making noise under my desk turned into Saddle. The debt calculators that wanted one balance and one rate, or my bank login, became Debt Descent. At TriNet it was a twenty-five-minute build that had no reason to take longer than one. Fixing it has always felt like a better use of a Saturday than complaining about it.
+Most of what I've built, at work and on my own, started because something small was wrong and I couldn't leave it alone. The external drives making noise under my desk turned into Saddle. The debt calculators that wanted one balance and one rate, or my bank login, became Debt Descent. At TriNet it was a twenty-five-minute build that had no reason to take longer than one. Fixing it has always felt like a better use of my time than complaining about it.

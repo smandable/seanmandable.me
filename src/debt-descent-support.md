@@ -28,7 +28,7 @@ It should unlock automatically when you're signed in with the same Apple Account
 In Settings, tap **Redeem a code…**, or tap **Redeem a Code** on the paywall. Apple's redeem sheet opens, and Pro unlocks once the code goes through.
 
 **How do I import a statement?**
-Use **Import Statement** (the ••• menu, or File ▸ Import Statement on Mac) and pick a PDF, or a photo of the statement, which is how a Mac uses a Continuity Camera capture. On iPhone and iPad you can also tap **Scan** (beside "Add a debt") to photograph a paper statement with the camera. Either way, Debt Descent reads the balance, APR, minimum, and due date on your device, and shows you every field to confirm before anything is saved.
+Tap **Import statement** under your debts on the Plan tab (or use File ▸ Import Statement… on the Mac) and pick a PDF, or a photo of the statement, which is how a Mac uses a Continuity Camera capture. On iPhone and iPad you can also tap **Scan** (beside "Add a debt") to photograph a paper statement with the camera. Either way, Debt Descent reads the balance, APR, minimum, and due date on your device, and shows you every field to confirm before anything is saved.
 
 **Can it read my paystub?**
 Yes. Open **Income & bills** and tap **Scan a paystub** to photograph one with the camera (iPhone and iPad), or **Read from a paystub…** to use a photo or a PDF. A review sheet shows the net pay and pay frequency it found so you can check both against the stub, and nothing is saved until you confirm. They land in Income & bills as your take-home pay and cadence. Like statement reading, it runs on your device, and the paystub is never uploaded.

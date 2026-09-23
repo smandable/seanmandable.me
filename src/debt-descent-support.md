@@ -96,3 +96,5 @@ Use **Purge All Data** (••• menu) to erase everything and start blank. On 
 ### Contact
 
 **[support@seanmandable.me](mailto:support@seanmandable.me)**
+
+The fine print is short: the [Privacy Policy](/debt-descent/privacy/) and the [Terms of Use](/debt-descent/terms/).

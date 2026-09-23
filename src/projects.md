@@ -50,7 +50,7 @@ Statement import runs on device: PDFKit pulls the text from a PDF, VisionKit's d
 
 ### Privacy
 
-It has no accounts or analytics, and no servers of my own. Your data lives on your device and, if you're signed into iCloud, syncs through your own private iCloud, where I can't see it. Statements (PDFs, photos, camera scans) are read on device and never uploaded. The app talks only to Apple: iCloud for your own sync, and the App Store to confirm the one-time Pro purchase. (Full [privacy policy](/debt-descent/privacy/) and [support](/debt-descent/support/).)
+It has no accounts or analytics, and no servers of my own. Your data lives on your device and, if you're signed into iCloud, syncs through your own private iCloud, where I can't see it. Statements (PDFs, photos, camera scans) are read on device and never uploaded. The app talks only to Apple: iCloud for your own sync, and the App Store to confirm the one-time Pro purchase. (Full [privacy policy](/debt-descent/privacy/), [terms of use](/debt-descent/terms/), and [support](/debt-descent/support/).)
 
 ### Status
 

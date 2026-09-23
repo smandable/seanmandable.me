@@ -13,7 +13,7 @@ I also have the bug for making my own things, and lately it's gotten a little ou
 
 ### The rest
 
-I bought my first house in 2023, a few months after my cat Thomas died at twelve. He was with me through a lot of apartments and one very long hike, and the house felt empty without a cat in it, so I rescued Stefan, who was about a year old when I got him and has opinions about everything. My girlfriend Gina moved in last May. The house is much louder than it used to be, in every good way.
+I bought my first house in 2023, a few months after my cat Thomas died at twelve. He was with me through a lot of apartments and one very long hike, and the house felt empty without a cat in it, so I rescued Stefan, who was about a year old when I got him and has opinions about everything. My girlfriend Gina moved in with me in May 2025. The house is much louder than it used to be, in every good way.
 
 I've been a long-distance hiker for most of my adult life. I spent about three months walking 650 miles of the Appalachian Trail in 2011 and wrote my way through it on an iPhone from the trail itself, which you can read about under Writing if you're curious. I'm an insulin-dependent diabetic and a vegetarian, neither of which is especially interesting except when they intersect with the hiking, and then they get interesting fast. I read voraciously. I ski. I travel when I can.
 

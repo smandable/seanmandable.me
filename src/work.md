@@ -7,7 +7,13 @@ description: Roles and projects across 15+ years of full-stack engineering.
 
 **Lead Developer** · Remote, contract through Insight Global
 
-Univar is a chemical distributor, which in practice means a lot of warehouses and a lot of SAP. I joined in July 2026 as lead developer. So far that has meant two apps, both running on iPhones and iPads through Capacitor, with Firebase sitting between them and SAP. The inventory management app is how people in the warehouses pick, process, and receive. The electronic proof of delivery app was still on Angular 13 when I got there, and I rewrote it in Vue and Nuxt 4 so both apps are on one stack.
+Univar is a chemical distributor, which in practice means a lot of warehouses and a lot of SAP. I joined in July 2026 as lead developer. So far that has meant two apps, both running on iPhones and iPads through Capacitor, with Firebase sitting between them and SAP. The inventory management app is how people in the warehouses pick, process, and receive.
+
+The electronic proof of delivery app, which drivers use to record each delivery, was still on Angular 17 when I got there. I planned the migration and rewrote it in Vue and Nuxt 4 in my first three weeks, so both apps are on one stack. Every page a driver can reach came over. The new version holds on to photos and signatures taken without a signal and uploads them once the phone reconnects.
+
+Since August most of my work has been in the inventory app, on returnable containers (the cylinders, drums, and totes that customers send back when they're empty). Warehouse staff used to go out to a separate asset-tracking app to record those. The new screens let them scan each container's batch number in the inventory app itself, and the numbers go to SAP along with everything else they submit. I also tracked down why a retry after an SAP error never left the iPad. The app was answering it from its cache of the first attempt.
+
+As lead I wrote the team's deploy and hotfix steps and cleared the dependency findings from our security scanner. In September I started the same rewrite for the plant dashboard, which is where plant staff look up deliveries and their paperwork.
 
 This entry gets longer as things ship.
 

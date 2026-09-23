@@ -75,4 +75,4 @@ DiscoverOrg grew from about $30M to $1.2B in annual revenue during and after my 
 
 ## Earlier
 
-Front-end development at **Blue World** (2013–2014) on Bootstrap, jQuery, and PHP, and at **Direct Wines** (2011–2013) on an Oracle ATG backend with custom JSTL functions. Plus assorted freelance work going back to 2008.
+I did front-end work at **Blue World** (2013–2014) on Bootstrap, jQuery, and PHP. In 2013 I also took two short contracts. For **Insight Express** I produced web content for ad tracking integrations, and it appeared on Yahoo!, MSN, The Wall Street Journal, and Forbes. For **La Prairie** I made wireframes for a major website redesign. Before that I was at **Direct Wines** (2011–2013), where I built the front ends of four brand websites that shared an Oracle ATG backend and wrote a fair number of custom JSTL functions. At **Vertrue/Adaptive Marketing** (2007–2009) I managed web development and moved the corporate and client websites from table-based layouts to CSS. There's also assorted freelance work going back to 2008.

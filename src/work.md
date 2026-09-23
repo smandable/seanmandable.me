@@ -75,4 +75,4 @@ DiscoverOrg grew from about $30M to $1.2B in annual revenue during and after my 
 
 ## Earlier
 
-Front-end development at **Blue World** (2013–2014) on Bootstrap, jQuery, and PHP, and at **Direct Wines** (2012–2013) on an Oracle ATG backend with custom JSTL functions. Plus assorted freelance work going back to 2008.
+Front-end development at **Blue World** (2013–2014) on Bootstrap, jQuery, and PHP, and at **Direct Wines** (2011–2013) on an Oracle ATG backend with custom JSTL functions. Plus assorted freelance work going back to 2008.

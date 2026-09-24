@@ -16,6 +16,7 @@ const description =
 // Rendered as the visible FAQ and serialized into FAQPage JSON-LD below.
 // Facts checked against the app on 2026-09-20: payment groups, JSON export
 // and the progress card are free; the what-if slider is Pro; no coach login.
+// 1.18: history CSV free, history PDF Pro.
 const faqs = [
   {
     q: 'Do my clients need an account?',
@@ -23,7 +24,7 @@ const faqs = [
   },
   {
     q: 'Can I see a client’s plan?',
-    a: 'Not through the app. A client can export the whole plan as JSON, share the progress card, or send screenshots. There’s no coach dashboard and no shared workspace.',
+    a: 'Not through the app. A client can export the whole plan as JSON, send you their payment history as a CSV (or a PDF, with Pro), share the progress card, or send screenshots. There’s no coach dashboard and no shared workspace.',
   },
   {
     q: 'Does it recommend a debt management plan, or sell one?',
@@ -117,7 +118,9 @@ const faqSchema = {
       <p class="mt-4 leading-relaxed text-slate-600">
         Whatever the client chooses to show you. The ••• menu has <strong>Export to JSON…</strong>,
         which writes the whole plan, every debt, payment, and setting, to a file the client can send
-        you. The Progress tab has <strong>Share your progress</strong>, a card with the debt-free
+        you. History’s <strong>•••</strong> on the Payments tab has <strong>Export to CSV…</strong>, which is
+        free, and <strong>Export to PDF…</strong> with Pro. The PDF lists every payment, newest first, with
+        the totals, and <strong>Just the payments</strong> keeps the rest of the plan out of it. The Progress tab has <strong>Share your progress</strong>, a card with the debt-free
         date, what’s left, and how far along they are, and screenshots work as they always have.
         There’s no coach login and no shared workspace. The app is built so that nobody but the
         client can see the data, and that includes me.
@@ -127,7 +130,8 @@ const faqSchema = {
       <p class="mt-4 leading-relaxed text-slate-600">
         Debt Descent is free to use, and Pro is a one-time $14.99 purchase with no subscription,
         Family Sharing enabled. Pro adds five more payoff methods, one of them a custom order, the
-        what-if slider and per-debt payoff tests, planned windfalls, refinance and consolidation
+        what-if slider and per-debt payoff tests, picking a debt-free date and seeing the extra it
+        takes, planned windfalls, refinance and consolidation
         modeling, amortization schedules, PDF and calendar export, and due-date reminders.
       </p>
       <p class="mt-4 leading-relaxed text-slate-600">

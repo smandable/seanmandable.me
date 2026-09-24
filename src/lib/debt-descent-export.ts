@@ -3,15 +3,16 @@
  *
  * Two files, both generated in the browser from the numbers on the page:
  *
- *   debt-descent.json   The app's import format (Plan tab ▸ ••• ▸ Data
- *                       options ▸ Import JSON). Importing REPLACES the app's
- *                       store, which the copy under the button says.
+ *   debt-descent.json   The app's import format (Plan tab ▸ ••• ▸ Import
+ *                       plan (JSON or PDF)…). From Debt Descent 1.18 the
+ *                       import asks Add to my plan or Replace everything
+ *                       when the app already has data; Add keeps the
+ *                       app's extra, income and bills.
  *   <calculator>.pdf    The same result on a page, with the JSON above
  *                       embedded as a document-level file attachment
  *                       (catalog /Names ▸ /EmbeddedFiles, which is what
  *                       pdf-lib's attach() writes) named debt-descent.json.
- *                       Debt Descent 1.18 reads that attachment; until then
- *                       the site does not promise it.
+ *                       Debt Descent 1.18 and later imports it like the JSON.
  *
  * Compatibility with the app is structural, not versioned: every key but
  * debts[].name / balance / apr is optional. APRs are percentages (22.99, not

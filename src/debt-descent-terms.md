@@ -3,7 +3,7 @@ title: Debt Descent Terms of Use
 description: The plain-language terms for using Debt Descent, the private debt-payoff planner for iPhone, iPad, and Mac.
 ---
 
-_Last updated: September 22, 2026_
+_Last updated: September 24, 2026_
 
 These are the terms for using Debt Descent, the debt-payoff planner I make for iPhone, iPad, and Mac. I'm Sean Mandable, and I build it on my own. I've kept these terms short and plain. By using the app, you agree to them.
 
@@ -19,11 +19,11 @@ Debt Descent is not financial, legal, or tax advice, and I'm not a financial adv
 
 Before you make a big decision, like stopping a payment, consolidating, refinancing, or enrolling in a debt management plan, please talk to your lender or a qualified professional.
 
-Changing your plan in the app doesn't change what you owe, and it doesn't tell your lender anything. A missed payment can still bring late fees, extra interest, or a mark on your credit, depending on your lender's terms.
+Skipping or deferring a payment in the app only changes your plan. It doesn't change what you owe, and it doesn't tell your lender anything. A missed payment can still bring late fees, extra interest, or a mark on your credit, depending on your lender's terms.
 
 ### Projections are estimates
 
-The debt-free date, interest totals, payoff order, and every other projection in the app are estimates. They're only as good as what you enter, and your lender's real math can differ from the app's model. Here are a few things that can make them differ:
+The debt-free date, interest totals, payoff order, the "Debt-free by" amount, and every other projection in the app are estimates. They're only as good as what you enter, and your lender's real math can differ from the app's model. Here are a few things that can make them differ:
 
 - how your lender calculates interest (average daily balance, posting dates, compounding)
 - fees, penalty rates, and rate changes
@@ -38,7 +38,7 @@ Your data stays on your devices and in your own iCloud. I never receive it, and 
 
 That also means I can't recover your data for you. iCloud sync keeps your devices in step, but it isn't a backup. Deleting a debt removes it everywhere. Keep your own backup with **Export to JSON** now and then.
 
-Files you export are yours to look after. A JSON backup carries your whole plan, so only send it to people you'd share your plan with.
+Files you export are yours to look after. A JSON backup carries your whole plan, and so does the plan PDF (and a payment history PDF, if you pick **Include my plan**), so only send them to people you'd share your plan with.
 
 ### Purchases and refunds
 

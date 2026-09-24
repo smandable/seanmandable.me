@@ -7,7 +7,9 @@ import { appStoreUrl, comparisons, tools } from '../../data/debt-descent';
 // visible FAQ and serialized as FAQPage JSON-LD for Bing and the answer
 // engines. Facts checked against the app on 2026-09-18: the two deferment
 // switch labels, seven methods with two free, the $14.99 one-time price, and
-// the Siri phrases.
+// the Siri phrases. 1.18 (checked 2026-09-22): skip/defer is free and priced
+// first; CSV history export free, history and plan PDFs Pro, the plan PDF
+// carries the plan.
 const faqs = [
   {
     q: 'Is Debt Descent a subscription?',
@@ -30,12 +32,20 @@ const faqs = [
     a: 'Yes, and payment groups don’t need Pro. A payment group is one monthly draft that covers several debts, with a Plan fee field for what the plan keeps. Log the payment once and the app splits it across the debts, so the Payments tab matches your bank statement while the fee stays out of your payoff math.',
   },
   {
+    q: 'What if I can’t make a payment one month?',
+    a: 'You can skip that month’s payment, or defer it to the next month, from the debt’s menu, and it’s free. Before anything changes, the app tells you what it costs in interest and whether your debt-free date moves. The app doesn’t tell your lender anything, so please call them first.',
+  },
+  {
     q: 'My student loan is in deferment. Can I add it?',
     a: 'Yes. Turn on “In deferment — nothing due yet” on the loan and set the date the deferment ends. Until then it sits in your list with nothing due, and on that date it joins the plan on its own. For a subsidized loan, turn on “No interest during deferment (subsidized)” as well, and the balance holds still until then.',
   },
   {
     q: 'Is my data private?',
     a: 'Yes. Your debts stay on your devices and in your own iCloud, where I can’t see them. The App Store privacy label is “Data Not Collected,” and there are no servers or analytics of my own.',
+  },
+  {
+    q: 'Can I export my data?',
+    a: 'Yes. Your whole plan exports as a JSON backup, and your payment history as a CSV, both free. With Pro, your plan and your payment history also export as PDFs, and a plan PDF carries the plan inside it, so it imports back into Debt Descent.',
   },
   {
     q: 'Does it work with Siri, widgets, and Spotlight?',

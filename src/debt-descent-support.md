@@ -81,8 +81,11 @@ Yes, for the home screen, the lock screen, and the Mac desktop. It shows your de
 **Can the widget count down in days instead of months?**
 Yes. Long-press the widget, choose Edit Widget, and set **Count in** to Days, and the number ticks down each morning.
 
+**When a debt is paid off, does its payment move to my next debt?**
+Yes, unless you turn that off. Rolling the payment forward is how Snowball and Avalanche finish sooner. If you'd rather keep that money each month, turn off **Roll payments forward** in Settings ▸ Plan. Each debt then pays its own minimum, a paid-off debt's payment leaves your plan, and only your extra (if you've set any) moves between debts. It's free, and the setting syncs to your other devices. With it on, you can still stop one paid-off debt's payment from rolling forward by choosing **Stop rolling minimum payment forward** in that debt's menu (the ••• button on its row; right-click on the Mac, long-press on iPhone and iPad).
+
 **Can I watch today's interest add up?**
-Yes. In Settings ▸ Plan, turn on **Interest today tile** (it's off by default). The Plan tab then shows how much interest has accrued so far today and how much it's costing per day.
+Yes. In Settings ▸ Plan, turn on **Interest per day tile** (it's off by default). The Plan tab then shows what your debts cost in interest each day, with how much has built up so far today beside it.
 
 **What does the Plan summary card show?**
 It shows the next 30 days of interest across your debts, and what the whole plan costs. In Settings ▸ Plan, turn on **Plan summary card** (it's off until you do).

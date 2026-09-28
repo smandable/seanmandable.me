@@ -49,7 +49,7 @@ const freeRows = [
   {
     label: 'Payoff methods',
     a: 'Snowball and Avalanche. Pro adds five more, including a custom order.',
-    b: 'All eight: Snowball, Avalanche, Hybrid (debt-to-interest ratio), Cash Flow Index, Highest monthly payment, Highest credit utilization, Highest monthly interest, and Custom.',
+    b: 'All ten: Snowball, Avalanche, Hybrid (debt-to-interest ratio), Cash Flow Index, Custom (highest number first or lowest first), Highest monthly payment, Highest credit utilization, Highest monthly interest, and Lowest interest rate.',
   },
   { label: 'Compare methods side by side', a: 'Yes.', b: 'Yes.' },
   {
@@ -91,6 +91,11 @@ const freeRows = [
     label: 'Income and bills',
     a: 'A Left over card: take-home pay at your pay cadence, minus the bills the plan doesn’t track.',
     b: 'Plan.it, a weekly and monthly bills-and-debts checklist, free since September 2026. Bill tracking with reminders is Undebt.it+.',
+  },
+  {
+    label: 'Printable sheets',
+    a: 'PDFs of your plan and your payment history, with Pro.',
+    b: 'Eleven printable sheets, free, blank or filled in from your own plan.',
   },
   {
     label: 'Widgets, Siri, Spotlight',
@@ -137,7 +142,7 @@ const paidRows = [
     <section class="mt-10 max-w-[65ch]">
       <h2 class="text-2xl font-bold tracking-tight">The short version</h2>
       <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
-        <li><strong class="font-semibold text-slate-900">Pick Undebt.it</strong> if you use Windows or Android, want all eight payoff methods without paying, or want YNAB or nightly bank-balance sync.</li>
+        <li><strong class="font-semibold text-slate-900">Pick Undebt.it</strong> if you use Windows or Android, want all ten payoff methods without paying, or want YNAB or nightly bank-balance sync.</li>
         <li><strong class="font-semibold text-slate-900">Pick Debt Descent</strong> if you’re on Apple devices and want a native app with no account, on-device statement reading, widgets and Siri, and a price you pay once.</li>
       </ul>
     </section>
@@ -177,8 +182,9 @@ const paidRows = [
     <section class="mt-12 max-w-[65ch]">
       <h2 class="text-2xl font-bold tracking-tight">What Undebt.it does better</h2>
       <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
-        <li>All eight of its payoff methods are free. Debt Descent gives you two free and the rest with Pro.</li>
-        <li>It runs anywhere with a browser, including Windows and Android. Debt Descent is Apple only.</li>
+        <li>All ten of its payoff methods are free. Debt Descent gives you two free and the rest with Pro.</li>
+        <li>Eleven free printable sheets, including versions filled in from your own plan.</li>
+        <li>It runs anywhere with a browser, including Windows and Android.</li>
         <li>YNAB sync and nightly bank-balance sync, with Undebt.it+, if you want balances to update without you.</li>
         <li>Fourteen years of features: bill tracking with reminders, a calendar planner, a savings challenge, an AI plan generator, Excel export.</li>
         <li>$10.00 a year is not much, and the trial needs no card.</li>
@@ -197,7 +203,7 @@ const paidRows = [
       <h2 class="mt-12 text-2xl font-bold tracking-tight">Which should you use?</h2>
       <p class="mt-4 leading-relaxed text-slate-600">
         If you’re not on Apple devices, use Undebt.it. If you are, it comes down
-        to whether you want a web app with bank sync and eight free methods, or a native app that
+        to whether you want a web app with bank sync and ten free methods, or a native app that
         keeps everything on your device and costs $14.99 once. Both will get you to the same
         debt-free date on the same numbers. Try the free tiers of each; neither asks for a card.
       </p>
@@ -213,13 +219,13 @@ const paidRows = [
     <section class="mt-16 max-w-[65ch]">
       <h2 class="text-2xl font-bold tracking-tight">Sources</h2>
       <p class="mt-4 leading-relaxed text-slate-600">
-        Everything about Undebt.it above comes from its own pages, all read on September 13, 2026:
+        Everything about Undebt.it above comes from its own pages, all read on September 28, 2026:
       </p>
       <ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
         <li><a href="https://undebt.it/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">undebt.it<span class="sr-only"> (opens in new tab)</span></a>, the home page.</li>
-        <li><a href="https://undebt.it/plus-info.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Undebt.it+ features<span class="sr-only"> (opens in new tab)</span></a> and <a href="https://undebt.it/pricing-features-reviews.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">pricing<span class="sr-only"> (opens in new tab)</span></a>. The features page still lists unlimited accounts and all eight methods under premium; the FAQ, updated September 2026, says both are free, and I’ve gone with the FAQ.</li>
-        <li><a href="https://undebt.it/faq.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The FAQ<span class="sr-only"> (opens in new tab)</span></a>, for what the free tier includes.</li>
-        <li><a href="https://undebt.it/blog/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The Undebt.it blog<span class="sr-only"> (opens in new tab)</span></a>: the SimpleFIN sync announcement (September 12, 2026), the post on its mobile apps (September 10, 2026), the Plan.it launch (September 3, 2026), and the August 2026 redesign post.</li>
+        <li><a href="https://undebt.it/plus-info.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Undebt.it+ features<span class="sr-only"> (opens in new tab)</span></a> and <a href="https://undebt.it/pricing-features-reviews.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">pricing<span class="sr-only"> (opens in new tab)</span></a>. The features page still lists unlimited accounts and “all 8” methods under premium; the FAQ says both are free and counts ten methods, and I’ve gone with the FAQ.</li>
+        <li><a href="https://undebt.it/faq.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The FAQ<span class="sr-only"> (opens in new tab)</span></a>, for what the free tier includes. Its answer on which payoff methods are free (September 5, 2026) lists all ten and says the public pages’ eight counts the two custom directions as one and leaves out lowest rate first.</li>
+        <li><a href="https://undebt.it/blog/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The Undebt.it blog<span class="sr-only"> (opens in new tab)</span></a>: the free printables post (September 24, 2026), the SimpleFIN sync announcement (September 12, 2026), the post on its mobile apps (September 10, 2026), the Plan.it launch (September 3, 2026), and the August 2026 redesign post.</li>
         <li><a href="https://beta-bridge.simplefin.org/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">SimpleFIN Bridge<span class="sr-only"> (opens in new tab)</span></a>, for its pricing.</li>
       </ul>
       <p class="mt-4 leading-relaxed text-slate-600">

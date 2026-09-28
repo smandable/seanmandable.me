@@ -15,17 +15,17 @@ const priceRows = [
   {
     label: 'Price',
     a: 'Free. Pro is $14.99 once, and one purchase covers your iPhone, iPad, and Mac.',
-    b: 'Free with ads. Pro is $6.99 a month, $13.99 for three months, or $27.99 a year. Friends & Family Pro is $10.49 a month or $41.99 a year. There is no lifetime option.',
+    b: 'Free with ads. In the app, Pro is $6.99 a month, $13.99 for three months, or $27.99 a year, and Friends & Family Pro is $10.49 a month or $41.99 a year. On the web, Pro also comes as passes that don’t renew: $10 for two months, $18 for six months, or $24 for 24 months. There is no lifetime option.',
   },
   {
     label: 'Paid tier over three years',
     a: '$14.99',
-    b: '$83.97 on the yearly plan, or $125.97 for Friends & Family.',
+    b: '$83.97 on the App Store’s yearly plan, or $125.97 for Friends & Family. On the web, two 24-month passes cover it for $48.',
   },
   {
     label: 'Platforms',
     a: 'Native app for iPhone, iPad, and Mac.',
-    b: 'iPhone, iPad, and Apple Vision Pro (iOS 13 or later), Android, and a web app for Pro subscribers. No Mac app.',
+    b: 'iPhone, iPad, and Apple Vision Pro (iOS 15 or later), Android, and a web app for Pro subscribers. No Mac app.',
   },
   {
     label: 'Account',
@@ -40,7 +40,7 @@ const priceRows = [
   {
     label: 'Ads',
     a: 'None.',
-    b: 'Yes, in the free app. Reviews say Pro removes them; the developer’s own pages don’t say.',
+    b: 'Yes, in the free app, including an offer from a debt-relief company. The app’s code hides that offer for Pro.',
   },
 ];
 
@@ -48,12 +48,12 @@ const freeRows = [
   {
     label: 'Debts',
     a: 'Unlimited.',
-    b: 'The developer doesn’t publish a limit for the free tier, and third-party reviews disagree on it, so check in the app before you rely on it.',
+    b: 'Ten. It won’t add an eleventh without Pro.',
   },
   {
     label: 'Payoff methods',
     a: 'Snowball and Avalanche. Pro adds five more, including a custom order, plus planned windfalls: one-time extra payments, the same idea as a Snowflake.',
-    b: 'Snowball, Avalanche, Snowflake (one-time extra payments), and custom ordering, up to three custom orders.',
+    b: 'Snowball, Avalanche, Snowflake (one at a time on a free account), and custom ordering, up to three custom orders.',
   },
   {
     label: 'Charts',
@@ -121,7 +121,7 @@ const paidRows = [
   {
     label: 'How you pay',
     a: 'Once. Offer codes for discounts; Family Sharing.',
-    b: 'Monthly, quarterly, or yearly, as an auto-renewing subscription.',
+    b: 'Monthly, quarterly, or yearly, as an auto-renewing subscription in the app, or as a fixed-term pass on the web.',
   },
 ];
 ---
@@ -168,7 +168,7 @@ const paidRows = [
 
     <section class="mt-12">
       <h2 class="text-2xl font-bold tracking-tight">The paid tiers</h2>
-      <ComparisonTable caption="Debt Descent Pro and Debt Payoff Planner Pro" columns={['Debt Descent Pro, $14.99 once', 'Debt Payoff Planner Pro, from $27.99 a year']} rows={paidRows} />
+      <ComparisonTable caption="Debt Descent Pro and Debt Payoff Planner Pro" columns={['Debt Descent Pro, $14.99 once', 'Debt Payoff Planner Pro, from $24 for two years']} rows={paidRows} />
     </section>
 
     <section class="mt-12 max-w-[65ch]">
@@ -176,7 +176,7 @@ const paidRows = [
       <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
         <li>Android, and a web app with Pro, so a household with mixed devices can share one plan.</li>
         <li>Friends &amp; Family sharing: one Pro membership across several people.</li>
-        <li>Biweekly debt payments, with Pro: the plan runs on a payment every two weeks instead of monthly. Debt Descent takes your pay cadence for the Left over card, but its payoff plan is monthly.</li>
+        <li>Biweekly debt payments, with Pro: the plan runs on a payment every two weeks instead of monthly.</li>
         <li>Scale and track record: over a million downloads by the developer’s count, a 4.7 App Store rating on about 7,300 ratings, and ten years of releases.</li>
         <li>Snowflake one-time payments and multiple custom orders in the free tier. Debt Descent has both (windfalls, and a custom order), but in Pro.</li>
       </ul>
@@ -186,7 +186,7 @@ const paidRows = [
         <li>No ads, no account, and nothing collected. Its privacy label is “Data Not Collected”; Debt Payoff Planner’s lists financial info, contact info, user content, and usage data linked to you, plus third-party advertising.</li>
         <li>A native Mac app. Debt Payoff Planner has none.</li>
         <li>It reads statements and paystubs on the device, so you don’t type the numbers in.</li>
-        <li>A price you pay once: $14.99 for Pro on every device, against $27.99 a year. Over three years that’s $14.99 against $83.97.</li>
+        <li>A price you pay once: $14.99 for Pro on every device, against $27.99 a year in the app (its web passes cost less, $24 for two years). Over three years that’s $14.99 against $83.97 in the app, or $48 on the web.</li>
         <li>Widgets, Siri Shortcuts, and Spotlight.</li>
         <li>It has a model for a debt management plan and its fee, a student loan in deferment, and a store promo with a deferred-interest deadline.</li>
       </ul>
@@ -211,15 +211,16 @@ const paidRows = [
       <h2 class="text-2xl font-bold tracking-tight">Sources</h2>
       <p class="mt-4 leading-relaxed text-slate-600">
         Everything about Debt Payoff Planner above comes from the developer’s own listing and site,
-        read on September 13, 2026:
+        read on September 28, 2026:
       </p>
       <ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
-        <li><a href="https://apps.apple.com/us/app/id1009323715" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The App Store listing<span class="sr-only"> (opens in new tab)</span></a> (version 2.3.3, July 30, 2026): the in-app purchase prices, the privacy label, the rating, and the feature description.</li>
+        <li><a href="https://apps.apple.com/us/app/id1009323715" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The App Store listing<span class="sr-only"> (opens in new tab)</span></a> (version 2.3.4, September 26, 2026): the in-app purchase prices, the privacy label, the rating (4.7 on 7,338 ratings), and the feature description.</li>
         <li><a href="https://debtpayoffplanner.com/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">debtpayoffplanner.com<span class="sr-only"> (opens in new tab)</span></a>: the home page, the overview page, and the 2.0 help page, which is where the Pro feature list comes from. The site’s “from $2 a month” is the yearly plan divided by twelve.</li>
+        <li><a href="https://app.debtpayoffplanner.com/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The web app<span class="sr-only"> (opens in new tab)</span></a>: its checkout’s price list, for the web passes, and its code, for the free tier’s limit of ten debts and one Snowflake, and the offer Pro hides.</li>
       </ul>
       <p class="mt-4 leading-relaxed text-slate-600">
-        The Google Play rating and the free tier’s debt limit only appear in third-party roundups,
-        which disagree with each other, so I haven’t quoted them. Debt Descent’s side comes from the
+        The Google Play rating only appears in third-party roundups, which disagree with each other,
+        so I haven’t quoted it. Debt Descent’s side comes from the
         app itself and its <a href="/debt-descent/support/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">support page</a>.
         If something here is out of date, <a href="/contact/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">tell me</a> and I’ll fix it.
       </p>

@@ -7,7 +7,7 @@ description: Shipped and in-progress personal projects across iOS, macOS, and th
 
 You know those brown signs on the highway, the ones that point to state parks, historical sites, scenic overlooks, the occasional mansion or covered bridge? I kept seeing them, wondering what they were, and not doing anything about it. Googling "that brown sign I just passed near Middletown" is not a real workflow. So most of the time I just drove on.
 
-Brown Sign is the app I wanted to exist. Point your iPhone at the sign, tap the button, and a few seconds later you have the Wikipedia article, a map, a summary, a Look Around street-level view, and directions. If you're riding shotgun, import the sign from a photo someone snapped, or just type the name. And because the moment passes at 65 mph, the scanner launches from everywhere: Siri, Control Center, the Lock Screen, the Action button. Or skip the signs and open the Nearby tab to see the landmarks around you on a map. The list is curated down to landmarks, so you get the covered bridges and battlefields without the local middle school, and pins accumulate as you pan across a state.
+Brown Sign is the app I wanted to exist. Point your iPhone at the sign, tap the button, and a few seconds later you have the Wikipedia article, a map, a summary, a Look Around street-level view, and directions. If you're riding shotgun, import the sign from a photo someone snapped, or just type the name. And because the moment passes at 65 mph, the scanner launches from everywhere: Siri, Control Center, the Lock Screen, the Action button. Or skip the signs and open the Nearby tab to see the landmarks around you on a map. The list is curated down to landmarks, so you get the covered bridges and battlefields without the local middle school, and pins accumulate as you pan across a state. It also reads landmark stories aloud as you drive, on the iPhone or in CarPlay. Play nearby goes through the closest landmarks one at a time, and Narrate as I drive stays quiet until you're about to pass one, tells you its story, then hands your music back.
 
 ### What's underneath
 
@@ -17,15 +17,15 @@ Candidates get filtered through three passes: a Wikidata P31 blocklist that drop
 
 The Nearby tab runs a different pipeline: a curated Wikidata SPARQL query (heritage designations and a landmark-type allowlist, English Wikipedia article required, plus a gate that drops operating schools and hospitals) at a radius you pick, 2 to 25 miles, cached on disk so the tab opens instantly next launch. Landmarks you don't care about can be hidden, and un-hidden when you change your mind.
 
-No third-party Swift packages. Stock Apple frameworks all the way: SwiftUI + UIKit where needed, SwiftData for history, AVFoundation for the camera, CoreLocation, MapKit, SafariServices. Every external call fails silently to nil. The app works end-to-end without API keys, location permission, or Apple Intelligence.
+No third-party Swift packages. Stock Apple frameworks all the way: SwiftUI + UIKit where needed, SwiftData for history, AVFoundation for the camera and the spoken stories, CarPlay, CoreLocation, MapKit, SafariServices. Every external call fails silently to nil. The app works end-to-end without API keys, location permission, or Apple Intelligence.
 
 ### Privacy
 
-There are no accounts, analytics, ads, or tracking. Camera images are processed on-device. Location is used only to rank nearby results. Search queries go to Wikipedia, Wikidata, and NPS with no personal identifiers attached.
+There are no accounts, analytics, ads, or tracking. Camera images are processed on-device. Location is used only to find, rank, and narrate nearby landmarks. Search queries go to Wikipedia, Wikidata, and NPS with no personal identifiers attached.
 
 ### Status
 
-Shipped to the App Store (currently v2.0), and still in active development because I keep thinking of new features.
+Shipped to the App Store (currently v2.1.0), and still in active development because I keep thinking of new features.
 
 <p style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;">
 <a href="https://apps.apple.com/us/app/brown-sign/id6762070205" target="_blank" rel="noopener noreferrer" style="display:inline-block;"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" width="132" height="44" style="height:44px;width:auto;margin:0;" loading="lazy" /><span class="sr-only"> (opens in new tab)</span></a>

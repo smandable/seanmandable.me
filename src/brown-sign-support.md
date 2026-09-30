@@ -10,7 +10,7 @@ Brown Sign tells you what those brown highway signs point to. Photograph the sig
 ### Frequently asked questions
 
 **Is my data private?**
-Yes. Photos are processed on your device and never uploaded. Only a small thumbnail is saved locally for your history. Searches go to Wikipedia, Wikidata, and the National Park Service with no personal identifiers attached, and location (if you grant it) is used only to rank nearby results. There are no accounts, analytics, or ads. See the [Privacy Policy](/brown-sign/privacy/).
+Yes. Photos are processed on your device and never uploaded. Only a small thumbnail is saved locally for your history. Searches go to Wikipedia, Wikidata, and the National Park Service with no personal identifiers attached, and location (if you grant it) is used only to find, rank, and narrate nearby landmarks. There are no accounts, analytics, or ads. See the [Privacy Policy](/brown-sign/privacy/).
 
 **The scanner read the sign but found the wrong landmark, or nothing at all.**
 Sign lookups are a chain: on-device text recognition, then a search across Wikipedia, Wikidata, and NPS, ranked by name match and distance. A blurry capture at 65 mph, a sign with an unusual name, or a landmark with no Wikipedia article can all break a link in it. When the match is shaky, the app says so. Try typing the landmark's name instead, or import a clearer photo someone snapped from the passenger seat.
@@ -27,5 +27,20 @@ Siri, Control Center, the Lock Screen, and the Action button can all open it. Se
 **Why doesn't the Nearby tab show a landmark I know is there?**
 Nearby is a curated list: heritage sites, covered bridges, battlefields, and the like. Operating schools, hospitals, and most other geo-tagged articles are filtered out, and a landmark needs an English Wikipedia article to appear. You can also widen the radius (2 to 25 miles), and if you've hidden a landmark before, un-hide it and it comes back.
 
+**Can Brown Sign read the landmarks to me while I drive?**
+Yes. On the Nearby tab, tap the headphones button and choose **Play nearby** to hear about the closest landmarks, one after another, as you drive. Or turn on **Narrate as I drive**, and Brown Sign stays quiet until you're about to pass a landmark, tells you its story, then hands your music or podcast back. Every landmark's page has a **Listen** button too. You can also ask Siri to "Play nearby landmarks in Brown Sign" or "Narrate landmarks as I drive in Brown Sign", and say "Stop narrating in Brown Sign" to turn it off.
+
+**Does it work with CarPlay?**
+Yes. In the car, Brown Sign shows up in CarPlay with your nearby landmarks and your history, one tap from playing, and its Nearby list has Play nearby and Narrate as I drive. Stories play on the Now Playing screen, and your car's steering wheel controls work with them.
+
+**Why does the location indicator stay on while Brown Sign is narrating?**
+Play nearby and Narrate as I drive need to know where you are to pick the next landmark, so while either one is on, Brown Sign keeps using your location in the background and iOS shows the location indicator until you turn it off. Both also stop on their own. Narrate as I drive turns itself off after 20 minutes parked or when CarPlay disconnects, and Play nearby ends after it's been paused for 20 minutes. Brown Sign only asks for While Using the App access, and your location leaves the phone only as coordinates in landmark searches to Wikipedia and Wikidata.
+
+**Why doesn't it always say which side a landmark is on?**
+Past a quarter mile a landmark is usually out of sight, so Brown Sign gives only the distance, like "About a mile away." Inside a quarter mile it adds the side, as in "Less than a quarter mile away, on your left."
+
+**How do I get a better-sounding voice?**
+Brown Sign reads with an Enhanced or Premium English voice if you've downloaded one, and with your iPhone's default English voice otherwise. To download one, go to Settings ▸ Accessibility ▸ Spoken Content ▸ Voices ▸ English, pick a voice, and download its Enhanced or Premium version. Brown Sign switches to it on its own.
+
 **How do I clear my history?**
-Your history lives only on your device. Delete entries in the app, or delete the app to remove everything: history, thumbnails, and cached images. There's nothing to clear anywhere else, because nothing ever left the device.
+Your history lives only on your device. Delete entries in the app, or delete the app to remove everything: history, thumbnails, cached images, and the list of landmarks it has read aloud. There's nothing to clear anywhere else, because nothing ever left the device.

@@ -3,7 +3,7 @@ title: Brown Sign Privacy Policy
 description: Brown Sign processes photos on-device, attaches no personal identifiers to searches, and collects nothing.
 ---
 
-**Effective date:** June 10, 2026
+**Effective date:** September 30, 2026
 
 I'm Sean Mandable, and I make Brown Sign. This policy explains what the app accesses, how it's used, and what leaves your device.
 
@@ -12,7 +12,7 @@ I'm Sean Mandable, and I make Brown Sign. This policy explains what the app acce
 | Data | Why | Leaves your device? |
 | --- | --- | --- |
 | **Camera** | To photograph brown roadside signs for OCR text recognition | No. Photos are processed on-device and never uploaded. A small thumbnail is saved locally for your history log. |
-| **Location** | To rank landmark search results by distance from you | Only as coordinates in API queries to Wikipedia and Wikidata (e.g., "find articles near 41.5, -72.6"). Never sent to any analytics or tracking service. |
+| **Location** | To rank landmark search results by distance from you, and to pick which landmark to narrate next while Play nearby or Narrate as I drive is on. For those two features the app keeps using your location in the background, with the iOS location indicator showing, until you stop them or they turn themselves off. | Only as coordinates in API queries to Wikipedia and Wikidata (e.g., "find articles near 41.5, -72.6"). Never sent to any analytics or tracking service. |
 | **Text you type** | To search for landmarks by name | Sent to Wikipedia, the National Park Service API, and Wikidata as search queries. No personal identifiers are attached. |
 
 ## On-device processing
@@ -20,6 +20,8 @@ I'm Sean Mandable, and I make Brown Sign. This policy explains what the app acce
 - **OCR** (reading sign text from photos) runs entirely on-device using Apple's Vision framework.
 - **Apple Intelligence** features (text cleanup, summary polishing, match scoring) run on-device using Apple's FoundationModels framework. No text is sent to Apple or any cloud LLM.
 - **Search history** is stored locally on your device using SwiftData. It is never synced, uploaded, or backed up to any server.
+- **Narration** (Listen, Play nearby, Narrate as I drive, and CarPlay) reads each landmark's Wikipedia introduction aloud with Apple's on-device speech. No audio is recorded or sent anywhere.
+- **The narration log** keeps the landmarks the app has read aloud in the last 30 days, on your device only, so it doesn't repeat them. Older entries are dropped automatically.
 - **Nearby results** from your most recent search are cached on-device (in the app's Caches folder) so the Nearby tab opens instantly. The cache holds only public landmark data, never personal information, and is cleared when you delete the app.
 
 ## Third-party services
@@ -48,7 +50,7 @@ There are no ads, no accounts, no sign-up, and no tracking of any kind.
 
 ## Data retention
 
-All data stays on your device. Deleting the app removes all stored history, thumbnails, and cached images. There is nothing to delete on any server because nothing was ever uploaded.
+All data stays on your device. Deleting the app removes all stored history, thumbnails, cached images, and the narration log. There is nothing to delete on any server because nothing was ever uploaded.
 
 ## Children's privacy
 

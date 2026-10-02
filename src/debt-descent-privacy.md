@@ -3,19 +3,19 @@ title: Debt Descent Privacy Policy
 description: Debt Descent collects nothing. Your data stays on your device and in your own private iCloud.
 ---
 
-_Last updated: September 24, 2026_
+_Last updated: October 2, 2026_
 
 **Debt Descent does not collect any of your data, and has no servers of its own.** There are no accounts, no sign-ups, and no analytics or tracking. I can't see your data, on your device or in your iCloud.
 
 ### Where your data lives
 
-Everything you enter is stored on your device, and (if you're signed in to iCloud) in your own private iCloud, so it stays in sync across your iPhone, iPad, and Mac. That covers your debts, balances, APRs, payments, payment groups, planned windfalls, income and bills, and your plan settings. It also covers any payment you skip or defer, and the short record the app keeps when you clear older payments from History.
+Everything you enter is stored on your device, and (if you're signed in to iCloud) in your own private iCloud, so it stays in sync across your iPhone, iPad, and Mac. That covers your debts and the notes you keep on them, balances, APRs, payments, payment groups, planned windfalls, income and bills, Save up goals, and your plan settings. It also covers any payment you skip or defer, and the short record the app keeps when you clear older payments from History.
 
 ### iCloud sync
 
 Sync uses Apple's CloudKit private database, a part of your personal iCloud account that only you can access. Apple encrypts it in transit and at rest, and I have no ability to read, query, or receive anything in it. Sync is automatic and free for everyone. If you've never signed in to iCloud, Debt Descent keeps everything on the device and works fully offline.
 
-Some of your plan syncs through iCloud's key-value storage instead, which is also part of your own iCloud account. That's your extra each month, your income and how often you're paid, your payoff method, any payment you've skipped or deferred, and the record of payments you've cleared from History. The skip and clear records hold amounts, months, and dates. They point to a debt by an internal ID, not its name, and they hold no notes. As with the rest of your iCloud data, I can't see any of it.
+Some of your plan syncs through iCloud's key-value storage instead, which is also part of your own iCloud account. That's your extra each month, your income and how often you're paid, your payoff method, whether payments roll forward, any payment you've skipped or deferred, the record of payments you've cleared from History, the extra your Progress tab's baseline plan uses, and where your plan stood at the start of each year (for the year card). The skip and clear records hold amounts, months, and dates. They point to a debt by an internal ID, not its name, and they hold no notes. As with the rest of your iCloud data, I can't see any of it.
 
 If you stop syncing later, by signing out of iCloud or turning it off for this app in your device's iCloud settings, the system removes the synced copy from that device. Your data isn't lost: it stays in your own private iCloud, still unreadable to me, and reappears when you sign back in. If you want a copy that lives only on your device, use the free **Export to JSON** before signing out.
 
@@ -34,13 +34,13 @@ A PDF that doesn't carry a plan goes to the statement reader above, which also r
 
 ### Exports you initiate
 
-PDF, calendar (.ics), JSON, and CSV exports, and the shareable progress-card image, are created on your device and saved wherever you choose (a file, a share sheet). I am not involved in and have no access to what you do with an exported file.
+PDF, calendar (.ics), JSON, and CSV exports, and the shareable progress and year cards, are created on your device and saved wherever you choose (a file, a share sheet). I am not involved in and have no access to what you do with an exported file.
 
 Some of these files hold more than they show on the page. This is what each one carries:
 
-- **The plan PDF** always carries your whole plan inside it as an attached file, so Debt Descent can import it back. That's your debts, payments and their notes, payment groups, windfalls, extra, income, and bills. The PDF says so on its page. Anyone you send it to can open the attachment, in Debt Descent or in a PDF reader like Adobe Acrobat.
+- **The plan PDF** always carries your whole plan inside it as an attached file, so Debt Descent can import it back. That's your debts and payments and their notes, payment groups, windfalls, extra, income, bills, Save up goals, and any months you've skipped or deferred. The PDF says so on its page. Anyone you send it to can open the attachment, in Debt Descent or in a PDF reader like Adobe Acrobat.
 - **The payment history PDF** lists your payments. Each time you export one, you choose **Just the payments** or **Include my plan**. It only carries your whole plan if you pick Include my plan, and then the page says so.
-- **The payment history CSV** lists each payment's date, debt, amount, whether it was extra, its note, and its payment group. When you clear older payments, the option to save them as a CSV first writes the same kind of file for just those payments.
+- **The payment history CSV** lists each payment's date, debt and its kind, amount, how much of it was extra, whether it paid a debt off or closed it into a refinance, its note, and its payment group. When you clear older payments, the option to save them as a CSV first writes the same kind of file for just those payments.
 - **The JSON backup** is your whole plan in one file.
 
 ### Notifications
@@ -49,7 +49,7 @@ If you turn on due-date reminders or the statement-day balance check, they are s
 
 ### Widgets, Siri, and Spotlight
 
-The widgets read a small snapshot the app saves on your device. Siri and Shortcuts actions, and your debts in Spotlight, work from the data on your device too. Debt Descent sends me nothing through any of them.
+The widgets read a small snapshot the app saves on your device. When you log a payment from the medium widget, it leaves a small note in the same place until the app records the payment. Siri and Shortcuts actions, and your debts in Spotlight, work from the data on your device too. Debt Descent sends me nothing through any of them.
 
 ### Purchases
 

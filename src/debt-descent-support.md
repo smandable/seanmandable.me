@@ -78,6 +78,9 @@ Milestone cards on the Plan tab mark your first payment, a quarter, half, and th
 **What are the two rings on the Progress tab?**
 "Where it's owed" shows where your balance sits: by kind (cards, loans, and so on) and by debt. Tap a slice, or hover over it on the Mac, to see which debt it is and its share.
 
+**What's the dashed line on the Progress chart?**
+Starting with 1.20, the chart has a line called "Your plan from today". It picks up where your Actual line ends and runs to your debt-free month, beside the gray Baseline plan, which is the plan you started with. The caption says when your plan from today reaches zero, and how far ahead of or behind the baseline that is.
+
 **Can I share how my year went?**
 Yes. On the Progress tab, tap the share button and pick **Your year** at the top of the sheet. The card shows what you've paid this year, the debts you've cleared, the interest you've saved, and your debt-free month, and **Include amounts** decides whether the dollar figures go on it. It's there once you've paid something or cleared a debt this year.
 

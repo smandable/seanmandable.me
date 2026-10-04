@@ -23,7 +23,7 @@ Skipping or deferring a payment in the app only changes your plan. It doesn't ch
 
 ### Projections are estimates
 
-The debt-free date, interest totals, payoff order, the "Debt-free by" amount, and every other projection in the app are estimates. They're only as good as what you enter, and your lender's real math can differ from the app's model. Here are a few things that can make them differ:
+The debt-free date, interest totals, payoff order, the extra that Pick a debt-free date works out, and every other projection in the app are estimates. They're only as good as what you enter, and your lender's real math can differ from the app's model. Here are a few things that can make them differ:
 
 - how your lender calculates interest (average daily balance, posting dates, compounding)
 - fees, penalty rates, and rate changes

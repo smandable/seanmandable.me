@@ -15,7 +15,7 @@ Everything you enter is stored on your device, and (if you're signed in to iClou
 
 Sync uses Apple's CloudKit private database, a part of your personal iCloud account that only you can access. Apple encrypts it in transit and at rest, and I have no ability to read, query, or receive anything in it. Sync is automatic and free for everyone. If you've never signed in to iCloud, Debt Descent keeps everything on the device and works fully offline.
 
-Some of your plan syncs through iCloud's key-value storage instead, which is also part of your own iCloud account. That's your extra each month, your income and how often you're paid, your payoff method, whether payments roll forward, any payment you've skipped or deferred, the record of payments you've cleared from History, the extra your Progress tab's baseline plan uses, and where your plan stood at the start of each year (for the year card). The skip and clear records hold amounts, months, and dates. They point to a debt by an internal ID, not its name, and they hold no notes. As with the rest of your iCloud data, I can't see any of it.
+Some of your plan syncs through iCloud's key-value storage instead, which is also part of your own iCloud account. That's your extra each month, your income and how often you're paid, your paydays, the bank balance if you enter one, your payoff method, whether payments roll forward, any payment you've skipped or deferred, the record of payments you've cleared from History, the extra your Progress tab's baseline plan uses, and where your plan stood at the start of each year (for the year card). The skip and clear records hold amounts, months, and dates. They point to a debt by an internal ID, not its name, and they hold no notes. As with the rest of your iCloud data, I can't see any of it.
 
 If you stop syncing later, by signing out of iCloud or turning it off for this app in your device's iCloud settings, the system removes the synced copy from that device. Your data isn't lost: it stays in your own private iCloud, still unreadable to me, and reappears when you sign back in. If you want a copy that lives only on your device, use the free **Export to JSON** before signing out.
 
@@ -45,7 +45,7 @@ Some of these files hold more than they show on the page. This is what each one 
 
 ### Notifications
 
-If you turn on due-date reminders or the statement-day balance check, they are scheduled as local notifications on your device. That includes the reminder that follows a skipped or deferred payment. No reminder data is sent anywhere.
+If you turn on due-date reminders, the payday notification, or the statement-day balance check, they are scheduled as local notifications on your device. That includes the reminder that follows a skipped or deferred payment. A reminder's **Log payment** button records the payment on your device. No reminder data is sent anywhere.
 
 ### Widgets, Siri, and Spotlight
 

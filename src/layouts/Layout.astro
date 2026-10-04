@@ -20,7 +20,9 @@ type Props = {
 const defaultDescription =
   'Full-stack web (Vue, Angular, TypeScript, Node) + Swift/SwiftUI. I notice when things are off and can’t quite leave them there.';
 const { title, description = defaultDescription, appleAppId, fillMain = false } = Astro.props;
-const fullTitle = Astro.props.fullTitle ?? (title ? `${title} | ${profile.name}` : profile.name);
+// The homepage (no title) gets a hand-written title, in search results and on social cards alike.
+const homeTitle = `${profile.name}, Senior Software Engineer & iOS/Mac Developer`;
+const fullTitle = Astro.props.fullTitle ?? (title ? `${title} | ${profile.name}` : homeTitle);
 
 // Canonical/OG URL: the site is served from directory indexes, so Apache's
 // canonical form of every non-root path ends in a slash.
@@ -29,8 +31,6 @@ const canonicalPath = Astro.url.pathname.endsWith('/')
   : `${Astro.url.pathname}/`;
 const canonicalURL = new URL(canonicalPath, Astro.site);
 
-// Social cards are per-page; the homepage keeps its richer hand-written title.
-const ogTitle = title ? fullTitle : 'Sean Mandable, Senior Software Engineer & Full-Stack Dev';
 const ogDescription = description;
 
 // Bump this when any /favicon.* or /apple-touch-icon.png changes so browsers
@@ -49,13 +49,13 @@ const ICON_VERSION = '2';
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <meta property="og:title" content={ogTitle} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:image" content="https://www.seanmandable.me/og-image.png" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content="https://www.seanmandable.me/og-image.png" />
     {appleAppId && <meta name="apple-itunes-app" content={`app-id=${appleAppId}`} />}

@@ -3,7 +3,7 @@ title: Debt Descent Terms of Use
 description: The plain-language terms for using Debt Descent, the private debt-payoff planner for iPhone, iPad, and Mac.
 ---
 
-_Last updated: September 24, 2026_
+_Last updated: October 8, 2026_
 
 These are the terms for using Debt Descent, the debt-payoff planner I make for iPhone, iPad, and Mac. I'm Sean Mandable, and I build it on my own. I've kept these terms short and plain. By using the app, you agree to them.
 

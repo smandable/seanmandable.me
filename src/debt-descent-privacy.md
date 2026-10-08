@@ -3,7 +3,7 @@ title: Debt Descent Privacy Policy
 description: Debt Descent collects nothing. Your data stays on your device and in your own private iCloud.
 ---
 
-_Last updated: October 2, 2026_
+_Last updated: October 8, 2026_
 
 **Debt Descent does not collect any of your data, and has no servers of its own.** There are no accounts, no sign-ups, and no analytics or tracking. I can't see your data, on your device or in your iCloud.
 

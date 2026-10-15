@@ -12,6 +12,12 @@ Need a hand? Email **[support@seanmandable.me](mailto:support@seanmandable.me)**
 **Is my financial data private?**
 Yes. Your data lives on your device and in your own private iCloud, where I can't see it. There are no accounts, analytics, or servers of my own. See the [Privacy Policy](/debt-descent/privacy/).
 
+**Can I lock the app with Face ID?**
+Yes, and it's free. In Settings ▸ Privacy, turn on **Lock with Face ID** (it's off by default). Debt Descent then asks for Face ID each time it opens or comes back to the front, and covers what's on screen in the app switcher. On a device with Touch ID or Optic ID the switch names that instead, and on one with neither it uses your passcode. On the Mac it asks for Touch ID or your password when the app opens and after your Mac sleeps or its screen locks. The lock is set on each device separately. While it's on, the Lock Screen widget hides its figures until you unlock your phone. If the device has no passcode, Debt Descent asks you to set one in the Settings app first.
+
+**Can I hide the amounts for a screen share?**
+Yes. In Settings ▸ Privacy, turn on **Hide amounts**, and every dollar figure is blurred until you tap it (click it on the Mac). A figure you tap blurs again after a few seconds. Dates stay readable, and a money field you're typing in isn't blurred. On the Mac, View ▸ Hide Amounts (⇧⌘H) turns it on and off too. It's free and set on each device separately. VoiceOver still reads every figure.
+
 **Does my data sync between my iPhone, iPad, and Mac?**
 Yes, automatically, and it's free for everyone. Just be signed in to iCloud with the same Apple Account on each device; there's nothing to set up in the app. If you're not signed in, Debt Descent works fully on-device, and syncing picks up when you sign in.
 
@@ -19,7 +25,7 @@ Yes, automatically, and it's free for everyone. Just be signed in to iCloud with
 No. When you sign out of iCloud (or turn iCloud off for Debt Descent), the system removes the synced copy from that device, which is standard for synced apps. Your data is still in your own private iCloud and comes right back when you sign in again. If you want a copy that stays on the device regardless, use **Export to JSON** before signing out.
 
 **What does Debt Descent Pro include, and how much is it?**
-Pro is a **one-time $14.99 purchase** (no subscription) that unlocks the five payoff methods beyond the free Snowball and Avalanche (one of them a custom order you set yourself), the what-if slider and per-debt payoff tests, **Pick a debt-free date** (see the extra it takes to finish by then), planned windfalls, refinance modeling (including applying the deal in one step), amortization schedules, PDF export of your plan and your payment history, calendar export, due-date and payday notifications, and the statement-day balance check. One purchase unlocks Pro on your iPhone, iPad, and Mac. Skipping a payment, saving up for something, notes on a debt, the year card, logging from the medium widget, paying a debt weekly or every two weeks, paydays and a bank balance, bills with due dates, autopay, clearing old payments, importing a plan, and exporting your history as a CSV are all free.
+Pro is a **one-time $14.99 purchase** (no subscription) that unlocks the five payoff methods beyond the free Snowball and Avalanche (one of them a custom order you set yourself), the what-if slider and per-debt payoff tests, **Pick a debt-free date** (see the extra it takes to finish by then), planned windfalls, refinance modeling (including applying the deal in one step), amortization schedules, PDF export of your plan and your payment history, calendar export, due-date, payday, and promo notifications, and the statement-day balance check. One purchase unlocks Pro on your iPhone, iPad, and Mac. Skipping a payment, saving up for something, notes on a debt, the year card, logging from the medium widget, paying a debt weekly or every two weeks, paydays and a bank balance, bills with due dates, autopay, the Face ID lock, hiding amounts, the weekly backup, clearing old payments, importing a plan, and exporting your history as a CSV are all free.
 
 **I bought Pro but don't see it on a new device.**
 It should unlock automatically when you're signed in with the same Apple Account. Pro is Family Sharing enabled too, so the members of your Family Sharing group get it on their devices without buying it again. If it doesn't appear, open the paywall (tap any "PRO" feature, or the ••• menu, then "Unlock Debt Descent Pro") and tap **Restore Purchases**.
@@ -60,6 +66,9 @@ Starting with 1.18, Upcoming payments lists every due date in the stretch it cov
 **Can I see what each paycheck has to cover?**
 Yes. On the Plan tab, tap **Edit** on the Left over card to open Income & bills, and set your next **Payday**. Upcoming payments then lists each payment under the paycheck that covers it, with headers like "Payday · Fri, Oct 9 · $412 to pay". A "~" in front of a figure means it's an estimate.
 
+**Can I hide paydays with nothing due?**
+Yes. In Settings ▸ Plan, turn off **Paydays with nothing due** (it's on by default). Upcoming payments then lists only the paydays with something to pay, and leaves out headers like "Payday · Wed, Oct 7 · nothing due". The setting is per device.
+
 **Can it tell me if what's in the bank covers my payments?**
 Yes, if you type the balance in. Under **Payday** in Income & bills, the **Bank** row takes what's in your account today. Upcoming payments then says whether it covers what's due before your next payday, like "$900.00 in the bank · $488.00 to spare" or "$300.00 in the bank · $112.00 short". Debt Descent can't see your account, so the figure is an estimate that knows only the number you entered, the payments you log, and the bills you mark paid. After your next payday it waits for a new balance. The Bank row is optional and free, and it syncs to your other devices but isn't in the JSON backup.
 
@@ -71,6 +80,12 @@ Yes, and it's free. Turn on **On autopay** for a debt by choosing **Edit details
 
 **Can I save up for something without putting it on a card?**
 Yes, and it's free. Once your income or bills are in, the Left over card on the Plan tab has **Save up for something**. Say what it's for, what it costs, how much you'll set aside and how often (a week, every 2 weeks, twice a month, or a month), and when you start. The card then shows the day it's yours, like "Yours by November 19", with a bar like "$500.00 of $1,200.00 · $100.00 a week". Beside it, Debt Descent shows what charging it to your highest-rate card would cost in interest over the rest of your plan, and how much sooner the same money would make you debt-free if it went toward debt instead. While you're saving, Left over has a row like "Saving for New laptop", so what's left accounts for it. When it's ready, tap **I bought it** and it comes off the card.
+
+**Can I see each bill behind "Other bills"?**
+Yes. On the Left over card, tap **Other bills** and each bill from Income & bills is listed under it, at the rate for the period you're viewing, so a weekly bill shows its monthly amount on the Month view. It stays open or closed on each device the way you left it.
+
+**Where do I change the payoff method?**
+Tap a method card on the Plan tab (click it on the Mac), or use **Payoff method** at the top of Settings ▸ Plan, which opens the method menu. The card you're using shows a checkmark, and the methods that need Pro are marked "(Pro)" in the menu.
 
 **Can I keep notes on a debt?**
 Yes. Open the debt's menu (the ••• button on its row; right-click on the Mac, long-press on iPhone and iPad), choose **Edit details**, and use **Notes** for things like a promo's fine print or who you spoke to and when. Notes sync to your other devices and go in your backups, and nothing in the plan reads them.
@@ -98,6 +113,9 @@ It's a reminder when each new statement is in, so you enter the real balance and
 
 **Can I get a notification on payday?**
 Yes, with Pro. In Settings ▸ Notifications, turn on **Payday notification** (it's off by default). At 9 AM on each payday it tells you what that paycheck has to cover, the payments and bills due before the next one, like "Payday: $412 to pay from this paycheck". It needs your next payday in Income & bills.
+
+**Can I get a warning before a promo rate ends?**
+Yes, with Pro. In Settings ▸ Notifications, **Before a promo ends** is on by default. Two months before a promo rate or a deferred-interest promo ends, and again two weeks before, a notification at 9 AM says what's left and what clears it in time, like "Citi — 0% ends December 1" with "$1,240 left; $620.00 a month clears it in time. After that, the rate is 24.99%." For a deferred-interest promo it also says what posts if you don't, like "If it isn't cleared, $412 of deferred interest posts." Tracked-only debts get it too.
 
 **Can I log a payment from a reminder?**
 Yes. Starting with 1.20.2, a due-date reminder has a **Log payment** button (**Log payments** when it names several debts) that logs this month's payment without opening the app. On the debt that gets your extra, the reminder gives both figures, like "About $156 due in a few days. Your plan pays $599." A payment group's reminder has no button, so log the group's payment in the app. Due-date reminders are part of Pro.
@@ -127,7 +145,7 @@ Yes, for the home screen, the lock screen, and the Mac desktop. It shows your de
 Yes. Long-press the widget, choose Edit Widget, and set **Count in** to Days, and the number ticks down each morning.
 
 **When a debt is paid off, does its payment move to my next debt?**
-Yes, unless you turn that off. Rolling the payment forward is how Snowball and Avalanche finish sooner. If you'd rather keep that money each month, turn off **Roll payments forward** in Settings ▸ Plan. Each debt then pays its own minimum, a paid-off debt's payment leaves your plan, and only your extra (if you've set any) moves between debts. It's free, and the setting syncs to your other devices. With it on, you can still stop one paid-off debt's payment from rolling forward by choosing **Stop rolling minimum payment forward** in that debt's menu (the ••• button on its row; right-click on the Mac, long-press on iPhone and iPad).
+Yes, unless you turn that off. Rolling the payment forward is how Snowball and Avalanche finish sooner. If you'd rather keep that money each month, turn off **Roll payments forward** in Settings ▸ Plan. Each debt then pays its own minimum, a paid-off debt's payment leaves your plan, and only your extra (if you've set any) moves between debts. If a debt's own minimum can't keep up with its interest, it never clears with the setting off, and the plan says which debt it is and what to change. It's free, and the setting syncs to your other devices. With it on, you can still stop one paid-off debt's payment from rolling forward by choosing **Stop rolling minimum payment forward** in that debt's menu (the ••• button on its row; right-click on the Mac, long-press on iPhone and iPad).
 
 **Can I watch today's interest add up?**
 Yes. In Settings ▸ Plan, turn on **Interest per day tile** (it's off by default). The Plan tab then shows what your debts cost in interest each day, with how much has built up so far today beside it.
@@ -160,7 +178,7 @@ Yes. On the Payments tab, tap the **•••** on the History card and choose *
 Yes. On iPhone and iPad, open the file from Files, Mail, or Messages, tap Share, and pick Debt Descent. On the Mac, use Finder's **Open With** ▸ Debt Descent, or drag the file onto the app's icon in the Dock. It works with a JSON backup and with a PDF that carries a plan, including a plan PDF from the app and the **Download for Debt Descent** and **Save as PDF** files from the [calculators on this site](/debt-descent/#free-tools). If you already have a plan, Debt Descent asks whether to **Add to my plan** or **Replace everything**. A PDF without a plan in it goes to the statement reader instead. Debt Descent shows up as an option for these files, but it never becomes your default app for them. On a fresh install, the Welcome screen has **Import a plan file** too.
 
 **How do I back up my data?**
-Use **Export to JSON** (••• menu / File menu) to save a complete backup, and **Import plan (JSON or PDF)…** (same menus) to restore it on any device. A plan PDF the app exported works too, since it carries the plan inside it. If the device already has a plan, the import asks whether to add to it or replace everything. Starting with 1.20, a backup also carries skipped and deferred months, History's record of cleared payments, your Save up goals, and each debt's note and statement day. Backup and restore are free for everyone. Your data is never behind the paywall. (iCloud sync keeps your devices in step, but it isn't a backup. Deleting a debt removes it everywhere, so an occasional JSON export is still the safety net.)
+Debt Descent saves one for you every week, and you can save one yourself any time. Starting with 1.20.3, **Weekly backup to iCloud Drive** in Settings ▸ Backups saves the same file as Export to JSON, named like "Debt Descent backup 2026-10-08.json", in the Debt Descent folder of your iCloud Drive, where you can see it in Files and the Finder. It's on by default and keeps the last eight, and two devices don't both save one in the same week. The line under the switch says when the last one was saved, or that iCloud Drive isn't available to Debt Descent on that device. To put a backup back, open it with **Import plan (JSON or PDF)…** (••• menu / File menu). **Export to JSON** (same menus) saves a copy wherever you like. A plan PDF the app exported imports too, since it carries the plan inside it. If the device already has a plan, the import asks whether to add to it or replace everything. Starting with 1.20, a backup also carries skipped and deferred months, History's record of cleared payments, your Save up goals, and each debt's note and statement day. Backup and restore are free for everyone. Your data is never behind the paywall. (iCloud sync keeps your devices in step, but it isn't a backup. Deleting a debt removes it everywhere, so the weekly backup is the safety net, and Export to JSON is for a copy you keep somewhere else.)
 
 **How do I start over?**
 Use **Purge All Data** (••• menu) to erase everything and start blank. On an empty app the menu also offers **Load Sample Data**, a made-up demo set. It only appears while there are no debts, so it can't replace your data by accident.

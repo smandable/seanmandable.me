@@ -3,7 +3,7 @@ title: Debt Descent Privacy Policy
 description: Debt Descent collects nothing. Your data stays on your device and in your own private iCloud.
 ---
 
-_Last updated: October 8, 2026_
+_Last updated: October 15, 2026_
 
 **Debt Descent does not collect any of your data, and has no servers of its own.** There are no accounts, no sign-ups, and no analytics or tracking. I can't see your data, on your device or in your iCloud.
 
@@ -18,6 +18,14 @@ Sync uses Apple's CloudKit private database, a part of your personal iCloud acco
 Some of your plan syncs through iCloud's key-value storage instead, which is also part of your own iCloud account. That's your extra each month, your income and how often you're paid, your paydays, the bank balance if you enter one, your payoff method, whether payments roll forward, any payment you've skipped or deferred, the record of payments you've cleared from History, the extra your Progress tab's baseline plan uses, and where your plan stood at the start of each year (for the year card). The skip and clear records hold amounts, months, and dates. They point to a debt by an internal ID, not its name, and they hold no notes. As with the rest of your iCloud data, I can't see any of it.
 
 If you stop syncing later, by signing out of iCloud or turning it off for this app in your device's iCloud settings, the system removes the synced copy from that device. Your data isn't lost: it stays in your own private iCloud, still unreadable to me, and reappears when you sign back in. If you want a copy that lives only on your device, use the free **Export to JSON** before signing out.
+
+### Weekly backups
+
+Once a week, Debt Descent saves a backup of your plan, the same file as **Export to JSON**, in its own folder in your iCloud Drive. It's stored under your Apple Account, where I can't see it, and it holds the same data iCloud sync already keeps. The app keeps the last eight. You can turn it off with **Weekly backup to iCloud Drive** in Settings ▸ Backups, and delete the files in Files or the Finder like any other file.
+
+### Face ID and Touch ID
+
+If you turn on **Lock with Face ID** (or Touch ID, or Optic ID), your device's system does the check. Debt Descent never sees your face or fingerprint data, only whether the check passed.
 
 ### Statement import & scanning
 
@@ -45,7 +53,7 @@ Some of these files hold more than they show on the page. This is what each one 
 
 ### Notifications
 
-If you turn on due-date reminders, the payday notification, or the statement-day balance check, they are scheduled as local notifications on your device. That includes the reminder that follows a skipped or deferred payment. A reminder's **Log payment** button records the payment on your device. No reminder data is sent anywhere.
+When due-date reminders, the payday notification, the promo notification, or the statement-day balance check are on, they are scheduled as local notifications on your device. That includes the reminder that follows a skipped or deferred payment. A reminder's **Log payment** button records the payment on your device. No reminder data is sent anywhere.
 
 ### Widgets, Siri, and Spotlight
 

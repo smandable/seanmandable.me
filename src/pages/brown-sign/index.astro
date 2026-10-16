@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import AppSchema from '../../components/AppSchema.astro';
 
 const appStoreUrl = 'https://apps.apple.com/us/app/brown-sign/id6762070205';
 ---
@@ -54,4 +55,5 @@ const appStoreUrl = 'https://apps.apple.com/us/app/brown-sign/id6762070205';
       <a href="/brown-sign/privacy/" class="transition-colors hover:text-accent-600">Privacy Policy</a>
     </nav>
   </div>
+  <AppSchema name="Brown Sign" />
 </Layout>

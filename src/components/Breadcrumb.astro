@@ -1,0 +1,26 @@
+---
+/*
+ * The "Debt Descent / <page>" trail above a tool page's h1, plus the matching
+ * BreadcrumbList structured data so search results can show the same trail.
+ */
+interface Props {
+  parent: { name: string; href: string };
+  current: string;
+}
+
+const { parent, current } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: parent.name, item: new URL(parent.href, Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: current, item: new URL(Astro.url.pathname, Astro.site).href },
+  ],
+};
+---
+
+<nav aria-label="Breadcrumb" class="text-sm font-medium">
+  <a href={parent.href} class="no-underline text-accent-600 transition-colors hover:text-accent-700">{parent.name}</a>
+  <span class="text-slate-400"> / <span aria-current="page">{current}</span></span>
+</nav>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

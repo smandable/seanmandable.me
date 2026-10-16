@@ -4,3 +4,20 @@ ErrorDocument 404 /404.html
 # ModernPAR's page moved from /modernpar to /modern-par. The match ignores case,
 # so /ModernPAR typed from the app's name lands there too.
 RedirectMatch 301 (?i)^/modernpar/?$ https://www.seanmandable.me/modern-par/
+
+# Security headers on every response: HSTS (HTTPS only from now on, this host
+# only, no subdomains), no MIME sniffing, a sane referrer policy, and no framing
+# of the site by other sites. Tested on DreamHost before shipping.
+# Hashed build files (/_astro/Name.AbCd1234.css or .js) never change under the
+# same name, so they can be cached for a year; everything else keeps the
+# host's defaults.
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Content-Security-Policy "frame-ancestors 'self'"
+  <FilesMatch "\.[0-9A-Za-z_-]{8}\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

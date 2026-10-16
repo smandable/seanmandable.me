@@ -7,11 +7,11 @@ _Last updated: October 15, 2026_
 
 **Debt Descent does not collect any of your data, and has no servers of its own.** There are no accounts, no sign-ups, and no analytics or tracking. I can't see your data, on your device or in your iCloud.
 
-### Where your data lives
+## Where your data lives
 
 Everything you enter is stored on your device, and (if you're signed in to iCloud) in your own private iCloud, so it stays in sync across your iPhone, iPad, and Mac. That covers your debts and the notes you keep on them, balances, APRs, payments, payment groups, planned windfalls, income and bills, Save up goals, and your plan settings. It also covers any payment you skip or defer, and the short record the app keeps when you clear older payments from History.
 
-### iCloud sync
+## iCloud sync
 
 Sync uses Apple's CloudKit private database, a part of your personal iCloud account that only you can access. Apple encrypts it in transit and at rest, and I have no ability to read, query, or receive anything in it. Sync is automatic and free for everyone. If you've never signed in to iCloud, Debt Descent keeps everything on the device and works fully offline.
 
@@ -19,19 +19,19 @@ Some of your plan syncs through iCloud's key-value storage instead, which is als
 
 If you stop syncing later, by signing out of iCloud or turning it off for this app in your device's iCloud settings, the system removes the synced copy from that device. Your data isn't lost: it stays in your own private iCloud, still unreadable to me, and reappears when you sign back in. If you want a copy that lives only on your device, use the free **Export to JSON** before signing out.
 
-### Weekly backups
+## Weekly backups
 
 Once a week, Debt Descent saves a backup of your plan, the same file as **Export to JSON**, in its own folder in your iCloud Drive. It's stored under your Apple Account, where I can't see it, and it holds the same data iCloud sync already keeps. The app keeps the last eight. You can turn it off with **Weekly backup to iCloud Drive** in Settings ▸ Backups, and delete the files in Files or the Finder like any other file.
 
-### Face ID and Touch ID
+## Face ID and Touch ID
 
 If you turn on **Lock with Face ID** (or Touch ID, or Optic ID), your device's system does the check. Debt Descent never sees your face or fingerprint data, only whether the check passed.
 
-### Statement import & scanning
+## Statement import & scanning
 
 A statement you import is read on your device using Apple frameworks (PDFKit, VisionKit, Vision, and Apple Intelligence). It can be a PDF, a photo, or a paper statement scanned with the camera on iPhone and iPad. A paystub you read in **Income & bills** is handled the same way. Camera access is used only for the statement or paystub you're scanning. The capture is processed on your device, nothing is saved until you confirm the fields it read, and the app never asks for access to your photo library. The document and its contents are never uploaded anywhere.
 
-### Opening plan files
+## Opening plan files
 
 You can open a Debt Descent plan file (a JSON backup, or a PDF that carries a plan) with **Import plan (JSON or PDF)…** in the app. You can also open one from Files, Mail, Messages, or Finder. The file is read on your device.
 
@@ -40,7 +40,7 @@ You can open a Debt Descent plan file (a JSON backup, or a PDF that carries a pl
 
 A PDF that doesn't carry a plan goes to the statement reader above, which also runs on your device. Nothing from the file is sent to me.
 
-### Exports you initiate
+## Exports you initiate
 
 PDF, calendar (.ics), JSON, and CSV exports, and the shareable progress and year cards, are created on your device and saved wherever you choose (a file, a share sheet). I am not involved in and have no access to what you do with an exported file.
 
@@ -51,30 +51,30 @@ Some of these files hold more than they show on the page. This is what each one 
 - **The payment history CSV** lists each payment's date, debt and its kind, amount, how much of it was extra, whether it paid a debt off or closed it into a refinance, its note, and its payment group. When you clear older payments, the option to save them as a CSV first writes the same kind of file for just those payments.
 - **The JSON backup** is your whole plan in one file.
 
-### Notifications
+## Notifications
 
 When due-date reminders, the payday notification, the promo notification, or the statement-day balance check are on, they are scheduled as local notifications on your device. That includes the reminder that follows a skipped or deferred payment. A reminder's **Log payment** button records the payment on your device. No reminder data is sent anywhere.
 
-### Widgets, Siri, and Spotlight
+## Widgets, Siri, and Spotlight
 
 The widgets read a small snapshot the app saves on your device. When you log a payment from the medium widget, it leaves a small note in the same place until the app records the payment. Siri and Shortcuts actions, and your debts in Spotlight, work from the data on your device too. Debt Descent sends me nothing through any of them.
 
-### Purchases
+## Purchases
 
 The optional one-time "Debt Descent Pro" upgrade is handled by Apple via the App Store. Apple processes the payment, and I never receive or store your payment information. The app only receives Apple's signed confirmation that the purchase exists, so it can unlock Pro features. If you redeem an offer code, that goes through Apple too.
 
-### Third parties
+## Third parties
 
 Debt Descent includes no third-party advertising, analytics, or tracking SDKs.
 
-### Children
+## Children
 
 Debt Descent is rated 4+ and collects no data from anyone, including children.
 
-### Changes
+## Changes
 
 If this policy ever changes, the updated version will be posted here with a new date.
 
-### Contact
+## Contact
 
 Questions about privacy? Email **[support@seanmandable.me](mailto:support@seanmandable.me)**.

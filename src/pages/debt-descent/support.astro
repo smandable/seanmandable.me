@@ -7,7 +7,7 @@ import raw from '../../debt-descent-support.md?raw';
 // the markup can't drift from the visible answers. Each entry is a bold
 // question on one line and a one-paragraph answer on the next. Markdown
 // syntax is stripped and quotes are curled the way smartypants renders them.
-const faqSource = raw.split('### Frequently asked questions')[1].split('### Contact')[0];
+const faqSource = raw.split('## Frequently asked questions')[1].split('## Contact')[0];
 const plain = (text: string) =>
   text
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
@@ -38,7 +38,7 @@ const faqSchema = {
       )}
     </section>
 
-    <article class="prose mt-10 max-w-none">
+    <article class="prose prose-sections mt-10 max-w-none">
       <Content />
     </article>
 

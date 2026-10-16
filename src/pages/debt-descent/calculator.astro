@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import DebtCalculator from '../../components/DebtCalculator.vue';
 import DebtDescentTools from '../../components/DebtDescentTools.astro';
 import EmailCapture from '../../components/EmailCapture.vue';
@@ -60,10 +61,7 @@ const faqSchema = {
 
 <Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702">
   <div class="mx-auto max-w-3xl">
-    <p class="text-sm font-medium">
-      <a href="/debt-descent/" class="no-underline text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a>
-      <span class="text-slate-400"> / Free Debt Snowball &amp; Avalanche Calculator</span>
-    </p>
+    <Breadcrumb parent={{ name: 'Debt Descent', href: '/debt-descent/' }} current="Free Debt Snowball & Avalanche Calculator" />
     <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
       Debt Snowball &amp; Avalanche Calculator
     </h1>

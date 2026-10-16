@@ -7,7 +7,7 @@ Need a hand? Email **[support@seanmandable.me](mailto:support@seanmandable.me)**
 
 [Debt Descent](/debt-descent/) is a native debt-payoff planner for iPhone, iPad, and Mac. Add your debts, compare the Snowball and Avalanche methods, and see exactly when you'll be debt-free. There's no account or sign-up, and nothing is ever sent to me.
 
-### Frequently asked questions
+## Frequently asked questions
 
 **Is my financial data private?**
 Yes. Your data lives on your device and in your own private iCloud, where I can't see it. There are no accounts, analytics, or servers of my own. See the [Privacy Policy](/debt-descent/privacy/).
@@ -64,7 +64,7 @@ Yes, and it's free. On the Plan tab, open the debt's menu (the ••• button 
 Starting with 1.18, Upcoming payments lists every due date in the stretch it covers. If a debt comes due again before the last payment in the list, that later date shows up too, so the payments are in the order they happen. The repeat rows are muted, show the regular amount, and have no log button, so log the payment from the debt's first row. The card shows the next six due dates, plus the rest of that paycheck's payments if you've set a payday, and a line like "2 more after Oct 28" covers the rest. When the card is folded, its count includes every one.
 
 **Can I see what each paycheck has to cover?**
-Yes. On the Plan tab, tap **Edit** on the Left over card to open Income & bills, and set your next **Payday**. Upcoming payments then lists each payment under the paycheck that covers it, with headers like "Payday · Fri, Oct 9 · $412 to pay". A "~" in front of a figure means it's an estimate.
+Yes. On the Plan tab, tap **Edit** on the Left over card to open Income & bills, and set your next **Payday**. Upcoming payments then lists each payment under the paycheck that covers it, with headers like "Payday · Fri, Oct 9 · $412 to pay". A “~” in front of a figure means it's an estimate.
 
 **Can I hide paydays with nothing due?**
 Yes. In Settings ▸ Plan, turn off **Paydays with nothing due** (it's on by default). Upcoming payments then lists only the paydays with something to pay, and leaves out headers like "Payday · Wed, Oct 7 · nothing due". The setting is per device.
@@ -183,7 +183,7 @@ Debt Descent saves one for you every week, and you can save one yourself any tim
 **How do I start over?**
 Use **Purge All Data** (••• menu) to erase everything and start blank. On an empty app the menu also offers **Load Sample Data**, a made-up demo set. It only appears while there are no debts, so it can't replace your data by accident.
 
-### Contact
+## Contact
 
 **[support@seanmandable.me](mailto:support@seanmandable.me)**
 

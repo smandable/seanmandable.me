@@ -7,7 +7,7 @@ Need a hand? Open an issue at [github.com/smandable/brown-sign](https://github.c
 
 Brown Sign tells you what those brown highway signs point to. Photograph the sign, import a photo, or just type the name, and a few seconds later you have the Wikipedia article, a map, a summary, and directions. There are no accounts and no tracking, and everything on your device stays there.
 
-### Frequently asked questions
+## Frequently asked questions
 
 **Is my data private?**
 Yes. Photos are processed on your device and never uploaded. Only a small thumbnail is saved locally for your history. Searches go to Wikipedia, Wikidata, and the National Park Service with no personal identifiers attached, and location (if you grant it) is used only to find, rank, and narrate nearby landmarks. There are no accounts, analytics, or ads. See the [Privacy Policy](/brown-sign/privacy/).

@@ -47,3 +47,25 @@
 main :is(p, li, dd) a:not(.no-underline) {
   text-decoration-line: underline;
 }
+
+/*
+ * Pages whose markdown sections sit directly under the page's h1 (About, the
+ * support pages, the Debt Descent privacy policy and terms) use ## so the
+ * outline doesn't skip from h1 to h3, but keep the smaller h3 look they had.
+ */
+.prose.prose-sections h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/*
+ * A link whose text is a bare URL ("nps.gov/aboutus/privacy.htm") is one long
+ * word, and inside a table cell it can't wrap, so on a phone it widened the
+ * whole page. Let links in table cells break anywhere.
+ */
+main td a {
+  overflow-wrap: anywhere;
+}

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import AppSchema from '../../components/AppSchema.astro';
 
 const appStoreUrl =
   'https://apps.apple.com/us/app/rekey-website-password-audit/id6783031023';
@@ -62,4 +63,5 @@ const appStoreUrl =
       <a href="/rekey/privacy/" class="transition-colors hover:text-accent-600">Privacy Policy</a>
     </nav>
   </div>
+  <AppSchema name="ReKey" />
 </Layout>

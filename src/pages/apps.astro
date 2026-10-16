@@ -70,7 +70,7 @@ const iconClass = 'h-3.5 w-3.5 flex-none';
             >
               <a href={app.href} class={`${linkClass} text-accent-600 hover:text-accent-700`}>
                 <svg aria-hidden="true" class={iconClass} viewBox={icons.page.viewBox} fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d={icons.page.d} /></svg>
-                App page
+                App page<span class="sr-only"> for {app.name}</span>
               </a>
               {app.links.map((link) => (
                 <a
@@ -78,9 +78,10 @@ const iconClass = 'h-3.5 w-3.5 flex-none';
                   target="_blank"
                   rel="noopener noreferrer"
                   class={`${linkClass} text-slate-500 hover:text-accent-600`}
+                  data-umami-event={link.event}
                 >
                   <svg aria-hidden="true" class={iconClass} viewBox={icons[link.kind].viewBox} fill="currentColor"><path d={icons[link.kind].d} /></svg>
-                  {link.label}<span class="sr-only"> (opens in new tab)</span>
+                  {link.label}<span class="sr-only"> ({app.name}, opens in new tab)</span>
                 </a>
               ))}
               <a
@@ -88,7 +89,7 @@ const iconClass = 'h-3.5 w-3.5 flex-none';
                 class={`${linkClass} text-slate-500 hover:text-accent-600`}
               >
                 <svg aria-hidden="true" class={iconClass} viewBox={icons.code.viewBox} fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d={icons.code.d} /></svg>
-                How it’s built
+                How it’s built<span class="sr-only">: {app.name}</span>
               </a>
             </nav>
           </div>

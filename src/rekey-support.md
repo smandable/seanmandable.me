@@ -7,7 +7,7 @@ Need a hand? Open an issue at [github.com/smandable/ReKey](https://github.com/sm
 
 ReKey is a local password health auditor for macOS. Export a CSV from each browser you've used, drop them in, and it finds the reused and breached passwords, generates strong replacements, and walks you to each site's change page. There's no account or sign-up, and nothing is uploaded.
 
-### Frequently asked questions
+## Frequently asked questions
 
 **Is my data private?**
 Yes. Imported passwords are held in memory only and are never written to disk, logged, or sent anywhere. The only network calls ReKey makes are the Have I Been Pwned breach check (which sends just the first five characters of a SHA-1 hash, the standard k-anonymity model) and an on-demand lookup of the change-password page for the one site you're fixing. See the [Privacy Policy](/rekey/privacy/).

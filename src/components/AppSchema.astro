@@ -1,0 +1,31 @@
+---
+/*
+ * SoftwareApplication structured data for an app's landing page, built from
+ * the shared app list so the facts match the Apps page.
+ */
+import { apps } from '../data/apps';
+
+interface Props {
+  name: string;
+}
+
+const app = apps.find((a) => a.name === Astro.props.name);
+if (!app) throw new Error(`AppSchema: no app named ${Astro.props.name} in src/data/apps.ts`);
+
+const install = app.links.find((link) => link.kind !== 'github');
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: app.name,
+  description: app.description,
+  url: new URL(app.href, Astro.site).href,
+  image: new URL(app.icon, Astro.site).href,
+  operatingSystem: app.operatingSystem,
+  applicationCategory: app.applicationCategory,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  ...(install && { downloadUrl: install.href }),
+  author: { '@type': 'Person', name: 'Sean Mandable', url: new URL('/', Astro.site).href },
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

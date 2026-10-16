@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import AppSchema from '../../components/AppSchema.astro';
 import { appStoreUrl, comparisons, tools } from '../../data/debt-descent';
 
 // The questions people ask before downloading, in their words, answered here
@@ -159,4 +160,5 @@ const faqSchema = {
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
   </div>
+  <AppSchema name="Debt Descent" />
 </Layout>

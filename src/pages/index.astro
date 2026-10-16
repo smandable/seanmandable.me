@@ -7,7 +7,7 @@ import { apps as shippedApps } from '../data/apps';
 // The shipped apps, plus Kelvin Caliper, which is on hold and has no page of its own.
 const apps = [
   ...shippedApps.map(({ name, href, icon }) => ({ name, href, icon })),
-  { name: 'Kelvin Caliper', href: '/projects/#kelvin-caliper', icon: '/app-icons/kelvin-caliper.png?v=2' },
+  { name: 'Kelvin Caliper', href: '/projects/#kelvin-caliper', icon: '/app-icons/kelvin-caliper.webp' },
 ];
 
 // Person and WebSite structured data: who the site is about, and the name
@@ -36,8 +36,10 @@ const schema = [
   <div class="flex grow flex-col">
   <section class="grid grid-cols-[auto_1fr] items-start gap-x-4 sm:gap-x-6 md:gap-x-10">
     <img
-      src="/profile.jpg?v=2"
+      src="/profile.webp"
       alt={profile.name}
+      width="400"
+      height="400"
       class="col-start-1 row-start-1 h-24 w-24 shrink-0 rounded-2xl object-cover shadow-md sm:h-32 sm:w-32 md:h-40 md:w-40 md:row-span-3 lg:h-48 lg:w-48"
     />
     <div class="col-start-2 row-start-1 min-w-0">

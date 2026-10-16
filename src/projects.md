@@ -3,7 +3,7 @@ title: Projects
 description: Shipped and in-progress personal projects across iOS, macOS, and the web.
 ---
 
-<h2 id="brown-sign" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/brown-sign.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Brown Sign (iOS, 2025)</h2>
+<h2 id="brown-sign" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/brown-sign.webp" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Brown Sign (iOS, 2025)</h2>
 
 You know those brown signs on the highway, the ones that point to state parks, historical sites, scenic overlooks, the occasional mansion or covered bridge? I kept seeing them, wondering what they were, and not doing anything about it. Googling "that brown sign I just passed near Middletown" is not a real workflow. So most of the time I just drove on.
 
@@ -34,7 +34,7 @@ Shipped to the App Store (currently v2.1.0), and still in active development bec
 
 ---
 
-<h2 id="debt-descent" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/debt-descent.png?v=2" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Debt Descent (iOS &amp; macOS, 2026)</h2>
+<h2 id="debt-descent" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/debt-descent.webp" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Debt Descent (iOS &amp; macOS, 2026)</h2>
 
 Every debt-payoff tool I tried made me pick a side before I understood the trade. The free web calculators want one balance and one rate and hand back a single number; the apps that do more want to log into your bank. I wanted to put my actual cards and loans in, run the Snowball and the Avalanche method side by side, and see the actual dates and the real interest each one costs, without any of it leaving my own machine.
 
@@ -64,7 +64,7 @@ Free calculators that run in your browser, nothing saved or sent: [Snowball & Av
 
 ---
 
-<h2 id="rekey" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/rekey.png?v=2" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ReKey (macOS, 2026)</h2>
+<h2 id="rekey" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/rekey.webp" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ReKey (macOS, 2026)</h2>
 
 Every browser has a "check your passwords" feature now, and so does Apple Passwords. The catch is that each one only looks at its own store. I've used Chrome, then Firefox, then Arc, and now Zen, so the passwords I'd reused for years were spread across four or five different exports, and no single checkup could see across them. The other option is to hand the whole list to a password manager's cloud and let it confirm what I already suspected. I wanted to find the reused and breached ones myself, on my own machine, without uploading anything.
 
@@ -103,7 +103,7 @@ ReKey is on the **Mac App Store** (currently v1.1.2), and is also available as a
 
 ---
 
-<h2 id="modern-par" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/modernpar.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ModernPAR (macOS, 2026)</h2>
+<h2 id="modern-par" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/modernpar.webp" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />ModernPAR (macOS, 2026)</h2>
 
 MacPAR deLuxe is the Mac app for PAR files. It has held that spot for a long time, mostly because nobody else bothered. PAR files add recovery data to a set of files, so when a piece goes missing or arrives corrupted you can rebuild it instead of starting over. I've used MacPAR deLuxe to verify and repair file sets for years. It's Intel-only, it hasn't shipped an update in a long while, and it stops working once Apple retires Rosetta 2.
 
@@ -135,7 +135,7 @@ v1.1.0 is available as a signed, notarized `.dmg` from GitHub Releases. Sandboxe
 
 ---
 
-<h2 id="saddle" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/saddle.png" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Saddle (macOS, 2025)</h2>
+<h2 id="saddle" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/saddle.webp" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Saddle (macOS, 2025)</h2>
 
 My external drives kept making noise. They spun up for no reason, chattered in the background, and asked for attention they didn't need. Most of the time they weren't doing anything at all (I'd go days without reading or writing anything to them), but there they were, audible, occasionally waking from sleep for reasons known only to macOS.
 
@@ -165,7 +165,7 @@ brew tap smandable/tap && brew install --cask saddle
 
 ---
 
-<h2 id="kelvin-caliper" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/kelvin-caliper.png?v=2" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Kelvin Caliper (macOS &amp; iOS, on hold)</h2>
+<h2 id="kelvin-caliper" style="display:flex;align-items:center;gap:14px"><img src="/app-icons/kelvin-caliper.webp" alt="" width="48" height="48" style="margin:0;width:48px;height:48px;flex:none" />Kelvin Caliper (macOS &amp; iOS, on hold)</h2>
 
 Hardware colorimeters cost $170–300 and most people never buy one. Modern iPhone cameras have better sensors than you'd expect and shoot RAW DNG, which exposes enough linear color information to do useful display calibration. Kelvin Caliper is a Mac + iOS app pair built on that observation: use the iPhone you already own as the measurement device, match the white point and gamma across your monitors, and apply the corrections directly.
 

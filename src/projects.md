@@ -141,7 +141,7 @@ My external drives kept making noise. They spun up for no reason, chattered in t
 
 The Finder's answer to this is that you can eject a drive, but you can't mount one. To remount you open Disk Utility, find the drive in the sidebar, and click Mount. Every time. For every drive. And if you have four external drives you want to manage as a group, which I do, it's four round-trips through two apps for something that should be a single click.
 
-Saddle is a macOS menu bar app that fixes this. One icon, real-time mount status for every external drive, click to mount or unmount. Group drives together and batch-mount or batch-unmount the whole group. Configure launch actions so drives auto-mount or auto-unmount when the app starts, and again when the Mac wakes from sleep. Drives you unmounted stay unmounted: when macOS remounts one on its own after a USB hiccup, Saddle puts it back. Exclude drives you don't want managed. Give drives friendly aliases because "Untitled 3" is not a name.
+Saddle is a macOS menu bar app that fixes this. One icon, real-time mount status for every external drive, click to mount or unmount. Group drives together and batch-mount or batch-unmount the whole group. Configure launch actions so drives auto-mount or auto-unmount when the app starts, and again when the Mac wakes from sleep. Drives you unmounted stay unmounted: when macOS remounts one on its own after a USB disconnect, Saddle puts it back. Exclude drives you don't want managed. Give drives friendly aliases because "Untitled 3" is not a name.
 
 ### What's underneath
 

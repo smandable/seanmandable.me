@@ -8,13 +8,13 @@ kind: essay
 
 As I stepped off the van into the snow, I looked around at the surrounding mountains shining with the sunlight punching through the clouds. My breath was coming out in wisps, and the wind seemed to knife right through the layers of clothing I had so carefully thought out. My red long underwear shirt, my gray wool sweater, and my heavy blue outer shell seemed to be no match for the January cold.
 
-All around me, the other students were unloading their gear.  The crunching of boots, the squeaking of web gear and the swish of skis through the snow did little to disturb the tranquility of our surroundings. Every now and then, a shout of frustration echoed through the hills as someone dropped their pack, or their ski boot refused to strap properly into their telemark skis.
+All around me, the other students were unloading their gear. The crunching of boots, the squeaking of web gear and the swish of skis through the snow did little to disturb the tranquility of our surroundings. Every now and then, a shout of frustration echoed through the hills as someone dropped their pack, or their ski boot refused to strap properly into their telemark skis.
 
 These skis were new to all of us. They had metal edges like downhill skis, but the boot was a lot like a cross-country ski. Attached only at the toe, it was more like a hiking boot than a ski boot, allowing a lot more freedom of movement. But it also took more getting used to because one could bend all the way forward, making it easier to fall. The whole setup was further complicated by the fact that we were carrying seventy pound packs on our backs; and were expected to ski uphill using the ridges on the bottoms of the skis.
 
 Eventually, everyone had all of their gear sorted out, and the driver of the van waved as he pulled away from us and down the abandoned logging road.
 
-These roads could be found all through the mountains of northern Idaho and southern British Columbia, a relic of the early-twentieth century timber industry. Covered with eight feet of snow, they made for excellent ski trails.  Our leader, Alan, was eager to get started.
+These roads could be found all through the mountains of northern Idaho and southern British Columbia, a relic of the early-twentieth century timber industry. Covered with eight feet of snow, they made for excellent ski trails. Our leader, Alan, was eager to get started.
 
 “Come on everybody!” he shouted, his cheeks already tinged red from the cold, “Only a couple of miles!”
 
@@ -76,15 +76,15 @@ I looked around, and saw Alan and Dan setting up their stuff. Walking over to th
 
 “Alan, we need water. Any ideas?”
 
-“Sure, all we need to do is dig!” He said with a smile. “There’s a stream right over here, unless you want to melt snow. The only thing is, melted snow tastes horrible because there’s no oxygen in it. Plus it wastes fuel.”
+“Sure, all we need to do is dig!” he said with a smile. “There’s a stream right over here, unless you want to melt snow. The only thing is, melted snow tastes horrible because there’s no oxygen in it. Plus it wastes fuel.”
 
 “Ok…” I said.
 
-Alan called out to everyone and told them to stop what they were doing and come over to the spot he had pointed out to me. We all had small, bright-orange plastic shovels, and Alan directed us in digging out a stair case approximately eight feet down below the surface of the snow until we struck water. From the top, I could see down to the bottom, and was surprised to see the stream bubbling along underneath all the snow above. We took turns bringing our water bottles down and filling them. I made sure to fill both of mine up this time.
+Alan called out to everyone and told them to stop what they were doing and come over to the spot he had pointed out to me. We all had small, bright-orange plastic shovels, and Alan directed us in digging out a staircase approximately eight feet down below the surface of the snow until we struck water. From the top, I could see down to the bottom, and was surprised to see the stream bubbling along underneath all the snow above. We took turns bringing our water bottles down and filling them. I made sure to fill both of mine up this time.
 
-Back at our spot, Duncan, and I helped Dave with the tent, and then we set about getting the water boiling. We were all pretty cold by this time, and hot chocolate was all we could think about.
+Back at our spot, Duncan and I helped Dave with the tent, and then we set about getting the water boiling. We were all pretty cold by this time, and hot chocolate was all we could think about.
 
-The stove, however, had other ideas. Try as he might, Duncan could not get the damn thing to light. These were Colman stoves, and they were supposed to be relatively reliable, if a bit heavy; and once they were primed, which was achieved by pumping this little knob sticking out of the side up and down with your thumb over the hole at the end and then screwing down, easy to light by just opening the valve to “light” and then holding a lighter to the burner. But the thing just kept sputtering out. Finally, Duncan squeezed a thin layer of fire paste around the burner, and tried again. It sputtered a few more times, but finally a thin blue ring of flame made its way around the rim. We all breathed a collective sigh of relief, and put a pot of water on to boil.
+The stove, however, had other ideas. Try as he might, Duncan could not get the damn thing to light. These were Coleman stoves, and they were supposed to be relatively reliable, if a bit heavy; and once they were primed, which was achieved by pumping this little knob sticking out of the side up and down with your thumb over the hole at the end and then screwing down, easy to light by just opening the valve to “light” and then holding a lighter to the burner. But the thing just kept sputtering out. Finally, Duncan squeezed a thin layer of fire paste around the burner, and tried again. It sputtered a few more times, but finally a thin blue ring of flame made its way around the rim. We all breathed a collective sigh of relief, and put a pot of water on to boil.
 
 While we were waiting, we unpacked the rest of our stuff. We traded our ski boots for the felt-lined pack boots that we all carried, and then laid out our sleeping pads in the tent. As we unrolled our bags over the pads, the water began to boil. We sat huddled around the stove and drank our hot chocolate, then boiled another pot of water for the soup as we ate our Power Bars.
 
@@ -150,7 +150,7 @@ We had smaller day packs tucked away in our larger backpacks, so we filled those
 
 Although the weather was apparently cloudy at this altitude most of the time, today it was crystal clear, and we could see for fifty miles in all directions.
 
-“Three states and two countries,” as Alan put it, which were Idaho, Montana, Washington, The U.S, and Canada.
+“Three states and two countries,” as Alan put it, which were Idaho, Montana, Washington, the U.S., and Canada.
 
 The trees on the summit were only about 5 feet tall above the snow, as most of their height was covered, and the parts that we could see had snow blown in one direction so that they looked like they had been in a wind tunnel or something.
 
@@ -158,7 +158,7 @@ Sheila, one of the girls in our group, had a camera. She struggled to get the sn
 
 “Oh my god it’s freezing!” she said. “I hope this thing still works after I fell on it yesterday.”
 
- After taking a bunch of pictures of the views and of each other, Sheila being kind enough to take a picture of Duncan, Dave, and I together framed against the incredible view, we had a quick lunch. It was only rice cakes with peanut butter, a power bar and some more GORP, but it tasted great after the long climb up. Then came the best part; we got to ski back down. It was almost 8,000 feet of uninterrupted downhill skiing.
+ After taking a bunch of pictures of the views and of each other, Sheila being kind enough to take a picture of Duncan, Dave, and me together framed against the incredible view, we had a quick lunch. It was only rice cakes with peanut butter, a power bar and some more GORP, but it tasted great after the long climb up. Then came the best part; we got to ski back down. It was almost 8,000 feet of uninterrupted downhill skiing.
 
 By the time we got back it was almost six, so it was definitely a good thing that we were all set up for the night. We made dinner and hot drinks, and got ready for bed. I decided to try a suggestion I had heard from someone in the group, which was to heat a quart of water and then fill a water bottle with it to put in my bag for the night.
 
@@ -194,7 +194,7 @@ Moving closer, I could see Alan and Dan bending over her.
 
 “I know, I’m not sure what we’re supposed to do,” I said.
 
-Alan and Dan took Sheila’s skis off and then placed her poles alongside her leg. Then, they took her sleeping pad and wrapped it around them to make a sort of splint. Alan took his pad and folded it over her skis, which he laid side-by-side to form a sort of makeshift sled for her to sit on. Then he put her pack down in front of the pad. It was really quite far from ideal, but it served its purpose. I took Alan’s pack and put it on my chest over my own. Duncan took Alan’s skis, and Alan put on the snowshoes that he had been carrying, so that he could walk and push Sheila along. It had stopped snowing, at least, which made things a bit easier, as we were no longer in the white-out that we had been before.
+Alan and Dan took Sheila’s skis off and then placed her poles alongside her leg. Then, they took her sleeping pad and wrapped it around them to make a sort of splint. Alan took his pad and folded it over her skis, which he laid side-by-side to form a sort of makeshift sled for her to sit on. Then he put her pack down in front of the pad. It was really quite far from ideal, but it served its purpose. I took Alan’s pack and put it on my chest over my own. Duncan took Alan’s skis, and Alan put on the snowshoes that he had been carrying, so that he could walk and push Sheila along. It had stopped snowing, at least, which made things a bit easier, as we were no longer in the white-out that we had been in before.
 
 It was really slow going, and starting to get dark, so Duncan, Dave, and I went on ahead with some others in order to set up some things at the campsite we were to stay at. This way, when Alan, Dan, and Sheila got back along with the others who stayed behind, they would have hot chocolate and food ready for them. Struggling under the weight of two packs, I continued on.
 

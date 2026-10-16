@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import AppSchema from '../../components/AppSchema.astro';
+import AppStoreRating from '../../components/AppStoreRating.astro';
+import AppScreenshots from '../../components/AppScreenshots.astro';
 import { appStoreUrl, comparisons, tools } from '../../data/debt-descent';
 
 // The questions people ask before downloading, in their words, answered here
@@ -30,7 +32,7 @@ const faqs = [
   },
   {
     q: 'Can it track a debt management plan?',
-    a: 'Yes, and payment groups don’t need Pro. A payment group is one monthly draft that covers several debts, with a Plan fee field for what the plan keeps. Log the payment once and the app splits it across the debts, so the Payments tab matches your bank statement while the fee stays out of your payoff math.',
+    a: 'Yes, and payment groups don’t need Pro. A payment group is one monthly payment that covers several debts, with a Plan fee field for what the plan keeps. Log the payment once and the app splits it across the debts, so the Payments tab matches your bank statement while the fee stays out of your payoff math.',
   },
   {
     q: 'What if I can’t make a payment one month?',
@@ -50,7 +52,7 @@ const faqs = [
   },
   {
     q: 'Does it work with Siri, widgets, and Spotlight?',
-    a: 'Yes, since version 1.16. Ask Siri “When am I debt-free in Debt Descent” or “Log a payment in Debt Descent,” and the same actions are in Shortcuts. There are widgets for the home screen, the lock screen, and the Mac desktop (they can count down in days instead of months), the medium one logs your next payment in one tap, and your debts show up in Spotlight with their balances.',
+    a: 'Yes, since version 1.16. Ask Siri “When am I debt-free in Debt Descent” or “Log a payment in Debt Descent,” and the same actions are in Shortcuts. There are widgets for the Home Screen, the Lock Screen, and the Mac desktop (they can count down in days instead of months), the medium one logs your next payment in one tap, and your debts show up in Spotlight with their balances.',
   },
   {
     q: 'Is there an Android or web version?',
@@ -70,7 +72,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Debt Descent"
+  ogImage="/og/debt-descent.png"
+  title="Debt Descent, a Private Debt-Payoff Planner"
   description="Debt Descent is a private debt-payoff planner for iPhone, iPad, and Mac. Pro is a one-time purchase with no subscription. Compare Snowball, Avalanche, and more."
   appleAppId="6785269702"
 >
@@ -86,7 +89,7 @@ const faqSchema = {
     <p class="mt-4 text-lg leading-relaxed text-slate-600">
       A native debt-payoff planner for iPhone, iPad, and Mac. Add your debts, compare
       Snowball and Avalanche side by side, and see exactly when you’ll be debt-free.
-      Nothing ever leaves your own devices. It’s free, and Pro is a one-time $14.99
+      Your data stays on your devices and in your own iCloud. It’s free, and Pro is a one-time $14.99
       purchase with no subscription. There’s no account and no bank linking.
     </p>
     <a
@@ -105,6 +108,16 @@ const faqSchema = {
       />
       <span class="sr-only"> (opens in new tab)</span>
     </a>
+    <AppStoreRating appId="6785269702" />
+    <p class="mt-2 text-sm text-slate-500">For iPhone and iPad with iOS 26 or later, and Mac with macOS 26 or later.</p>
+    <AppScreenshots
+      kind="phone"
+      shots={[
+      { src: '/screenshots/debt-descent-1-plan.webp', width: 600, height: 1298, alt: 'The Plan tab: debt-free by April 2029 with the Avalanche method, and the date each debt is paid off.' },
+      { src: '/screenshots/debt-descent-2-compare.webp', width: 600, height: 1298, alt: 'Avalanche and Snowball compared on the same debts, with $273 saved in interest.' },
+      { src: '/screenshots/debt-descent-4-progress.webp', width: 600, height: 1298, alt: 'The Progress tab, with the actual balance running ahead of the projected plan.' },
+      ]}
+    />
     <nav class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500" aria-label="Debt Descent links">
       <a href="/projects/#debt-descent" class="transition-colors hover:text-accent-600">More about the app</a>
       <a href="/debt-descent/support/" class="transition-colors hover:text-accent-600">Support</a>
@@ -125,6 +138,23 @@ const faqSchema = {
       <p class="mt-6 leading-relaxed text-slate-600">
         Questions that come up after you install it are on the <a href="/debt-descent/support/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">support page</a>.
       </p>
+      <a
+        href={appStoreUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-block transition-opacity hover:opacity-80"
+        data-umami-event="debt-descent-app-store"
+      >
+        <img
+          src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us"
+          alt="Download Debt Descent on the App Store"
+          width="150"
+          height="50"
+          class="h-[50px] w-auto"
+          loading="lazy"
+        />
+        <span class="sr-only"> (opens in new tab)</span>
+      </a>
     </section>
 
     <section class="mt-16 w-full text-left" aria-labelledby="free-tools">

@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AppSchema from '../components/AppSchema.astro';
+import AppScreenshots from '../components/AppScreenshots.astro';
 ---
 
 <Layout
-  title="Saddle"
+  ogImage="/og/saddle.png"
+  title="Saddle, a Menu Bar App for External Drives"
   description="Saddle is a macOS menu bar app for external drives: one-click mount and unmount, drive groups, and launch and wake rules. Drives you unmounted stay unmounted."
 >
   <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
@@ -40,6 +42,13 @@ import AppSchema from '../components/AppSchema.astro';
     <code class="mt-2 rounded-md bg-slate-100 px-3 py-1.5 text-sm text-slate-700"
       >brew tap smandable/tap &amp;&amp; brew install --cask saddle</code
     >
+    <AppScreenshots
+      kind="window"
+      shots={[
+      { src: '/screenshots/saddle-menu.webp', width: 390, height: 500, alt: 'The Saddle menu in the menu bar, listing six external drives, Mount All, Unmount All, and a drive group.', caption: 'One click in the menu mounts or unmounts a drive, or a whole group.' },
+      { src: '/screenshots/saddle-drives.webp', width: 792, height: 970, alt: 'Saddle’s Drives settings, with an alias field and an Excluded checkbox for each drive.', caption: 'In Settings, give each drive an alias, or exclude it so Saddle leaves it alone.' },
+      ]}
+    />
     <nav
       class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500"
       aria-label="Saddle links"

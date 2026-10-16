@@ -1,5 +1,6 @@
 ---
 title: "Preparation"
+description: "In March 2011 I set out to hike the Appalachian Trail and blog the whole trip from an iPhone. This chapter covers why I went and how I got ready."
 series: "no-hurry"
 chapter: 1
 seriesTitle: "No Hurry"

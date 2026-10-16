@@ -5,7 +5,7 @@ description: Help and answers for ReKey, the local password health auditor for m
 
 Need a hand? Open an issue at [github.com/smandable/ReKey](https://github.com/smandable/ReKey/issues) or email **[support@seanmandable.me](mailto:support@seanmandable.me)** and I'll get back to you.
 
-ReKey is a local password health auditor for macOS. Export a CSV from each browser you've used, drop them in, and it finds the reused and breached passwords, generates strong replacements, and walks you to each site's change page. There's no account or sign-up, and nothing is uploaded.
+Export a CSV from each browser you've used, drop them in, and ReKey finds the reused and breached passwords, generates strong replacements, and walks you to each site's change page. There's no account or sign-up, and nothing is uploaded.
 
 ## Frequently asked questions
 
@@ -13,7 +13,7 @@ ReKey is a local password health auditor for macOS. Export a CSV from each brows
 Yes. Imported passwords are held in memory only and are never written to disk, logged, or sent anywhere. The only network calls ReKey makes are the Have I Been Pwned breach check (which sends just the first five characters of a SHA-1 hash, the standard k-anonymity model) and an on-demand lookup of the change-password page for the one site you're fixing. See the [Privacy Policy](/rekey/privacy/).
 
 **What's the difference between the App Store version and the GitHub build?**
-The App Store version is the auditor, with the fix queue behind a one-time purchase that unlocks fixing and the destructive cleanup tooling left out, since a sandboxed app can't write to other apps' data. The GitHub build is the whole app, fix queue included, plus the separate `rekey-cleanup` command-line tool, as a signed, notarized `.dmg` from [GitHub Releases](https://github.com/smandable/ReKey/releases/latest). Both are universal binaries for macOS 15 or later.
+The App Store version is the auditor, and fixing passwords from the fix queue is a one-time purchase. It leaves out the destructive cleanup tooling, since a sandboxed app can't write to other apps' data. The GitHub build is the whole app, fix queue included, plus the separate `rekey-cleanup` command-line tool, as a signed, notarized `.dmg` from [GitHub Releases](https://github.com/smandable/ReKey/releases/latest). Both are universal binaries for macOS 15 or later.
 
 **Does ReKey change my passwords for me?**
 No. You approve every change, and ReKey never changes a password itself. It generates the new password, puts it on the clipboard marked concealed (it clears itself about ninety seconds later), and opens the site's change page; you make the change, and your browser's own save prompt stores it. ReKey never writes to any browser store or Apple Passwords.

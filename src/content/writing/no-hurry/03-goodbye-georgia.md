@@ -1,5 +1,6 @@
 ---
 title: "Goodbye, Georgia"
+description: "My second week on the trail, from the Freeman Trail around Blood Mountain to Hiawassee, Georgia, and on to Franklin, North Carolina."
 series: "no-hurry"
 chapter: 3
 seriesTitle: "No Hurry"

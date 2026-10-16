@@ -1,0 +1,54 @@
+---
+/*
+ * Screenshots on an app's landing page. Phone apps get a row of three
+ * (swipeable on a phone); Mac apps get windows side by side with a caption
+ * under each, the way the ModernPAR page shows its windows.
+ */
+interface Shot {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+}
+
+interface Props {
+  shots: Shot[];
+  kind: 'phone' | 'window';
+}
+
+const { shots, kind } = Astro.props;
+---
+
+{kind === 'phone' ? (
+  <div class="-mx-6 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
+    {shots.map((shot) => (
+      <img
+        src={shot.src}
+        alt={shot.alt}
+        width={shot.width}
+        height={shot.height}
+        loading="lazy"
+        decoding="async"
+        class="h-auto w-[62%] flex-none snap-center rounded-[1.5rem] shadow-md ring-1 ring-slate-900/10 sm:w-full"
+      />
+    ))}
+  </div>
+) : (
+  <div class="mt-12 grid w-full gap-8 sm:grid-cols-2 sm:gap-6">
+    {shots.map((shot) => (
+      <figure>
+        <img
+          src={shot.src}
+          alt={shot.alt}
+          width={shot.width}
+          height={shot.height}
+          loading="lazy"
+          decoding="async"
+          class="h-auto w-full rounded-lg [filter:drop-shadow(0_0_0.5px_rgb(15_23_42/0.35))_drop-shadow(0_12px_24px_rgb(15_23_42/0.12))]"
+        />
+        {shot.caption && <figcaption class="mt-3 text-sm text-slate-500">{shot.caption}</figcaption>}
+      </figure>
+    ))}
+  </div>
+)}

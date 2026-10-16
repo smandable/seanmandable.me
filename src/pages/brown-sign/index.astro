@@ -1,18 +1,21 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import AppSchema from '../../components/AppSchema.astro';
+import AppStoreRating from '../../components/AppStoreRating.astro';
+import AppScreenshots from '../../components/AppScreenshots.astro';
 
 const appStoreUrl = 'https://apps.apple.com/us/app/brown-sign/id6762070205';
 ---
 
 <Layout
-  title="Brown Sign"
+  ogImage="/og/brown-sign.png"
+  title="Brown Sign, an App for Brown Highway Signs"
   description="Brown Sign tells you what those brown highway signs point to. Photograph one to get the Wikipedia article, a map, and directions. The photo is never uploaded."
   appleAppId="6762070205"
 >
   <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
     <img
-      src="/app-icons/brown-sign.webp"
+      src="/app-icons/brown-sign.webp?v=2"
       alt=""
       width="128"
       height="128"
@@ -43,6 +46,16 @@ const appStoreUrl = 'https://apps.apple.com/us/app/brown-sign/id6762070205';
       />
       <span class="sr-only"> (opens in new tab)</span>
     </a>
+    <AppStoreRating appId="6762070205" />
+    <p class="mt-2 text-sm text-slate-500">Free, for iPhone with iOS 26 or later.</p>
+    <AppScreenshots
+      kind="phone"
+      shots={[
+      { src: '/screenshots/brown-sign-scan.webp', width: 600, height: 1299, alt: 'The Scan tab, with the camera ready to photograph a brown landmark sign.' },
+      { src: '/screenshots/brown-sign-nearby-map.webp', width: 600, height: 1299, alt: 'The Nearby map, with clusters of landmarks around Hartford, Connecticut.' },
+      { src: '/screenshots/brown-sign-detail.webp', width: 600, height: 1299, alt: 'The landmark page for the Connecticut State Capitol, with its Wikipedia summary, coordinates, directions, and Look Around.' },
+      ]}
+    />
     <nav class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500" aria-label="Brown Sign links">
       <a href="/projects/#brown-sign" class="transition-colors hover:text-accent-600">More about the app</a>
       <a

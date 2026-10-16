@@ -1,5 +1,6 @@
 ---
 title: "The First Seven Days"
+description: "My first week on the Appalachian Trail, starting at Amicalola Falls in Georgia after a week in Atlanta with Pax and her family."
 series: "no-hurry"
 chapter: 2
 seriesTitle: "No Hurry"

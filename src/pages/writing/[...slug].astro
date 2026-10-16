@@ -41,7 +41,7 @@ const isChapter = post.data.kind === 'memoir-chapter';
 const seriesHref = post.data.series ? `/writing/${post.data.series}/` : '/writing/';
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout title={isChapter && post.data.seriesTitle ? `${post.data.title} | ${post.data.seriesTitle}` : post.data.title} description={post.data.description}>
   <article class="mx-auto max-w-[65ch]">
     <header>
       {isChapter ? (

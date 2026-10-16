@@ -40,11 +40,11 @@ const faqs = [
   },
   {
     q: 'How is deferred interest calculated?',
-    a: 'Most issuers base it on the average daily balance of the promo purchase, at the card’s standard purchase APR, from the purchase date to the deadline. Some issuers bill it on the original purchase amount instead. This calculator accrues it month by month on the balance, which lands close to the average-daily-balance figure. Your card agreement has the exact method.',
+    a: 'Most issuers base it on the average daily balance of the promo purchase, at the card’s standard purchase APR, from the purchase date to the deadline. Some issuers bill it on the original purchase amount instead. This calculator accrues it month by month on the balance, which comes out close to the average-daily-balance figure. Your card agreement has the exact method.',
   },
   {
     q: 'What happens if I still owe a small amount at the deadline?',
-    a: 'The whole accrued amount is billed, not the interest on the leftover. Owing $20.00 at the deadline of a $2,400.00 promo triggers the same deferred interest as owing $2,000.00. The lump is added to your balance and accrues interest at the standard rate from then on.',
+    a: 'The whole accrued amount is billed, not the interest on the leftover. Owing $20.00 at the deadline of a $2,400.00 promo bills the whole deferred-interest charge, just as owing $2,000.00 would. The lump is added to your balance and accrues interest at the standard rate from then on.',
   },
   {
     q: 'Will the minimum payment clear the promo in time?',
@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     q: 'I have a promo balance and a regular balance on the same card. Where does my payment go?',
-    a: 'Above the minimum, the CARD Act sends a payment to the highest-APR balance first, which in practice leaves a deferred-interest balance last in line. The exception is the two billing cycles before the promo ends, when the excess must go to the promo balance (12 CFR 1026.53(b)(1)). Issuers may also apply the excess the way you ask, so ask, and check the statement to see how it was applied.',
+    a: 'Anything above the minimum goes to the balance with the highest APR, and that usually isn’t the deferred-interest one. In the last two billing cycles before the promo ends, the extra has to go to the promo balance instead (12 CFR 1026.53(b)(1)). You can also ask the issuer to put the extra on the promo balance, then check the next statement to see where it went.',
   },
   {
     q: 'Is anything I type stored or sent anywhere?',
@@ -143,8 +143,8 @@ const faqSchema = {
 
       <h2 class="mt-12 text-2xl font-bold tracking-tight">Which cards do this</h2>
       <p class="mt-4 leading-relaxed text-slate-600">
-        Most store cards. Home Depot, Lowe’s, Best Buy, the Amazon store card, and CareCredit are all
-        deferred-interest plans issued by Synchrony. The tell is the phrase “no interest if paid in
+        Most store cards. Home Depot, Lowe’s, Best Buy, the Amazon store card, and CareCredit all
+        offer deferred-interest plans. The tell is the phrase “no interest if paid in
         full within 12 months” (or 6, 18, or 24). A card that says “0% intro APR” is the other kind.
       </p>
 

@@ -1,5 +1,6 @@
 ---
 title: "Epilogue"
+description: "Driving home to Connecticut along the Blue Ridge Parkway with Pax, and getting used to life off the trail again."
 series: "no-hurry"
 chapter: 8
 seriesTitle: "No Hurry"

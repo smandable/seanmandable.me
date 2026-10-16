@@ -1,5 +1,6 @@
 ---
 title: "Trail Days"
+description: "Out of the Smokies to Max Patch and Hot Springs, then a drive to Damascus, Virginia, to meet Pax for Trail Days, the town’s yearly hiking festival."
 series: "no-hurry"
 chapter: 5
 seriesTitle: "No Hurry"

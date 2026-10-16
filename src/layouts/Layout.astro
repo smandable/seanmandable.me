@@ -13,13 +13,16 @@ type Props = {
   appleAppId?: string;
   /** Make <main> a flex column so page content can distribute spare viewport height (mt-auto). */
   fillMain?: boolean;
+  /** Site path of a page-specific social card (1200×630), e.g. an app's own card. */
+  ogImage?: string;
 };
 
 // A page without its own description (Home, Contact) gets the homepage's
 // hand-written line, in search results and on social cards alike.
 const defaultDescription =
   'Full-stack web (Vue, Angular, TypeScript, Node) + Swift/SwiftUI. I notice when things are off and can’t quite leave them there.';
-const { title, description = defaultDescription, appleAppId, fillMain = false } = Astro.props;
+const { title, description = defaultDescription, appleAppId, fillMain = false, ogImage = '/og-image.png?v=2' } = Astro.props;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
 // The homepage (no title) gets a hand-written title, in search results and on social cards alike.
 const homeTitle = `${profile.name}, Senior Software Engineer & iOS/Mac Developer`;
 const fullTitle = Astro.props.fullTitle ?? (title ? `${title} | ${profile.name}` : homeTitle);
@@ -51,13 +54,13 @@ const ICON_VERSION = '2';
     <link rel="canonical" href={canonicalURL} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={ogDescription} />
-    <meta property="og:image" content="https://www.seanmandable.me/og-image.png?v=2" />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content="https://www.seanmandable.me/og-image.png?v=2" />
+    <meta name="twitter:image" content={ogImageUrl} />
     {appleAppId && <meta name="apple-itunes-app" content={`app-id=${appleAppId}`} />}
     <title>{fullTitle}</title>
     {import.meta.env.PROD && (

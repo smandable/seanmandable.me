@@ -396,7 +396,7 @@ const tableRows = computed(() => {
         <button
           v-if="rows.length > 1"
           type="button"
-          class="absolute right-2 top-2 rounded-md p-1.5 text-slate-400 transition-colors hover:bg-slate-50 hover:text-slate-600"
+          class="absolute right-2 top-2 rounded-md p-1.5 text-slate-500 transition-colors hover:bg-slate-50 hover:text-slate-600"
           :aria-label="`Remove ${row.name.trim() || `debt ${i + 1}`}`"
           @click="removeRow(row.id)"
         >
@@ -406,7 +406,7 @@ const tableRows = computed(() => {
         <div class="grid grid-cols-2 gap-3 sm:grid-cols-[2fr_1.2fr_1fr_1.4fr] sm:pr-6">
           <div class="col-span-2 sm:col-span-1">
             <label :for="`debt-${row.id}-name`" class="mb-1 block text-xs font-medium text-slate-600">
-              Name <span class="font-normal text-slate-400">(optional)</span>
+              Name <span class="font-normal text-slate-500">(optional)</span>
             </label>
             <input
               :id="`debt-${row.id}-name`"
@@ -512,7 +512,7 @@ const tableRows = computed(() => {
           <span class="min-w-0 flex-1 truncate font-medium text-slate-900">{{ debt.name }}</span>
           <span v-if="debt.paidOffMonth !== null" class="shrink-0 text-slate-500">
             {{ monthShort.format(monthDate(debt.paidOffMonth)) }}
-            <span class="text-slate-400">· month {{ debt.paidOffMonth }}</span>
+            <span class="text-slate-500">· month {{ debt.paidOffMonth }}</span>
           </span>
           <span v-else class="shrink-0 font-medium text-amber-700">never clears at this payment</span>
         </li>

@@ -1,0 +1,22 @@
+---
+/*
+ * "★★★★★ 5.0 from 11 ratings on the App Store" under a landing page's App
+ * Store badge, with today's numbers from the build. Renders nothing if the
+ * lookup fails.
+ */
+import { appStoreRating } from '../lib/app-store-rating';
+
+interface Props {
+  appId: string;
+}
+
+const rating = await appStoreRating(Astro.props.appId);
+const stars = rating ? Math.round(rating.average) : 0;
+---
+
+{rating && (
+  <p class="mt-3 text-sm text-slate-600">
+    <span class="tracking-wider text-amber-500" aria-hidden="true">{'★'.repeat(stars)}{'☆'.repeat(5 - stars)}</span>
+    {' '}{rating.average.toFixed(1)} from {rating.count} {rating.count === 1 ? 'rating' : 'ratings'} on the App Store
+  </p>
+)}

@@ -55,7 +55,7 @@ export const apps: App[] = [
     name: 'Brown Sign',
     href: '/brown-sign/',
     projectsAnchor: 'brown-sign',
-    icon: '/app-icons/brown-sign.webp',
+    icon: '/app-icons/brown-sign.webp?v=2',
     platforms: 'iPhone and CarPlay',
     operatingSystem: 'iOS 26',
     applicationCategory: 'TravelApplication',
@@ -90,7 +90,7 @@ export const apps: App[] = [
     operatingSystem: 'macOS 13.5',
     applicationCategory: 'UtilitiesApplication',
     description:
-      'A menu bar app that shows the mount status of every external drive and mounts or unmounts one with a click. Group drives together and batch-mount or batch-unmount the whole group. Drives you unmounted stay unmounted: when macOS remounts one on its own after a USB disconnect, Saddle puts it back.',
+      'A menu bar app that shows the mount status of every external drive and mounts or unmounts one with a click. Group drives together and batch-mount or batch-unmount the whole group. Drives you unmounted stay unmounted: when macOS remounts one on its own after a USB disconnect, Saddle unmounts it again.',
     links: [
       { kind: 'download', label: 'Download', href: 'https://github.com/smandable/Saddle/releases/latest', event: 'saddle-github-download' },
       { kind: 'github', label: 'GitHub', href: 'https://github.com/smandable/Saddle' },

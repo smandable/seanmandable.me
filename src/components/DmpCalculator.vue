@@ -322,7 +322,7 @@ const exportPdf = computed<PdfSpec>(() => {
         <button
           v-if="rows.length > 1"
           type="button"
-          class="absolute right-2 top-2 rounded-md p-1.5 text-slate-400 transition-colors hover:bg-slate-50 hover:text-slate-600"
+          class="absolute right-2 top-2 rounded-md p-1.5 text-slate-500 transition-colors hover:bg-slate-50 hover:text-slate-600"
           :aria-label="`Remove ${r.name.trim() || `debt ${i + 1}`}`"
           @click="removeRow(r.id)"
         >
@@ -330,7 +330,7 @@ const exportPdf = computed<PdfSpec>(() => {
         </button>
         <div class="grid grid-cols-2 gap-3 sm:grid-cols-[2fr_1.2fr_1fr_1.4fr] sm:pr-6">
           <div class="col-span-2 sm:col-span-1">
-            <label :for="`dmp-debt-${r.id}-name`" class="mb-1 block text-xs font-medium text-slate-600">Name <span class="font-normal text-slate-400">(optional)</span></label>
+            <label :for="`dmp-debt-${r.id}-name`" class="mb-1 block text-xs font-medium text-slate-600">Name <span class="font-normal text-slate-500">(optional)</span></label>
             <input :id="`dmp-debt-${r.id}-name`" v-model="r.name" type="text" :placeholder="`Debt ${i + 1}`" :class="inputClass" />
           </div>
           <div>
@@ -377,7 +377,7 @@ const exportPdf = computed<PdfSpec>(() => {
         <div>
           <label for="dmp-fee" class="mb-1 block text-xs font-medium text-slate-600">Monthly plan fee</label>
           <input id="dmp-fee" v-model="monthlyFee" type="text" inputmode="decimal" placeholder="$" :class="inputClass" />
-          <p class="mt-1 text-xs text-slate-500">Typically $25 to $50, capped by state law, often waived for hardship.</p>
+          <p class="mt-1 text-xs text-slate-500">Typically $25.00 to $50.00, capped by state law, often waived for hardship.</p>
         </div>
         <div class="col-span-2 sm:col-span-1">
           <label for="dmp-setup" class="mb-1 block text-xs font-medium text-slate-600">One-time setup fee</label>
@@ -456,7 +456,7 @@ const exportPdf = computed<PdfSpec>(() => {
 
       <p v-if="result.diyAtMinimums" class="mt-4 flex items-start gap-1.5 text-sm text-slate-600">
         <svg class="mt-0.5 h-4 w-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        <span>The plan’s {{ usd(result.draft) }} is less than your minimums add up to ({{ usd(result.totalMinimums) }}). On your own you can’t pay less than the minimums, so the do-it-yourself column runs at {{ usd(result.totalMinimums) }} a month.</span>
+        <span>The plan’s {{ usd(result.draft) }} is less than your minimums add up to ({{ usd(result.totalMinimums) }}). On your own you can’t pay less than the minimums, so the on-your-own figures use {{ usd(result.totalMinimums) }} a month.</span>
       </p>
 
       <!-- Table -->

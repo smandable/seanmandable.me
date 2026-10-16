@@ -1,6 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Content, frontmatter } from '../projects.md';
+import { apps } from '../data/apps';
+
+// Jump links to each section, in the same order as the sections themselves.
+const sections = [
+  ...apps.map(({ name, projectsAnchor, icon }) => ({ name, anchor: projectsAnchor, icon })),
+  { name: 'Kelvin Caliper', anchor: 'kelvin-caliper', icon: '/app-icons/kelvin-caliper.webp' },
+];
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
@@ -10,6 +17,23 @@ import { Content, frontmatter } from '../projects.md';
       {frontmatter.description && (
         <p class="mt-1 text-accent-600">{frontmatter.description}</p>
       )}
+      <nav class="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium" aria-label="Projects on this page">
+        {sections.map((section) => (
+          <a
+            href={`#${section.anchor}`}
+            class="inline-flex items-center gap-2 text-slate-600 transition-colors hover:text-accent-600"
+          >
+            <img
+              src={section.icon}
+              alt=""
+              width="24"
+              height="24"
+              class="h-6 w-6 rounded-[22.5%] ring-1 ring-slate-900/10"
+            />
+            {section.name}
+          </a>
+        ))}
+      </nav>
     </section>
 
     <article class="prose mt-10 max-w-none">

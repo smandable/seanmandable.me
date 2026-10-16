@@ -5,7 +5,7 @@ description: Help and answers for Brown Sign, the app that tells you what those 
 
 Need a hand? Open an issue at [github.com/smandable/brown-sign](https://github.com/smandable/brown-sign/issues) or email **[support@seanmandable.me](mailto:support@seanmandable.me)** and I'll get back to you.
 
-Brown Sign tells you what those brown highway signs point to. Photograph the sign, import a photo, or just type the name, and a few seconds later you have the Wikipedia article, a map, a summary, and directions. There are no accounts and no tracking, and everything on your device stays there.
+Photograph a brown highway sign, import a photo, or just type the name, and a few seconds later you have the Wikipedia article, a map, a summary, and directions. There are no accounts and no tracking, and everything on your device stays there.
 
 ## Frequently asked questions
 
@@ -28,7 +28,7 @@ Siri, Control Center, the Lock Screen, and the Action button can all open it. Se
 Nearby is a curated list: heritage sites, covered bridges, battlefields, and the like. Operating schools, hospitals, and most other geo-tagged articles are filtered out, and a landmark needs an English Wikipedia article to appear. You can also widen the radius (2 to 25 miles), and if you've hidden a landmark before, un-hide it and it comes back.
 
 **Can Brown Sign read the landmarks to me while I drive?**
-Yes. On the Nearby tab, tap the headphones button and choose **Play nearby** to hear about the closest landmarks, one after another, as you drive. Or turn on **Narrate as I drive**, and Brown Sign stays quiet until you're about to pass a landmark, tells you its story, then hands your music or podcast back. Every landmark's page has a **Listen** button too. You can also ask Siri to "Play nearby landmarks in Brown Sign" or "Narrate landmarks as I drive in Brown Sign", and say "Stop narrating in Brown Sign" to turn it off.
+Yes. On the Nearby tab, tap the headphones button and choose **Play nearby** to hear about the closest landmarks, one after another, as you drive. Or turn on **Narrate as I drive**, and Brown Sign stays quiet until you're about to pass a landmark, tells you its story, then hands your music or podcast back. Every landmark's page has a **Listen** button too. You can also ask Siri to "Play nearby landmarks in Brown Sign" or "Narrate landmarks as I drive in Brown Sign," and say "Stop narrating in Brown Sign" to turn it off.
 
 **Does it work with CarPlay?**
 Yes. In the car, Brown Sign shows up in CarPlay with your nearby landmarks and your history, one tap from playing, and its Nearby list has Play nearby and Narrate as I drive. Stories play on the Now Playing screen, and your car's steering wheel controls work with them.

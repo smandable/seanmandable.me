@@ -1,6 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { apps } from '../data/apps';
+
+// Link-row icons, drawn in currentColor so they follow each link's text color.
+// The Apple and GitHub marks are the brands' own glyphs; the rest are Heroicons (mini).
+const icons = {
+  page: {
+    viewBox: '0 0 20 20',
+    d: 'M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z',
+  },
+  appstore: {
+    viewBox: '0 0 24 24',
+    d: 'M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.701',
+  },
+  download: {
+    viewBox: '0 0 20 20',
+    d: 'M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75ZM3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z',
+  },
+  github: {
+    viewBox: '0 0 16 16',
+    d: 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z',
+  },
+  code: {
+    viewBox: '0 0 20 20',
+    d: 'M6.28 5.22a.75.75 0 0 1 0 1.06L2.56 10l3.72 3.72a.75.75 0 0 1-1.06 1.06L.97 10.53a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Zm7.44 0a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L17.44 10l-3.72-3.72a.75.75 0 0 1 0-1.06ZM11.377 2.011a.75.75 0 0 1 .612.867l-2.5 14.5a.75.75 0 0 1-1.478-.255l2.5-14.5a.75.75 0 0 1 .866-.612Z',
+  },
+};
+const linkClass = 'no-underline inline-flex items-center gap-1.5 transition-colors';
+const iconClass = 'h-3.5 w-3.5 flex-none';
 ---
 
 <Layout
@@ -16,25 +43,55 @@ import { apps } from '../data/apps';
 
     <ul class="mt-10 space-y-4">
       {apps.map((app) => (
-        <li class="rounded-xl border border-slate-200 p-5 transition-colors hover:border-slate-300">
-          <a href={app.href} class="no-underline group flex items-start gap-4">
-            <img
-              src={app.icon}
-              alt=""
-              width="56"
-              height="56"
-              class="h-14 w-14 flex-none rounded-[22.5%] shadow-sm ring-1 ring-slate-900/10"
-            />
-            <div>
-              <h2 class="text-lg font-semibold text-slate-900 transition-colors group-hover:text-accent-600">{app.name}</h2>
+        <li class="rounded-xl border border-slate-200 p-5">
+          <div class="flex items-center gap-4">
+            <a href={app.href} class="no-underline flex-none" tabindex="-1" aria-hidden="true">
+              <img
+                src={app.icon}
+                alt=""
+                width="56"
+                height="56"
+                class="h-14 w-14 rounded-[22.5%] shadow-sm ring-1 ring-slate-900/10"
+              />
+            </a>
+            <div class="min-w-0">
+              <h2 class="text-lg font-semibold text-slate-900">
+                <a href={app.href} class="no-underline transition-colors hover:text-accent-600">{app.name}</a>
+              </h2>
               <p class="text-sm text-slate-500">{app.platforms}</p>
-              <p class="mt-2 leading-relaxed text-slate-600">{app.summary}</p>
             </div>
-          </a>
-          <a
-            href={`/projects/#${app.projectsAnchor}`}
-            class="no-underline mt-3 ml-[4.5rem] inline-block text-sm font-medium text-slate-500 transition-colors hover:text-accent-600"
-          >How it’s built</a>
+          </div>
+          <!-- Full width under the icon on phones; aligned with the name from sm up. -->
+          <div class="sm:ml-[4.5rem]">
+            <p class="mt-3 leading-relaxed text-slate-600 sm:mt-1">{app.description}</p>
+            <nav
+              class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium"
+              aria-label={`${app.name} links`}
+            >
+              <a href={app.href} class={`${linkClass} text-accent-600 hover:text-accent-700`}>
+                <svg aria-hidden="true" class={iconClass} viewBox={icons.page.viewBox} fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d={icons.page.d} /></svg>
+                App page
+              </a>
+              {app.links.map((link) => (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`${linkClass} text-slate-500 hover:text-accent-600`}
+                >
+                  <svg aria-hidden="true" class={iconClass} viewBox={icons[link.kind].viewBox} fill="currentColor"><path d={icons[link.kind].d} /></svg>
+                  {link.label}<span class="sr-only"> (opens in new tab)</span>
+                </a>
+              ))}
+              <a
+                href={`/projects/#${app.projectsAnchor}`}
+                class={`${linkClass} text-slate-500 hover:text-accent-600`}
+              >
+                <svg aria-hidden="true" class={iconClass} viewBox={icons.code.viewBox} fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d={icons.code.d} /></svg>
+                How it’s built
+              </a>
+            </nav>
+          </div>
         </li>
       ))}
     </ul>

@@ -1,18 +1,27 @@
 ---
+import { apps } from '../data/apps';
+
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about/', label: 'About' },
   { href: '/work/', label: 'Work' },
+  { href: '/apps/', label: 'Apps' },
   { href: '/projects/', label: 'Projects' },
   { href: '/writing/', label: 'Writing' },
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
-function isActive(href: string): boolean {
-  if (href === '/') return currentPath === '/';
+function matches(href: string): boolean {
   const base = href.replace(/\/$/, '');
   return currentPath === base || currentPath.startsWith(`${base}/`);
+}
+
+// Apps stays active on each app's own pages (landing, support, privacy, tools).
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  if (href === '/apps/') return matches(href) || apps.some((app) => matches(app.href));
+  return matches(href);
 }
 ---
 

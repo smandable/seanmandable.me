@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { apps } from '../data/apps';
+---
+
+<Layout
+  title="Apps"
+  fullTitle="Native Apps for iPhone, iPad, and Mac | Sean Mandable"
+  description="Native apps for the iPhone, iPad, and Mac by Sean Mandable: Debt Descent, ModernPAR, Brown Sign, ReKey, and Saddle."
+>
+  <div class="mx-auto max-w-[65ch]">
+    <section>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Apps</h1>
+      <p class="mt-1 text-accent-600">Native apps for the iPhone, iPad, and Mac.</p>
+    </section>
+
+    <ul class="mt-10 space-y-4">
+      {apps.map((app) => (
+        <li class="rounded-xl border border-slate-200 p-5 transition-colors hover:border-slate-300">
+          <a href={app.href} class="no-underline group flex items-start gap-4">
+            <img
+              src={app.icon}
+              alt=""
+              width="56"
+              height="56"
+              class="h-14 w-14 flex-none rounded-[22.5%] shadow-sm ring-1 ring-slate-900/10"
+            />
+            <div>
+              <h2 class="text-lg font-semibold text-slate-900 transition-colors group-hover:text-accent-600">{app.name}</h2>
+              <p class="text-sm text-slate-500">{app.platforms}</p>
+              <p class="mt-2 leading-relaxed text-slate-600">{app.summary}</p>
+            </div>
+          </a>
+          <a
+            href={`/projects/#${app.projectsAnchor}`}
+            class="no-underline mt-3 ml-[4.5rem] inline-block text-sm font-medium text-slate-500 transition-colors hover:text-accent-600"
+          >How it’s built</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Layout>

@@ -11,7 +11,7 @@ export const profile = {
 
 export const tools: readonly string[] = [
   'Vue', 'Nuxt', 'Astro', 'TypeScript', 'JavaScript', 'Node', 'React',
-  'Angular', 'Swift', 'SwiftUI', 'PHP', 'Tailwind', 'HTML', 'CSS', 'SCSS',
-  'Drupal', 'Contentstack', 'WordPress', 'Vite', 'Express', 'MySQL', 'AWS', 'Apache',
-  'Linux', 'Git',
+  'Angular', 'Capacitor', 'Firebase', 'Swift', 'SwiftUI', 'SwiftData', 'PHP',
+  'Tailwind', 'HTML', 'CSS', 'SCSS', 'Drupal', 'Contentstack', 'WordPress', 'Vite',
+  'Express', 'MySQL', 'AWS', 'Apache', 'Linux', 'Git',
 ];

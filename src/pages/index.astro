@@ -4,12 +4,6 @@ import ResumeButton from '../components/ResumeButton.astro';
 import { profile, tools } from '../data/resume';
 import { apps as shippedApps } from '../data/apps';
 
-// The shipped apps, plus Kelvin Caliper, which is on hold and has no page of its own.
-const apps = [
-  ...shippedApps.map(({ name, href, icon }) => ({ name, href, icon })),
-  { name: 'Kelvin Caliper', href: '/projects/#kelvin-caliper', icon: '/app-icons/kelvin-caliper.webp' },
-];
-
 // Person and WebSite structured data: who the site is about, and the name
 // search results should show for it.
 const siteUrl = new URL('/', Astro.site).href;
@@ -46,7 +40,25 @@ const schema = [
       <h1 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">{profile.name}</h1>
       <p class="mt-1 text-base text-accent-600 sm:mt-2 sm:text-lg">{profile.title}</p>
     </div>
-    <div class="col-span-2 mt-6 space-y-4 text-base leading-relaxed text-slate-700 md:col-start-2 md:col-span-1 md:mt-4">
+    <ul class="col-span-2 mt-6 flex flex-wrap gap-4 sm:gap-x-3 md:col-start-2 md:col-span-1 md:mt-5" aria-label="Apps">
+      {shippedApps.map((app) => (
+        <li>
+          <a href={app.href} class="group flex flex-col items-center gap-1.5 text-center no-underline sm:w-20">
+            <img
+              src={app.icon}
+              alt=""
+              width="56"
+              height="56"
+              class="h-12 w-12 rounded-[22.5%] shadow-sm ring-1 ring-slate-900/10 sm:h-14 sm:w-14"
+            />
+            <span class="sr-only text-xs font-medium leading-tight text-slate-700 transition-colors group-hover:text-accent-600 sm:not-sr-only">
+              {app.name}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="col-span-2 mt-6 space-y-4 text-base leading-relaxed text-slate-700 md:col-start-2 md:col-span-1 md:mt-7">
       <p>
         I’m based in Connecticut. I’ve been building things on the web since around 2008, and noticing when things are a little off for about as long.
       </p>
@@ -65,8 +77,8 @@ const schema = [
       <p>
         The apps so far are <a href="/debt-descent/" class="text-accent-600 hover:underline">Debt Descent</a>, <a href="/modern-par/" class="text-accent-600 hover:underline">ModernPAR</a>, <a href="/brown-sign/" class="text-accent-600 hover:underline">Brown Sign</a>, <a href="/rekey/" class="text-accent-600 hover:underline">ReKey</a>, <a href="/saddle/" class="text-accent-600 hover:underline">Saddle</a>, and <a href="/projects/#kelvin-caliper" class="text-accent-600 hover:underline">Kelvin Caliper</a>. When I’m not building one, I’m writing, or hiking, or ignoring all of the above.
       </p>
-      <p class="font-medium text-slate-900">
-        Open to conversations about senior engineering or architect roles.
+      <p class="font-medium">
+        <a href="/contact/" class="text-accent-600 transition-colors hover:text-accent-700">Open to conversations about senior engineering or architect roles.</a>
       </p>
     </div>
     <div class="col-span-2 mt-8 flex flex-wrap gap-3 md:col-start-2 md:col-span-1">
@@ -81,29 +93,6 @@ const schema = [
   </section>
 
   <section class="mt-auto pt-32">
-    <h2 class="text-2xl font-semibold tracking-tight">
-      <a href="/apps/" class="no-underline transition-colors hover:text-accent-600">Apps</a>
-    </h2>
-    <div class="mt-6 flex flex-wrap gap-x-8 gap-y-6">
-      {apps.map((app) => (
-        <a href={app.href} class="group flex w-20 flex-col items-center gap-2 text-center">
-          <img
-            src={app.icon}
-            alt=""
-            width="64"
-            height="64"
-            class="h-16 w-16 rounded-[22.5%] shadow-sm ring-1 ring-slate-900/10"
-            loading="lazy"
-          />
-          <span class="text-xs font-medium leading-tight text-slate-700 transition-colors group-hover:text-accent-600">
-            {app.name}
-          </span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="mt-28">
     <h2 class="text-2xl font-semibold tracking-tight">Tools & Technologies</h2>
     <div class="mt-6 flex flex-wrap gap-2">
       {tools.map((t) => (

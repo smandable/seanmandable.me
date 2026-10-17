@@ -18,6 +18,9 @@ The App Store version is the auditor, and fixing passwords from the fix queue is
 **Does ReKey change my passwords for me?**
 No. You approve every change, and ReKey never changes a password itself. It generates the new password, puts it on the clipboard marked concealed (it clears itself about ninety seconds later), and opens the site's change page; you make the change, and your browser's own save prompt stores it. ReKey never writes to any browser store or Apple Passwords.
 
+**Can ReKey make a new password without an audit?**
+Yes. Since version 1.2, the Generate tab makes a random password or a memorable passphrase at the length and with the characters you choose, with a strength readout as you go. It's free in both versions, nothing you generate is saved, and a copied password clears from the clipboard on its own.
+
 **I fixed or deleted a password, but the browser still warns about it.**
 The fix worked; that warning is the browser's own bookkeeping. Sync behavior, each store only warning about itself, and leftover duplicate entries all play a part. The full explanation is in the repo's [Help & FAQ](https://github.com/smandable/ReKey/blob/master/docs/HELP.md).
 

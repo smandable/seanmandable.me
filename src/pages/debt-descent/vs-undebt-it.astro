@@ -35,7 +35,7 @@ const priceRows = [
   },
   {
     label: 'Where your data lives',
-    a: 'On your device and in your own iCloud. App Store privacy label: “Data Not Collected.”',
+    a: 'On your devices and in your own iCloud. App Store privacy label: “Data Not Collected.”',
     b: 'On Undebt.it’s servers, under its privacy policy.',
   },
   {
@@ -56,7 +56,7 @@ const freeRows = [
   {
     label: 'Promo rates',
     a: 'A 0% intro APR that reverts on a date, plus deferred-interest promos tracked for deadline warnings, with a notification two months and two weeks before a promo ends (Pro).',
-    b: 'Promo interest rates, including deferred-interest promos with an end date. Since October 6, 2026, Undebt.it+ can also give any debt a pay-off date.',
+    b: 'Promo interest rates, including deferred-interest promos with an end date. Since October 6, 2026, Undebt.it+ can also plan a debt to be paid off by a date you set.',
   },
   {
     label: 'Statement import',
@@ -124,7 +124,7 @@ const paidRows = [
 ];
 ---
 
-<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702">
+<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702" ogImage="/og/debt-descent.png">
   <div class="mx-auto max-w-3xl">
     <Breadcrumb parent={{ name: 'Debt Descent', href: '/debt-descent/' }} current="vs Undebt.it" />
     <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Debt Descent vs Undebt.it</h1>
@@ -191,7 +191,7 @@ const paidRows = [
       <h2 class="mt-12 text-2xl font-bold tracking-tight">What Debt Descent does better</h2>
       <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
         <li>A native app on iPhone, iPad, and Mac, with widgets, Siri Shortcuts, and Spotlight.</li>
-        <li>It has no account and collects nothing. Your data stays on your device and in your own iCloud.</li>
+        <li>It has no account and collects nothing. Your data stays on your devices and in your own iCloud.</li>
         <li>It reads statements and paystubs on the device, so you don’t type the numbers in.</li>
         <li>A price you pay once: $14.99 for Pro on every device. Over three years that’s $14.99 against $30.00 for Undebt.it+.</li>
         <li>It has a model for a debt management plan and its fee, a student loan in deferment, and a store promo with a deferred-interest deadline.</li>
@@ -209,7 +209,7 @@ const paidRows = [
 
     <DebtDescentAppCta heading="Try Debt Descent free" event="debt-descent-vs-undebt-it-app-store">
       Add your debts, or scan a statement, and compare Snowball and Avalanche on your own numbers.
-      It has no account or ads, and your data stays on your device. Pro is a one-time $14.99 if you want the
+      Pro is a one-time $14.99 if you want the
       extra methods and tools. Or start with the free{' '}
       <a href="/debt-descent/calculator/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Snowball and Avalanche calculator</a> in your browser.
     </DebtDescentAppCta>
@@ -223,7 +223,7 @@ const paidRows = [
         <li><a href="https://undebt.it/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">undebt.it<span class="sr-only"> (opens in new tab)</span></a>, the home page.</li>
         <li><a href="https://undebt.it/plus-info.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Undebt.it+ features<span class="sr-only"> (opens in new tab)</span></a> and <a href="https://undebt.it/pricing-features-reviews.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">pricing<span class="sr-only"> (opens in new tab)</span></a>. The features page still lists unlimited accounts and “all 8” methods under premium; the FAQ says both are free and counts ten methods, and I’ve gone with the FAQ.</li>
         <li><a href="https://undebt.it/faq.php" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The FAQ<span class="sr-only"> (opens in new tab)</span></a>, for what the free tier includes. Its answer on which payoff methods are free (September 5, 2026) lists all ten and says the public pages’ eight counts the two custom directions as one and leaves out lowest rate first.</li>
-        <li><a href="https://undebt.it/blog/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The Undebt.it blog<span class="sr-only"> (opens in new tab)</span></a>: the pay-off date announcement (October 6, 2026), the free printables post (September 24, 2026), the SimpleFIN sync announcement (September 12, 2026), the post on its mobile apps (September 10, 2026), the Plan.it launch (September 3, 2026), and the August 2026 redesign post.</li>
+        <li><a href="https://undebt.it/blog/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The Undebt.it blog<span class="sr-only"> (opens in new tab)</span></a>: the target-date announcement (October 6, 2026), the free printables post (September 24, 2026), the SimpleFIN sync announcement (September 12, 2026), the post on its mobile apps (September 10, 2026), the Plan.it launch (September 3, 2026), and the August 2026 redesign post.</li>
         <li><a href="https://beta-bridge.simplefin.org/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">SimpleFIN Bridge<span class="sr-only"> (opens in new tab)</span></a>, for its pricing.</li>
       </ul>
       <p class="mt-4 leading-relaxed text-slate-600">

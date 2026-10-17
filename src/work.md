@@ -7,7 +7,7 @@ description: Roles and projects across 15+ years of full-stack engineering.
 
 **Lead Developer** · Remote, contract through Insight Global
 
-Univar is a chemical distributor, which in practice means a lot of warehouses and a lot of SAP. I joined in July 2026 as lead developer. So far that has meant two apps, both running on iPhones and iPads through Capacitor, with Firebase sitting between them and SAP. The inventory management app is how people in the warehouses pick, process, and receive.
+Univar is a chemical distributor, which in practice means a lot of warehouses and a lot of SAP. I joined in July 2026 as lead developer. So far that has meant three apps. Two of them run on iPhones and iPads through Capacitor, with Firebase sitting between them and SAP. The inventory management app is how people in the warehouses pick, process, and receive.
 
 The electronic proof of delivery app, which drivers use to record each delivery, was still on Angular 17 when I got there. I planned the migration and rewrote it in Vue and Nuxt 4 in my first three weeks, so both apps are on one stack. Every page a driver can reach came over. The new version holds on to photos and signatures taken without a signal and uploads them once the phone reconnects.
 

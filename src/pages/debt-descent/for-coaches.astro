@@ -12,7 +12,7 @@ const codeEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? '/contact.php';
 
 const title = 'Debt Descent for coaches and counselors';
 const description =
-  'A debt-payoff planner your clients can use without handing over a bank login. Free to use, one-time Pro, free Pro codes for counselors.';
+  'A debt-payoff planner your clients can use without handing over a bank login. It’s free to use, and counselors can get Pro codes at no cost.';
 
 // Rendered as the visible FAQ and serialized into FAQPage JSON-LD below.
 // Facts checked against the app on 2026-09-20: payment groups, JSON export
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: 'Are you connected to a counseling agency?',
-    a: 'Only as a client. I’m on Consolidated Credit’s debt management plan myself. No agency pays me, and none had a hand in the app.',
+    a: 'Only as a client. I’m on Consolidated Credit’s debt management plan myself. No agency pays me, and none helped make the app.',
   },
 ];
 
@@ -56,7 +56,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title} description={description} appleAppId="6785269702">
+<Layout title={title} description={description} appleAppId="6785269702" ogImage="/og/debt-descent.png">
   <div class="mx-auto max-w-3xl">
     <Breadcrumb parent={{ name: 'Debt Descent', href: '/debt-descent/' }} current="For coaches and counselors" />
     <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Debt Descent for coaches and counselors</h1>

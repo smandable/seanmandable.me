@@ -33,7 +33,7 @@ export const apps: App[] = [
     operatingSystem: 'iOS 26, iPadOS 26, macOS 26',
     applicationCategory: 'FinanceApplication',
     description:
-      'A debt-payoff planner that keeps your numbers on your own devices. Add your debts, or point it at a statement PDF or scan the paper one with the camera and let it read them. Set what extra you can put toward them each month and it runs the payoff strategies at once: Snowball for the fast, motivating wins, Avalanche for the least interest, plus five more ordering methods.',
+      'A debt-payoff planner that keeps your numbers on your devices and in your own iCloud. Add your debts, or point it at a statement PDF or scan the paper one with the camera and let it read them. Set what extra you can put toward them each month and it runs Snowball (the fast, motivating wins) and Avalanche (the least interest) side by side. Pro adds five more ordering methods.',
     links: [{ kind: 'appstore', label: 'App Store', href: 'https://apps.apple.com/us/app/debt-descent-payoff-planner/id6785269702', event: 'debt-descent-app-store' }],
   },
   {
@@ -75,7 +75,7 @@ export const apps: App[] = [
     operatingSystem: 'macOS 15',
     applicationCategory: 'SecurityApplication',
     description:
-      'A local password health auditor. You export a CSV from each browser you’ve used (Chrome, Arc, Firefox, Apple Passwords), drop them in, and it finds the reused and compromised passwords, groups them by site worst-first, generates strong replacements, and walks you to each site’s change page. You approve every change, and ReKey never changes a password itself.',
+      'A local password health auditor. You export a CSV from each browser you’ve used (Chrome, Arc, Firefox, or Apple Passwords for Safari), drop them in, and it finds the reused and compromised passwords, groups them by site worst-first, generates strong replacements, and walks you to each site’s change page. You approve every change, and ReKey never changes a password itself.',
     links: [
       { kind: 'appstore', label: 'Mac App Store', href: 'https://apps.apple.com/us/app/rekey-website-password-audit/id6783031023', event: 'rekey-app-store' },
       { kind: 'github', label: 'GitHub', href: 'https://github.com/smandable/ReKey' },

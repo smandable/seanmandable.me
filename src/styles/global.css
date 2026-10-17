@@ -49,6 +49,22 @@ main :is(p, li, dd) a:not(.no-underline) {
 }
 
 /*
+ * Inline code in running prose: no literal backticks around it (the typography
+ * plugin adds them), and the same light chip the ModernPAR page uses for
+ * ".par2". Code blocks (pre > code) keep the plugin's own styling.
+ */
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
+.prose :not(pre) > code {
+  border-radius: 0.25rem;
+  background-color: var(--color-slate-100);
+  padding: 0.125rem 0.25rem;
+  font-weight: 500;
+}
+
+/*
  * Pages whose markdown sections sit directly under the page's h1 (About, the
  * support pages, the Debt Descent privacy policy and terms) use ## so the
  * outline doesn't skip from h1 to h3, but keep the smaller h3 look they had.

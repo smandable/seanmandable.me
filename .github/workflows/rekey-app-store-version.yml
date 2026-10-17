@@ -1,0 +1,49 @@
+name: ReKey App Store version
+
+# Projects says which ReKey version is on the Mac App Store. Once a day this
+# reads Apple's public lookup and, when the store has a newer version than the
+# page, updates that one number, commits it, and runs the deploy. It only ever
+# moves the number forward, and does nothing while they match.
+on:
+  schedule:
+    - cron: '23 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: rekey-app-store-version
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Compare the Mac App Store version with Projects
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          store=$(curl -fsS --retry 3 'https://itunes.apple.com/lookup?bundleId=com.seanmandable.rekey&entity=macSoftware&country=us' | jq -r '.results[0].version // empty')
+          site=$(grep -oE '\*\*Mac App Store\*\* \(currently v[0-9][0-9.]*\)' src/projects.md | grep -oE '[0-9]+(\.[0-9]+)+' || true)
+          echo "Mac App Store: ${store:-unknown}. Projects: ${site:-not found}."
+          if [ -z "$store" ] || [ -z "$site" ] || [ "$store" = "$site" ]; then
+            exit 0
+          fi
+          newest=$(printf '%s\n%s\n' "$site" "$store" | sort -V | tail -n 1)
+          if [ "$newest" != "$store" ]; then
+            echo "The store is behind the page, so the page stays as it is."
+            exit 0
+          fi
+          sed -i -E "s/(\*\*Mac App Store\*\* \(currently v)[0-9][0-9.]*\)/\1${store})/" src/projects.md
+          git config user.name 'Sean'
+          git config user.email 'smandable@gmail.com'
+          git commit -am "Projects: ReKey on the Mac App Store is v${store}"
+          git push
+          # A push made with this workflow's token doesn't start other
+          # workflows, so start the deploy directly.
+          gh workflow run deploy.yml --ref main

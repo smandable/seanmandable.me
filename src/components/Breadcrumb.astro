@@ -2,6 +2,10 @@
 /*
  * The "Debt Descent / <page>" trail above a tool page's h1, plus the matching
  * BreadcrumbList structured data so search results can show the same trail.
+ * The list items stay inline so a long page name wraps the way plain text
+ * does. The link is inline-block so Lighthouse doesn't treat it as a link in
+ * running text, which it would flag for differing from its neighbors only by
+ * color.
  */
 interface Props {
   parent: { name: string; href: string };
@@ -20,7 +24,8 @@ const schema = {
 ---
 
 <nav aria-label="Breadcrumb" class="text-sm font-medium">
-  <a href={parent.href} class="no-underline text-accent-600 transition-colors hover:text-accent-700">{parent.name}</a>
-  <span class="text-slate-500"> / <span aria-current="page">{current}</span></span>
+  <ol>
+    <li class="inline"><a href={parent.href} class="inline-block no-underline text-accent-600 transition-colors hover:text-accent-700">{parent.name}</a></li><li class="inline text-slate-500"><span aria-hidden="true"> / </span><span aria-current="page">{current}</span></li>
+  </ol>
 </nav>
 <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

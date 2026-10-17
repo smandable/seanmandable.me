@@ -7,8 +7,8 @@ import AppSchema from '../components/AppSchema.astro';
 const screenshots = [
   {
     name: 'damage',
-    alt: 'ModernPAR window listing an 11-volume PAR2 set. Three volumes have yellow warning icons, and the status line says damage was found and repair is possible.',
-    caption: 'Verify flags one missing volume and two damaged ones.',
+    alt: 'ModernPAR window listing an 11-volume PAR2 set. Three volumes have yellow warning icons and need 1, 100, and 9 recovery blocks, and the status line says damage was found and repair is possible.',
+    caption: 'Verify flags one missing volume and two damaged ones, and counts the recovery blocks each one needs.',
   },
   {
     name: 'restored',
@@ -116,8 +116,8 @@ const faqSchema = {
       {screenshots.map((shot) => (
         <figure>
           <img
-            src={`/screenshots/modern-par-${shot.name}-1x.webp`}
-            srcset={`/screenshots/modern-par-${shot.name}-1x.webp 790w, /screenshots/modern-par-${shot.name}-2x.webp 1580w`}
+            src={`/screenshots/modern-par-${shot.name}-1x.webp?v=2`}
+            srcset={`/screenshots/modern-par-${shot.name}-1x.webp?v=2 790w, /screenshots/modern-par-${shot.name}-2x.webp?v=2 1580w`}
             sizes="(min-width: 816px) 768px, calc(100vw - 48px)"
             width="790"
             height="440"

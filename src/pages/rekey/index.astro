@@ -12,7 +12,8 @@ const appStoreUrl =
   title="ReKey, a Password Health Auditor for Mac"
   description="Find the reused and breached passwords across every browser’s exports, on your Mac, with nothing uploaded."
 >
-  <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
+  <div class="flex flex-col items-center py-12 text-center sm:py-20">
+    <div class="flex max-w-[65ch] flex-col items-center">
     <img
       src="/app-icons/rekey.webp"
       alt=""
@@ -54,11 +55,12 @@ const appStoreUrl =
         data-umami-event="rekey-github-download"
       >.dmg from GitHub Releases<span class="sr-only"> (opens in new tab)</span></a>.
     </p>
+    </div>
     <AppScreenshots
-      kind="window"
+      kind="wide"
       shots={[
-      { src: '/screenshots/rekey-02.webp', width: 800, height: 1059, alt: 'Four sites in ReKey’s Findings list share the password Summer2019!, which appears in 16,241 breaches.', caption: 'The Findings list groups the reused and breached passwords by site, worst first.' },
-      { src: '/screenshots/rekey-03.webp', width: 800, height: 1059, alt: 'ReKey’s fix queue, with a new 20-character password ready for each of four accounts.', caption: 'The fix queue gives each account a strong replacement and opens its change page, or the site itself when it can’t find one.' },
+      { src: '/screenshots/rekey-findings-1x.webp', src2x: '/screenshots/rekey-findings-2x.webp', width: 800, height: 572, alt: 'Four sites in ReKey’s Findings list share the password Summer2019!, which appears in 16,241 breaches.', caption: 'The Findings list groups the reused and breached passwords by site, worst first.' },
+      { src: '/screenshots/rekey-fix-queue-1x.webp', src2x: '/screenshots/rekey-fix-queue-2x.webp', width: 800, height: 572, alt: 'ReKey’s fix queue, with a new 20-character password ready for streamflix.com.', caption: 'The fix queue gives each account a strong replacement and opens its change page, or the site itself when it can’t find one.' },
       ]}
     />
     <nav class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500" aria-label="ReKey links">

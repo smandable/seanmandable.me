@@ -2,10 +2,13 @@
 /*
  * Screenshots on an app's landing page. Phone apps get a row of three
  * (swipeable on a phone); Mac apps get windows side by side with a caption
- * under each, the way the ModernPAR page shows its windows.
+ * under each. Wide windows (kind 'wide') get the full column, one per row,
+ * the way the ModernPAR page shows its windows, with a 2x file in srcset.
  */
 interface Shot {
   src: string;
+  /** The same window at twice the width, for Retina screens. */
+  src2x?: string;
   alt: string;
   width: number;
   height: number;
@@ -14,7 +17,7 @@ interface Shot {
 
 interface Props {
   shots: Shot[];
-  kind: 'phone' | 'window';
+  kind: 'phone' | 'window' | 'wide';
 }
 
 const { shots, kind } = Astro.props;
@@ -34,12 +37,32 @@ const { shots, kind } = Astro.props;
       />
     ))}
   </div>
+) : kind === 'wide' ? (
+  <div class="mt-12 flex w-full max-w-3xl flex-col gap-12">
+    {shots.map((shot) => (
+      <figure>
+        <img
+          src={shot.src}
+          srcset={shot.src2x ? `${shot.src} ${shot.width}w, ${shot.src2x} ${shot.width * 2}w` : undefined}
+          sizes="(min-width: 816px) 768px, calc(100vw - 48px)"
+          alt={shot.alt}
+          width={shot.width}
+          height={shot.height}
+          loading="lazy"
+          decoding="async"
+          class="h-auto w-full [filter:drop-shadow(0_0_0.5px_rgb(15_23_42/0.35))_drop-shadow(0_16px_32px_rgb(15_23_42/0.12))]"
+        />
+        {shot.caption && <figcaption class="mt-4 text-sm text-slate-500">{shot.caption}</figcaption>}
+      </figure>
+    ))}
+  </div>
 ) : (
   <div class="mt-12 grid w-full gap-8 sm:grid-cols-2 sm:gap-6">
     {shots.map((shot) => (
       <figure>
         <img
           src={shot.src}
+          srcset={shot.src2x ? `${shot.src} 1x, ${shot.src2x} 2x` : undefined}
           alt={shot.alt}
           width={shot.width}
           height={shot.height}

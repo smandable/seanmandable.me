@@ -16,6 +16,61 @@ const screenshots = [
     caption: 'Repair rebuilds all three from the recovery blocks, then extraction starts on its own.',
   },
 ];
+
+// The questions people search for before downloading, rendered as the
+// visible FAQ and serialized as FAQPage JSON-LD. Facts checked against the
+// ModernPAR repo on 2026-10-16: arm64-only on macOS 14+, GPL-2.0-or-later,
+// not on the Mac App Store because of the GPL, RAR 2/3/5 and zip extraction,
+// repair and post-processing on by default, Sparkle updates from GitHub
+// Releases, and no network use besides Sparkle.
+const faqs = [
+  {
+    q: 'What are PAR2 files for?',
+    a: 'They hold recovery data for a set of files, usually the RAR volumes of a Usenet download. When part of the set arrives damaged or missing, ModernPAR uses the recovery blocks in the .par2 files to rebuild it, as long as there are enough blocks to cover the damage.',
+  },
+  {
+    q: 'Does ModernPAR replace MacPAR deLuxe?',
+    a: 'Yes. It handles the same PAR2 and PAR1 sets and runs natively on Apple Silicon. MacPAR deLuxe is Intel-only, so it runs through Rosetta 2 and will stop working when Apple retires Rosetta.',
+  },
+  {
+    q: 'Does it run on Intel Macs?',
+    a: 'No. ModernPAR is built for Apple Silicon only.',
+  },
+  {
+    q: 'Is it free?',
+    a: 'Yes. There’s nothing to pay for, and the source code is on GitHub.',
+  },
+  {
+    q: 'Why isn’t it on the Mac App Store?',
+    a: 'ModernPAR and its PAR2 engine, par2cmdline-turbo, are licensed under the GPL, and the GPL’s terms conflict with the Mac App Store’s. It’s a signed, notarized download from GitHub instead.',
+  },
+  {
+    q: 'Can it create PAR2 files?',
+    a: 'Yes. Add the files (all from one folder), pick the redundancy, and ModernPAR writes the index and recovery files into that folder. The sets it makes verify in par2cmdline and MultiPar too.',
+  },
+  {
+    q: 'Which archives can it extract?',
+    a: 'RAR versions 2, 3, and 5 (multi-volume, password-protected, and encrypted-header archives too), and zip, including ZipCrypto and WinZip AES. ModernPAR extracts a set as soon as it verifies or is repaired. To stop that, turn off Automatically post-process files after repair in Settings ▸ Post-processing.',
+  },
+  {
+    q: 'Why does ModernPAR ask for access to a folder?',
+    a: 'ModernPAR runs in the macOS App Sandbox, so it can read and write only the folders you hand it. A set needs its whole folder to read the other volumes and write the repaired or extracted output. The first time you open something in a folder, a panel asks you to grant access to that folder. The grant is remembered across launches, and granting a parent folder covers everything inside it.',
+  },
+  {
+    q: 'Does it collect any data?',
+    a: 'No. It has no analytics, and it goes online only to check for updates. Sparkle reads ModernPAR’s release list on GitHub, every update is signed, and the updater shows the release notes before installing.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
 ---
 
 <Layout
@@ -92,6 +147,18 @@ const screenshots = [
         class="transition-colors hover:text-accent-600"
       >Report an issue<span class="sr-only"> (opens in new tab)</span></a>
     </nav>
+
+    <section class="mt-16 w-full max-w-3xl text-left" aria-labelledby="faq">
+      <h2 id="faq" class="text-xl font-bold tracking-tight">Questions before you download</h2>
+      <dl class="mt-4 space-y-6">
+        {faqs.map(({ q, a }) => (
+          <div>
+            <dt class="font-semibold text-slate-900">{q}</dt>
+            <dd class="mt-1 leading-relaxed text-slate-600">{a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
     <a
       href="https://alternativeto.net/software/modernpar/about/?utm_source=badge&utm_medium=referral"
       target="_blank"
@@ -108,4 +175,5 @@ const screenshots = [
     </a>
   </div>
   <AppSchema name="ModernPAR" />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
 </Layout>

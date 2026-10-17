@@ -125,7 +125,7 @@ It has no accounts, analytics, telemetry, or crash reporting. The only network c
 
 ### Status
 
-ReKey is on the **Mac App Store** (currently v1.1.2), and v1.2 is available as a signed, notarized `.dmg` from GitHub Releases. The App Store version is the auditor, and fixing passwords from the fix queue is a one-time purchase. That version leaves out the destructive cleanup tooling, since a sandboxed app can't write to other apps' data. The GitHub build is the whole app. Both are universal binaries (Apple Silicon and Intel) for macOS 15 or later, written in Swift 6, and the app builds from source with Xcode or a one-command signing script. I built it for my own password cleanup and kept going on it.
+ReKey is on the **Mac App Store** (currently v1.1.2), and v1.2.1 is available as a signed, notarized `.dmg` from GitHub Releases. The App Store version is the auditor, and fixing passwords from the fix queue is a one-time purchase. That version leaves out the destructive cleanup tooling, since a sandboxed app can't write to other apps' data. The GitHub build is the whole app. Both are universal binaries (Apple Silicon and Intel) for macOS 15 or later, written in Swift 6, and the app builds from source with Xcode or a one-command signing script. I built it for my own password cleanup and kept going on it.
 
 <p style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;">
 <a href="https://apps.apple.com/us/app/rekey-website-password-audit/id6783031023" data-umami-event="rekey-app-store" target="_blank" rel="noopener noreferrer" style="display:inline-block;"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="Download ReKey on the App Store" width="132" height="44" style="height:44px;width:auto;margin:0;" loading="lazy" /><span class="sr-only"> (opens in new tab)</span></a>
@@ -146,7 +146,7 @@ Saddle is a macOS menu bar app that fixes this. One icon, real-time mount status
 
 ### What's underneath
 
-Native SwiftUI with no dependencies; even the update check is a plain call to the GitHub Releases API. The disk work happens in a small privileged helper the app talks to over XPC, with DiskArbitration callbacks detecting connect and disconnect in real time (no lag between plugging a drive in and seeing it in the menu) and a periodic reconciliation sweep as a backstop. Login item registration goes through macOS ServiceManagement. Notarized by Apple. Runs on macOS 13.5 (Ventura) or later.
+Native SwiftUI with no dependencies; even the update check is a plain call to the GitHub Releases API. The disk work happens in a small helper the app talks to over XPC, with DiskArbitration callbacks detecting connect and disconnect in real time (no lag between plugging a drive in and seeing it in the menu) and a periodic reconciliation sweep as a backstop. Login item registration goes through macOS ServiceManagement. Notarized by Apple. Runs on macOS 13.5 (Ventura) or later.
 
 Groups, aliases, launch actions, and exclusions all live in a settings window with tabs and forms, and nothing is configured through defaults-write commands or a JSON file. I run it on my own drives every day, so the settings had to be something I'd actually want to use.
 

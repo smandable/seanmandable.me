@@ -9,7 +9,8 @@ import AppScreenshots from '../components/AppScreenshots.astro';
   title="Saddle, a Menu Bar App for External Drives"
   description="Mount and unmount external drives from the Mac menu bar in one click, and set up drive groups and launch and wake rules. Drives you unmounted stay unmounted."
 >
-  <div class="mx-auto flex max-w-[65ch] flex-col items-center py-12 text-center sm:py-20">
+  <div class="flex flex-col items-center py-12 text-center sm:py-20">
+    <div class="flex max-w-[65ch] flex-col items-center">
     <img
       src="/app-icons/saddle.webp"
       alt=""
@@ -42,11 +43,13 @@ import AppScreenshots from '../components/AppScreenshots.astro';
     <code class="mt-2 rounded-md bg-slate-100 px-3 py-1.5 text-sm text-slate-700"
       >brew tap smandable/tap &amp;&amp; brew install --cask saddle</code
     >
+    </div>
     <AppScreenshots
-      kind="window"
+      kind="wide"
       shots={[
       { src: '/screenshots/saddle-menu-1x.webp', src2x: '/screenshots/saddle-menu-2x.webp', width: 308, height: 471, alt: 'The Saddle menu in the menu bar, listing seven external drives, Mount All, Unmount All, and Excluded Drives.', caption: 'One click in the menu mounts or unmounts a drive, or every drive at once.' },
-      { src: '/screenshots/saddle-drives.webp', width: 792, height: 970, alt: 'Saddle’s Drives settings, with an alias field and an Excluded checkbox for each drive.', caption: 'In Settings, give each drive an alias, or exclude it so Saddle leaves it alone.' },
+      { src: '/screenshots/saddle-drives-1x.webp', src2x: '/screenshots/saddle-drives-2x.webp', width: 786, height: 572, alt: 'Saddle’s Drives settings, listing eight external drives, with aliases on four of them and one drive excluded.', caption: 'In Settings, give each drive an alias, or exclude it so Saddle leaves it alone.' },
+      { src: '/screenshots/saddle-groups-1x.webp', src2x: '/screenshots/saddle-groups-2x.webp', width: 786, height: 572, alt: 'Saddle’s Groups settings, with the Work Stuff group set to mount at launch and three drives in it.', caption: 'In Settings, put drives in a group and choose what the group does at launch.' },
       ]}
     />
     <nav

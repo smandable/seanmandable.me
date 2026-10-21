@@ -29,6 +29,9 @@ Yes. In Settings ▸ Privacy, turn on **Hide amounts**, and every dollar figure 
 **Does my data sync between my iPhone, iPad, and Mac?**
 Yes, automatically, and it's free for everyone. Just be signed in to iCloud with the same Apple Account on each device; there's nothing to set up in the app. If you're not signed in, Debt Descent works fully on-device, and syncing picks up when you sign in.
 
+**Does Debt Descent work on iPhone Duo?**
+Yes, starting with version 1.21. Closed, the app fits the outer display, with the tabs and Settings along the side. Open, it uses the wider layout from the iPad, with Plan, Payments, and Progress across the top. It also fits beside another app in Split View, and you don't need to change any settings. If you bought Pro, it unlocks on your Duo too, and your data syncs to it through iCloud the same as on your other devices.
+
 **I signed out of iCloud and the app looks empty. Is my data gone?**
 No. When you sign out of iCloud (or turn iCloud off for Debt Descent), the system removes the synced copy from that device, which is standard for synced apps. Your data is still in your own private iCloud and comes right back when you sign in again. If you want a copy that stays on the device regardless, use **Export to JSON** before signing out.
 

@@ -117,7 +117,7 @@ When you approve a fix, the new password goes to the clipboard marked concealed,
 
 The app is sandboxed and never writes to any browser store or Apple Passwords. The one thing it ever puts in the keychain is a single random key of its own, used to fingerprint its bookkeeping, and never a password. Changing a password usually updates the saved login in place, but sometimes the browser saves a second copy and leaves the old one behind with the dead password. Clearing that out is a separate, opt-in command-line tool called rekey-cleanup, kept outside the sandboxed app and out of the App Store build altogether; it ships with the GitHub `.dmg`. It matches and deletes on the plaintext index fields alone, so it never reads the encrypted password blob or needs any decryption key. It dry-runs by default, refuses to run while the browser is open, backs up the store before touching it, and does its deletes inside a transaction. The app shows and copies the exact command for a site you've fixed, and you run it yourself in Terminal.
 
-Every piece of logic (the parser, the audit, the generator, the breach client, the reset router) is free of SwiftUI and unit-tested on its own. The network clients sit behind protocols, so the engines test with no network and the live clients are wired in only at the app layer. There are 288 tests, including ones that cover the privacy guarantees.
+Every piece of logic (the parser, the audit, the generator, the breach client, the reset router) is free of SwiftUI and unit-tested on its own. The network clients sit behind protocols, so the engines test with no network and the live clients are wired in only at the app layer. There are 300+ tests, including ones that cover the privacy guarantees.
 
 ### Privacy
 

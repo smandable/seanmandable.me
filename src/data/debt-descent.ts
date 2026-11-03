@@ -38,4 +38,5 @@ export const comparisons: { href: string; title: string }[] = [
   { href: '/debt-descent/vs-undebt-it/', title: 'Debt Descent vs Undebt.it' },
   { href: '/debt-descent/vs-debt-payoff-planner/', title: 'Debt Descent vs Debt Payoff Planner' },
   { href: '/debt-descent/vs-debt-free/', title: 'Debt Descent vs Debt Free' },
+  { href: '/debt-descent/vs-debtinator/', title: 'Debt Descent vs Debtinator' },
 ];

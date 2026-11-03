@@ -1,0 +1,223 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import DebtDescentAppCta from '../../components/DebtDescentAppCta.astro';
+import DebtDescentTools from '../../components/DebtDescentTools.astro';
+
+const title = 'Debt Descent vs Debtinator';
+const fullTitle = 'Debt Descent vs Debtinator: Two Mac Debt Payoff Apps Compared';
+const description =
+  'Debt Descent and Debtinator compared on price, platforms, privacy, and features. Written by Debt Descent’s developer, and it says where Debtinator is better.';
+
+const columns: [string, string] = ['Debt Descent', 'Debtinator'];
+
+const priceRows = [
+  {
+    label: 'Price',
+    a: 'Free. Pro is $14.99 once, and one purchase covers your iPhone, iPad, and Mac.',
+    b: '$19.99 on the Mac App Store, paid up front. The developer’s site sells it for the same price.',
+  },
+  {
+    label: 'Family Sharing',
+    a: 'Yes.',
+    b: 'Yes.',
+  },
+  {
+    label: 'Platforms',
+    a: 'Native app for iPhone (iPhone Duo included), iPad, and Mac, with iOS 26, iPadOS 26, or macOS 26 or later.',
+    b: 'Mac only. The listing asks for macOS 10.10 or later, and the developer’s site says version 3.4.9 works through macOS Sequoia.',
+  },
+  {
+    label: 'Latest version',
+    a: '1.21.5, on October 28, 2026. It’s been on the App Store since July 2026.',
+    b: '3.4.9, on October 23, 2017, for High Sierra compatibility. The developer’s site says version 4 is in the works.',
+  },
+  {
+    label: 'App Store privacy label',
+    a: '“Data Not Collected.”',
+    b: '“No Details Provided.” The listing says the developer will add them with the next update.',
+  },
+  {
+    label: 'Accessibility on the listing',
+    a: 'VoiceOver, Larger Text, and Dark Interface.',
+    b: 'None declared.',
+  },
+  {
+    label: 'Languages',
+    a: 'English, with an App Store page in Spanish too.',
+    b: 'English.',
+  },
+];
+
+const planRows = [
+  {
+    label: 'Income and bills',
+    a: 'A Left over card: take-home pay at your pay cadence, minus the bills the plan doesn’t track. A bill can take a due date, and then it’s listed with your payments under the payday that covers it. You can save up for something there too, and see what charging it would cost instead.',
+    b: 'Income, recurring expenses, and debts, each on its own repeat rule, like a bill every six months. It works out how much extra you can send to your debts from what’s left.',
+  },
+  {
+    label: 'Payoff methods',
+    a: 'Snowball and Avalanche, side by side. Pro adds five more, including a custom order, plus planned windfalls (one-time extra payments).',
+    b: 'You run payment plans as scenarios and save the one you like. The quickstart guide compares a Highest Interest plan with a minimum-payments-only plan.',
+  },
+  {
+    label: 'Tracking payments',
+    a: 'Log each payment and see your progress against the plan and the interest your paydown has already saved. Debts, payment groups, and bills can go on autopay.',
+    b: 'A ledger of every transaction, with split transactions and reconciliation against your bank statements. A saved payment plan shows up in it.',
+  },
+  {
+    label: 'Statement import',
+    a: 'Reads a statement PDF, a photo, or a camera scan on your device and fills in the balance, APR, minimum, and due date for you to confirm. Paystubs too.',
+    b: 'Not mentioned by the developer.',
+  },
+  {
+    label: 'Debt management plan',
+    a: 'Payment groups: one payment, the plan’s fee, and the member debts, with the fee kept out of the payoff math.',
+    b: 'Not mentioned by the developer.',
+  },
+  {
+    label: 'Deferment and promos',
+    a: 'Student-loan deferment with an end date, 0% intro APRs that revert on a date, and deferred-interest promos tracked for deadline warnings, with a notification two months and two weeks before a promo ends (Pro).',
+    b: 'A debt’s complex view handles balance transfers and variable-rate mortgages. Deferment isn’t mentioned by the developer.',
+  },
+  {
+    label: 'Sync and backup',
+    a: 'Through your own iCloud, free. A backup is saved to your iCloud Drive every week, and there’s JSON export and import (a plan PDF imports too).',
+    b: 'Not mentioned by the developer.',
+  },
+  {
+    label: 'Export',
+    a: 'Payment history as a CSV, free. Plan and history PDFs and calendar export are Pro.',
+    b: 'Printing, graphs included, and iCal export.',
+  },
+  {
+    label: 'Widgets, Siri, Spotlight',
+    a: 'Yes, and on the Mac there’s a desktop widget and a menu bar item that shows your debt-free month.',
+    b: 'Not mentioned by the developer.',
+  },
+];
+---
+
+<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702" ogImage="/og/debt-descent.png">
+  <div class="mx-auto max-w-3xl">
+    <Breadcrumb parent={{ name: 'Debt Descent', href: '/debt-descent/' }} current="vs Debtinator" />
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Debt Descent vs Debtinator</h1>
+    <p class="mt-2 text-xl font-medium text-slate-700">Two debt-payoff apps for the Mac compared, as of November 2026.</p>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      Debtinator is Basset Software’s debt payoff app for the Mac, by Jim Thomason. Version 1
+      came out in June 2004, and it’s been on the Mac App Store since 2011. Its last App Store
+      update was version 3.4.9, on October 23, 2017. The developer’s site, last updated August
+      11, 2024, says 3.4.9 works through macOS Sequoia and that version 4 is still in the works.
+      Debt Descent is my native app for Mac, iPhone, and iPad, free with a one-time $14.99 Pro
+      purchase. I wrote this page for Debtinator users looking for a replacement. Here is how
+      the two line up, with the sources at the bottom. Where Debtinator is the better pick, I
+      say so.
+    </p>
+
+    <section class="mt-10 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">The short version</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li><strong class="font-semibold text-slate-900">Keep Debtinator</strong> if version 3.4.9 still runs well on your Mac and you keep your budget in its ledger and envelope budgets.</li>
+        <li><strong class="font-semibold text-slate-900">Pick Debt Descent</strong> if you want your plan on your iPhone and iPad as well as your Mac, a Mac app that’s still getting updates, or a model for a debt management plan, a student loan in deferment, or a deferred-interest promo.</li>
+      </ul>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold tracking-tight">Price, platforms, and privacy</h2>
+      <ComparisonTable caption="Price, platforms, and privacy" columns={columns} rows={priceRows} />
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold tracking-tight">Planning and tracking</h2>
+      <ComparisonTable caption="How each app plans and tracks your payoff" columns={columns} rows={planRows} />
+      <p class="mt-3 max-w-[65ch] text-sm leading-relaxed text-slate-500">
+        Everything on the Debt Descent side is free unless it says Pro. “Not mentioned by the
+        developer” means exactly that: the developer’s pages and the App Store listing don’t
+        list it. It may exist in the app. I haven’t claimed a feature is missing where I
+        couldn’t check.
+      </p>
+    </section>
+
+    <section class="mt-12 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">What Debt Descent Pro adds</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Five more payoff methods (custom order, highest interest, cash-flow index, credit
+        utilization, credit-score impact), a what-if slider and per-debt payoff tests, picking a
+        debt-free date and seeing the extra it takes, planned windfalls, refinance and
+        balance-transfer modeling with one-step apply, amortization schedules, PDF and calendar
+        export, due-date, payday, and promo notifications, and the statement-day balance check.
+      </p>
+    </section>
+
+    <section class="mt-12 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">What Debtinator does better</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li>A ledger of all your income and spending, with split transactions, a copy of the receipt, and reconciliation against your bank statements.</li>
+        <li>Envelope budgets: it divides a bank account into virtual budgets like food, bills, and entertainment.</li>
+        <li>Reports on where your money came from and went, and your cash flow over time.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">What Debt Descent does better</h2>
+      <ul class="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-slate-600">
+        <li>It runs on your iPhone and iPad as well as your Mac, synced through your own iCloud, and one Pro purchase covers all three.</li>
+        <li>It’s in active development and built for macOS 26.</li>
+        <li>It reads a statement PDF or a photo as well as a camera scan, and paystubs too, all on the device.</li>
+        <li>It has a model for a debt management plan and its fee, a student loan in deferment, and a store promo with a deferred-interest deadline.</li>
+        <li>Its App Store privacy label is “Data Not Collected,” and its listing declares VoiceOver, Larger Text, and Dark Interface.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Moving your plan over</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Start with your debts. Import each one’s latest statement as a PDF, a photo, or a camera
+        scan, and Debt Descent fills in the balance, APR, minimum, and due date for you to check.
+        You can also type them in. Then tap <strong class="font-semibold text-slate-900">Edit</strong> on the Left over card to open Income &amp; bills, and add
+        your take-home pay and the bills you pay. If you’re on a debt management plan, add a
+        payment group on the Payments tab, pick the debts it covers, and enter the monthly payment
+        and the plan’s fee.
+      </p>
+
+      <h2 class="mt-12 text-2xl font-bold tracking-tight">Which should you use?</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        If Debtinator 3.4.9 still runs well on your Mac and you keep your budget in its ledger,
+        keep using it. If you want your plan on your iPhone and iPad too, or you’re on a debt
+        management plan, try Debt Descent. The free
+        tier covers unlimited debts, Snowball and Avalanche, and payment groups, so you can set
+        up your plan and check it against Debtinator’s before you pay for anything.
+      </p>
+    </section>
+
+    <DebtDescentAppCta heading="Try Debt Descent free" event="debt-descent-vs-debtinator-app-store">
+      Add your debts, or import a statement, and compare Snowball and Avalanche on your own
+      numbers. Pro is a one-time $14.99 if you want the extra methods and tools. Or start with the
+      free{' '}
+      <a href="/debt-descent/calculator/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Snowball and Avalanche calculator</a> in your browser.
+    </DebtDescentAppCta>
+
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">Sources</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Everything about Debtinator above comes from its App Store listing and its developer’s
+        own pages, read on November 2, 2026:
+      </p>
+      <ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+        <li><a href="https://apps.apple.com/us/app/debtinator/id417279499" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The Mac App Store listing<span class="sr-only"> (opens in new tab)</span></a> (version 3.4.9, October 23, 2017): the price, Family Sharing, the macOS requirement, the privacy and accessibility sections, the version history, and the feature description.</li>
+        <li><a href="https://www.bassetsoftware.com/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Basset Software’s home page<span class="sr-only"> (opens in new tab)</span></a> (updated August 11, 2024), for the Sequoia note, version 4, and the price on the developer’s site.</li>
+        <li><a href="https://www.bassetsoftware.com/b.cgi/debtinator/yosemite" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The developer’s news page<span class="sr-only"> (opens in new tab)</span></a>, for version 1’s June 2004 release (the October 20, 2017 post).</li>
+        <li><a href="https://www.bassetsoftware.com/b.cgi/debtinator/docs/pgs/quickstart" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">The quickstart guide<span class="sr-only"> (opens in new tab)</span></a>, for income, expenses, debts and their repeat rules, scenarios, the ledger, budgets, and reports.</li>
+        <li><a href="https://www.bassetsoftware.com/b.cgi/debtinator/docs/pgs/whatsnew" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-600 transition-colors hover:text-accent-700">What’s new in Debtinator<span class="sr-only"> (opens in new tab)</span></a>, for reconciliation and iCal export.</li>
+      </ul>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        Debt Descent’s side comes from the app itself and its <a href="/debt-descent/support/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">support page</a>.
+        If something here is out of date, <a href="/contact/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">tell me</a> and I’ll fix it.
+      </p>
+    </section>
+
+    <DebtDescentTools current="/debt-descent/vs-debtinator/" />
+
+    <p class="mt-16 max-w-[65ch] border-t border-slate-200 pt-6 text-sm leading-relaxed text-slate-500">
+      Disclosure: I’m a current client of Consolidated Credit’s debt management plan, and I built
+      Debt Descent to track it. Debt Descent is my app, so read this comparison knowing that.
+    </p>
+  </div>
+</Layout>

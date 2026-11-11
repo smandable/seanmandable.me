@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import AppSchema from '../../components/AppSchema.astro';
 import AppStoreRating from '../../components/AppStoreRating.astro';
 import AppScreenshots from '../../components/AppScreenshots.astro';
-import { appStoreUrl, comparisons, tools } from '../../data/debt-descent';
+import { appStoreUrl, comparisons, dmpTracker, tools } from '../../data/debt-descent';
 
 // The questions people ask before downloading, in their words, answered here
 // so the page can be quoted instead of the App Store listing. Rendered as the
@@ -182,6 +182,10 @@ const faqSchema = {
           </ul>
         </Fragment>
       )}
+      <h2 class="mt-10 text-xl font-bold tracking-tight">On a debt management plan</h2>
+      <p class="mt-4 leading-relaxed text-slate-600">
+        If you’re on a plan, or about to start one, <a href={dmpTracker.href} class="font-medium text-accent-600 transition-colors hover:text-accent-700">{dmpTracker.title}</a> covers what to keep an eye on and how Debt Descent tracks each part.
+      </p>
       <h2 class="mt-10 text-xl font-bold tracking-tight">For coaches and counselors</h2>
       <p class="mt-4 leading-relaxed text-slate-600">
         If you work with clients, <a href="/debt-descent/for-coaches/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">the page for coaches</a> covers what the app does for a client, how it tracks a debt management plan, and how to get Pro free.

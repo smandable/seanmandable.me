@@ -33,6 +33,15 @@ export const tools: { href: string; title: string; blurb: string }[] = [
   },
 ];
 
+/**
+ * The page for someone on a debt management plan. The landing page and
+ * DebtDescentTools.astro (so every calculator and comparison page) link it.
+ */
+export const dmpTracker = {
+  href: '/debt-descent/debt-management-plan-tracker/',
+  title: 'What app works with a debt management plan?',
+};
+
 /** Comparison write-ups under /debt-descent, listed on the landing page and the tool pages. */
 export const comparisons: { href: string; title: string }[] = [
   { href: '/debt-descent/vs-undebt-it/', title: 'Debt Descent vs Undebt.it' },

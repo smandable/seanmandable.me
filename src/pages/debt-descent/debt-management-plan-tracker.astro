@@ -1,0 +1,163 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DebtDescentAppCta from '../../components/DebtDescentAppCta.astro';
+import DebtDescentTools from '../../components/DebtDescentTools.astro';
+import { dmpTracker } from '../../data/debt-descent';
+
+const title = 'Debt Management Plan Tracker';
+const fullTitle = 'Debt Management Plan Tracker: What App Works With a DMP?';
+const description =
+  'Debt Descent tracks a debt management plan on iPhone, iPad, and Mac, with the monthly draft, the plan’s fee, and each account’s own balance and rate. No account or bank login.';
+
+// The page's sections. Each is a question with its answer in paragraphs,
+// rendered as a heading and prose and serialized into the FAQPage JSON-LD
+// below with the shorter questions, so the markup matches the visible text.
+// <strong> marks the app's own labels; the JSON-LD gets the text without it.
+// App facts checked against the app's code on 2026-11-10: the Payment groups
+// card and its editor (Monthly total, Plan fee, Due day, On autopay, Members),
+// the split by fixed payment or by balance, the "leaves your bank" caption,
+// "paid off, not in the split", and Refinance's New rates mode (Pro).
+const sections: { q: string; a: string[] }[] = [
+  {
+    q: 'How does Debt Descent track a debt management plan?',
+    a: [
+      'It uses a payment group, which is one monthly payment that covers several debts. On the Payments tab, add a payment group, tick the debts your plan covers, and enter the monthly amount that reaches them, the plan’s fee, and the day the draft goes out. Each account stays its own debt, with its own balance, rate, and payoff date.',
+      'When the draft goes out, log it once and the app splits it across the accounts to the cent. If every account has its own fixed payment, the split follows those payments, which is how an agency pays your creditors. Otherwise it goes by balance. Turn on <strong>On autopay</strong> for the group and Debt Descent logs the draft for you on each due date.',
+    ],
+  },
+  {
+    q: 'How much of my payment reaches my creditors?',
+    a: [
+      'Your bank statement shows one draft to the agency each month. The agency keeps its monthly fee and sends the rest to your creditors, and only that part pays down what you owe. It’s worth knowing both figures and checking them against the agency’s statement.',
+      'Debt Descent keeps the two apart. The group’s <strong>Monthly total</strong> is what reaches your debts, and its <strong>Plan fee</strong> is what the plan keeps. The group then shows what goes out, as in “$837.00 leaves your bank ($32.00 plan fee),” so the Payments tab matches your bank statement while the fee stays out of your payoff math.',
+    ],
+  },
+  {
+    q: 'Do the agency’s numbers match my creditors’ statements?',
+    a: [
+      'The agency’s statement lists what it sent to each account. Each creditor’s own statement has the balance after that payment posted and the rate it charged. For every account, compare the balance on the two, and check that the rate the creditor charged is the rate the plan quoted.',
+      'In Debt Descent you update each account from its creditor’s statement. Import the statement as a PDF, a photo, or a camera scan, and the app reads the balance, APR, minimum, and due date on your device and shows them to you to confirm. If the agency’s statement shows a different amount for an account than the app logged, edit that payment in History to match.',
+      'When a creditor agrees to a lower rate, that rate becomes the debt’s APR, and you can type it in <strong>Edit details</strong>. With Pro, <strong>Refinance &amp; consolidation</strong> on the Plan tab has a <strong>New rates</strong> mode that takes a new rate for each account, compares your plan before and after, and writes them all in one step.',
+    ],
+  },
+  {
+    q: 'What if an account is added to my plan, or dropped from it?',
+    a: [
+      'Choose <strong>Edit group</strong> on the payment group and tick or untick the account under <strong>Members</strong>, then change the <strong>Monthly total</strong> if your draft changed. An account you take out keeps its balance and its payment history, and it goes back to its own due date.',
+      'A debt that was never in the plan, like a card you kept for emergencies or a student loan in deferment, sits in the same payoff order as the ones in it, with its own promo or deferment dates. Your debt-free date counts the debts outside the plan too.',
+    ],
+  },
+  {
+    q: 'When will my plan end?',
+    a: [
+      'The agency quotes a term when you enroll. The date you finish can move after that, when a rate changes, a payment is missed, or a balance turns out higher than the proposal said.',
+      'Debt Descent works the date out from each account’s current balance, its APR, and the payment that reaches it. The Plan tab shows the month each debt is paid off and the month you’re debt-free, and the dates move when you update a balance from a new statement. The Progress tab charts your actual balance against the plan, and shows the plan from today next to the plan you started with.',
+      'With Pro, <strong>Export plan (PDF)…</strong> saves it as a PDF with a summary, the payoff methods compared, and each debt with its balance, rate, and payoff date. It covers the debts in the plan and the ones outside it.',
+    ],
+  },
+  {
+    q: 'What happens to my payment when one account is paid off?',
+    a: [
+      'Ask your agency before the first account clears. On some plans the draft stays the same and the paid-off account’s share goes to the accounts that are left, and on others the draft drops by that share.',
+      'In Debt Descent, the group keeps logging the same <strong>Monthly total</strong> and splits it across the accounts that still owe. The group’s card lists the cleared one as “paid off, not in the split.” If your draft drops instead, edit the group and lower the <strong>Monthly total</strong>. The plan’s dates follow the <strong>Roll payments forward</strong> switch in Settings ▸ Plan, which starts on, so a paid-off account’s payment moves on to your next debt.',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: 'Is it free to track a plan?',
+    a: 'Yes. Payment groups, autopay, statement import, and the Progress tab don’t need Pro, and you can add as many debts as you have. Pro is $14.99, paid once, and adds the New rates mode, the plan PDF, and due-date notifications, among other things.',
+  },
+  {
+    q: 'Does it connect to my agency or my bank?',
+    a: 'No. There’s no account and no bank linking. You enter the plan once, and balances come from your creditors’ statements, which the app reads on your device. Nothing you enter is sent to me, and the App Store privacy label is “Data Not Collected.”',
+  },
+  {
+    q: 'Which agencies does it work with?',
+    a: 'Any of them. The app tracks the plan from your side, using your own statements, so it needs nothing from the agency.',
+  },
+  {
+    q: 'Does it work for a debt management plan in the UK?',
+    a: 'Yes. Amounts follow your device’s region, so they show in pounds there. A payment group fits a plan through a provider such as StepChange or PayPlan, where you make one payment and it’s shared among your creditors. It also fits a plan you manage yourself, where a fixed sum each month is divided among your creditors pro rata. The group splits by balance, or by each debt’s own payment once you’ve set one. Leave Plan fee at zero if nothing is kept.',
+  },
+  {
+    q: 'Can I get a notification when the draft is due?',
+    a: 'Yes, with Pro. A payment group gets one due-date notification for the draft, in place of one for each account, and it gives the amount that leaves your bank. Upcoming on the Payments tab lists the draft as one row either way.',
+  },
+  {
+    q: 'Does it run on a Mac?',
+    a: 'Yes. It’s one app for iPhone, iPad, and Mac, and your plan syncs between them through your own iCloud.',
+  },
+  {
+    q: 'Can it tell me whether a plan is worth it?',
+    a: 'No. It tracks the plan you’re on and stays out of the choice. The DMP calculator on this site compares a quoted plan with paying on your own, fees counted.',
+  },
+];
+
+const plain = (text: string) => text.replace(/<\/?strong>/g, '').replace(/&amp;/g, '&');
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [...sections.map(({ q, a }) => ({ q, a: plain(a.join(' ')) })), ...faqs].map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702" ogImage="/og/debt-descent.png">
+  <div class="mx-auto max-w-3xl">
+    <Breadcrumb parent={{ name: 'Debt Descent', href: '/debt-descent/' }} current="Debt management plan tracker" />
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{dmpTracker.title}</h1>
+    <p class="mt-2 text-xl font-medium text-slate-700">Debt Descent does, on iPhone, iPad, and Mac.</p>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      <a href="/debt-descent/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">Debt Descent</a> is
+      my debt-payoff planner, and I use it to track my own debt management plan (DMP). It holds the
+      plan as one monthly payment with the agency’s fee beside it, keeps a balance and a rate for
+      each account, and shows the month each one is paid off. This page goes through what to keep
+      an eye on while you’re on a plan, or about to start one, and how the app tracks each part.
+    </p>
+
+    <section class="max-w-[65ch] [&_strong]:font-semibold [&_strong]:text-slate-900">
+      {sections.map(({ q, a }, i) => (
+        <Fragment>
+          <h2 class:list={['text-2xl font-bold tracking-tight', i === 0 ? 'mt-14' : 'mt-12']}>{q}</h2>
+          {a.map((p) => <p class="mt-4 leading-relaxed text-slate-600" set:html={p} />)}
+        </Fragment>
+      ))}
+    </section>
+
+    <DebtDescentAppCta heading="Track your plan in Debt Descent" event="debt-descent-dmp-tracker-app-store">
+      Debt Descent is free on iPhone, iPad, and Mac, and payment groups don’t need Pro. Add your
+      accounts, or import their statements, then add a payment group on the Payments tab. Your
+      data stays on your devices and in your own iCloud.
+    </DebtDescentAppCta>
+
+    <section class="mt-16 max-w-[65ch]">
+      <h2 class="text-2xl font-bold tracking-tight">More questions</h2>
+      <dl class="mt-6 space-y-8">
+        {faqs.map(({ q, a }) => (
+          <div>
+            <dt class="font-semibold text-slate-900">{q}</dt>
+            <dd class="mt-2 leading-relaxed text-slate-600">{a}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="mt-8 leading-relaxed text-slate-600">
+        Here’s the <a href="/debt-descent/dmp-calculator/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">DMP calculator</a>. Questions about the app itself are on the <a href="/debt-descent/support/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">support page</a>, and coaches and counselors have <a href="/debt-descent/for-coaches/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">a page of their own</a>.
+      </p>
+      <p class="mt-8 text-sm leading-relaxed text-slate-500">
+        Disclosure: I’m a current client of Consolidated Credit’s debt management plan, and I built
+        Debt Descent to track it. Nobody pays me to recommend a DMP, and this page doesn’t sell one.
+      </p>
+    </section>
+
+    <DebtDescentTools current={dmpTracker.href} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </div>
+</Layout>

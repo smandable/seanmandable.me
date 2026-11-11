@@ -3,7 +3,7 @@
  * "More free tools" cross-links for the /debt-descent tool pages. Pass the
  * current page's href so it isn't listed against itself.
  */
-import { comparisons, tools } from '../data/debt-descent';
+import { comparisons, dmpTracker, tools } from '../data/debt-descent';
 
 interface Props {
   current: string;
@@ -35,6 +35,11 @@ const others = tools.filter((t) => t.href !== current);
             {' '}<a href={c.href} class="font-medium text-accent-600 transition-colors hover:text-accent-700">{c.title}</a>{i === comparisons.length - 1 ? '.' : comparisons.length === 2 ? ' and' : i === comparisons.length - 2 ? ', and' : ','}
           </Fragment>
         ))}
+      </Fragment>
+    )}
+    {current !== dmpTracker.href && (
+      <Fragment>
+        {' '}If you’re on a debt management plan, there’s a page on <a href={dmpTracker.href} class="font-medium text-accent-600 transition-colors hover:text-accent-700">how the app tracks one</a>.
       </Fragment>
     )}
   </p>

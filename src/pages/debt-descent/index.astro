@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import AppSchema from '../../components/AppSchema.astro';
 import AppStoreRating from '../../components/AppStoreRating.astro';
 import AppScreenshots from '../../components/AppScreenshots.astro';
-import { appStoreUrl, comparisons, dmpTracker, tools } from '../../data/debt-descent';
+import { appStoreUrl, comparisons, dmpTracker, releaseNotesHref, tools } from '../../data/debt-descent';
 
 // The questions people ask before downloading, in their words, answered here
 // so the page can be quoted instead of the App Store listing. Rendered as the
@@ -121,6 +121,7 @@ const faqSchema = {
     <nav class="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-500" aria-label="Debt Descent links">
       <a href="/projects/#debt-descent" class="transition-colors hover:text-accent-600">More about the app</a>
       <a href="/debt-descent/support/" class="transition-colors hover:text-accent-600">Support</a>
+      <a href={releaseNotesHref} class="transition-colors hover:text-accent-600">Release notes</a>
       <a href="/debt-descent/privacy/" class="transition-colors hover:text-accent-600">Privacy Policy</a>
       <a href="/debt-descent/terms/" class="transition-colors hover:text-accent-600">Terms of Use</a>
     </nav>

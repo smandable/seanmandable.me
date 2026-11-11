@@ -42,6 +42,9 @@ export const dmpTracker = {
   title: 'What app works with a debt management plan?',
 };
 
+/** Every version and its What's New; the entries are in debt-descent-releases.ts. */
+export const releaseNotesHref = '/debt-descent/release-notes/';
+
 /** Comparison write-ups under /debt-descent, listed on the landing page and the tool pages. */
 export const comparisons: { href: string; title: string }[] = [
   { href: '/debt-descent/vs-undebt-it/', title: 'Debt Descent vs Undebt.it' },

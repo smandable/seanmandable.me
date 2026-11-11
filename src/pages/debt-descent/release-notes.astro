@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DebtDescentAppCta from '../../components/DebtDescentAppCta.astro';
+import { releases, type Release } from '../../data/debt-descent-releases';
+
+const title = 'Debt Descent Release Notes';
+const fullTitle = 'Debt Descent Release Notes: Every Version Since July 2026';
+const description =
+  'Every version of Debt Descent, the debt-payoff planner for iPhone, iPad, and Mac, newest first, with the date it went live on the App Store and what changed.';
+
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+// "2026-10-28" → "October 28, 2026"; "2026-07" → "July 2026". Built from the
+// string's own parts, so no time zone can move the day.
+const long = (iso: string) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return d ? `${months[m - 1]} ${d}, ${y}` : `${months[m - 1]} ${y}`;
+};
+// The second date of a pair drops the year when it's the same one.
+const short = (iso: string, against: string) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return y === Number(against.slice(0, 4)) ? `${months[m - 1]} ${d}` : long(iso);
+};
+
+// The line under each version: when it went live, and where.
+const when = (r: Release) => {
+  if (r.mac === false) return `${long(r.date)}, on iPhone and iPad.`;
+  if (!r.date && r.macDate) return `${long(r.macDate)} on the Mac.`;
+  if (!r.macDate) return `${long(r.date)}.`;
+  return r.macDate < r.date
+    ? `${long(r.macDate)} on the Mac, and ${short(r.date, r.macDate)} on iPhone and iPad.`
+    : `${long(r.date)} on iPhone and iPad, and ${short(r.macDate, r.date)} on the Mac.`;
+};
+
+// The store's text uses straight quotes; the site sets them curly, the way
+// the markdown pages come out.
+const curl = (text: string) => text.replace(/"([^"]+)"/g, '“$1”').replace(/(\w)'/g, '$1’');
+
+// A version's notes as paragraphs and bullet lists, in the order written. A
+// line that leads into bullets is a heading for them.
+type Block = { kind: 'p'; text: string; lead: boolean } | { kind: 'ul'; items: string[] };
+const blocks = (notes: string) => {
+  const lines = notes.split('\n').map((l) => l.trim()).filter(Boolean);
+  const out: Block[] = [];
+  lines.forEach((line, i) => {
+    if (line.startsWith('• ')) {
+      const last = out[out.length - 1];
+      const item = curl(line.slice(2));
+      if (last?.kind === 'ul') last.items.push(item);
+      else out.push({ kind: 'ul', items: [item] });
+    } else {
+      out.push({ kind: 'p', text: curl(line), lead: lines[i + 1]?.startsWith('• ') ?? false });
+    }
+  });
+  return out;
+};
+
+const first = releases[releases.length - 1];
+---
+
+<Layout title={title} fullTitle={fullTitle} description={description} appleAppId="6785269702" ogImage="/og/debt-descent.png">
+  <div class="mx-auto max-w-3xl">
+    <Breadcrumb parent={{ name: 'Debt Descent', href: '/debt-descent/' }} current="Release notes" />
+    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Debt Descent release notes</h1>
+    <p class="mt-4 max-w-[65ch] text-lg leading-relaxed text-slate-600">
+      Debt Descent came out on {long(first.date)}. This page lists all {releases.length} versions,
+      newest first, with the date each one went live on the App Store and its What’s New text,
+      lightly edited. Where a version reached the Mac on a different day from iPhone and iPad,
+      the entry says so.
+    </p>
+
+    <div class="max-w-[65ch]">
+      {releases.map((r) => (
+        <section id={`v${r.version}`} class="mt-10 border-t border-slate-200 pt-8">
+          <h2 class="text-xl font-bold tracking-tight">Version {r.version}</h2>
+          <p class="mt-1 text-sm text-slate-500">
+            {r.date ? <time datetime={r.date}>{when(r)}</time> : when(r)}
+            {r.note && <Fragment>{' '}{r.note}</Fragment>}
+          </p>
+          {blocks(r.notes).map((b) =>
+            b.kind === 'ul' ? (
+              <ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+                {b.items.map((item) => <li>{item}</li>)}
+              </ul>
+            ) : (
+              <p class:list={['mt-4 leading-relaxed', b.lead ? 'font-semibold text-slate-900' : 'text-slate-600']}>{b.text}</p>
+            ),
+          )}
+          {r.macNotes && (
+            <Fragment>
+              <p class="mt-4 font-semibold leading-relaxed text-slate-900">On the Mac</p>
+              {blocks(r.macNotes).map((b) =>
+                b.kind === 'ul' ? (
+                  <ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed text-slate-600">
+                    {b.items.map((item) => <li>{item}</li>)}
+                  </ul>
+                ) : (
+                  <p class="mt-2 leading-relaxed text-slate-600">{b.text}</p>
+                ),
+              )}
+            </Fragment>
+          )}
+        </section>
+      ))}
+    </div>
+
+    <DebtDescentAppCta heading="Get the current version" event="debt-descent-release-notes-app-store">
+      Debt Descent is free on iPhone, iPad, and Mac. The <a href="/debt-descent/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">app page</a> covers
+      what it does, and the <a href="/debt-descent/support/" class="font-medium text-accent-600 transition-colors hover:text-accent-700">support page</a> explains
+      how to use what’s listed here.
+    </DebtDescentAppCta>
+  </div>
+</Layout>

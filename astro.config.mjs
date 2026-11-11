@@ -23,6 +23,7 @@ function lastModified(url) {
     `src/content/${path}.md`,
   ];
   if (path === 'apps') candidates.push('src/data/apps.ts');
+  if (path === 'debt-descent/release-notes') candidates.push('src/data/debt-descent-releases.ts');
   const files = candidates.filter((f) => existsSync(f));
   if (files.length === 0) return undefined;
   const date = execFileSync('git', ['log', '-1', '--format=%cI', '--', ...files], { encoding: 'utf8' }).trim();

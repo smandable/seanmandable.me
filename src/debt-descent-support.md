@@ -210,4 +210,6 @@ Use **Purge All Data** (••• menu) to erase everything and start blank. On 
 
 **[support@seanmandable.me](mailto:support@seanmandable.me)**
 
+Every version and what changed in it is on the [release notes](/debt-descent/release-notes/) page.
+
 The fine print is short: the [Privacy Policy](/debt-descent/privacy/) and the [Terms of Use](/debt-descent/terms/).

@@ -3,13 +3,13 @@ title: Debt Descent Privacy Policy
 description: Debt Descent collects nothing. Your data stays on your device and in your own private iCloud.
 ---
 
-_Last updated: October 15, 2026_
+_Last updated: November 11, 2026_
 
 **Debt Descent does not collect any of your data, and has no servers of its own.** There are no accounts, no sign-ups, and no analytics or tracking. I can't see your data, on your device or in your iCloud.
 
 ## Where your data lives
 
-Everything you enter is stored on your device, and (if you're signed in to iCloud) in your own private iCloud, so it stays in sync across your iPhone, iPad, and Mac. That covers your debts and the notes you keep on them, balances, APRs, payments, payment groups, planned windfalls, income and bills, Save up goals, and your plan settings. It also covers any payment you skip or defer, and the short record the app keeps when you clear older payments from History.
+Everything you enter is stored on your device, and (if you're signed in to iCloud) in your own private iCloud, so it stays in sync across your iPhone, iPad, and Mac. That covers your debts and the notes you keep on them, balances, APRs, payments, new charges, payment groups, planned windfalls, income and bills, Save up goals, and your plan settings. It also covers any payment you skip or defer, and the short record the app keeps when you clear older payments from History.
 
 ## iCloud sync
 
@@ -42,13 +42,14 @@ A PDF that doesn't carry a plan goes to the statement reader above, which also r
 
 ## Exports you initiate
 
-PDF, calendar (.ics), JSON, and CSV exports, and the shareable progress and year cards, are created on your device and saved wherever you choose (a file, a share sheet). I am not involved in and have no access to what you do with an exported file.
+PDF, calendar (.ics), JSON, and CSV exports, and the shareable progress, year, and paid off cards, are created on your device and saved wherever you choose (a file, a share sheet). I am not involved in and have no access to what you do with an exported file.
 
 Some of these files hold more than they show on the page. This is what each one carries:
 
-- **The plan PDF** always carries your whole plan inside it as an attached file, so Debt Descent can import it back. That's your debts and payments and their notes, payment groups, windfalls, extra, income, bills, Save up goals, and any months you've skipped or deferred. The PDF says so on its page. Anyone you send it to can open the attachment, in Debt Descent or in a PDF reader like Adobe Acrobat.
+- **The plan PDF** always carries your whole plan inside it as an attached file, so Debt Descent can import it back. That's your debts, payments, new charges and their notes, payment groups, windfalls, extra and its scheduled changes, income, bills, Save up goals, and any months you've skipped or deferred. The PDF says so on its page. Anyone you send it to can open the attachment, in Debt Descent or in a PDF reader like Adobe Acrobat.
 - **The payment history PDF** lists your payments. Each time you export one, you choose **Just the payments** or **Include my plan**. It only carries your whole plan if you pick Include my plan, and then the page says so.
 - **The payment history CSV** lists each payment's date, debt and its kind, amount, how much of it was extra, whether it paid a debt off or closed it into a refinance, its note, and its payment group. When you clear older payments, the option to save them as a CSV first writes the same kind of file for just those payments.
+- **The month-by-month CSV and PDF** list what your plan pays each debt each month. Neither carries your plan.
 - **The JSON backup** is your whole plan in one file.
 
 ## Notifications

@@ -32,6 +32,22 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.22',
+    date: '2026-11-11',
+    notes: `
+• Catch up in one go. When payments came due that you haven't logged, the Log a payment sheet says so and offers Catch up to today: every payment due since the last one you logged in full, each at its regular amount and dated its due date. Untick any you didn't make and log the rest together. Log several at once lists your debts' next payments, so you can log a few together too.
+• Before you tap Log, the sheet now says what the amount does to your plan, like "$180 beyond your plan: debt-free about 4 days sooner and $19 less interest overall."
+• Log a new charge on a card from its menu on the Plan tab, and see what it adds to your interest and your debt-free date. Still using a card? Put what you spend on it each month in Spending, under Edit details, and the plan counts it until the card is paid off.
+• A balance transfer or cash advance on a card can now have its own rate: add it under Balances at other rates in the card's Edit details, and the plan pays each part the way US card issuers apply payments. Importing a statement that lists them fills them in too.
+• Month by month, on the Plan tab: what your plan pays each debt every month, with a CSV export, and a PDF with Pro.
+• When you pay a debt off, its row on the Plan tab briefly glows green, and your iPhone gives a tap. The Paid off list now shows the day each debt was paid off and what it took, and you can share a Paid off card.
+• Four more payoff orders with Pro, eleven in all: Hybrid (small, high-rate debts first), Highest balance, Highest payment, and Deadline (promo balances before their rates go up).
+• Also with Pro, schedule a change to your extra: Schedule a change, under Extra toward debt each month on the Plan tab, raises or lowers it from a month you pick, once or on a repeat, and a repeating raise can stop at a limit you set. Your debt-free date counts it.
+
+Updating more than one device? A device still on an earlier version keeps working, but until it updates too, it won't list the new charges you log (it does show the new balance), won't plan for a card's monthly Spending or its balances at other rates (it plans the whole card at its purchase rate), leaves out scheduled changes to your extra, and shows Avalanche if you pick one of the new payoff orders.
+`,
+  },
+  {
     version: '1.21.5',
     date: '2026-10-28',
     mac: false,

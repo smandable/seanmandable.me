@@ -33,7 +33,7 @@ export const apps: App[] = [
     operatingSystem: 'iOS 26, iPadOS 26, macOS 26',
     applicationCategory: 'FinanceApplication',
     description:
-      'A debt-payoff planner that keeps your numbers on your devices and in your own iCloud. Add your debts, or point it at a statement PDF or scan the paper one with the camera and let it read them. Set what extra you can put toward them each month and it runs Snowball (the fast, motivating wins) and Avalanche (the least interest) side by side. Pro adds five more ordering methods.',
+      'A debt-payoff planner that keeps your numbers on your devices and in your own iCloud. Add your debts, or point it at a statement PDF or scan the paper one with the camera and let it read them. Set what extra you can put toward them each month and it runs Snowball (the fast, motivating wins) and Avalanche (the least interest) side by side. Pro adds nine more ordering methods.',
     links: [{ kind: 'appstore', label: 'App Store', href: 'https://apps.apple.com/us/app/debt-descent-payoff-planner/id6785269702', event: 'debt-descent-app-store' }],
   },
   {

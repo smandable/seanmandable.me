@@ -32,6 +32,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.22.1',
+    date: '2026-11-19',
+    notes: `
+• Autopay can now log what your bank really sends. If a card's autopay pays more than the minimum, say $113 on a $25 minimum, choose Edit details from the card's menu on the Plan tab, turn on On autopay, set Logs to A set amount and enter $113. Debt Descent then logs $113 on each due date instead of the minimum, so History and your balance match what left your account. It works for loans too. If you enter less than the minimum (or a loan's payment), Debt Descent logs the minimum or the payment instead.
+• Avalanche, the method that saves the most interest and the one a new plan starts on, now comes first on the Plan tab's method cards and in Choose plan, and the Descent to Zero chart lists your plan's method first.
+
+On more than one device? Until each one has 1.22.1, a device still on an earlier version can log the minimum (or a loan's payment) for a due date instead of your set amount.
+`,
+  },
+  {
     version: '1.22',
     date: '2026-11-11',
     notes: `
